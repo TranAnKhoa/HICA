@@ -1,0 +1,30 @@
+== C0 (Layer1 OFF, rule OFF), B=3, single run; pool must equal C1
+n12_s42  C0 ext=139914 t=0.70s | C1 ext=71870 t=0.43s | C0/C1 time 1.6x | pools equal=True
+n10_s1  C0 ext=110322 t=0.62s | C1 ext=51361 t=0.37s | C0/C1 time 1.7x | pools equal=True
+n15_s7  C0 ext=463994 t=3.65s | C1 ext=187895 t=1.88s | C0/C1 time 1.9x | pools equal=True
+n12_s123  C0 ext=252936 t=2.09s | C1 ext=111944 t=1.11s | C0/C1 time 1.9x | pools equal=True
+n10_s999  C0 ext=79926 t=0.60s | C1 ext=37800 t=0.37s | C0/C1 time 1.6x | pools equal=True
+== cProfile n12_s42 B=3, C2
+         1962961 function calls in 1.505 seconds
+
+   Ordered by: cumulative time
+   List reduced from 43 to 14 due to restriction <14>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        5    0.018    0.004    1.505    0.301 K:\Data Science\Q1 Research\audit_fd_rule\fdrule_dp.py:218(run_pool_audit)
+        5    0.123    0.025    1.483    0.297 K:\Data Science\Q1 Research\audit_fd_rule\fdrule_dp.py:112(run_dp_audit)
+    35325    0.055    0.000    1.000    0.000 K:\Data Science\Q1 Research\audit_fd_rule\fdrule_dp.py:130(accept)
+    35325    0.279    0.000    0.572    0.000 K:\Data Science\Q1 Research\audit_fd_rule\fdrule_dp.py:73(_rule_fires)
+   304181    0.146    0.000    0.331    0.000 K:\Data Science\Q1 Research\spec_2a_2b\src\instance_gen.py:147(travel_time)
+    35325    0.147    0.000    0.331    0.000 K:\Data Science\Q1 Research\audit_fd_rule\fdrule_dp.py:57(_next_sc)
+   243007    0.121    0.000    0.185    0.000 K:\Data Science\Q1 Research\spec_2a_2b\src\instance_gen.py:78(_euclid_km)
+    30564    0.085    0.000    0.141    0.000 K:\Data Science\Q1 Research\experiments\T2BFS\t6_dp.py:112(_try_pickup)
+    20601    0.072    0.000    0.115    0.000 K:\Data Science\Q1 Research\experiments\T2BFS\t6_dp.py:149(_try_delivery)
+   155724    0.063    0.000    0.102    0.000 K:\Data Science\Q1 Research\audit_fd_rule\fdrule_dp.py:42(_km)
+   238665    0.084    0.000    0.084    0.000 {built-in method builtins.max}
+    12918    0.014    0.000    0.071    0.000 K:\Data Science\Q1 Research\audit_fd_rule\fdrule_dp.py:104(_filter)
+   243007    0.065    0.000    0.065    0.000 {built-in method math.hypot}
+    12918    0.037    0.000    0.055    0.000 K:\Data Science\Q1 Research\experiments\T2BFS\t6_dp.py:84(_filter_dominated_labels)
+
+
+

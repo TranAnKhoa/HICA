@@ -1,0 +1,12 @@
+LO=18.0 HI=25.0
+B=3 n=12 s=42 | ext 71870 -> 52663 (saved 26.7%) kill3=14594 | L2 pool 879 -> 450 (extra-in-C2=53) | K* 28/28  identical=True drivers 5/5 K*inBoth=True
+B=3 n=10 s=1 | ext 51361 -> 40147 (saved 21.8%) kill3=10672 | L2 pool 714 -> 478 (extra-in-C2=18) | K* 165/165  identical=True drivers 4/4 K*inBoth=True
+B=3 n=15 s=7 | ext 187895 -> 118650 (saved 36.9%) kill3=47465 | L2 pool 1561 -> 941 (extra-in-C2=140) | K* 165/165  identical=True drivers 5/5 K*inBoth=True
+B=3 n=12 s=123 | ext 111944 -> 78947 (saved 29.5%) kill3=25682 | L2 pool 1416 -> 766 (extra-in-C2=52) | K* 208/208  identical=True drivers 6/6 K*inBoth=True
+B=3 n=10 s=999 | ext 37800 -> 29570 (saved 21.8%) kill3=7935 | L2 pool 510 -> 324 (extra-in-C2=10) | K* 77/77  identical=True drivers 4/4 K*inBoth=True
+B=4 n=12 s=42 | ext 658706 -> 515705 (saved 21.7%) kill3=111294 | L2 pool 2648 -> 1574 (extra-in-C2=89) | K* 74/74  identical=True drivers 5/5 K*inBoth=True
+B=4 n=10 s=1 | ext 530486 -> 438690 (saved 17.3%) kill3=88146 | L2 pool 1845 -> 1155 (extra-in-C2=19) | K* 416/416  identical=True drivers 4/4 K*inBoth=True
+B=4 n=15 s=7 | ext 2635861 -> 1801521 (saved 31.7%) kill3=677686 | L2 pool 5401 -> 3371 (extra-in-C2=517) | K* 603/603  identical=True drivers 5/5 K*inBoth=True
+B=4 n=12 s=123 | ext 1208860 -> 903056 (saved 25.3%) kill3=270442 | L2 pool 4199 -> 2268 (extra-in-C2=175) | K* 482/482  identical=True drivers 6/6 K*inBoth=True
+B=4 n=10 s=999 | ext 316079 -> 269268 (saved 14.8%) kill3=57459 | L2 pool 1104 -> 651 (extra-in-C2=18) | K* 193/193  identical=True drivers 4/4 K*inBoth=True
+K* EQUALITY PASS
