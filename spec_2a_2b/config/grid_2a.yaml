@@ -1,0 +1,32 @@
+# Spec 2a - luoi tham so, KHOA LUC: 2026-09-10T12:59:28Z
+# Khong sua sau khi thay ket qua dau tien (Spec "Canh bao lap lai").
+locked_at: "2026-09-10T12:59:28Z"
+
+grid:
+  n:          [10, 20, 30, 50, 75, 100]
+  B:          [2, 3, 4]
+  tw_width:   [30, 60, 120, 240]     # phut
+  n_drivers:  [5, 10]                # GW:OD = 50:50
+  seeds:      [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+fixed:
+  tau:            20.0               # phut (2a khong quan tam component -> tau co dinh)
+  gw_od_ratio:    0.5
+  spatial_mode:   "dispersed"        # 2a co dinh dispersed
+  area_km:        20.0
+  speed_kmh:      20.0
+  service_min:    5.0
+  day_min:        720.0
+
+runs_total: 1440                     # 6 * 3 * 4 * 2 * 10
+per_instance_timeout_seconds: 600    # timeout -> ghi nhan "timeout", KHONG loai khoi bao cao
+
+measure:
+  - runtime_seconds
+  - peak_frontier_size
+  - total_states_generated
+  - total_states_surviving
+  - survival_ratio
+  - n_complete_bundles_found
+  - theoretical_sequence_cap        # sum (2k)!/2^k tren cac k thuc te
+  - status                          # completed | timeout

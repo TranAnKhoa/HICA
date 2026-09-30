@@ -1,0 +1,11 @@
+source,n,alignment,pool_size,t_kstar_build_s
+[S2] instance 1 (n12 s42),12,-,879,0.03593
+[S2] instance 2 (n10 s1),10,-,714,0.04746
+[S2] instance 3 (n15 s7),15,-,1561,0.05249
+[S2] instance 4 (n12 s123),12,-,1416,0.04657
+[S2] instance 5 (n10 s999),10,-,510,0.01773
+"RQ4 sample 1 (gw2,od2,rep0)",20,0.9,4283,0.23253
+"RQ4 sample 2 (gw2,od2,rep1)",20,0.9,3845,0.19768
+"RQ4 sample 3 (gw2,od2,rep10)",20,0.9,3851,0.1958
+"RQ4 sample 4 (gw2,od2,rep0)",10,0.5,551,0.02652
+"RQ4 sample 5 (gw2,od2,rep1)",10,0.5,678,0.03696

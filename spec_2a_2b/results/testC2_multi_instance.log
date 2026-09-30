@@ -1,0 +1,67 @@
+
+======================================================================
+Config: {'n': 10, 'B_gw': 3, 'B_od': 3, 'n_drivers': 4, 'seed': 1}
+Instance: n=10 B_gw=3 B_od=3 n_drivers=4(m=4) | pool_size=714 route
+  ...solved 200/1000 bid vectors, |activated so far|=11/714 (1.54%)
+  ...solved 400/1000 bid vectors, |activated so far|=11/714 (1.54%)
+  ...solved 600/1000 bid vectors, |activated so far|=11/714 (1.54%)
+  ...solved 800/1000 bid vectors, |activated so far|=11/714 (1.54%)
+  ...solved 1000/1000 bid vectors, |activated so far|=11/714 (1.54%)
+
+=== KET QUA ===
+pool_size (tong so route, ca driver)     = 714
+n_bid_vectors sampled (LHS tren [18,25]^4) = 1000
+n_route_activated (>=1 loi giai toi uu)   = 11
+activation_rate                            = 0.0154 (1.54%)
+
+======================================================================
+Config: {'n': 15, 'B_gw': 3, 'B_od': 3, 'n_drivers': 5, 'seed': 7}
+Instance: n=15 B_gw=3 B_od=3 n_drivers=5(m=5) | pool_size=1561 route
+  ...solved 200/1000 bid vectors, |activated so far|=7/1561 (0.45%)
+  ...solved 400/1000 bid vectors, |activated so far|=7/1561 (0.45%)
+  ...solved 600/1000 bid vectors, |activated so far|=7/1561 (0.45%)
+  ...solved 800/1000 bid vectors, |activated so far|=7/1561 (0.45%)
+  ...solved 1000/1000 bid vectors, |activated so far|=7/1561 (0.45%)
+
+=== KET QUA ===
+pool_size (tong so route, ca driver)     = 1561
+n_bid_vectors sampled (LHS tren [18,25]^5) = 1000
+n_route_activated (>=1 loi giai toi uu)   = 7
+activation_rate                            = 0.0045 (0.45%)
+
+======================================================================
+Config: {'n': 12, 'B_gw': 3, 'B_od': 3, 'n_drivers': 6, 'seed': 123}
+Instance: n=12 B_gw=3 B_od=3 n_drivers=6(m=6) | pool_size=1416 route
+  ...solved 200/1000 bid vectors, |activated so far|=6/1416 (0.42%)
+  ...solved 400/1000 bid vectors, |activated so far|=6/1416 (0.42%)
+  ...solved 600/1000 bid vectors, |activated so far|=6/1416 (0.42%)
+  ...solved 800/1000 bid vectors, |activated so far|=6/1416 (0.42%)
+  ...solved 1000/1000 bid vectors, |activated so far|=6/1416 (0.42%)
+
+=== KET QUA ===
+pool_size (tong so route, ca driver)     = 1416
+n_bid_vectors sampled (LHS tren [18,25]^6) = 1000
+n_route_activated (>=1 loi giai toi uu)   = 6
+activation_rate                            = 0.0042 (0.42%)
+
+======================================================================
+Config: {'n': 10, 'B_gw': 3, 'B_od': 3, 'n_drivers': 4, 'seed': 999}
+Instance: n=10 B_gw=3 B_od=3 n_drivers=4(m=4) | pool_size=510 route
+  ...solved 200/1000 bid vectors, |activated so far|=4/510 (0.78%)
+  ...solved 400/1000 bid vectors, |activated so far|=4/510 (0.78%)
+  ...solved 600/1000 bid vectors, |activated so far|=4/510 (0.78%)
+  ...solved 800/1000 bid vectors, |activated so far|=4/510 (0.78%)
+  ...solved 1000/1000 bid vectors, |activated so far|=4/510 (0.78%)
+
+=== KET QUA ===
+pool_size (tong so route, ca driver)     = 510
+n_bid_vectors sampled (LHS tren [18,25]^4) = 1000
+n_route_activated (>=1 loi giai toi uu)   = 4
+activation_rate                            = 0.0078 (0.78%)
+
+
+=== TONG HOP ===
+n=10 n_drivers=4 seed=1: pool=714 activated=11 rate=0.0154 (1.54%)
+n=15 n_drivers=5 seed=7: pool=1561 activated=7 rate=0.0045 (0.45%)
+n=12 n_drivers=6 seed=123: pool=1416 activated=6 rate=0.0042 (0.42%)
+n=10 n_drivers=4 seed=999: pool=510 activated=4 rate=0.0078 (0.78%)

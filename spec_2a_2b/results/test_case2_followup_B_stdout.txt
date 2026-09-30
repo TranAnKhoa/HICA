@@ -1,0 +1,10 @@
+=== GATE: n<=6, bucket vs goc vs brute-force ===
+Instances checked: 288   Mismatches: 0
+
+GATE PASS - route_pool khop 100% (goc == bucket == brute-force).
+
+=== TEST B: so sanh wall-clock (goc vs bucket) tren cell nong ===
+Cell: n=20 B_gw=4 tw=240 seed=0  n_gw_drivers=5
+Ban GOC   : 180.44s
+Ban BUCKET: 177.43s
+Speedup (goc/bucket): 1.017x

@@ -1,0 +1,162 @@
+[
+ {
+  "label": "tot",
+  "params": {
+   "label": "tot",
+   "n": 30,
+   "tau": 10,
+   "spatial_mode": "dispersed",
+   "supply_ratio": 0.3,
+   "seed": 0
+  },
+  "meta": {
+   "n": 30,
+   "B": 3,
+   "tw_width": 120,
+   "n_drivers": 9,
+   "seed": 1185605927,
+   "tau": 10.0,
+   "spatial_mode": "dispersed",
+   "gw_od_ratio": 0.5,
+   "n_gw": 4,
+   "n_od": 5,
+   "n_nodes": 74
+  },
+  "n_drivers_with_pool": 9,
+  "n_orders": 30,
+  "n_routes_total": 18100,
+  "Z_star": 489.6437291571243,
+  "n_winners": 4,
+  "n_components": 6,
+  "component_sizes": [
+   4,
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "winner_component_sizes": [
+   4,
+   4,
+   4,
+   4
+  ],
+  "largest_component_fraction": 0.4444444444444444,
+  "t_naive_solve_wall": 0.8859648999999976,
+  "t_decomp_solve_wall": 0.9298269000000037,
+  "t_naive_solve_det": 640.5391855239868,
+  "t_decomp_solve_det": 645.2871837615967,
+  "speedup_wall": 0.9528277790199381,
+  "speedup_det": 0.9926420385262695,
+  "max_abs_diff": 2.2737367544323206e-13,
+  "t_full_solve_s": 3.168865203857422
+ },
+ {
+  "label": "trungbinh",
+  "params": {
+   "label": "trungbinh",
+   "n": 30,
+   "tau": 30,
+   "spatial_mode": "dispersed",
+   "supply_ratio": 0.3,
+   "seed": 6
+  },
+  "meta": {
+   "n": 30,
+   "B": 3,
+   "tw_width": 120,
+   "n_drivers": 9,
+   "seed": 329658395,
+   "tau": 30.0,
+   "spatial_mode": "dispersed",
+   "gw_od_ratio": 0.5,
+   "n_gw": 4,
+   "n_od": 5,
+   "n_nodes": 74
+  },
+  "n_drivers_with_pool": 9,
+  "n_orders": 30,
+  "n_routes_total": 18101,
+  "Z_star": 478.63969879178313,
+  "n_winners": 5,
+  "n_components": 5,
+  "component_sizes": [
+   5,
+   1,
+   1,
+   1,
+   1
+  ],
+  "winner_component_sizes": [
+   5,
+   5,
+   5,
+   5,
+   5
+  ],
+  "largest_component_fraction": 0.5555555555555556,
+  "t_naive_solve_wall": 1.1343407000000028,
+  "t_decomp_solve_wall": 1.1537139000000067,
+  "t_naive_solve_det": 837.7639141082764,
+  "t_decomp_solve_det": 836.7324275970459,
+  "speedup_wall": 0.9832079686306945,
+  "speedup_det": 1.001232755510854,
+  "max_abs_diff": 1.1368683772161603e-13,
+  "t_full_solve_s": 3.711097002029419
+ },
+ {
+  "label": "xau",
+  "params": {
+   "label": "xau",
+   "n": 50,
+   "tau": 60,
+   "spatial_mode": "dispersed",
+   "supply_ratio": 0.3,
+   "seed": 4
+  },
+  "meta": {
+   "n": 50,
+   "B": 3,
+   "tw_width": 120,
+   "n_drivers": 15,
+   "seed": 474120893,
+   "tau": 60.0,
+   "spatial_mode": "dispersed",
+   "gw_od_ratio": 0.5,
+   "n_gw": 8,
+   "n_od": 7,
+   "n_nodes": 122
+  },
+  "n_drivers_with_pool": 15,
+  "n_orders": 50,
+  "n_routes_total": 167010,
+  "Z_star": 562.1181002837884,
+  "n_winners": 10,
+  "n_components": 1,
+  "component_sizes": [
+   15
+  ],
+  "winner_component_sizes": [
+   15,
+   15,
+   15,
+   15,
+   15,
+   15,
+   15,
+   15,
+   15,
+   15
+  ],
+  "largest_component_fraction": 1.0,
+  "t_naive_solve_wall": 33.98598770000004,
+  "t_decomp_solve_wall": 36.49230550000007,
+  "t_naive_solve_det": 22707.200408935547,
+  "t_decomp_solve_det": 22860.763575553894,
+  "speedup_wall": 0.9313192804439273,
+  "speedup_det": 0.9932826755278393,
+  "max_abs_diff": 1.1368683772161603e-13,
+  "t_full_solve_s": 102.9497458934784
+ }
+]

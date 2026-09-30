@@ -1,0 +1,44 @@
+=== TEST C buoc 1-3: optimistic upper-bound cua relaxed-key ===
+
+n=10 B_gw=4 tw=240 seed=0  n_gw=5  raw_labels=227788  elapsed=7.6s
+  frontier baseline (key_full):        138580
+  frontier key_drop_C:                 16725  (87.9% giam)
+  frontier key_drop_C_size_only:        26327  (81.0% giam)
+
+n=10 B_gw=4 tw=240 seed=1  n_gw=5  raw_labels=104663  elapsed=3.7s
+  frontier baseline (key_full):        64272
+  frontier key_drop_C:                 9884  (84.6% giam)
+  frontier key_drop_C_size_only:        15610  (75.7% giam)
+
+n=10 B_gw=4 tw=240 seed=2  n_gw=5  raw_labels=138848  elapsed=4.9s
+  frontier baseline (key_full):        80958
+  frontier key_drop_C:                 11478  (85.8% giam)
+  frontier key_drop_C_size_only:        18637  (77.0% giam)
+
+n=15 B_gw=4 tw=240 seed=0  n_gw=5  raw_labels=991253  elapsed=46.9s
+  frontier baseline (key_full):        560658
+  frontier key_drop_C:                 74362  (86.7% giam)
+  frontier key_drop_C_size_only:        100686  (82.0% giam)
+
+n=15 B_gw=4 tw=240 seed=1  n_gw=5  raw_labels=1272178  elapsed=53.1s
+  frontier baseline (key_full):        770826
+  frontier key_drop_C:                 86617  (88.8% giam)
+  frontier key_drop_C_size_only:        122986  (84.0% giam)
+
+n=15 B_gw=4 tw=240 seed=2  n_gw=5  raw_labels=1653714  elapsed=67.2s
+  frontier baseline (key_full):        961152
+  frontier key_drop_C:                 108989  (88.7% giam)
+  frontier key_drop_C_size_only:        149297  (84.5% giam)
+
+
+=== TOM TAT ===
+n    B_gw   tw    seed  baseline   drop_C     %giam    drop_Csz   %giam   
+10   4      240   0     138580     16725      87.9     26327      81.0    
+10   4      240   1     64272      9884       84.6     15610      75.7    
+10   4      240   2     80958      11478      85.8     18637      77.0    
+15   4      240   0     560658     74362      86.7     100686     82.0    
+15   4      240   1     770826     86617      88.8     122986     84.0    
+15   4      240   2     961152     108989     88.7     149297     84.5    
+
+Trung binh % giam (key_drop_C, optimistic upper-bound): 87.1%
+=> TREN 50%% - dang dau tu: chuyen sang audit_relaxed_key_safety.

@@ -1,0 +1,16 @@
+{
+ "record": {
+  "n": 10,
+  "B_gw": 2,
+  "B_od": 2,
+  "tw_width": 120,
+  "n_drivers": 10,
+  "seed": 4,
+  "runtime_seconds": 0.0159,
+  "peak_frontier_size": 376,
+  "total_states_generated": 2194,
+  "total_states_surviving": 791,
+  "n_complete_bundles_found": 1,
+  "status": "completed"
+ }
+}

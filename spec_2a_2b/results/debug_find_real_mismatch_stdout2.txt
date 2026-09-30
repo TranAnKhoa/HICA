@@ -1,0 +1,70 @@
+So mismatch that su (khong phai dominance): 70578
+
+=== Label: v=n21 IV=['o11', 'o3'] Cd=['o17', 'o2'] t=122.334611 ===
+   order o11: delivery node=n38 e=81.355998 l=561.355998 s=5.000000  tt(v,d)=13.186320  A=135.520931 Bt=135.520931  Bt<=l? True
+   order o3: delivery node=n22 e=7.567010 l=487.567010 s=5.000000  tt(v,d)=15.072536  A=137.407148 Bt=137.407148  Bt<=l? True
+   iv_completion_feasible = True
+     THANH CONG chuoi day du: ['o11', 'o3']
+     THANH CONG chuoi day du: ['o3', 'o11']
+   => real chain feasible = True
+
+=== Label: v=n39 IV=['o12', 'o16'] Cd=['o17', 'o9'] t=84.159184 ===
+   order o12: delivery node=n40 e=17.422203 l=497.422203 s=5.000000  tt(v,d)=17.752813  A=101.911997 Bt=101.911997  Bt<=l? True
+   order o16: delivery node=n48 e=5.877305 l=485.877305 s=5.000000  tt(v,d)=13.196440  A=97.355623 Bt=97.355623  Bt<=l? True
+   iv_completion_feasible = True
+     THANH CONG chuoi day du: ['o12', 'o16']
+     THANH CONG chuoi day du: ['o16', 'o12']
+   => real chain feasible = True
+
+=== Label: v=n35 IV=['o10', 'o6'] Cd=['o8', 'o9'] t=77.712509 ===
+   order o10: delivery node=n36 e=3.865634 l=483.865634 s=5.000000  tt(v,d)=15.569213  A=93.281722 Bt=93.281722  Bt<=l? True
+   order o6: delivery node=n28 e=8.191565 l=488.191565 s=5.000000  tt(v,d)=1.915037  A=79.627546 Bt=79.627546  Bt<=l? True
+   iv_completion_feasible = True
+     THANH CONG chuoi day du: ['o10', 'o6']
+     THANH CONG chuoi day du: ['o6', 'o10']
+   => real chain feasible = True
+
+=== Label: v=n45 IV=['o14', 'o15', 'o16', 'o19'] Cd=[] t=244.070075 ===
+   order o14: delivery node=n44 e=18.814351 l=498.814351 s=5.000000  tt(v,d)=24.239346  A=268.309421 Bt=268.309421  Bt<=l? True
+   order o15: delivery node=n46 e=1.033330 l=481.033330 s=5.000000  tt(v,d)=12.520666  A=256.590741 Bt=256.590741  Bt<=l? True
+   order o16: delivery node=n48 e=5.877305 l=485.877305 s=5.000000  tt(v,d)=13.679477  A=257.749552 Bt=257.749552  Bt<=l? True
+   order o19: delivery node=n54 e=215.354810 l=695.354810 s=5.000000  tt(v,d)=23.611782  A=267.681856 Bt=267.681856  Bt<=l? True
+   iv_completion_feasible = True
+     THANH CONG chuoi day du: ['o14', 'o15', 'o16', 'o19']
+     THANH CONG chuoi day du: ['o14', 'o15', 'o19', 'o16']
+     THANH CONG chuoi day du: ['o14', 'o16', 'o15', 'o19']
+     THANH CONG chuoi day du: ['o14', 'o16', 'o19', 'o15']
+     THANH CONG chuoi day du: ['o14', 'o19', 'o15', 'o16']
+     THANH CONG chuoi day du: ['o14', 'o19', 'o16', 'o15']
+     THANH CONG chuoi day du: ['o15', 'o14', 'o16', 'o19']
+     THANH CONG chuoi day du: ['o15', 'o14', 'o19', 'o16']
+     THANH CONG chuoi day du: ['o15', 'o16', 'o14', 'o19']
+     THANH CONG chuoi day du: ['o15', 'o16', 'o19', 'o14']
+     THANH CONG chuoi day du: ['o15', 'o19', 'o14', 'o16']
+     THANH CONG chuoi day du: ['o15', 'o19', 'o16', 'o14']
+     THANH CONG chuoi day du: ['o16', 'o14', 'o15', 'o19']
+     THANH CONG chuoi day du: ['o16', 'o14', 'o19', 'o15']
+     THANH CONG chuoi day du: ['o16', 'o15', 'o14', 'o19']
+     THANH CONG chuoi day du: ['o16', 'o15', 'o19', 'o14']
+     THANH CONG chuoi day du: ['o16', 'o19', 'o14', 'o15']
+     THANH CONG chuoi day du: ['o16', 'o19', 'o15', 'o14']
+     THANH CONG chuoi day du: ['o19', 'o14', 'o15', 'o16']
+     THANH CONG chuoi day du: ['o19', 'o14', 'o16', 'o15']
+     THANH CONG chuoi day du: ['o19', 'o15', 'o14', 'o16']
+     THANH CONG chuoi day du: ['o19', 'o15', 'o16', 'o14']
+     THANH CONG chuoi day du: ['o19', 'o16', 'o14', 'o15']
+     THANH CONG chuoi day du: ['o19', 'o16', 'o15', 'o14']
+   => real chain feasible = True
+
+=== Label: v=n39 IV=['o12', 'o13', 'o16'] Cd=['o11'] t=225.234448 ===
+   order o12: delivery node=n40 e=17.422203 l=497.422203 s=5.000000  tt(v,d)=17.752813  A=242.987261 Bt=242.987261  Bt<=l? True
+   order o13: delivery node=n42 e=184.995097 l=664.995097 s=5.000000  tt(v,d)=13.016000  A=238.250448 Bt=238.250448  Bt<=l? True
+   order o16: delivery node=n48 e=5.877305 l=485.877305 s=5.000000  tt(v,d)=13.196440  A=238.430887 Bt=238.430887  Bt<=l? True
+   iv_completion_feasible = True
+     THANH CONG chuoi day du: ['o12', 'o13', 'o16']
+     THANH CONG chuoi day du: ['o12', 'o16', 'o13']
+     THANH CONG chuoi day du: ['o13', 'o12', 'o16']
+     THANH CONG chuoi day du: ['o13', 'o16', 'o12']
+     THANH CONG chuoi day du: ['o16', 'o12', 'o13']
+     THANH CONG chuoi day du: ['o16', 'o13', 'o12']
+   => real chain feasible = True

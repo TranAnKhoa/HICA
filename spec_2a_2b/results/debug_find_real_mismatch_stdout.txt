@@ -1,0 +1,42 @@
+So mismatch that su (khong phai dominance): 70578
+
+=== Label: v=n33 IV=['o11', 'o13', 'o9'] Cd=['o10'] t=206.799389 ===
+   order o11: delivery node=n38 e=81.355998 l=561.355998 s=5.000000  tt(v,d)=16.853355  A=223.652744 Bt=223.652744  Bt<=l? True
+   order o13: delivery node=n42 e=184.995097 l=664.995097 s=5.000000  tt(v,d)=20.533751  A=227.333140 Bt=227.333140  Bt<=l? True
+   order o9: delivery node=n34 e=1.025220 l=481.025220 s=5.000000  tt(v,d)=11.272492  A=218.071882 Bt=218.071882  Bt<=l? True
+   iv_completion_feasible = True
+   _try_delivery(o11) -> OK v=n38 t=228.652744
+   _try_delivery(o13) -> OK v=n42 t=232.333140
+   _try_delivery(o9) -> OK v=n34 t=223.071882
+
+=== Label: v=n23 IV=['o0', 'o4'] Cd=['o2', 'o6'] t=115.953114 ===
+   order o0: delivery node=n16 e=13.235547 l=493.235547 s=5.000000  tt(v,d)=7.517883  A=123.470997 Bt=123.470997  Bt<=l? True
+   order o4: delivery node=n24 e=3.118262 l=483.118262 s=5.000000  tt(v,d)=8.560620  A=124.513734 Bt=124.513734  Bt<=l? True
+   iv_completion_feasible = True
+   _try_delivery(o0) -> OK v=n16 t=128.470997
+   _try_delivery(o4) -> OK v=n24 t=129.513734
+
+=== Label: v=n45 IV=['o11', 'o13', 'o15'] Cd=['o12'] t=209.677080 ===
+   order o11: delivery node=n38 e=81.355998 l=561.355998 s=5.000000  tt(v,d)=9.145085  A=218.822165 Bt=218.822165  Bt<=l? True
+   order o13: delivery node=n42 e=184.995097 l=664.995097 s=5.000000  tt(v,d)=19.568146  A=229.245226 Bt=229.245226  Bt<=l? True
+   order o15: delivery node=n46 e=1.033330 l=481.033330 s=5.000000  tt(v,d)=12.520666  A=222.197746 Bt=222.197746  Bt<=l? True
+   iv_completion_feasible = True
+   _try_delivery(o11) -> OK v=n38 t=223.822165
+   _try_delivery(o13) -> OK v=n42 t=234.245226
+   _try_delivery(o15) -> OK v=n46 t=227.197746
+
+=== Label: v=n49 IV=['o17', 'o19'] Cd=['o16', 'o8'] t=248.680193 ===
+   order o17: delivery node=n50 e=9.267267 l=489.267267 s=5.000000  tt(v,d)=7.612433  A=256.292627 Bt=256.292627  Bt<=l? True
+   order o19: delivery node=n54 e=215.354810 l=695.354810 s=5.000000  tt(v,d)=20.643466  A=269.323659 Bt=269.323659  Bt<=l? True
+   iv_completion_feasible = True
+   _try_delivery(o17) -> OK v=n50 t=261.292627
+   _try_delivery(o19) -> OK v=n54 t=274.323659
+
+=== Label: v=n47 IV=['o16', 'o3', 'o7'] Cd=['o17'] t=157.501994 ===
+   order o16: delivery node=n48 e=5.877305 l=485.877305 s=5.000000  tt(v,d)=7.478379  A=164.980372 Bt=164.980372  Bt<=l? True
+   order o3: delivery node=n22 e=7.567010 l=487.567010 s=5.000000  tt(v,d)=9.587753  A=167.089747 Bt=167.089747  Bt<=l? True
+   order o7: delivery node=n30 e=130.068673 l=610.068673 s=5.000000  tt(v,d)=9.643292  A=167.145286 Bt=167.145286  Bt<=l? True
+   iv_completion_feasible = True
+   _try_delivery(o16) -> OK v=n48 t=169.980372
+   _try_delivery(o3) -> OK v=n22 t=172.089747
+   _try_delivery(o7) -> OK v=n30 t=172.145286

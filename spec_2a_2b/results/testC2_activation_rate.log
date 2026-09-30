@@ -1,0 +1,12 @@
+Instance: n=12 B_gw=3 B_od=3 n_drivers=5(m=5) | pool_size=879 route
+  ...solved 200/1000 bid vectors, |activated so far|=6/879 (0.68%)
+  ...solved 400/1000 bid vectors, |activated so far|=6/879 (0.68%)
+  ...solved 600/1000 bid vectors, |activated so far|=6/879 (0.68%)
+  ...solved 800/1000 bid vectors, |activated so far|=6/879 (0.68%)
+  ...solved 1000/1000 bid vectors, |activated so far|=6/879 (0.68%)
+
+=== KET QUA ===
+pool_size (tong so route, ca driver)     = 879
+n_bid_vectors sampled (LHS tren [18,25]^5) = 1000
+n_route_activated (>=1 loi giai toi uu)   = 6
+activation_rate                            = 0.0068 (0.68%)

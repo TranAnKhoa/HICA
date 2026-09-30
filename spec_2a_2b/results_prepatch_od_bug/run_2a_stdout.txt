@@ -1,0 +1,233 @@
+  [10/1440] n=10 B=2 tw=30 d=5  elapsed=0.4s  last_rt=0.0046s status=completed
+  [20/1440] n=10 B=2 tw=30 d=10  elapsed=0.6s  last_rt=0.0092s status=completed
+  [30/1440] n=10 B=2 tw=60 d=5  elapsed=0.6s  last_rt=0.0072s status=completed
+  [40/1440] n=10 B=2 tw=60 d=10  elapsed=0.8s  last_rt=0.0106s status=completed
+  [50/1440] n=10 B=2 tw=120 d=5  elapsed=0.9s  last_rt=0.0069s status=completed
+  [60/1440] n=10 B=2 tw=120 d=10  elapsed=1.0s  last_rt=0.0113s status=completed
+  [70/1440] n=10 B=2 tw=240 d=5  elapsed=1.1s  last_rt=0.011s status=completed
+  [80/1440] n=10 B=2 tw=240 d=10  elapsed=1.4s  last_rt=0.0162s status=completed
+  [90/1440] n=10 B=3 tw=30 d=5  elapsed=1.5s  last_rt=0.014s status=completed
+  [100/1440] n=10 B=3 tw=30 d=10  elapsed=1.7s  last_rt=0.0214s status=completed
+  [110/1440] n=10 B=3 tw=60 d=5  elapsed=2.0s  last_rt=0.0227s status=completed
+  [120/1440] n=10 B=3 tw=60 d=10  elapsed=2.3s  last_rt=0.0248s status=completed
+  [130/1440] n=10 B=3 tw=120 d=5  elapsed=2.7s  last_rt=0.0355s status=completed
+  [140/1440] n=10 B=3 tw=120 d=10  elapsed=3.4s  last_rt=0.0537s status=completed
+  [150/1440] n=10 B=3 tw=240 d=5  elapsed=4.8s  last_rt=0.13s status=completed
+  [160/1440] n=10 B=3 tw=240 d=10  elapsed=6.4s  last_rt=0.1435s status=completed
+  [170/1440] n=10 B=4 tw=30 d=5  elapsed=7.0s  last_rt=0.0525s status=completed
+  [180/1440] n=10 B=4 tw=30 d=10  elapsed=7.7s  last_rt=0.123s status=completed
+  [190/1440] n=10 B=4 tw=60 d=5  elapsed=8.9s  last_rt=0.0966s status=completed
+  [200/1440] n=10 B=4 tw=60 d=10  elapsed=10.5s  last_rt=0.1803s status=completed
+  [210/1440] n=10 B=4 tw=120 d=5  elapsed=12.7s  last_rt=0.1815s status=completed
+  [220/1440] n=10 B=4 tw=120 d=10  elapsed=17.1s  last_rt=0.3652s status=completed
+  [230/1440] n=10 B=4 tw=240 d=5  elapsed=28.5s  last_rt=0.9412s status=completed
+  [240/1440] n=10 B=4 tw=240 d=10  elapsed=41.4s  last_rt=0.9445s status=completed
+  [250/1440] n=20 B=2 tw=30 d=5  elapsed=41.5s  last_rt=0.0136s status=completed
+  [260/1440] n=20 B=2 tw=30 d=10  elapsed=41.7s  last_rt=0.0152s status=completed
+  [270/1440] n=20 B=2 tw=60 d=5  elapsed=41.9s  last_rt=0.016s status=completed
+  [280/1440] n=20 B=2 tw=60 d=10  elapsed=42.1s  last_rt=0.0163s status=completed
+  [290/1440] n=20 B=2 tw=120 d=5  elapsed=42.3s  last_rt=0.0174s status=completed
+  [300/1440] n=20 B=2 tw=120 d=10  elapsed=42.6s  last_rt=0.0236s status=completed
+  [310/1440] n=20 B=2 tw=240 d=5  elapsed=42.8s  last_rt=0.0246s status=completed
+  [320/1440] n=20 B=2 tw=240 d=10  elapsed=43.2s  last_rt=0.0259s status=completed
+  [330/1440] n=20 B=3 tw=30 d=5  elapsed=44.1s  last_rt=0.1028s status=completed
+  [340/1440] n=20 B=3 tw=30 d=10  elapsed=45.4s  last_rt=0.1229s status=completed
+  [350/1440] n=20 B=3 tw=60 d=5  elapsed=47.2s  last_rt=0.2055s status=completed
+  [360/1440] n=20 B=3 tw=60 d=10  elapsed=49.1s  last_rt=0.2034s status=completed
+  [370/1440] n=20 B=3 tw=120 d=5  elapsed=52.1s  last_rt=0.3142s status=completed
+  [380/1440] n=20 B=3 tw=120 d=10  elapsed=56.2s  last_rt=0.4587s status=completed
+  [390/1440] n=20 B=3 tw=240 d=5  elapsed=65.7s  last_rt=0.7752s status=completed
+  [400/1440] n=20 B=3 tw=240 d=10  elapsed=76.5s  last_rt=1.071s status=completed
+  [410/1440] n=20 B=4 tw=30 d=5  elapsed=86.6s  last_rt=1.0765s status=completed
+  [420/1440] n=20 B=4 tw=30 d=10  elapsed=97.1s  last_rt=1.4278s status=completed
+  [430/1440] n=20 B=4 tw=60 d=5  elapsed=117.0s  last_rt=2.156s status=completed
+  [440/1440] n=20 B=4 tw=60 d=10  elapsed=142.9s  last_rt=2.6999s status=completed
+  [450/1440] n=20 B=4 tw=120 d=5  elapsed=217.2s  last_rt=6.7552s status=completed
+  [460/1440] n=20 B=4 tw=120 d=10  elapsed=299.1s  last_rt=9.5488s status=completed
+  [470/1440] n=20 B=4 tw=240 d=5  elapsed=606.0s  last_rt=24.6383s status=completed
+  [480/1440] n=20 B=4 tw=240 d=10  elapsed=985.9s  last_rt=47.9643s status=completed
+  [490/1440] n=30 B=2 tw=30 d=5  elapsed=986.2s  last_rt=0.0268s status=completed
+  [500/1440] n=30 B=2 tw=30 d=10  elapsed=986.5s  last_rt=0.0356s status=completed
+  [510/1440] n=30 B=2 tw=60 d=5  elapsed=986.9s  last_rt=0.0298s status=completed
+  [520/1440] n=30 B=2 tw=60 d=10  elapsed=987.4s  last_rt=0.0527s status=completed
+  [530/1440] n=30 B=2 tw=120 d=5  elapsed=987.8s  last_rt=0.0521s status=completed
+  [540/1440] n=30 B=2 tw=120 d=10  elapsed=988.5s  last_rt=0.0794s status=completed
+  [550/1440] n=30 B=2 tw=240 d=5  elapsed=989.3s  last_rt=0.0665s status=completed
+  [560/1440] n=30 B=2 tw=240 d=10  elapsed=990.4s  last_rt=0.0977s status=completed
+  [570/1440] n=30 B=3 tw=30 d=5  elapsed=994.3s  last_rt=0.3514s status=completed
+  [580/1440] n=30 B=3 tw=30 d=10  elapsed=999.9s  last_rt=0.5329s status=completed
+  [590/1440] n=30 B=3 tw=60 d=5  elapsed=1006.5s  last_rt=0.6417s status=completed
+  [600/1440] n=30 B=3 tw=60 d=10  elapsed=1015.5s  last_rt=0.9258s status=completed
+  [610/1440] n=30 B=3 tw=120 d=5  elapsed=1030.2s  last_rt=1.4093s status=completed
+  [620/1440] n=30 B=3 tw=120 d=10  elapsed=1049.3s  last_rt=2.0468s status=completed
+  [630/1440] n=30 B=3 tw=240 d=5  elapsed=1093.2s  last_rt=4.202s status=completed
+  [640/1440] n=30 B=3 tw=240 d=10  elapsed=1149.1s  last_rt=5.8373s status=completed
+  [650/1440] n=30 B=4 tw=30 d=5  elapsed=1198.0s  last_rt=5.0734s status=completed
+  [660/1440] n=30 B=4 tw=30 d=10  elapsed=1266.5s  last_rt=7.7299s status=completed
+  [670/1440] n=30 B=4 tw=60 d=5  elapsed=1396.2s  last_rt=14.5539s status=completed
+  [680/1440] n=30 B=4 tw=60 d=10  elapsed=1563.6s  last_rt=15.8836s status=completed
+  [690/1440] n=30 B=4 tw=120 d=5  elapsed=1961.3s  last_rt=46.4232s status=completed
+  [700/1440] n=30 B=4 tw=120 d=10  elapsed=2443.9s  last_rt=62.7522s status=completed
+  [710/1440] n=30 B=4 tw=240 d=5  elapsed=5117.7s  last_rt=186.6956s status=completed
+  [720/1440] n=30 B=4 tw=240 d=10  elapsed=5718.2s  last_rt=s status=timeout_skipped  [cell: rest skipped]
+  [730/1440] n=50 B=2 tw=30 d=5  elapsed=5723.1s  last_rt=0.1206s status=completed
+  [740/1440] n=50 B=2 tw=30 d=10  elapsed=5725.4s  last_rt=0.1482s status=completed
+  [750/1440] n=50 B=2 tw=60 d=5  elapsed=5727.1s  last_rt=0.1401s status=completed
+  [760/1440] n=50 B=2 tw=60 d=10  elapsed=5729.6s  last_rt=0.2778s status=completed
+  [770/1440] n=50 B=2 tw=120 d=5  elapsed=5732.4s  last_rt=0.3235s status=completed
+  [780/1440] n=50 B=2 tw=120 d=10  elapsed=5736.0s  last_rt=0.3143s status=completed
+  [790/1440] n=50 B=2 tw=240 d=5  elapsed=5739.7s  last_rt=0.3424s status=completed
+  [800/1440] n=50 B=2 tw=240 d=10  elapsed=5744.9s  last_rt=0.5445s status=completed
+  [810/1440] n=50 B=3 tw=30 d=5  elapsed=5781.7s  last_rt=4.138s status=completed
+  [820/1440] n=50 B=3 tw=30 d=10  elapsed=5821.8s  last_rt=4.1743s status=completed
+  [830/1440] n=50 B=3 tw=60 d=5  elapsed=5897.1s  last_rt=7.2396s status=completed
+concurrent.futures.process._RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "C:\Users\An Khoa\anaconda3\Lib\concurrent\futures\process.py", line 254, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+  File "K:\Data Science\Q1 Research\spec_2a_2b\src\run_2a.py", line 78, in _driver_job
+    r = DL.run_pool(tt, drv, orders, B)
+  File "K:\Data Science\Q1 Research\spec_2a_2b\src\dp_labeling.py", line 63, in run_pool
+    res = D.run_dp(travel_time, driver, orders, B, use_dominance=True)
+  File "K:\Data Science\Q1 Research\experiments\T2BFS\t6_dp.py", line 234, in run_dp
+    by_key[lab.key()].append(lab)
+    ~~~~~~^^^^^^^^^^^
+MemoryError
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "K:\Data Science\Q1 Research\spec_2a_2b\src\run_2a.py", line 236, in <module>
+    main()
+    ~~~~^^
+  File "K:\Data Science\Q1 Research\spec_2a_2b\src\run_2a.py", line 209, in main
+    rec = run_one(pool, n, B, tw, ndrv, sd)
+  File "K:\Data Science\Q1 Research\spec_2a_2b\src\run_2a.py", line 110, in run_one
+    di, rt, m = fut.result()
+                ~~~~~~~~~~^^
+  File "C:\Users\An Khoa\anaconda3\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\An Khoa\anaconda3\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+MemoryError
+Process SpawnProcess-6:
+Traceback (most recent call last):
+  File "C:\Users\An Khoa\anaconda3\Lib\concurrent\futures\process.py", line 254, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+  File "K:\Data Science\Q1 Research\spec_2a_2b\src\run_2a.py", line 78, in _driver_job
+    r = DL.run_pool(tt, drv, orders, B)
+  File "K:\Data Science\Q1 Research\spec_2a_2b\src\dp_labeling.py", line 63, in run_pool
+    res = D.run_dp(travel_time, driver, orders, B, use_dominance=True)
+  File "K:\Data Science\Q1 Research\experiments\T2BFS\t6_dp.py", line 234, in run_dp
+    by_key[lab.key()].append(lab)
+    ~~~~~~^^^^^^^^^^^
+MemoryError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\An Khoa\anaconda3\Lib\multiprocessing\process.py", line 313, in _bootstrap
+  File "C:\Users\An Khoa\anaconda3\Lib\multiprocessing\process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\An Khoa\anaconda3\Lib\concurrent\futures\process.py", line 256, in _process_worker
+    exc = _ExceptionWithTraceback(e, e.__traceback__)
+  File "C:\Users\An Khoa\anaconda3\Lib\concurrent\futures\process.py", line 137, in __init__
+    tb = ''.join(format_exception(type(exc), exc, tb))
+                 ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\An Khoa\anaconda3\Lib\traceback.py", line 154, in format_exception
+    te = TracebackException(type(value), value, tb, limit=limit, compact=True)
+  File "C:\Users\An Khoa\anaconda3\Lib\traceback.py", line 1052, in __init__
+    self.stack = StackSummary._extract_from_extended_frame_gen(
+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        _walk_tb_with_full_positions(exc_traceback),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        limit=limit, lookup_lines=lookup_lines,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        capture_locals=capture_locals)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\An Khoa\anaconda3\Lib\traceback.py", line 500, in _extract_from_extended_frame_gen
+    f.line
+  File "C:\Users\An Khoa\anaconda3\Lib\traceback.py", line 373, in line
+    self._set_lines()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\An Khoa\anaconda3\Lib\traceback.py", line 351, in _set_lines
+    line = linecache.getline(self.filename, lineno).rstrip()
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\An Khoa\anaconda3\Lib\linecache.py", line 26, in getline
+    lines = getlines(filename, module_globals)
+  File "C:\Users\An Khoa\anaconda3\Lib\linecache.py", line 42, in getlines
+    return updatecache(filename, module_globals)
+  File "C:\Users\An Khoa\anaconda3\Lib\linecache.py", line 113, in updatecache
+    import tokenize
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 1023, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1160, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1218, in get_data
+OSError: [Errno 22] Invalid argument: 'C:\\Users\\An Khoa\\anaconda3\\Lib\\tokenize.py'
+RESUME: 836 rows already in summary, skipping those.
+Traceback (most recent call last):
+  File "K:\Data Science\Q1 Research\spec_2a_2b\src\run_2a.py", line 238, in <module>
+    main()
+    ~~~~^^
+  File "K:\Data Science\Q1 Research\spec_2a_2b\src\run_2a.py", line 226, in main
+    rec.get("runtime_seconds", "NA"), rec["status"],
+    ^^^
+UnboundLocalError: cannot access local variable 'rec' where it is not associated with a value
+RESUME: 836 rows already in summary, skipping those.
+  [840/1440] n=50 B=3 tw=60 d=10  elapsed=35.3s  last_rt=8.8735s status=completed
+  [850/1440] n=50 B=3 tw=120 d=5  elapsed=163.1s  last_rt=11.7578s status=completed
+  [860/1440] n=50 B=3 tw=120 d=10  elapsed=373.0s  last_rt=21.2084s status=completed
+  [870/1440] n=50 B=3 tw=240 d=5  elapsed=724.6s  last_rt=36.0286s status=completed
+  [880/1440] n=50 B=3 tw=240 d=10  elapsed=1296.3s  last_rt=59.8272s status=completed
+  [890/1440] n=50 B=4 tw=30 d=5  elapsed=2023.4s  last_rt=81.2992s status=completed
+  [900/1440] n=50 B=4 tw=30 d=10  elapsed=3143.4s  last_rt=104.2759s status=completed
+  [910/1440] n=50 B=4 tw=60 d=5  elapsed=4841.1s  last_rt=164.7697s status=completed
+  [920/1440] n=50 B=4 tw=60 d=10  elapsed=7510.1s  last_rt=261.2994s status=completed
+  [930/1440] n=50 B=4 tw=120 d=5  elapsed=8110.3s  last_rt=s status=timeout_skipped  [cell: rest skipped]
+concurrent.futures.process._RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "C:\Users\An Khoa\anaconda3\Lib\concurrent\futures\process.py", line 254, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+  File "K:\Data Science\Q1 Research\spec_2a_2b\src\run_2a.py", line 80, in _driver_job
+    r = DL.run_pool(tt, drv, orders, B)
+  File "K:\Data Science\Q1 Research\spec_2a_2b\src\dp_labeling.py", line 63, in run_pool
+    res = D.run_dp(travel_time, driver, orders, B, use_dominance=True)
+  File "K:\Data Science\Q1 Research\experiments\T2BFS\t6_dp.py", line 253, in run_dp
+    new_by_key[new_lab.key()].append(new_lab)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^
+MemoryError
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "K:\Data Science\Q1 Research\spec_2a_2b\src\run_2a.py", line 241, in <module>
+    main()
+    ~~~~^^
+  File "K:\Data Science\Q1 Research\spec_2a_2b\src\run_2a.py", line 212, in main
+    rec = run_one(pool, n, B, tw, ndrv, sd)
+  File "K:\Data Science\Q1 Research\spec_2a_2b\src\run_2a.py", line 112, in run_one
+    di, rt, m = fut.result()
+                ~~~~~~~~~~^^
+  File "C:\Users\An Khoa\anaconda3\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\An Khoa\anaconda3\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+MemoryError
+Process SpawnProcess-7:
+Traceback (most recent call last):
+  File "C:\Users\An Khoa\anaconda3\Lib\multiprocessing\process.py", line 313, in _bootstrap
+  File "C:\Users\An Khoa\anaconda3\Lib\multiprocessing\process.py", line 108, in run
+  File "C:\Users\An Khoa\anaconda3\Lib\concurrent\futures\process.py", line 256, in _process_worker
+  File "C:\Users\An Khoa\anaconda3\Lib\concurrent\futures\process.py", line 137, in __init__
+  File "C:\Users\An Khoa\anaconda3\Lib\traceback.py", line 154, in format_exception
+  File "C:\Users\An Khoa\anaconda3\Lib\traceback.py", line 1053, in __init__
+MemoryError

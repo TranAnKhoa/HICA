@@ -1,0 +1,8 @@
+[shard 3] 50/375, 0.6 min
+[shard 3] 100/375, 1.8 min
+[shard 3] 150/375, 3.4 min
+[shard 3] 200/375, 4.0 min
+[shard 3] 250/375, 5.4 min
+[shard 3] 300/375, 7.1 min
+[shard 3] 350/375, 8.5 min
+[shard 3] FINISHED 375 new instances in 12.1 min

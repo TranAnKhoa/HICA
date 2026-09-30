@@ -1,0 +1,179 @@
+  cls=GW B=2 tw= 30 n= 10  completed  t_dp=    0.00s  peak=    166  gen=     187  surv_ratio=0.765
+  cls=GW B=2 tw= 30 n= 20  completed  t_dp=    0.01s  peak=    660  gen=     700  surv_ratio=0.734
+  cls=GW B=2 tw= 30 n= 30  completed  t_dp=    0.01s  peak=   1405  gen=    1469  surv_ratio=0.721
+  cls=GW B=2 tw= 30 n= 40  completed  t_dp=    0.03s  peak=   2638  gen=    2721  surv_ratio=0.751
+  cls=GW B=2 tw= 30 n= 50  completed  t_dp=    0.05s  peak=   4379  gen=    4489  surv_ratio=0.724
+  cls=GW B=2 tw= 30 n= 60  completed  t_dp=    0.06s  peak=   5931  gen=    6053  surv_ratio=0.735
+  cls=GW B=2 tw= 30 n= 75  completed  t_dp=    0.10s  peak=   9012  gen=    9163  surv_ratio=0.735
+  cls=GW B=2 tw= 30 n=100  completed  t_dp=    0.18s  peak=  16440  gen=   16658  surv_ratio=0.731
+  cls=GW B=2 tw= 60 n= 10  completed  t_dp=    0.00s  peak=    218  gen=     243  surv_ratio=0.712
+  cls=GW B=2 tw= 60 n= 20  completed  t_dp=    0.01s  peak=    881  gen=     935  surv_ratio=0.694
+  cls=GW B=2 tw= 60 n= 30  completed  t_dp=    0.02s  peak=   2003  gen=    2100  surv_ratio=0.698
+  cls=GW B=2 tw= 60 n= 40  completed  t_dp=    0.04s  peak=   3703  gen=    3846  surv_ratio=0.687
+  cls=GW B=2 tw= 60 n= 50  completed  t_dp=    0.06s  peak=   5879  gen=    6087  surv_ratio=0.678
+  cls=GW B=2 tw= 60 n= 60  completed  t_dp=    0.09s  peak=   8251  gen=    8487  surv_ratio=0.684
+  cls=GW B=2 tw= 60 n= 75  completed  t_dp=    0.15s  peak=  12892  gen=   13284  surv_ratio=0.681
+  cls=GW B=2 tw= 60 n=100  completed  t_dp=    0.31s  peak=  22835  gen=   23461  surv_ratio=0.681
+  cls=GW B=2 tw=120 n= 10  completed  t_dp=    0.00s  peak=    304  gen=     333  surv_ratio=0.655
+  cls=GW B=2 tw=120 n= 20  completed  t_dp=    0.01s  peak=   1293  gen=    1396  surv_ratio=0.629
+  cls=GW B=2 tw=120 n= 30  completed  t_dp=    0.03s  peak=   2967  gen=    3183  surv_ratio=0.624
+  cls=GW B=2 tw=120 n= 40  completed  t_dp=    0.07s  peak=   5331  gen=    5635  surv_ratio=0.617
+  cls=GW B=2 tw=120 n= 50  completed  t_dp=    0.10s  peak=   7941  gen=    8394  surv_ratio=0.633
+  cls=GW B=2 tw=120 n= 60  completed  t_dp=    0.16s  peak=  12654  gen=   13396  surv_ratio=0.611
+  cls=GW B=2 tw=120 n= 75  completed  t_dp=    0.26s  peak=  18394  gen=   19386  surv_ratio=0.623
+  cls=GW B=2 tw=120 n=100  completed  t_dp=    0.46s  peak=  32424  gen=   34051  surv_ratio=0.626
+  cls=GW B=2 tw=240 n= 10  completed  t_dp=    0.01s  peak=    424  gen=     481  surv_ratio=0.599
+  cls=GW B=2 tw=240 n= 20  completed  t_dp=    0.02s  peak=   1974  gen=    2189  surv_ratio=0.568
+  cls=GW B=2 tw=240 n= 30  completed  t_dp=    0.05s  peak=   4436  gen=    4803  surv_ratio=0.576
+  cls=GW B=2 tw=240 n= 40  completed  t_dp=    0.11s  peak=   8231  gen=    8970  surv_ratio=0.582
+  cls=GW B=2 tw=240 n= 50  completed  t_dp=    0.15s  peak=  12599  gen=   13599  surv_ratio=0.590
+  cls=GW B=2 tw=240 n= 60  completed  t_dp=    0.21s  peak=  18054  gen=   19365  surv_ratio=0.584
+  cls=GW B=2 tw=240 n= 75  completed  t_dp=    0.45s  peak=  27303  gen=   29373  surv_ratio=0.587
+  cls=GW B=2 tw=240 n=100  completed  t_dp=    0.73s  peak=  49491  gen=   53200  surv_ratio=0.576
+  cls=GW B=3 tw= 30 n= 10  completed  t_dp=    0.02s  peak=    513  gen=     679  surv_ratio=0.760
+  cls=GW B=3 tw= 30 n= 20  completed  t_dp=    0.09s  peak=   6131  gen=    6867  surv_ratio=0.603
+  cls=GW B=3 tw= 30 n= 30  completed  t_dp=    0.41s  peak=  24446  gen=   26358  surv_ratio=0.595
+  cls=GW B=3 tw= 30 n= 40  completed  t_dp=    0.96s  peak=  61210  gen=   64761  surv_ratio=0.605
+  cls=GW B=3 tw= 30 n= 50  completed  t_dp=    2.15s  peak= 115245  gen=  120756  surv_ratio=0.602
+  cls=GW B=3 tw= 30 n= 60  completed  t_dp=    3.50s  peak= 191185  gen=  199608  surv_ratio=0.606
+  cls=GW B=3 tw= 30 n= 75  completed  t_dp=    7.29s  peak= 399090  gen=  414165  surv_ratio=0.594
+  cls=GW B=3 tw= 30 n=100  completed  t_dp=   20.38s  peak= 932573  gen=  963423  surv_ratio=0.604
+  cls=GW B=3 tw= 60 n= 10  completed  t_dp=    0.08s  peak=   1330  gen=    1730  surv_ratio=0.494
+  cls=GW B=3 tw= 60 n= 20  completed  t_dp=    0.21s  peak=  13090  gen=   16010  surv_ratio=0.468
+  cls=GW B=3 tw= 60 n= 30  completed  t_dp=    0.57s  peak=  39133  gen=   45874  surv_ratio=0.496
+  cls=GW B=3 tw= 60 n= 40  completed  t_dp=    1.58s  peak=  95364  gen=  109816  surv_ratio=0.495
+  cls=GW B=3 tw= 60 n= 50  completed  t_dp=    3.89s  peak= 194215  gen=  220970  surv_ratio=0.491
+  cls=GW B=3 tw= 60 n= 60  completed  t_dp=    7.17s  peak= 336389  gen=  380212  surv_ratio=0.489
+  cls=GW B=3 tw= 60 n= 75  completed  t_dp=   13.70s  peak= 646559  gen=  724565  surv_ratio=0.494
+  cls=GW B=3 tw= 60 n=100  completed  t_dp=   33.37s  peak=1584930  gen= 1777727  surv_ratio=0.488
+  cls=GW B=3 tw=120 n= 10  completed  t_dp=    0.16s  peak=   2114  gen=    3191  surv_ratio=0.355
+  cls=GW B=3 tw=120 n= 20  completed  t_dp=    0.31s  peak=  19674  gen=   26160  surv_ratio=0.378
+  cls=GW B=3 tw=120 n= 30  completed  t_dp=    1.19s  peak=  75377  gen=   99570  surv_ratio=0.357
+  cls=GW B=3 tw=120 n= 40  completed  t_dp=    3.70s  peak= 188092  gen=  247240  surv_ratio=0.347
+  cls=GW B=3 tw=120 n= 50  completed  t_dp=    8.16s  peak= 371316  gen=  490721  surv_ratio=0.345
+  cls=GW B=3 tw=120 n= 60  completed  t_dp=   16.40s  peak= 681975  gen=  905912  surv_ratio=0.334
+  cls=GW B=3 tw=120 n= 75  completed  t_dp=   30.20s  peak=1276474  gen= 1669955  surv_ratio=0.343
+  cls=GW B=3 tw=120 n=100  completed  t_dp=   77.22s  peak=3180176  gen= 4105781  surv_ratio=0.343
+  cls=GW B=3 tw=240 n= 10  completed  t_dp=    0.38s  peak=   6433  gen=   10322  surv_ratio=0.273
+  cls=GW B=3 tw=240 n= 20  completed  t_dp=    0.89s  peak=  53222  gen=   81538  surv_ratio=0.264
+  cls=GW B=3 tw=240 n= 30  completed  t_dp=    3.21s  peak= 186319  gen=  277726  surv_ratio=0.269
+  cls=GW B=3 tw=240 n= 40  completed  t_dp=   10.56s  peak= 443931  gen=  665932  surv_ratio=0.268
+  cls=GW B=3 tw=240 n= 50  completed  t_dp=   23.14s  peak= 920158  gen= 1360113  surv_ratio=0.270
+  cls=GW B=3 tw=240 n= 60  completed  t_dp=   41.26s  peak=1601895  gen= 2368480  surv_ratio=0.270
+  cls=GW B=3 tw=240 n= 75  completed  t_dp=   76.07s  peak=3128594  gen= 4649524  surv_ratio=0.266
+  cls=GW B=3 tw=240 n=100  broke      t_dp=  169.96s  peak=7358501  gen=10990743  surv_ratio=0.264
+    -> vo o n=100 (t_dp=170.0s > 90s); bo n>100 cho (cls=GW,B=3,tw=240)
+  cls=GW B=4 tw= 30 n= 10  completed  t_dp=    0.66s  peak=    876  gen=    1513  surv_ratio=0.605
+  cls=GW B=4 tw= 30 n= 20  completed  t_dp=    0.88s  peak=  48801  gen=   57635  surv_ratio=0.551
+  cls=GW B=4 tw= 30 n= 30  completed  t_dp=    5.43s  peak= 288727  gen=  324677  surv_ratio=0.525
+  cls=GW B=4 tw= 30 n= 40  completed  t_dp=   16.12s  peak= 783352  gen=  853864  surv_ratio=0.557
+  cls=GW B=4 tw= 30 n= 50  completed  t_dp=   34.69s  peak=1691175  gen= 1816968  surv_ratio=0.547
+  cls=GW B=4 tw= 30 n= 60  completed  t_dp=   78.17s  peak=3862840  gen= 4122711  surv_ratio=0.564
+  cls=GW B=4 tw= 30 n= 75  broke      t_dp=  186.31s  peak=9485047  gen= 9990598  surv_ratio=0.549
+    -> vo o n=75 (t_dp=186.3s > 90s); bo n>75 cho (cls=GW,B=4,tw=30)
+  cls=GW B=4 tw= 60 n= 10  completed  t_dp=    0.27s  peak=   3912  gen=    6025  surv_ratio=0.446
+  cls=GW B=4 tw= 60 n= 20  completed  t_dp=    1.43s  peak=  94855  gen=  116401  surv_ratio=0.423
+  cls=GW B=4 tw= 60 n= 30  completed  t_dp=   11.74s  peak= 563683  gen=  688962  surv_ratio=0.398
+  cls=GW B=4 tw= 60 n= 40  completed  t_dp=   39.87s  peak=1917158  gen= 2311092  surv_ratio=0.393
+  cls=GW B=4 tw= 60 n= 50  broke      t_dp=  108.04s  peak=5029907  gen= 5911030  surv_ratio=0.388
+    -> vo o n=50 (t_dp=108.0s > 90s); bo n>50 cho (cls=GW,B=4,tw=60)
+  cls=GW B=4 tw=120 n= 10  completed  t_dp=    0.52s  peak=  15512  gen=   27852  surv_ratio=0.218
+  cls=GW B=4 tw=120 n= 20  completed  t_dp=    4.96s  peak= 315739  gen=  489264  surv_ratio=0.213
+  cls=GW B=4 tw=120 n= 30  completed  t_dp=   31.20s  peak=1296173  gen= 1964267  surv_ratio=0.244
+  cls=GW B=4 tw=120 n= 40  broke      t_dp=  113.56s  peak=4467586  gen= 7129065  surv_ratio=0.219
+    -> vo o n=40 (t_dp=113.6s > 90s); bo n>40 cho (cls=GW,B=4,tw=120)
+  cls=GW B=4 tw=240 n= 10  completed  t_dp=    1.10s  peak=  34658  gen=   81082  surv_ratio=0.144
+  cls=GW B=4 tw=240 n= 20  completed  t_dp=   22.18s  peak= 779081  gen= 1533747  surv_ratio=0.149
+  cls=GW B=4 tw=240 n= 30  broke      t_dp=  162.42s  peak=5241012  gen=10425634  surv_ratio=0.141
+    -> vo o n=30 (t_dp=162.4s > 90s); bo n>30 cho (cls=GW,B=4,tw=240)
+  cls=OD B=2 tw= 30 n= 10  completed  t_dp=    0.38s  peak=    178  gen=     199  surv_ratio=0.497
+  cls=OD B=2 tw= 30 n= 20  completed  t_dp=    0.01s  peak=    606  gen=     645  surv_ratio=0.557
+  cls=OD B=2 tw= 30 n= 30  completed  t_dp=    0.01s  peak=   1448  gen=    1506  surv_ratio=0.526
+  cls=OD B=2 tw= 30 n= 40  completed  t_dp=    0.03s  peak=   2851  gen=    2936  surv_ratio=0.503
+  cls=OD B=2 tw= 30 n= 50  completed  t_dp=    0.05s  peak=   4170  gen=    4283  surv_ratio=0.509
+  cls=OD B=2 tw= 30 n= 60  completed  t_dp=    0.06s  peak=   5888  gen=    6017  surv_ratio=0.508
+  cls=OD B=2 tw= 30 n= 75  completed  t_dp=    0.10s  peak=   9836  gen=    9996  surv_ratio=0.517
+  cls=OD B=2 tw= 30 n=100  completed  t_dp=    0.16s  peak=  16889  gen=   17126  surv_ratio=0.508
+  cls=OD B=2 tw= 60 n= 10  completed  t_dp=    0.00s  peak=    210  gen=     234  surv_ratio=0.432
+  cls=OD B=2 tw= 60 n= 20  completed  t_dp=    0.01s  peak=    894  gen=     945  surv_ratio=0.430
+  cls=OD B=2 tw= 60 n= 30  completed  t_dp=    0.02s  peak=   1962  gen=    2061  surv_ratio=0.441
+  cls=OD B=2 tw= 60 n= 40  completed  t_dp=    0.03s  peak=   3617  gen=    3751  surv_ratio=0.433
+  cls=OD B=2 tw= 60 n= 50  completed  t_dp=    0.05s  peak=   5506  gen=    5717  surv_ratio=0.439
+  cls=OD B=2 tw= 60 n= 60  completed  t_dp=    0.07s  peak=   8189  gen=    8455  surv_ratio=0.431
+  cls=OD B=2 tw= 60 n= 75  completed  t_dp=    0.11s  peak=  13145  gen=   13588  surv_ratio=0.421
+  cls=OD B=2 tw= 60 n=100  completed  t_dp=    0.23s  peak=  22980  gen=   23642  surv_ratio=0.430
+  cls=OD B=2 tw=120 n= 10  completed  t_dp=    0.00s  peak=    279  gen=     313  surv_ratio=0.367
+  cls=OD B=2 tw=120 n= 20  completed  t_dp=    0.01s  peak=   1398  gen=    1504  surv_ratio=0.332
+  cls=OD B=2 tw=120 n= 30  completed  t_dp=    0.03s  peak=   2854  gen=    3020  surv_ratio=0.353
+  cls=OD B=2 tw=120 n= 40  completed  t_dp=    0.06s  peak=   5394  gen=    5773  surv_ratio=0.346
+  cls=OD B=2 tw=120 n= 50  completed  t_dp=    0.08s  peak=   8143  gen=    8589  surv_ratio=0.348
+  cls=OD B=2 tw=120 n= 60  completed  t_dp=    0.12s  peak=  11756  gen=   12379  surv_ratio=0.348
+  cls=OD B=2 tw=120 n= 75  completed  t_dp=    0.16s  peak=  18126  gen=   19109  surv_ratio=0.355
+  cls=OD B=2 tw=120 n=100  completed  t_dp=    0.32s  peak=  32594  gen=   34161  surv_ratio=0.350
+  cls=OD B=2 tw=240 n= 10  completed  t_dp=    0.00s  peak=    432  gen=     491  surv_ratio=0.314
+  cls=OD B=2 tw=240 n= 20  completed  t_dp=    0.02s  peak=   1807  gen=    1945  surv_ratio=0.305
+  cls=OD B=2 tw=240 n= 30  completed  t_dp=    0.04s  peak=   4434  gen=    4819  surv_ratio=0.303
+  cls=OD B=2 tw=240 n= 40  completed  t_dp=    0.07s  peak=   7847  gen=    8476  surv_ratio=0.303
+  cls=OD B=2 tw=240 n= 50  completed  t_dp=    0.12s  peak=  12295  gen=   13319  surv_ratio=0.304
+  cls=OD B=2 tw=240 n= 60  completed  t_dp=    0.16s  peak=  17817  gen=   19360  surv_ratio=0.304
+  cls=OD B=2 tw=240 n= 75  completed  t_dp=    0.23s  peak=  26921  gen=   28880  surv_ratio=0.305
+  cls=OD B=2 tw=240 n=100  completed  t_dp=    0.49s  peak=  49575  gen=   52997  surv_ratio=0.301
+  cls=OD B=3 tw= 30 n= 10  completed  t_dp=    0.00s  peak=    255  gen=     358  surv_ratio=0.628
+  cls=OD B=3 tw= 30 n= 20  completed  t_dp=    0.08s  peak=   6320  gen=    7142  surv_ratio=0.491
+  cls=OD B=3 tw= 30 n= 30  completed  t_dp=    0.30s  peak=  25021  gen=   27105  surv_ratio=0.486
+  cls=OD B=3 tw= 30 n= 40  completed  t_dp=    0.67s  peak=  53347  gen=   56443  surv_ratio=0.533
+  cls=OD B=3 tw= 30 n= 50  completed  t_dp=    1.20s  peak=  98659  gen=  103817  surv_ratio=0.542
+  cls=OD B=3 tw= 30 n= 60  completed  t_dp=    2.16s  peak= 176270  gen=  185097  surv_ratio=0.513
+  cls=OD B=3 tw= 30 n= 75  completed  t_dp=    4.91s  peak= 381795  gen=  395611  surv_ratio=0.514
+  cls=OD B=3 tw= 30 n=100  completed  t_dp=   13.42s  peak= 809165  gen=  834350  surv_ratio=0.496
+  cls=OD B=3 tw= 60 n= 10  completed  t_dp=    0.02s  peak=   1097  gen=    1452  surv_ratio=0.402
+  cls=OD B=3 tw= 60 n= 20  completed  t_dp=    0.15s  peak=  10777  gen=   12757  surv_ratio=0.388
+  cls=OD B=3 tw= 60 n= 30  completed  t_dp=    0.46s  peak=  39789  gen=   45878  surv_ratio=0.376
+  cls=OD B=3 tw= 60 n= 40  completed  t_dp=    1.26s  peak=  91284  gen=  104339  surv_ratio=0.388
+  cls=OD B=3 tw= 60 n= 50  completed  t_dp=    2.80s  peak= 187259  gen=  215075  surv_ratio=0.374
+  cls=OD B=3 tw= 60 n= 60  completed  t_dp=    5.29s  peak= 322338  gen=  364841  surv_ratio=0.382
+  cls=OD B=3 tw= 60 n= 75  completed  t_dp=   10.70s  peak= 654502  gen=  736349  surv_ratio=0.378
+  cls=OD B=3 tw= 60 n=100  completed  t_dp=   26.47s  peak=1519586  gen= 1685844  surv_ratio=0.383
+  cls=OD B=3 tw=120 n= 10  completed  t_dp=    0.03s  peak=   1985  gen=    2902  surv_ratio=0.274
+  cls=OD B=3 tw=120 n= 20  completed  t_dp=    0.29s  peak=  20968  gen=   29112  surv_ratio=0.245
+  cls=OD B=3 tw=120 n= 30  completed  t_dp=    0.92s  peak=  75510  gen=   99541  surv_ratio=0.253
+  cls=OD B=3 tw=120 n= 40  completed  t_dp=    2.72s  peak= 178757  gen=  230070  surv_ratio=0.243
+  cls=OD B=3 tw=120 n= 50  completed  t_dp=    6.93s  peak= 373865  gen=  492117  surv_ratio=0.229
+  cls=OD B=3 tw=120 n= 60  completed  t_dp=   12.11s  peak= 659874  gen=  860882  surv_ratio=0.230
+  cls=OD B=3 tw=120 n= 75  completed  t_dp=   24.02s  peak=1227611  gen= 1601873  surv_ratio=0.237
+  cls=OD B=3 tw=120 n=100  completed  t_dp=   57.02s  peak=3007313  gen= 3919337  surv_ratio=0.234
+  cls=OD B=3 tw=240 n= 10  completed  t_dp=    0.10s  peak=   5956  gen=    9401  surv_ratio=0.171
+  cls=OD B=3 tw=240 n= 20  completed  t_dp=    0.81s  peak=  57632  gen=   87852  surv_ratio=0.174
+  cls=OD B=3 tw=240 n= 30  completed  t_dp=    3.36s  peak= 190515  gen=  280767  surv_ratio=0.170
+  cls=OD B=3 tw=240 n= 40  completed  t_dp=    9.54s  peak= 446248  gen=  672253  surv_ratio=0.170
+  cls=OD B=3 tw=240 n= 50  completed  t_dp=   19.54s  peak= 912658  gen= 1367229  surv_ratio=0.166
+  cls=OD B=3 tw=240 n= 60  completed  t_dp=   32.50s  peak=1552344  gen= 2299690  surv_ratio=0.169
+  cls=OD B=3 tw=240 n= 75  completed  t_dp=   64.43s  peak=3114517  gen= 4664666  surv_ratio=0.166
+  cls=OD B=3 tw=240 n=100  broke      t_dp=  139.05s  peak=7080848  gen=10474663  surv_ratio=0.167
+    -> vo o n=100 (t_dp=139.0s > 90s); bo n>100 cho (cls=OD,B=3,tw=240)
+  cls=OD B=4 tw= 30 n= 10  completed  t_dp=    0.04s  peak=   1614  gen=    2473  surv_ratio=0.500
+  cls=OD B=4 tw= 30 n= 20  completed  t_dp=    0.61s  peak=  37125  gen=   44196  surv_ratio=0.506
+  cls=OD B=4 tw= 30 n= 30  completed  t_dp=    4.20s  peak= 227342  gen=  254701  surv_ratio=0.497
+  cls=OD B=4 tw= 30 n= 40  completed  t_dp=   10.32s  peak= 539525  gen=  598234  surv_ratio=0.556
+  cls=OD B=4 tw= 30 n= 50  completed  t_dp=   36.13s  peak=1871739  gen= 2014164  surv_ratio=0.501
+  cls=OD B=4 tw= 30 n= 60  completed  t_dp=   66.11s  peak=3329337  gen= 3543480  surv_ratio=0.527
+  cls=OD B=4 tw= 30 n= 75  broke      t_dp=  220.18s  peak=11260354  gen=11816658  surv_ratio=0.498
+    -> vo o n=75 (t_dp=220.2s > 90s); bo n>75 cho (cls=OD,B=4,tw=30)
+  cls=OD B=4 tw= 60 n= 10  completed  t_dp=    0.10s  peak=   4218  gen=    6156  surv_ratio=0.377
+  cls=OD B=4 tw= 60 n= 20  completed  t_dp=    1.63s  peak= 114426  gen=  146550  surv_ratio=0.328
+  cls=OD B=4 tw= 60 n= 30  completed  t_dp=    8.28s  peak= 564102  gen=  690290  surv_ratio=0.348
+  cls=OD B=4 tw= 60 n= 40  completed  t_dp=   32.82s  peak=1920910  gen= 2363657  surv_ratio=0.328
+  cls=OD B=4 tw= 60 n= 50  completed  t_dp=   80.88s  peak=4757521  gen= 5615200  surv_ratio=0.339
+  cls=OD B=4 tw= 60 n= 60  broke      t_dp=  189.77s  peak=10641001  gen=12457946  surv_ratio=0.331
+    -> vo o n=60 (t_dp=189.8s > 90s); bo n>60 cho (cls=OD,B=4,tw=60)
+  cls=OD B=4 tw=120 n= 10  completed  t_dp=    0.38s  peak=  19315  gen=   34176  surv_ratio=0.147
+  cls=OD B=4 tw=120 n= 20  completed  t_dp=    3.70s  peak= 240547  gen=  362063  surv_ratio=0.187
+  cls=OD B=4 tw=120 n= 30  completed  t_dp=   33.96s  peak=1655762  gen= 2568578  surv_ratio=0.160
+  cls=OD B=4 tw=120 n= 40  broke      t_dp=   99.54s  peak=4312886  gen= 6463398  surv_ratio=0.187
+    -> vo o n=40 (t_dp=99.5s > 90s); bo n>40 cho (cls=OD,B=4,tw=120)
+  cls=OD B=4 tw=240 n= 10  completed  t_dp=    0.69s  peak=  37224  gen=   76603  surv_ratio=0.102
+  cls=OD B=4 tw=240 n= 20  completed  t_dp=   20.06s  peak= 771488  gen= 1506116  surv_ratio=0.105
+  cls=OD B=4 tw=240 n= 30  broke      t_dp=  169.63s  peak=5601971  gen=11115572  surv_ratio=0.106
+    -> vo o n=30 (t_dp=169.6s > 90s); bo n>30 cho (cls=OD,B=4,tw=240)
+
+DONE (2807.8s) -> K:\Data Science\Q1 Research\spec_2a_2b\results\scaling_probe.csv

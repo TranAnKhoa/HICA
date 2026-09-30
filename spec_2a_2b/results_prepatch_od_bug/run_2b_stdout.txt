@@ -1,0 +1,95 @@
+  [10/720] n=30 dispersed sr=0.3 tau=10  comps=6  largest_frac=0.444  sing3=5  elapsed=112.6s
+  [20/720] n=30 dispersed sr=0.3 tau=15  comps=6  largest_frac=0.444  sing3=5  elapsed=225.3s
+  [30/720] n=30 dispersed sr=0.3 tau=20  comps=6  largest_frac=0.444  sing3=5  elapsed=345.7s
+  [40/720] n=30 dispersed sr=0.3 tau=30  comps=6  largest_frac=0.444  sing3=5  elapsed=461.4s
+  [50/720] n=30 dispersed sr=0.3 tau=45  comps=2  largest_frac=0.889  sing3=1  elapsed=578.3s
+  [60/720] n=30 dispersed sr=0.3 tau=60  comps=5  largest_frac=0.556  sing3=4  elapsed=699.2s
+  [70/720] n=30 dispersed sr=0.6 tau=10  comps=10  largest_frac=0.500  sing3=9  elapsed=956.4s
+  [80/720] n=30 dispersed sr=0.6 tau=15  comps=10  largest_frac=0.500  sing3=9  elapsed=1208.2s
+  [90/720] n=30 dispersed sr=0.6 tau=20  comps=10  largest_frac=0.500  sing3=9  elapsed=1452.7s
+  [100/720] n=30 dispersed sr=0.6 tau=30  comps=10  largest_frac=0.500  sing3=9  elapsed=1713.4s
+  [110/720] n=30 dispersed sr=0.6 tau=45  comps=5  largest_frac=0.778  sing3=4  elapsed=1973.3s
+  [120/720] n=30 dispersed sr=0.6 tau=60  comps=5  largest_frac=0.778  sing3=4  elapsed=2236.4s
+Traceback (most recent call last):
+  File "K:\Data Science\Q1 Research\spec_2a_2b\src\run_2b.py", line 119, in <module>
+    main()
+  File "K:\Data Science\Q1 Research\spec_2a_2b\src\run_2b.py", line 104, in main
+    rec = run_one(n, tau, spatial_mode, supply_ratio, sd)
+  File "K:\Data Science\Q1 Research\spec_2a_2b\src\run_2b.py", line 63, in run_one
+    pool_by_driver, agg = DL.build_route_pool(tt, drivers, orders, B_FIXED)
+  File "K:\Data Science\Q1 Research\spec_2a_2b\src\dp_labeling.py", line 105, in build_route_pool
+    r = run_pool(travel_time, drv, orders, B)
+  File "K:\Data Science\Q1 Research\spec_2a_2b\src\dp_labeling.py", line 63, in run_pool
+    res = D.run_dp(travel_time, driver, orders, B, use_dominance=True)
+  File "K:\Data Science\Q1 Research\experiments\T2BFS\t6_dp.py", line 253, in run_dp
+    new_by_key[new_lab.key()].append(new_lab)
+object address  : 00000150FDC9D180
+object refcount : 3
+object type     : 00007FFBBC983380
+object type name: MemoryError
+object repr     : MemoryError()
+lost sys.stderr
+RESUME: 128 rows already in summary, skipping those.
+  [130/720] n=30 dispersed sr=1.0 tau=10  comps=16  largest_frac=0.500  sing3=15  elapsed=76.9s
+  [140/720] n=30 dispersed sr=1.0 tau=15  comps=16  largest_frac=0.500  sing3=15  elapsed=420.2s
+  [150/720] n=30 dispersed sr=1.0 tau=20  comps=15  largest_frac=0.533  sing3=14  elapsed=739.3s
+  [160/720] n=30 dispersed sr=1.0 tau=30  comps=16  largest_frac=0.500  sing3=15  elapsed=1098.1s
+  [170/720] n=30 dispersed sr=1.0 tau=45  comps=12  largest_frac=0.633  sing3=11  elapsed=1565.1s
+  [180/720] n=30 dispersed sr=1.0 tau=60  comps=1  largest_frac=1.000  sing3=0  elapsed=1992.7s
+  [190/720] n=30 clustered sr=0.3 tau=10  comps=6  largest_frac=0.444  sing3=5  elapsed=2110.2s
+  [200/720] n=30 clustered sr=0.3 tau=15  comps=6  largest_frac=0.444  sing3=5  elapsed=2225.1s
+  [210/720] n=30 clustered sr=0.3 tau=20  comps=6  largest_frac=0.444  sing3=5  elapsed=2351.8s
+  [220/720] n=30 clustered sr=0.3 tau=30  comps=6  largest_frac=0.444  sing3=5  elapsed=2473.8s
+RESUME: 223 rows already in summary, skipping those.
+  [230/720] n=30 clustered sr=0.3 tau=45  comps=3  largest_frac=0.778  sing3=2  elapsed=90.1s
+  [240/720] n=30 clustered sr=0.3 tau=60  comps=6  largest_frac=0.444  sing3=5  elapsed=220.2s
+  [250/720] n=30 clustered sr=0.6 tau=10  comps=10  largest_frac=0.500  sing3=9  elapsed=514.1s
+  [260/720] n=30 clustered sr=0.6 tau=15  comps=10  largest_frac=0.500  sing3=9  elapsed=751.1s
+  [270/720] n=30 clustered sr=0.6 tau=20  comps=10  largest_frac=0.500  sing3=9  elapsed=984.6s
+  [280/720] n=30 clustered sr=0.6 tau=30  comps=10  largest_frac=0.500  sing3=9  elapsed=1209.1s
+  [290/720] n=30 clustered sr=0.6 tau=45  comps=9  largest_frac=0.556  sing3=8  elapsed=1420.2s
+  [300/720] n=30 clustered sr=0.6 tau=60  comps=10  largest_frac=0.500  sing3=9  elapsed=1650.7s
+  [310/720] n=30 clustered sr=1.0 tau=10  comps=16  largest_frac=0.500  sing3=15  elapsed=2062.5s
+  [320/720] n=30 clustered sr=1.0 tau=15  comps=14  largest_frac=0.567  sing3=13  elapsed=2459.5s
+  [330/720] n=30 clustered sr=1.0 tau=20  comps=14  largest_frac=0.567  sing3=13  elapsed=2864.9s
+  [340/720] n=30 clustered sr=1.0 tau=30  comps=16  largest_frac=0.500  sing3=15  elapsed=3281.4s
+  [350/720] n=30 clustered sr=1.0 tau=45  comps=16  largest_frac=0.500  sing3=15  elapsed=3678.9s
+  [360/720] n=30 clustered sr=1.0 tau=60  comps=16  largest_frac=0.500  sing3=15  elapsed=4081.3s
+  [370/720] n=50 dispersed sr=0.3 tau=10  comps=8  largest_frac=0.533  sing3=7  elapsed=5269.9s
+  [380/720] n=50 dispersed sr=0.3 tau=15  comps=8  largest_frac=0.533  sing3=7  elapsed=6399.0s
+  [390/720] n=50 dispersed sr=0.3 tau=20  comps=8  largest_frac=0.533  sing3=7  elapsed=7480.5s
+  [400/720] n=50 dispersed sr=0.3 tau=30  comps=7  largest_frac=0.600  sing3=6  elapsed=8564.3s
+  [410/720] n=50 dispersed sr=0.3 tau=45  comps=2  largest_frac=0.933  sing3=1  elapsed=9640.6s
+  [420/720] n=50 dispersed sr=0.3 tau=60  comps=8  largest_frac=0.533  sing3=7  elapsed=10704.6s
+  [430/720] n=50 dispersed sr=0.6 tau=10  comps=16  largest_frac=0.500  sing3=15  elapsed=13093.8s
+  [440/720] n=50 dispersed sr=0.6 tau=15  comps=16  largest_frac=0.500  sing3=15  elapsed=15434.6s
+  [450/720] n=50 dispersed sr=0.6 tau=20  comps=15  largest_frac=0.533  sing3=14  elapsed=18229.2s
+  [460/720] n=50 dispersed sr=0.6 tau=30  comps=13  largest_frac=0.600  sing3=12  elapsed=21188.6s
+  [470/720] n=50 dispersed sr=0.6 tau=45  comps=6  largest_frac=0.833  sing3=5  elapsed=23694.8s
+  [480/720] n=50 dispersed sr=0.6 tau=60  comps=9  largest_frac=0.733  sing3=8  elapsed=26605.7s
+  [490/720] n=50 dispersed sr=1.0 tau=10  comps=26  largest_frac=0.500  sing3=25  elapsed=31627.4s
+  [500/720] n=50 dispersed sr=1.0 tau=15  comps=26  largest_frac=0.500  sing3=25  elapsed=36238.0s
+  [510/720] n=50 dispersed sr=1.0 tau=20  comps=22  largest_frac=0.580  sing3=21  elapsed=40179.3s
+  [520/720] n=50 dispersed sr=1.0 tau=30  comps=23  largest_frac=0.560  sing3=22  elapsed=44181.5s
+  [530/720] n=50 dispersed sr=1.0 tau=45  comps=23  largest_frac=0.560  sing3=22  elapsed=48156.5s
+  [540/720] n=50 dispersed sr=1.0 tau=60  comps=6  largest_frac=0.900  sing3=5  elapsed=52240.1s
+  [550/720] n=50 clustered sr=0.3 tau=10  comps=8  largest_frac=0.533  sing3=7  elapsed=53665.7s
+  [560/720] n=50 clustered sr=0.3 tau=15  comps=8  largest_frac=0.533  sing3=7  elapsed=55042.6s
+  [570/720] n=50 clustered sr=0.3 tau=20  comps=8  largest_frac=0.533  sing3=7  elapsed=56461.9s
+  [580/720] n=50 clustered sr=0.3 tau=30  comps=7  largest_frac=0.600  sing3=6  elapsed=57933.1s
+  [590/720] n=50 clustered sr=0.3 tau=45  comps=8  largest_frac=0.533  sing3=7  elapsed=59328.5s
+  [600/720] n=50 clustered sr=0.3 tau=60  comps=3  largest_frac=0.867  sing3=2  elapsed=60548.8s
+  [610/720] n=50 clustered sr=0.6 tau=10  comps=16  largest_frac=0.500  sing3=15  elapsed=63390.8s
+  [620/720] n=50 clustered sr=0.6 tau=15  comps=16  largest_frac=0.500  sing3=15  elapsed=65815.9s
+  [630/720] n=50 clustered sr=0.6 tau=20  comps=14  largest_frac=0.567  sing3=13  elapsed=68272.1s
+  [640/720] n=50 clustered sr=0.6 tau=30  comps=16  largest_frac=0.500  sing3=15  elapsed=70704.6s
+  [650/720] n=50 clustered sr=0.6 tau=45  comps=3  largest_frac=0.933  sing3=2  elapsed=73102.0s
+  [660/720] n=50 clustered sr=0.6 tau=60  comps=13  largest_frac=0.600  sing3=12  elapsed=75558.1s
+  [670/720] n=50 clustered sr=1.0 tau=10  comps=26  largest_frac=0.500  sing3=25  elapsed=79735.2s
+  [680/720] n=50 clustered sr=1.0 tau=15  comps=26  largest_frac=0.500  sing3=25  elapsed=84006.4s
+  [690/720] n=50 clustered sr=1.0 tau=20  comps=25  largest_frac=0.520  sing3=24  elapsed=88211.3s
+  [700/720] n=50 clustered sr=1.0 tau=30  comps=22  largest_frac=0.580  sing3=21  elapsed=92386.2s
+  [710/720] n=50 clustered sr=1.0 tau=45  comps=8  largest_frac=0.860  sing3=7  elapsed=97648.4s
+  [720/720] n=50 clustered sr=1.0 tau=60  comps=2  largest_frac=0.980  sing3=1  elapsed=103283.2s
+
+=== 2b DONE ===  runs=497  elapsed=103283.2s

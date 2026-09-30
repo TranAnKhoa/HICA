@@ -1,0 +1,16 @@
+Cell: n=20 B_gw=4 tw=240 seed=0  n_gw_drivers=5
+  driver 1/5 done  elapsed_driver=40.0s  total_elapsed=40.0s
+  driver 2/5 done  elapsed_driver=45.1s  total_elapsed=85.0s
+  driver 3/5 done  elapsed_driver=54.3s  total_elapsed=139.3s
+  driver 4/5 done  elapsed_driver=48.4s  total_elapsed=187.7s
+  driver 5/5 done  elapsed_driver=58.3s  total_elapsed=246.0s
+
+=== TEST A: attempts_per_closure ===
+So closure quan sat:                 845727
+Trung binh attempts/closure:          8.361
+Max attempts trong 1 closure:         104
+So closure toan-bo-chet (0 survivor): 189071 (22.4%)
+Attempts trung binh CHI trong closure toan-chet: 3.691
+
+KET LUAN: mean_attempts cao (8.36) -> kich ban (b) co that, dang thu Test A2.
+elapsed_total=246.7s

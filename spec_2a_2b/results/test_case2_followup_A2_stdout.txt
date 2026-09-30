@@ -1,0 +1,10 @@
+=== GATE Test A2: n<=6, patch vs goc vs brute-force ===
+Instances checked: 288   Mismatches: 0
+
+GATE PASS - route_pool khop 100% (goc == patch == brute-force).
+
+=== TEST A2: so sanh wall-clock (goc vs patch IV-completion) tren cell nong ===
+Cell: n=20 B_gw=4 tw=240 seed=0  n_gw_drivers=5
+Ban GOC : 170.03s
+Ban PATCH: 222.96s  (so label bi cat boi IV-completion: 0)
+Speedup (goc/patch): 0.763x

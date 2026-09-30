@@ -1,0 +1,8 @@
+test_1a PASS: K=10.000000 W=0.666667 (tay: K=10.000000 W=0.666667)
+test_1b PASS: K=2.000000 W=0.266667 (tay: K=2.000000 W=0.266667, detour_dist=2.00km detour_time=16.00p)
+test_1c PASS: K=0.000000 (=0 dung) W=0.166667 (tay=0.166667)
+test_2: W_code=1.000000 | W_with_wait=1.000000 | W_without_wait=0.333333
+  => KET LUAN: W hien tai BAO GOM thoi gian cho (wait cong vao W).
+
+=== ALL K/W UNIT GATE TESTS: PASS ===
+Viec 2 verdict: includes_wait

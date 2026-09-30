@@ -1,0 +1,22 @@
+[rq2 shard 0] 10/215 new done, 0.4 min
+[rq2 shard 0] 20/215 new done, 1.6 min
+[rq2 shard 0] 30/215 new done, 3.7 min
+[rq2 shard 0] 40/215 new done, 4.1 min
+[rq2 shard 0] 50/215 new done, 4.5 min
+[rq2 shard 0] 60/215 new done, 5.3 min
+[rq2 shard 0] 70/215 new done, 7.7 min
+[rq2 shard 0] 80/215 new done, 8.7 min
+[rq2 shard 0] 90/215 new done, 9.1 min
+[rq2 shard 0] 100/215 new done, 9.4 min
+[rq2 shard 0] 110/215 new done, 11.9 min
+[rq2 shard 0] 120/215 new done, 13.9 min
+[rq2 shard 0] 130/215 new done, 14.4 min
+[rq2 shard 0] 140/215 new done, 14.6 min
+[rq2 shard 0] 150/215 new done, 16.3 min
+[rq2 shard 0] 160/215 new done, 18.5 min
+[rq2 shard 0] 170/215 new done, 18.9 min
+[rq2 shard 0] 180/215 new done, 20.2 min
+[rq2 shard 0] 190/215 new done, 24.4 min
+[rq2 shard 0] 200/215 new done, 35.1 min
+[rq2 shard 0] 210/215 new done, 36.3 min
+[rq2 shard 0] FINISHED 215 jobs in 37.0 min

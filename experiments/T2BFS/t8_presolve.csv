@@ -1,0 +1,2 @@
+n_components,seed,n_winners,naive_presolve_on_solve,naive_presolve_off_solve,naive_presolve_on_wall,naive_presolve_off_wall,decomp_presolve_on_solve,decomp_presolve_on_wall
+32,0,59,2.7400000000000007,5.8000000000000025,4.5929557000272325,7.795191300043371,0.673585200000089,2.2575044999903184

@@ -1,0 +1,8 @@
+[shard 2] 50/375, 0.6 min
+[shard 2] 100/375, 1.8 min
+[shard 2] 150/375, 3.4 min
+[shard 2] 200/375, 3.9 min
+[shard 2] 250/375, 5.3 min
+[shard 2] 300/375, 7.1 min
+[shard 2] 350/375, 8.6 min
+[shard 2] FINISHED 375 new rows in 12.2 min

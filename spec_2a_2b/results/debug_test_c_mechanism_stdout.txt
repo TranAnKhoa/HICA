@@ -1,0 +1,20 @@
+driver: gw0 cls: GW
+orders: ['o0', 'o1', 'o2']
+  o0: pickup=n6 e=18.760 l=78.760  delivery=n7 e=18.760 l=138.760
+  o1: pickup=n8 e=10.198 l=70.198  delivery=n9 e=10.198 l=130.198
+  o2: pickup=n10 e=314.330 l=374.330  delivery=n11 e=314.330 l=434.330
+
+start: n0 t0: 0.0
+
+=== Toan bo label (bat ky IV/C nao) co the lien quan bundle {o0,o2} ===
+  v=n10 IV=['o0', 'o2'] Cd=[]  t=319.329934 K=10.183475 W=319.329934  finalK=10.183475 finalW=5.322166
+  v=n10 IV=['o2'] Cd=[]  t=319.329934 K=3.487700 W=319.329934  finalK=3.487700 finalW=5.322166
+  v=n10 IV=['o2'] Cd=['o0']  t=319.329934 K=13.011907 W=319.329934  finalK=13.011907 finalW=5.322166
+  v=n11 IV=[] Cd=['o0', 'o2']  t=334.032860 K=16.246216 W=334.032860  finalK=16.246216 finalW=5.567214
+  v=n11 IV=[] Cd=['o0', 'o2']  t=334.032860 K=16.246216 W=334.032860  finalK=16.246216 finalW=5.567214
+  v=n11 IV=[] Cd=['o2']  t=334.032860 K=6.722009 W=334.032860  finalK=6.722009 finalW=5.567214
+  v=n11 IV=[] Cd=['o2']  t=334.032860 K=6.722009 W=334.032860  finalK=6.722009 finalW=5.567214
+  v=n11 IV=['o0'] Cd=['o2']  t=334.032860 K=13.417784 W=334.032860  finalK=13.417784 finalW=5.567214
+  v=n6 IV=['o0'] Cd=[]  t=23.760386 K=4.536056 W=23.760386  finalK=4.536056 finalW=0.396006
+  v=n7 IV=[] Cd=['o0']  t=33.173039 K=6.006940 W=33.173039  finalK=6.006940 finalW=0.552884
+  v=n7 IV=[] Cd=['o0']  t=33.173039 K=6.006940 W=33.173039  finalK=6.006940 finalW=0.552884

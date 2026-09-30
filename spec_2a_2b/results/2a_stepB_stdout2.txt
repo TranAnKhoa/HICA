@@ -1,0 +1,36 @@
+RESUME: 535 rows already in summary, skipping those.
+Traceback (most recent call last):
+  File "run_2a_stepB.py", line 327, in <module>
+    main()
+  File "run_2a_stepB.py", line 294, in main
+    filter_mode, sd)
+  File "run_2a_stepB.py", line 173, in run_one
+    done, pending = _wait_any(pending, poll)
+  File "run_2a_stepB.py", line 219, in _wait_any
+    for fut in as_completed(futs, timeout=timeout):
+  File "C:\Users\An Khoa\AppData\Local\Programs\Python\Python37\lib\concurrent\futures\_base.py", line 238, in as_completed
+    len(pending), total_futures))
+concurrent.futures._base.TimeoutError: 2 (of 2) futures unfinished
+Error in atexit._run_exitfuncs:
+Traceback (most recent call last):
+  File "C:\Users\An Khoa\AppData\Local\Programs\Python\Python37\lib\concurrent\futures\process.py", line 102, in _python_exit
+    thread_wakeup.wakeup()
+  File "C:\Users\An Khoa\AppData\Local\Programs\Python\Python37\lib\concurrent\futures\process.py", line 90, in wakeup
+    self._writer.send_bytes(b"")
+  File "C:\Users\An Khoa\AppData\Local\Programs\Python\Python37\lib\multiprocessing\connection.py", line 183, in send_bytes
+    self._check_closed()
+  File "C:\Users\An Khoa\AppData\Local\Programs\Python\Python37\lib\multiprocessing\connection.py", line 136, in _check_closed
+    raise OSError("handle is closed")
+OSError: handle is closed
+Exception in thread QueueManagerThread:
+Traceback (most recent call last):
+  File "C:\Users\An Khoa\AppData\Local\Programs\Python\Python37\lib\threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "C:\Users\An Khoa\AppData\Local\Programs\Python\Python37\lib\threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\An Khoa\AppData\Local\Programs\Python\Python37\lib\concurrent\futures\process.py", line 361, in _queue_management_worker
+    ready = wait(readers + worker_sentinels)
+  File "C:\Users\An Khoa\AppData\Local\Programs\Python\Python37\lib\multiprocessing\connection.py", line 872, in wait
+    ov.cancel()
+OSError: [WinError 6] The handle is invalid
+

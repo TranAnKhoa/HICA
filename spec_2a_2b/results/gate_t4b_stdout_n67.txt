@@ -1,0 +1,8 @@
+  n=6 done  (2.2s, instances=48, violations=0)
+  n=7 done  (2.6s, instances=72, violations=0)
+
+=== GATE T4-B SUMMARY ===
+instances checked: 72
+(n,B_gw) cells skipped (brute-force khong kha thi, xem _SKIP_N_BGW): 5
+violations: 0
+elapsed=2.6s

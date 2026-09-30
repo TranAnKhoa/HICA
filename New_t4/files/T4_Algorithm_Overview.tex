@@ -1,0 +1,424 @@
+\documentclass[11pt]{article}
+\usepackage[margin=2.2cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{booktabs}
+\usepackage[hidelinks]{hyperref}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric,arrows.meta,positioning,fit,backgrounds}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{definition}{Definition}
+\newtheorem{remark}{Remark}
+
+\newcommand{\Ks}{\mathcal{K}^{\star}}
+\newcommand{\thl}{\underline{\theta}}
+\newcommand{\thu}{\overline{\theta}}
+
+\title{HICA-S, Track T4: Three Pruning Layers of Algorithm A\\
+\large Label dominance, per-bundle Pareto filtering, and the FD-completion label rule}
+\author{Tran An Khoa}
+\date{September 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Algorithm A (route generation for one driver) enumerates every feasible pickup/delivery
+sequence and reduces it to a route pool using three successive, independently safe pruning
+layers, followed by a fourth, separate post-processing filter ($\Ks$) that operates on the
+finished pool. This note gives each layer its own precise statement, an algorithm block, a
+worked numeric example, and a flowchart showing how they compose into the full Algorithm~A
+$\to$ $\Ks$ pipeline. Layer 3 (the FD-completion label rule) and $\Ks$ share the same
+underlying inequality --- ``a sub-bundle route plus the FD price for what is dropped can beat
+the full route'' --- but apply it at different times: Layer 3 applies a \emph{lower bound} to
+an \emph{unfinished} label so that hopeless subtrees are never expanded; $\Ks$ applies the
+\emph{exact} inequality to \emph{finished} routes so that hopeless entries are removed from
+the pool before Algorithms B/C ever see them. This is why enabling Layer 3 never changes the
+pool that $\Ks$ eventually returns (empirically confirmed: 0 violations across 5{,}654{,}551
+audited completions on 5 real RQ1 instances, $B\in\{3,4\}$).
+\end{abstract}
+
+\tableofcontents
+
+%=====================================================================
+\section{Where each layer sits in the pipeline}
+%=====================================================================
+
+Layers 1--3 all execute \emph{inside} the depth-first label-extension recursion of
+Algorithm~A, for a single driver $i$. $\Ks$ executes \emph{after} Algorithm~A has returned a
+finished pool $R_i$, before that pool is handed to Algorithm~B (the winner-determination
+MILP) and Algorithm~C (the VCG removal solves). Figure~\ref{fig:flow} gives the full picture;
+Table~\ref{tab:overview} gives a one-line comparison.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{@{}lllll@{}}
+\toprule
+Layer & Compares & Scope & Uses FD price? & Needs completion? \\
+\midrule
+1 (dominance)      & label vs.\ label        & same $(v,IV,C)$        & no  & no  \\
+2 (Pareto/bundle)   & route vs.\ route        & same bundle $S$        & no  & yes \\
+3 (FD-completion)   & label vs.\ FD           & any $T\subseteq P(L)$  & yes & no (lower bound) \\
+$\Ks$ (post-filter) & route vs.\ FD           & any $T\subseteq S$     & yes & yes (exact) \\
+\bottomrule
+\end{tabular}
+\caption{The four filters, in the order they can fire. Layers 1--3 run during route
+generation (Algorithm~A); $\Ks$ runs once, after Algorithm~A returns.}
+\label{tab:overview}
+\end{table}
+
+%=====================================================================
+\section{Layer 1 --- Label dominance (Dumas, Desrosiers \& Soumis, 1991)}
+%=====================================================================
+
+\subsection{What question it answers}
+While a route is still being built, many partial paths (\emph{labels}) may reach the same
+``state'' by different routes so far. Layer 1 asks: among labels that share a state, which
+ones can already be discarded because another label is at least as good on every axis that
+matters for the future?
+
+\begin{definition}[Label state and dominance]\label{def:label-dom}
+A label is a tuple $L=(v,IV,C,t,K,W)$: current stop $v$, orders on board $IV$, orders fully
+served $C$, current time $t$, and accumulated raw cost $(K,W)$. Two labels $L_a,L_b$ are
+\emph{comparable} iff $(v_a,IV_a,C_a)=(v_b,IV_b,C_b)$. Label $L_a$ \emph{dominates} $L_b$
+(written $L_a\preceq L_b$) iff
+\[
+t_a\le t_b,\qquad K_a\le K_b,\qquad W_a\le W_b,
+\]
+with at least one inequality strict.
+\end{definition}
+
+\begin{remark}[Why this is always safe]
+If $L_a\preceq L_b$, then any completion $\sigma$ feasible from $L_b$ is also feasible from
+$L_a$ (same on-board set, same served set, same or earlier position in time cannot make a
+downstream deadline harder to meet), and the resulting route from $L_a\cdot\sigma$ has cost
+component-wise no larger than from $L_b\cdot\sigma$. Hence $L_b$ can never lead to a route that
+strictly beats every route reachable from $L_a$; deleting $L_b$ and its whole subtree loses
+nothing.
+\end{remark}
+
+\begin{algorithm}[H]
+\caption{Layer 1 --- filter dominated labels at one DP round}
+\label{alg:layer1}
+\begin{algorithmic}[1]
+\Function{FilterDominated}{labels}
+  \State $n \gets |\text{labels}|$; $\text{dominated} \gets [\text{False}]\times n$
+  \For{$i \gets 1$ \textbf{to} $n$}
+    \If{dominated$[i]$} \textbf{continue} \EndIf
+    \For{$j \gets 1$ \textbf{to} $n$, $j\ne i$}
+      \If{dominated$[j]$} \textbf{continue} \EndIf
+      \If{labels$[j] \preceq$ labels$[i]$} \State dominated$[i]\gets$ True \State \textbf{break} \EndIf
+      \If{labels$[i] \preceq$ labels$[j]$} \State dominated$[j]\gets$ True \EndIf
+    \EndFor
+  \EndFor
+  \State \Return $\{\text{labels}[i] : \neg\text{dominated}[i]\}$
+\EndFunction
+\end{algorithmic}
+\end{algorithm}
+
+\paragraph{Worked example.} Two labels reach state $(v{=}n_8,\ IV{=}\{o_1,o_3\},\
+C{=}\{o_5\})$: label $A=(t{=}42,\ K{=}5.1,\ W{=}0.6)$ and label $B=(t{=}47,\ K{=}5.1,\
+W{=}0.8)$. Since $t_A\le t_B$, $K_A\le K_B$ (equal), $W_A\le W_B$ with the last inequality
+strict, $A\preceq B$: $B$ is deleted, $A$ survives. Any completion later tried from $A$ starts
+no later and no more expensive than the same completion from $B$ would have been.
+
+\paragraph{Where it lives in the code.} \texttt{t6\_dp.py::\_filter\_dominated\_labels},
+re-applied after every DP round (mirrored for audit purposes in
+\texttt{hica\_core.py::\_filter\_dominated\_labels}). It is present in \emph{every} run of
+Algorithm~A, whether or not Layer 3 is enabled --- it is not a variable in any of the
+before/after comparisons reported elsewhere in this track.
+
+%=====================================================================
+\section{Layer 2 --- Per-bundle Pareto filtering}
+%=====================================================================
+
+\subsection{What question it answers}
+Once Algorithm~A has finished exploring, several \emph{complete} routes may serve exactly the
+same bundle of orders $S$ (same set, different stop order, different amount of detour). Layer
+2 asks: among the finished routes that all serve exactly $S$, which are dominated purely on
+$(K,W)$?
+
+\begin{definition}[Per-bundle Pareto dominance]\label{def:layer2}
+Fix a bundle $S$ and let $R_S=\{r_1,\dots,r_m\}$ be every complete route generated by
+Algorithm~A with bundle exactly $S$. Route $r_a$ \emph{Pareto-dominates} $r_b$ (both in $R_S$)
+iff $K_{r_a}\le K_{r_b}$ and $W_{r_a}\le W_{r_b}$, with at least one strict. The
+\emph{per-bundle Pareto front} kept for $S$ is
+\[
+\mathrm{PF}(S) \;=\; \{\, r\in R_S : \nexists\, r'\in R_S,\ r' \text{ Pareto-dominates } r \,\}.
+\]
+\end{definition}
+
+\begin{remark}[Why the comparison never crosses bundles]
+Every $r\in R_S$ serves the \emph{identical} order set $S$; hence for any bid $b$,
+$c_r(b)=K_r+bW_r$ and $c_{r'}(b)=K_{r'}+bW_{r'}$ are directly comparable at every $b$ without
+any correction term. If $r'$ Pareto-dominates $r$, then $c_{r'}(b)\le c_r(b)$ for \emph{every}
+$b\ge0$, so $r$ can never be strictly cheaper than $r'$ and is safe to discard. This is
+different in kind from comparing routes with \emph{different} bundles $S\ne S'$: there the
+``missing'' orders $S\setminus S'$ must go somewhere (FD, or another driver), and a raw
+$(K,W)$ comparison that ignores this is unsound (Remark~\ref{rem:hull-rejected}).
+\end{remark}
+
+\begin{algorithm}[H]
+\caption{Layer 2 --- Pareto front of one bundle}
+\label{alg:layer2}
+\begin{algorithmic}[1]
+\Function{ParetoFront}{$\text{kw\_list} = [(K_1,W_1),\dots,(K_m,W_m)]$}
+  \State sort kw\_list by $(K,W)$
+  \State keep $\gets [\,]$; bestW $\gets +\infty$
+  \For{$(K,W)$ in sorted kw\_list}
+    \If{$W <$ bestW} \State append $(K,W)$ to keep \State bestW $\gets W$ \EndIf
+  \EndFor
+  \State \Return keep
+\EndFunction
+\end{algorithmic}
+\end{algorithm}
+
+\paragraph{Worked example.} Bundle $S=\{o_2,o_7,o_9\}$ has three complete routes found by
+Algorithm~A: $A=(K{=}10,\,W{=}1.2)$, $B=(K{=}12,\,W{=}0.9)$, $C=(K{=}15,\,W{=}1.5)$. $C$ is
+dominated by $A$ on both axes ($10\le15$, $1.2\le1.5$) and discarded. $A$ and $B$ each win on
+one axis ($A$ cheaper in $K$, $B$ cheaper in $W$), so both survive: which one is optimal
+depends on the bid $b$ that will be revealed later.
+
+\begin{remark}[What Layer 2 is \emph{not}]\label{rem:hull-rejected}
+An earlier, rejected proposal (\texttt{Report\_ActivationRate.md}, \S5) tried to build a
+\emph{single} Pareto/convex hull over the \emph{entire} pool of one driver, mixing routes from
+every bundle. That rule is unsound: a route of a larger bundle can still be the unique optimum
+at some bid even though it is not on the driver-wide hull, because serving the extra orders
+\emph{together} exploits economies of scale that a per-bundle hull cannot see, and because the
+alternative for the missing orders (FD, or another driver already busy elsewhere) is not
+accounted for by a raw geometric hull. That proposal was audited and discarded (4 of 6
+genuinely activated routes fell outside its candidate set on the very first smoke test); Layer
+2, restricted to \emph{one bundle at a time}, does not have this flaw and is unconditionally
+safe (Definition~\ref{def:layer2}).
+\end{remark}
+
+\paragraph{Where it lives in the code.} \texttt{dp\_labeling.py::\_pareto\_front}, called once
+per finished bundle (\texttt{for Cset, labs in complete\_by\_C.items(): front =
+\_pareto\_front(kw)}) --- never across bundles.
+
+%=====================================================================
+\section{Layer 3 --- The FD-completion label rule}
+%=====================================================================
+
+\subsection{What question it answers}
+Layers 1--2 only ever compare entities \emph{internal} to the driver's own search (label vs.\
+label, or finished route vs.\ finished route of the same bundle). Layer 3 is the first layer
+to compare against an \emph{external} price: the fixed-fleet (FD) tariff $q(\cdot)$. It asks,
+mid-construction: \emph{having already served a set $T$ of orders in the current label, is it
+already certain --- for every way the route might be finished, and every admissible bid --
+that keeping $T$ on board costs more than simply handing $T$ to FD?}
+
+\begin{definition}[Shortcut and its lower-bound savings, informal]\label{def:layer3}
+For a label $L$ with served set $T\subseteq P(L)$, let $L\setminus T$ be $L$ with $T$'s stops
+removed (the \emph{shortcut}). Define
+\[
+\Delta D(L,T) \;=\; \text{distance $L$ spends on $T$ (junction-corrected)}, \qquad
+\delta(L,T) \;=\; \text{time $L$ spends on $T$ (junction-corrected)},
+\]
+\[
+A(L,T) \;=\; \text{worst-case time the shortcut's later \emph{waiting} could absorb},
+\qquad
+\beta(L,T) \;=\; \kappa\,\Delta D \;+\; \thl\,\frac{\max\{0,\,\delta-A\}}{60}.
+\]
+\emph{Rule:} discard $L$ (and its entire subtree) if $\beta(L,T)\ge q(T)$ for some
+$\emptyset\ne T\subseteq P(L)$.
+\end{definition}
+
+\begin{remark}[Why $\beta$ must be a \emph{lower} bound, and why $A$ is unavoidable]
+$L$ is unfinished, so the true saving from dropping $T$ depends on how the route is completed
+--- unknown at this point. $\beta(L,T)$ is proved (Theorem~1 of \texttt{T4\_Label\_Rule.tex})
+to be a valid lower bound on that saving, for \emph{every} feasible completion and every bid
+$b\ge\thl$. Naively transplanting rollback pruning from the ESPPRC literature (Lozano, Duque \&
+Medaglia, 2016) corresponds to setting $A\equiv0$ and is \emph{unsafe} here, because unlike an
+additive-cost shortest-path problem, this route also allows \emph{waiting}: a time saving
+credited now can be silently absorbed by waiting at a later, not-yet-open pickup, so the
+uncorrected rule can discard a route that a full simulation would have kept (a concrete
+counterexample with numbers is in \texttt{T4\_Label\_Rule.tex}, Example~1). $A(L,T)$ subtracts
+exactly the part of the credited saving that later waiting could eat.
+\end{remark}
+
+\begin{algorithm}[H]
+\caption{Layer 3 --- look-back FD-completion check (fires right after serving $T$)}
+\label{alg:layer3}
+\begin{algorithmic}[1]
+\Function{TryFire}{$L$, served set $T$, FD prices $q$, $\thl$, $\kappa$}
+  \State $q_T \gets \sum_{j\in T} q_j$
+  \State $(D',v',r') \gets$ schedule of the shortcut $L\setminus T$ \Comment{junction-corrected}
+  \State $\Delta D \gets D_L - D' - d(v',v_L)$
+  \State $\delta \gets t_L - r' - \tau(v',v_L)$
+  \State $\mathcal{F} \gets$ future reachable stops from $(v_L,t_L)$ \Comment{§\ref{def:layer3} remark on deliveries}
+  \State $A \gets \max\bigl(0,\ \max_{w\in\mathcal{F}}(e_w - r' - \tau(v',w))\bigr)$
+  \State $\beta \gets \kappa\,\Delta D + \thl\cdot\max(0,\delta-A)/60$
+  \If{$\beta \ge q_T$}
+    \State \textbf{prune} $L$ and its entire subtree \Comment{safe by Theorem 1, \texttt{T4\_Label\_Rule.tex}}
+  \EndIf
+\EndFunction
+\end{algorithmic}
+\end{algorithm}
+
+\paragraph{Worked example (numbers from Example~1 of \texttt{T4\_Label\_Rule.tex}).} Label
+$L=(p_{o_2},d_{o_2})$, $T=\{o_2\}$, $q_{o_2}=17.13$. Ignoring absorption ($A\equiv0$, the
+unsafe transplant) credits a $42.9$-minute saving, giving $\beta=17.72\ge17.13$: the label
+would be wrongly discarded. With $A$ correctly computed, the true saving at $\thl$ is only
+$7.24<17.13$: the label is (correctly) kept, because the true completion
+$(p_{o_2},d_{o_2},p_{o_0},d_{o_0})$ needs to wait for $o_0$'s late opening anyway, absorbing
+most of the naive saving.
+
+\paragraph{Where it lives in the code.} \texttt{dp\_rules.py} (full enumerator, used for
+correctness auditing) and \texttt{dp\_fast.py} (incremental $O(1)$-per-extension
+implementation, used for timing) --- both under the \texttt{'LB2'} rule name. It requires no
+completed route: it fires purely from information already accumulated in the label plus a
+$O(1)$-updated shortcut state per picked order.
+
+%=====================================================================
+\section{$\Ks$ --- the exact post-processing filter (not a fourth DP layer)}
+%=====================================================================
+
+\begin{definition}[Local pruning frontier $\Ks_i$]\label{def:kstar}
+For driver $i$'s \emph{finished} pool $R_i$ (after Layers 1--2), and for a route $r\in R_i$
+with bundle $S_r$, define the envelope of everything that could beat $r$ at bid $b$:
+\[
+E_r(b) \;=\; \min\Bigl\{\, q(S_r),\ \min_{\substack{r'\in R_i,\ r'\ne r\\ S_{r'}\subsetneq S_r}}
+\bigl(c_{r'}(b) + q(S_r\setminus S_{r'})\bigr) \Bigr\}, \qquad
+\mu_r(b) \;=\; E_r(b) - c_r(b).
+\]
+Then $\Ks_i = \{\, r\in R_i : \max_{b\in[\thl,\thu]}\mu_r(b) > 0 \,\}$: routes that can win
+against \emph{every} sub-bundle alternative (including sending the rest to FD) for at least
+one admissible bid.
+\end{definition}
+
+\begin{remark}[Same inequality as Layer 3, different time and different scope]
+Both Layer 3 and $\Ks$ test the same underlying fact --- ``a piece of this route, plus FD for
+the rest, can beat the whole route.'' The differences: (i) $\Ks$ compares against \emph{every}
+sub-bundle $T\subseteq S_r$ of the \emph{finished} route, using its \emph{exact} $(K,W)$;
+Layer~3 only compares against the set $T$ \emph{already served so far} in an \emph{unfinished}
+label, using a provable \emph{lower bound} $\beta\le$ true saving. (ii) $\Ks$ runs once, after
+Algorithm~A returns, directly shrinking the pool handed to Algorithms B/C; Layer~3 runs
+\emph{during} generation, only saving the work of enumerating routes that $\Ks$ would have
+discarded anyway. Theorem~2 of \texttt{T4\_Label\_Rule.tex} proves
+$\Ks_i(R_i)=\Ks_i(R'_i)$ where $R'_i$ is the pool generated \emph{with} Layer~3 --- i.e.\
+turning Layer~3 on never changes what $\Ks$ eventually returns. This was also confirmed
+empirically (Table~\ref{tab:audit}).
+\end{remark}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+$B$ & completions audited & bound violations & $\Ks$ changed on any driver? \\
+\midrule
+3 & 114{,}627 & 0 & no \\
+4 & 5{,}539{,}924 & 0 & no \\
+\bottomrule
+\end{tabular}
+\caption{Empirical confirmation on the 5 real RQ1 instances used throughout this track
+(\texttt{audit\_rq1\_bounds.py}).}
+\label{tab:audit}
+\end{table}
+
+%=====================================================================
+\section{Flowchart}
+%=====================================================================
+
+\begin{figure}[h]
+\centering
+\resizebox{!}{0.82\textheight}{%
+\begin{tikzpicture}[
+  node distance=6mm and 10mm,
+  every node/.style={font=\footnotesize},
+  block/.style={rectangle, rounded corners, draw, fill=blue!6, align=center,
+                minimum width=30mm, minimum height=7mm, inner sep=1.5mm},
+  decision/.style={diamond, draw, fill=orange!10, align=center, aspect=2.6,
+                   minimum width=22mm, inner sep=0.5mm},
+  filter/.style={rectangle, draw, fill=green!8, align=center,
+                 minimum width=34mm, minimum height=7mm, inner sep=1.5mm},
+  final/.style={rectangle, rounded corners, draw, fill=red!8, align=center,
+                minimum width=32mm, minimum height=7mm, inner sep=1.5mm},
+  lbl/.style={font=\scriptsize},
+  arr/.style={-{Stealth[length=1.8mm]}, thick},
+  every fit/.style={draw, dashed, rounded corners, inner sep=3mm}
+]
+
+% ---- main vertical spine, single column, no left/right zigzag ----
+\node[block] (start) {start label\\$(v_0,\emptyset,\emptyset,t_0,0,0)$};
+\node[decision, below=of start] (extend) {extend to\\next stop};
+\node[filter, below=of extend] (l3) {\textbf{Layer 3}: $\beta(L,T)\ge q(T)$\\for some $T$?};
+\node[decision, below=of l3] (fire3) {fires?};
+\node[decision, below=of fire3] (complete) {label\\complete?};
+\node[filter, below=of complete] (l1) {\textbf{Layer 1}: dominated by\\same-state label?};
+\node[decision, below=of l1] (dom1) {dominated?};
+\node[block, below=of dom1] (route) {emit route $(S,K,W)$\\into $R_S$};
+\node[filter, below=of route] (l2) {\textbf{Layer 2}: per-bundle\\Pareto filter on $R_S$};
+\node[block, below=of l2] (pool) {finished pool $R_i$\\(after Layers 1--2)};
+\node[filter, below=of pool] (kstar) {$\Ks$: exact post-filter\\(Def.~\ref{def:kstar})};
+\node[final, below=of kstar] (out) {$\Ks_i\subseteq R_i$ handed\\to Algorithm B/C};
+
+% ---- side nodes for the two "prune/discard" outcomes, kept OFF the spine ----
+\node[block, right=16mm of fire3] (prune3) {prune label\\\& subtree};
+\node[block, right=16mm of dom1] (prune1) {discard\\label};
+
+% ---- spine arrows, strictly top-to-bottom ----
+\draw[arr] (start) -- (extend);
+\draw[arr] (extend) -- (l3);
+\draw[arr] (l3) -- (fire3);
+\draw[arr] (fire3) -- node[lbl,left]{no} (complete);
+\draw[arr] (complete) -- node[lbl,left]{no: extend more} (l1);
+\draw[arr] (l1) -- (dom1);
+\draw[arr] (dom1) -- node[lbl,left]{no} (route);
+\draw[arr] (route) -- (l2);
+\draw[arr] (l2) -- (pool);
+\draw[arr] (pool) -- (kstar);
+\draw[arr] (kstar) -- (out);
+
+% ---- side branches: go right to the prune/discard box, then straight back
+%      into the spine at the node ABOVE where the loop restarts (no crossing) ----
+\draw[arr] (fire3) -- node[lbl,above]{yes} (prune3);
+\draw[arr] (prune3) |- ($(extend.east)+(0,-1mm)$);
+\draw[arr] (dom1) -- node[lbl,above]{yes} (prune1);
+\draw[arr] (prune1) |- ($(l1.east)+(0,4mm)$);
+
+% ---- "complete=yes" skips Layer 1, goes straight down into "route";
+%      routed via an explicit waypoint further right than prune3/prune1,
+%      so the two 90-degree turns are unambiguous and it cannot cross them ----
+\coordinate (bypass) at ($(complete.east)+(32mm,0)$);
+\draw[arr] (complete.east) -- node[lbl,above]{yes} (bypass) -- (bypass |- route.east) -- (route.east);
+
+\begin{scope}[on background layer]
+\node[fit=(l3)(fire3)(complete)(l1)(dom1)(prune3)(prune1),
+      label={[lbl]above:Algorithm A -- inside the label-extension recursion}] {};
+\end{scope}
+
+\end{tikzpicture}%
+}
+\caption{Full pipeline, read top to bottom. Layers 1 and 3 sit inside the recursive
+label-extension loop of Algorithm~A (dashed box): Layer~3 is checked first, right after a
+set $T$ has just been served; if the label survives and later becomes complete, Layer~1
+dominance is checked against other labels sharing the same state before the route is
+emitted. Layer~2 and $\Ks$ run once the whole pool is finished. Both ``prune/discard''
+outcomes are drawn off the main spine and loop back into the recursion (no crossing lines).}
+\label{fig:flow}
+\end{figure}
+
+%=====================================================================
+\section{Summary}
+%=====================================================================
+
+\begin{itemize}
+\item \textbf{Layer 1} (label dominance, Dumas et al.\ 1991) --- always on, compares
+      \emph{unfinished} labels sharing the same $(v,IV,C)$, no FD price involved.
+\item \textbf{Layer 2} (per-bundle Pareto filter) --- always on, compares \emph{finished}
+      routes that serve the \emph{identical} bundle, no FD price involved. Not to be confused
+      with the rejected driver-wide hull (Remark~\ref{rem:hull-rejected}).
+\item \textbf{Layer 3} (FD-completion label rule, this track's new contribution) --- optional,
+      compares an \emph{unfinished} label's served set $T$ against $q(T)$ using a proven lower
+      bound $\beta(L,T)$; corrects for waiting absorption ($A$), which a direct transplant of
+      rollback pruning omits and which is provably unsafe to omit here.
+\item \textbf{$\Ks$} (local pruning frontier) --- a separate, exact post-processing filter
+      applied once to the finished pool $R_i$; uses the same inequality as Layer~3 but with
+      exact costs and full sub-bundle coverage. Enabling Layer~3 provably (Theorem~2) and
+      empirically (0/5{,}654{,}551 violations) never changes $\Ks_i$.
+\end{itemize}
+
+\end{document}

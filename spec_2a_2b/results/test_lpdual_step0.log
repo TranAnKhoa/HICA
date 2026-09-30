@@ -1,0 +1,105 @@
+
+======================================================================
+Config: {'n': 12, 'B_gw': 3, 'B_od': 3, 'n_drivers': 5, 'seed': 42}
+Buoc 0.1: tinh rc_star cho toan bo pool de xep hang route gan bien...
+Buoc 0.2: kiem monotonicity cho 20 route gan bien nhat...
+  [VIOLATION] rid=gw0_r365 driver=gw0 rc_star=0.0585 -> 1 violation
+      rc_test=0.0000 < rc_star=0.0585  theta_i=21.58
+  [VIOLATION] rid=gw0_r180 driver=gw0 rc_star=0.0671 -> 2 violation
+      rc_test=0.0000 < rc_star=0.0671  theta_i=21.58
+      rc_test=0.0000 < rc_star=0.0671  theta_i=22.33
+  [VIOLATION] rid=gw0_r150 driver=gw0 rc_star=0.7043 -> 1 violation
+      rc_test=0.0000 < rc_star=0.7043  theta_i=22.33
+  [VIOLATION] rid=gw1_r170 driver=gw1 rc_star=0.7541 -> 2 violation
+      rc_test=0.3539 < rc_star=0.7541  theta_i=21.58
+      rc_test=0.0000 < rc_star=0.7541  theta_i=22.33
+  [VIOLATION] rid=gw1_r343 driver=gw1 rc_star=1.1482 -> 1 violation
+      rc_test=0.0000 < rc_star=1.1482  theta_i=22.33
+
+=== Buoc 0 ket qua: n=12 n_drivers=5 seed=42 ===
+Route kiem: 20/879 (uu tien gan bien)
+Route co vi pham monotonicity: 5
+[FAIL - Buoc 0] Gia dinh don dieu SAI - KHONG dung shortcut 1-diem.
+
+======================================================================
+Config: {'n': 10, 'B_gw': 3, 'B_od': 3, 'n_drivers': 4, 'seed': 1}
+Buoc 0.1: tinh rc_star cho toan bo pool de xep hang route gan bien...
+Buoc 0.2: kiem monotonicity cho 20 route gan bien nhat...
+  [VIOLATION] rid=gw1_r103 driver=gw1 rc_star=0.0561 -> 1 violation
+      rc_test=-0.8067 < rc_star=0.0561  theta_i=20.12
+  [VIOLATION] rid=gw1_r125 driver=gw1 rc_star=-0.0835 -> 1 violation
+      rc_test=-0.5851 < rc_star=-0.0835  theta_i=20.12
+  [VIOLATION] rid=gw0_r105 driver=gw0 rc_star=0.1261 -> 1 violation
+      rc_test=-1.4614 < rc_star=0.1261  theta_i=19.81
+
+=== Buoc 0 ket qua: n=10 n_drivers=4 seed=1 ===
+Route kiem: 20/714 (uu tien gan bien)
+Route co vi pham monotonicity: 3
+[FAIL - Buoc 0] Gia dinh don dieu SAI - KHONG dung shortcut 1-diem.
+
+======================================================================
+Config: {'n': 15, 'B_gw': 3, 'B_od': 3, 'n_drivers': 5, 'seed': 7}
+Buoc 0.1: tinh rc_star cho toan bo pool de xep hang route gan bien...
+Buoc 0.2: kiem monotonicity cho 20 route gan bien nhat...
+
+=== Buoc 0 ket qua: n=15 n_drivers=5 seed=7 ===
+Route kiem: 20/1561 (uu tien gan bien)
+Route co vi pham monotonicity: 0
+[PASS - Buoc 0] Gia dinh don dieu dung tren mau da kiem.
+
+======================================================================
+Config: {'n': 12, 'B_gw': 3, 'B_od': 3, 'n_drivers': 6, 'seed': 123}
+Buoc 0.1: tinh rc_star cho toan bo pool de xep hang route gan bien...
+Buoc 0.2: kiem monotonicity cho 20 route gan bien nhat...
+  [VIOLATION] rid=gw0_r13 driver=gw0 rc_star=0.0193 -> 2 violation
+      rc_test=0.0000 < rc_star=0.0193  theta_i=21.53
+      rc_test=0.0000 < rc_star=0.0193  theta_i=21.46
+  [VIOLATION] rid=gw2_r170 driver=gw2 rc_star=-0.2312 -> 1 violation
+      rc_test=-0.3967 < rc_star=-0.2312  theta_i=18.10
+
+=== Buoc 0 ket qua: n=12 n_drivers=6 seed=123 ===
+Route kiem: 20/1416 (uu tien gan bien)
+Route co vi pham monotonicity: 2
+[FAIL - Buoc 0] Gia dinh don dieu SAI - KHONG dung shortcut 1-diem.
+
+======================================================================
+Config: {'n': 10, 'B_gw': 3, 'B_od': 3, 'n_drivers': 4, 'seed': 999}
+Buoc 0.1: tinh rc_star cho toan bo pool de xep hang route gan bien...
+Buoc 0.2: kiem monotonicity cho 20 route gan bien nhat...
+  [VIOLATION] rid=od1_r1 driver=od1 rc_star=-0.1785 -> 2 violation
+      rc_test=-1.1653 < rc_star=-0.1785  theta_i=19.81
+      rc_test=-1.1086 < rc_star=-0.1785  theta_i=20.12
+  [VIOLATION] rid=gw0_r138 driver=gw0 rc_star=0.2166 -> 4 violation
+      rc_test=0.0000 < rc_star=0.2166  theta_i=21.53
+      rc_test=0.0000 < rc_star=0.2166  theta_i=19.75
+      rc_test=0.0000 < rc_star=0.2166  theta_i=24.32
+  [VIOLATION] rid=gw1_r12 driver=gw1 rc_star=0.2476 -> 1 violation
+      rc_test=0.1841 < rc_star=0.2476  theta_i=22.28
+  [VIOLATION] rid=od1_r0 driver=od1 rc_star=0.2927 -> 2 violation
+      rc_test=-0.8427 < rc_star=0.2927  theta_i=19.81
+      rc_test=0.0943 < rc_star=0.2927  theta_i=20.12
+  [VIOLATION] rid=gw0_r201 driver=gw0 rc_star=0.4242 -> 1 violation
+      rc_test=0.3947 < rc_star=0.4242  theta_i=19.81
+  [VIOLATION] rid=gw0_r128 driver=gw0 rc_star=1.0163 -> 2 violation
+      rc_test=0.9545 < rc_star=1.0163  theta_i=19.81
+      rc_test=0.6943 < rc_star=1.0163  theta_i=22.28
+  [VIOLATION] rid=gw1_r87 driver=gw1 rc_star=1.1124 -> 3 violation
+      rc_test=1.0650 < rc_star=1.1124  theta_i=24.32
+      rc_test=1.0803 < rc_star=1.1124  theta_i=22.28
+      rc_test=1.0670 < rc_star=1.1124  theta_i=24.06
+
+=== Buoc 0 ket qua: n=10 n_drivers=4 seed=999 ===
+Route kiem: 20/510 (uu tien gan bien)
+Route co vi pham monotonicity: 7
+[FAIL - Buoc 0] Gia dinh don dieu SAI - KHONG dung shortcut 1-diem.
+
+
+=== TONG HOP BUOC 0 ===
+n=12 n_drivers=5 seed=42: checked=20 violations=5
+n=10 n_drivers=4 seed=1: checked=20 violations=3
+n=15 n_drivers=5 seed=7: checked=20 violations=0
+n=12 n_drivers=6 seed=123: checked=20 violations=2
+n=10 n_drivers=4 seed=999: checked=20 violations=7
+
+TONG violations qua 5 instance = 17
+[FAIL - Buoc 0] Chuyen sang phuong an du phong Sec4, KHONG dung shortcut 1-diem.

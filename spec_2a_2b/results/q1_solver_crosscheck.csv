@@ -1,0 +1,6 @@
+n,B_gw,route_pool_size,Z_cbc,Z_cplex,delta_Z,status_cbc,status_cplex,runtime_cbc_s,runtime_cplex_s,assignment_match,n_vars
+5,2,34,71.9641,71.9641,0.0,OPTIMAL,integer optimal solution,0.028508599999999995,0.004712999999999995,True,39
+8,2,87,95.6861,95.6861,0.0,OPTIMAL,integer optimal solution,0.03203489999999998,0.005030800000000002,True,95
+10,3,450,113.12056,113.12056,0.0,OPTIMAL,integer optimal solution,0.06683459999999997,0.020227400000000006,True,460
+15,3,1993,183.15272,183.15272,0.0,OPTIMAL,integer optimal solution,0.16467350000000003,0.03319570000000005,True,2008
+20,3,7806,251.27026,251.27026,0.0,OPTIMAL,integer optimal solution,0.22224980000000016,0.0914366000000002,True,7826

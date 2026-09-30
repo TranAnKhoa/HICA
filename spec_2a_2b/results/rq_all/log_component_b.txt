@@ -1,0 +1,17 @@
+﻿[100/600] 2.2 min
+[200/600] 8.2 min
+[300/600] 10.4 min
+[400/600] 17.3 min
+[500/600] 20.0 min
+[600/600] 26.8 min
+-> K:\Data Science\Q1 Research\spec_2a_2b\results\rq_all\component_distribution_kstar.csv
+
+| alignment | largest/n_drivers pool day du (median) | largest/n_drivers pool K* (median) | %% driver co lap (K*) |
+|---:|---:|---:|---:|
+| 0.50 | 0.500 | 0.250 | 79.6% |
+| 0.90 | 1.000 | 1.000 | 1.3% |
+
+So instance (alignment=0.90) co >=2 component o pool K*: 22 / 300
+
+largest_component_kstar_frac o alignment=0.90 van >= 0.85 (gan bang pool day du)
+-> T5 tren K* KHONG cai thien dang ke o che do canh tranh. Bo qua Buoc 4 (dung theo tieu chi da khoa).

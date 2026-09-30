@@ -1,0 +1,10 @@
+  n=3 done  (0.2s, instances=36, violations=0)
+  n=4 done  (2.6s, instances=72, violations=0)
+  n=5 done  (14.4s, instances=108, violations=0)
+  n=6 done  (47.2s, instances=144, violations=0)
+  n=7 done  (122.2s, instances=180, violations=0)
+
+=== GATE 0 SUMMARY ===
+instances checked: 180
+violations: 0
+elapsed=122.2s

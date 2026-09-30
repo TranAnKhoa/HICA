@@ -1,0 +1,28 @@
+=== GATE audit_relaxed_key_safety: n<=6, key=key_drop_C vs brute-force ===
+Instances checked: 720   Mismatches: 333
+*** KEY 'key_drop_C' KHONG AN TOAN - vi du phan vi du dau tien: ***
+  n=3 B_gw=2 tw=60 seed=2 driver=gw0 cls=GW
+    bundle=['o0', 'o2']  brute_only(bi mat)=[(16.246216, 5.567214)]  relaxed_only(du thua/sai)=[]
+  n=3 B_gw=2 tw=60 seed=2 driver=gw1 cls=GW
+    bundle=['o0', 'o2']  brute_only(bi mat)=[(17.645936, 5.567214)]  relaxed_only(du thua/sai)=[]
+  n=3 B_gw=2 tw=60 seed=3 driver=gw0 cls=GW
+    bundle=['o1', 'o2']  brute_only(bi mat)=[(11.573613, 4.26825)]  relaxed_only(du thua/sai)=[]
+  n=3 B_gw=2 tw=60 seed=3 driver=gw1 cls=GW
+    bundle=['o1', 'o2']  brute_only(bi mat)=[(8.990006, 4.26825)]  relaxed_only(du thua/sai)=[]
+  n=3 B_gw=2 tw=120 seed=0 driver=gw0 cls=GW
+    bundle=['o1', 'o2']  brute_only(bi mat)=[(16.17447, 1.397488), (18.04788, 1.235727)]  relaxed_only(du thua/sai)=[(18.255303, 1.50153), (21.642715, 1.415469)]
+
+=== GATE audit_relaxed_key_safety: n<=6, key=key_drop_C_size_only vs brute-force ===
+Instances checked: 720   Mismatches: 339
+*** KEY 'key_drop_C_size_only' KHONG AN TOAN - vi du phan vi du dau tien: ***
+  n=3 B_gw=2 tw=60 seed=0 driver=gw0 cls=GW
+    bundle=['o1', 'o2']  brute_only(bi mat)=[(20.867667, 9.839639)]  relaxed_only(du thua/sai)=[]
+  n=3 B_gw=2 tw=60 seed=0 driver=gw1 cls=GW
+    bundle=['o1', 'o2']  brute_only(bi mat)=[(16.869366, 9.839639)]  relaxed_only(du thua/sai)=[]
+  n=3 B_gw=2 tw=60 seed=1 driver=gw0 cls=GW
+    bundle=['o0', 'o1']  brute_only(bi mat)=[(12.893756, 3.736044)]  relaxed_only(du thua/sai)=[]
+  n=3 B_gw=2 tw=60 seed=1 driver=gw1 cls=GW
+    bundle=['o0', 'o2']  brute_only(bi mat)=[(11.859433, 3.736044)]  relaxed_only(du thua/sai)=[]
+  n=3 B_gw=2 tw=60 seed=2 driver=gw0 cls=GW
+    bundle=['o0', 'o2']  brute_only(bi mat)=[(10.813121, 10.839153)]  relaxed_only(du thua/sai)=[]
+

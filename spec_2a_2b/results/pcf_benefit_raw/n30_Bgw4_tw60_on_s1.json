@@ -1,0 +1,16 @@
+{
+ "record": {
+  "n": 30,
+  "B_gw": 4,
+  "B_od": 2,
+  "tw_width": 60,
+  "filter_mode": "on",
+  "seed": 1,
+  "runtime_seconds": 124.2766,
+  "peak_frontier_size": 928760,
+  "total_states_generated": 8703737,
+  "total_states_surviving": 1805846,
+  "n_complete_bundles_found": 159666,
+  "status": "completed"
+ }
+}

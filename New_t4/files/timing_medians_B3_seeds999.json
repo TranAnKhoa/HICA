@@ -1,0 +1,25 @@
+{
+  "n10_seed999": {
+    "B": 3,
+    "n_repeats": 20,
+    "n_gw": 2,
+    "median_no_rule_s": 0.4225867500063032,
+    "median_with_rule_s": 0.2914566499966895,
+    "median_speedup": 1.4079407098611423,
+    "q1_speedup": 1.3604902016990705,
+    "q3_speedup": 1.5292289424195307,
+    "min_speedup": 1.239376833334407,
+    "max_speedup": 1.7473815801903032,
+    "stdev_over_median": 0.09795027447092361,
+    "ext_no_rule": 33246,
+    "ext_with_rule": 20161,
+    "ext_saved": 0.3935811826986705,
+    "ext_ratio": 1.649025345964982
+  },
+  "ALL": {
+    "median_speedup": 1.4079407098611423,
+    "q1_speedup": 1.3604902016990705,
+    "q3_speedup": 1.5292289424195307,
+    "stdev_over_median": 0.09795027447092361
+  }
+}

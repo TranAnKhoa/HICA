@@ -1,0 +1,4 @@
+n,B_gw,B_od,tau,spatial_mode,supply_ratio,seed,isolated_driver,cls,pool_size_isolated,avg_pool_size_others,lcf
+30,3,2,30.0,clustered,1.0,1966111144,od10,OD,11,2343.6206896551726,0.966667
+30,3,2,30.0,clustered,1.0,1966111144,od11,OD,2,2343.9310344827586,0.966667
+50,3,1,30.0,clustered,1.0,515912853,od7,OD,11,10655.877551020409,0.96

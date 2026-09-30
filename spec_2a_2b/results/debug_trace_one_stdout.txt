@@ -1,0 +1,25 @@
+So label vua pickup voi |IV| in (1,2) tim duoc (mau): 3
+
+--- Label root: v=n15 IV=['o0'] Cd=[] t=19.901 ---
+    iv_completion_feasible called: v=n15 IV=['o0'] t=19.901
+      perm=('o0',) oid=o0 v=n15->d=n16 tt=2.485 A=22.387 e=13.236 l=493.236 Bt=22.387 feasible=True
+  => iv_completion_feasible = True
+  --- doi chieu bang _try_delivery THAT (BFS toan bo) ---
+     THANH CONG voi thu tu: ['o0']
+  => real (_try_delivery BFS) feasible = True
+
+--- Label root: v=n17 IV=['o1'] Cd=[] t=310.804 ---
+    iv_completion_feasible called: v=n17 IV=['o1'] t=310.804
+      perm=('o1',) oid=o1 v=n17->d=n18 tt=5.808 A=316.611 e=305.804 l=785.804 Bt=316.611 feasible=True
+  => iv_completion_feasible = True
+  --- doi chieu bang _try_delivery THAT (BFS toan bo) ---
+     THANH CONG voi thu tu: ['o1']
+  => real (_try_delivery BFS) feasible = True
+
+--- Label root: v=n35 IV=['o10'] Cd=[] t=8.866 ---
+    iv_completion_feasible called: v=n35 IV=['o10'] t=8.866
+      perm=('o10',) oid=o10 v=n35->d=n36 tt=15.569 A=24.435 e=3.866 l=483.866 Bt=24.435 feasible=True
+  => iv_completion_feasible = True
+  --- doi chieu bang _try_delivery THAT (BFS toan bo) ---
+     THANH CONG voi thu tu: ['o10']
+  => real (_try_delivery BFS) feasible = True

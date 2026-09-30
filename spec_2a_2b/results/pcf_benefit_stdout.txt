@@ -1,0 +1,14 @@
+  [5/360] n=20 B_gw=3 tw=60 mode=off  elapsed=13.0s
+  [10/360] n=20 B_gw=3 tw=60 mode=on  elapsed=26.4s
+  [15/360] n=20 B_gw=3 tw=120 mode=off  elapsed=39.7s
+  [20/360] n=20 B_gw=3 tw=120 mode=on  elapsed=53.3s
+  [25/360] n=20 B_gw=3 tw=240 mode=off  elapsed=75.7s
+  [30/360] n=20 B_gw=3 tw=240 mode=on  elapsed=101.7s
+  [35/360] n=20 B_gw=4 tw=60 mode=off  elapsed=243.4s
+  [40/360] n=20 B_gw=4 tw=60 mode=on  elapsed=416.2s
+  [45/360] n=20 B_gw=4 tw=120 mode=off  elapsed=666.2s
+  [50/360] n=20 B_gw=4 tw=120 mode=on  elapsed=931.0s
+  [55/360] n=20 B_gw=4 tw=240 mode=off  elapsed=1358.5s
+  [60/360] n=20 B_gw=4 tw=240 mode=on  elapsed=1945.5s
+  [65/360] n=20 B_gw=5 tw=60 mode=off  elapsed=2891.3s
+  [70/360] n=20 B_gw=5 tw=60 mode=on  elapsed=3432.5s

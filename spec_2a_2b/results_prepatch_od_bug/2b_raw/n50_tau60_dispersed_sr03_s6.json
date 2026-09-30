@@ -1,0 +1,53 @@
+{
+ "record": {
+  "n": 50,
+  "B": 3,
+  "tw_width": 120,
+  "tau": 60,
+  "spatial_mode": "dispersed",
+  "supply_ratio": 0.3,
+  "n_drivers": 15,
+  "seed": 6,
+  "n_edges": 98,
+  "n_components": 1,
+  "largest_component_fraction": 1.0,
+  "median_component_size": 15.0,
+  "n_singleton_components": 0,
+  "component_sizes": [
+   15
+  ],
+  "dp_runtime_s": 101.3225,
+  "total_bundles_in_pool": 166943,
+  "status": "completed"
+ },
+ "meta": {
+  "n": 50,
+  "B": 3,
+  "tw_width": 120,
+  "n_drivers": 15,
+  "seed": 794312382,
+  "tau": 60.0,
+  "spatial_mode": "dispersed",
+  "gw_od_ratio": 0.5,
+  "n_gw": 8,
+  "n_od": 7,
+  "n_nodes": 122
+ },
+ "pool_sizes_by_driver": {
+  "gw0": 20871,
+  "gw1": 20871,
+  "gw2": 20826,
+  "gw3": 20871,
+  "gw4": 20873,
+  "gw5": 20873,
+  "gw6": 20870,
+  "gw7": 20872,
+  "od0": 1,
+  "od1": 1,
+  "od2": 2,
+  "od3": 5,
+  "od4": 2,
+  "od5": 2,
+  "od6": 3
+ }
+}

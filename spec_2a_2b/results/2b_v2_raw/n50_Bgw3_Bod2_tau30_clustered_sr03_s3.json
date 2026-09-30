@@ -1,0 +1,57 @@
+{
+ "record": {
+  "n": 50,
+  "B_gw": 3,
+  "B_od": 2,
+  "tw_width": 120,
+  "tau": 30,
+  "spatial_mode": "clustered",
+  "supply_ratio": 0.3,
+  "n_drivers": 15,
+  "seed": 3,
+  "n_edges": 105,
+  "n_components": 1,
+  "largest_component_fraction": 1.0,
+  "median_component_size": 15.0,
+  "n_singleton_components": 0,
+  "component_sizes": [
+   15
+  ],
+  "dp_runtime_s": 218.8675,
+  "total_bundles_in_pool": 167140,
+  "status": "completed"
+ },
+ "meta": {
+  "n": 50,
+  "B_gw": 3,
+  "B_od": 2,
+  "tw_width": 120,
+  "n_drivers": 15,
+  "seed": 405107457,
+  "tau": 30.0,
+  "spatial_mode": "clustered",
+  "gw_od_ratio": 0.5,
+  "n_gw": 8,
+  "n_od": 7,
+  "n_nodes": 122,
+  "corridor_share": 0.7,
+  "corridor_buffer_km": 3.0
+ },
+ "pool_sizes_by_driver": {
+  "gw0": 20875,
+  "gw1": 20875,
+  "gw2": 20875,
+  "gw3": 20875,
+  "gw4": 20875,
+  "gw5": 20875,
+  "gw6": 20875,
+  "gw7": 20875,
+  "od0": 40,
+  "od1": 12,
+  "od2": 4,
+  "od3": 43,
+  "od4": 7,
+  "od5": 23,
+  "od6": 11
+ }
+}

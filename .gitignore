@@ -1,0 +1,12 @@
+.venv-plots/
+.uv-cache/
+.paper_text/
+Dataset/
+Not Using (dont reed this folder)/
+__pycache__/
+*.pyc
+.claude/
+Output/
+Sharing Economy Logistics/
+Src_Cplex/
+*.csv.gz

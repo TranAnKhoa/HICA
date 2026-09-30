@@ -1,0 +1,72 @@
+  [10/3840] n=10 Bgw=2 tw=30 d=5 mode=off  elapsed=0.4s  last_rt=0.0077s status=completed
+  [20/3840] n=10 Bgw=2 tw=30 d=5 mode=on  elapsed=0.5s  last_rt=0.0125s status=completed
+  [30/3840] n=10 Bgw=2 tw=30 d=10 mode=off  elapsed=0.6s  last_rt=0.016s status=completed
+  [40/3840] n=10 Bgw=2 tw=30 d=10 mode=on  elapsed=0.8s  last_rt=0.0187s status=completed
+  [50/3840] n=10 Bgw=2 tw=60 d=5 mode=off  elapsed=0.9s  last_rt=0.0076s status=completed
+  [60/3840] n=10 Bgw=2 tw=60 d=5 mode=on  elapsed=1.0s  last_rt=0.01s status=completed
+  [70/3840] n=10 Bgw=2 tw=60 d=10 mode=off  elapsed=1.2s  last_rt=0.0497s status=completed
+  [80/3840] n=10 Bgw=2 tw=60 d=10 mode=on  elapsed=1.5s  last_rt=0.028s status=completed
+  [90/3840] n=10 Bgw=2 tw=120 d=5 mode=off  elapsed=1.6s  last_rt=0.01s status=completed
+  [100/3840] n=10 Bgw=2 tw=120 d=5 mode=on  elapsed=1.7s  last_rt=0.0136s status=completed
+  [110/3840] n=10 Bgw=2 tw=120 d=10 mode=off  elapsed=1.9s  last_rt=0.0151s status=completed
+  [120/3840] n=10 Bgw=2 tw=120 d=10 mode=on  elapsed=2.1s  last_rt=0.0171s status=completed
+  [130/3840] n=10 Bgw=2 tw=240 d=5 mode=off  elapsed=2.2s  last_rt=0.0105s status=completed
+  [140/3840] n=10 Bgw=2 tw=240 d=5 mode=on  elapsed=2.4s  last_rt=0.0104s status=completed
+  [150/3840] n=10 Bgw=2 tw=240 d=10 mode=off  elapsed=2.6s  last_rt=0.019s status=completed
+  [160/3840] n=10 Bgw=2 tw=240 d=10 mode=on  elapsed=2.8s  last_rt=0.0215s status=completed
+  [170/3840] n=10 Bgw=3 tw=30 d=5 mode=off  elapsed=3.1s  last_rt=0.0249s status=completed
+  [180/3840] n=10 Bgw=3 tw=30 d=5 mode=on  elapsed=3.4s  last_rt=0.0201s status=completed
+  [190/3840] n=10 Bgw=3 tw=30 d=10 mode=off  elapsed=3.8s  last_rt=0.0539s status=completed
+  [200/3840] n=10 Bgw=3 tw=30 d=10 mode=on  elapsed=4.3s  last_rt=0.0447s status=completed
+  [210/3840] n=10 Bgw=3 tw=60 d=5 mode=off  elapsed=4.8s  last_rt=0.0867s status=completed
+  [220/3840] n=10 Bgw=3 tw=60 d=5 mode=on  elapsed=5.4s  last_rt=0.0329s status=completed
+  [230/3840] n=10 Bgw=3 tw=60 d=10 mode=off  elapsed=6.3s  last_rt=0.0759s status=completed
+  [240/3840] n=10 Bgw=3 tw=60 d=10 mode=on  elapsed=7.3s  last_rt=0.2189s status=completed
+  [250/3840] n=10 Bgw=3 tw=120 d=5 mode=off  elapsed=7.9s  last_rt=0.1048s status=completed
+  [260/3840] n=10 Bgw=3 tw=120 d=5 mode=on  elapsed=8.6s  last_rt=0.0629s status=completed
+  [270/3840] n=10 Bgw=3 tw=120 d=10 mode=off  elapsed=9.8s  last_rt=0.1344s status=completed
+  [280/3840] n=10 Bgw=3 tw=120 d=10 mode=on  elapsed=11.0s  last_rt=0.1872s status=completed
+  [290/3840] n=10 Bgw=3 tw=240 d=5 mode=off  elapsed=11.8s  last_rt=0.0613s status=completed
+  [300/3840] n=10 Bgw=3 tw=240 d=5 mode=on  elapsed=12.8s  last_rt=0.069s status=completed
+  [310/3840] n=10 Bgw=3 tw=240 d=10 mode=off  elapsed=14.3s  last_rt=0.1509s status=completed
+  [320/3840] n=10 Bgw=3 tw=240 d=10 mode=on  elapsed=16.0s  last_rt=0.1214s status=completed
+  [330/3840] n=10 Bgw=4 tw=30 d=5 mode=off  elapsed=16.6s  last_rt=0.0518s status=completed
+  [340/3840] n=10 Bgw=4 tw=30 d=5 mode=on  elapsed=17.3s  last_rt=0.1203s status=completed
+  [350/3840] n=10 Bgw=4 tw=30 d=10 mode=off  elapsed=18.6s  last_rt=0.0752s status=completed
+  [360/3840] n=10 Bgw=4 tw=30 d=10 mode=on  elapsed=20.1s  last_rt=0.1252s status=completed
+  [370/3840] n=10 Bgw=4 tw=60 d=5 mode=off  elapsed=22.1s  last_rt=0.085s status=completed
+  [380/3840] n=10 Bgw=4 tw=60 d=5 mode=on  elapsed=24.8s  last_rt=0.3377s status=completed
+  [390/3840] n=10 Bgw=4 tw=60 d=10 mode=off  elapsed=29.9s  last_rt=0.3096s status=completed
+  [400/3840] n=10 Bgw=4 tw=60 d=10 mode=on  elapsed=34.9s  last_rt=0.4282s status=completed
+  [410/3840] n=10 Bgw=4 tw=120 d=5 mode=off  elapsed=39.5s  last_rt=0.474s status=completed
+  [420/3840] n=10 Bgw=4 tw=120 d=5 mode=on  elapsed=43.1s  last_rt=0.1558s status=completed
+  [430/3840] n=10 Bgw=4 tw=120 d=10 mode=off  elapsed=49.2s  last_rt=0.5658s status=completed
+  [440/3840] n=10 Bgw=4 tw=120 d=10 mode=on  elapsed=57.3s  last_rt=0.4699s status=completed
+  [450/3840] n=10 Bgw=4 tw=240 d=5 mode=off  elapsed=65.6s  last_rt=0.8186s status=completed
+  [460/3840] n=10 Bgw=4 tw=240 d=5 mode=on  elapsed=75.5s  last_rt=1.1296s status=completed
+  [470/3840] n=10 Bgw=4 tw=240 d=10 mode=off  elapsed=92.8s  last_rt=1.6257s status=completed
+  [480/3840] n=10 Bgw=4 tw=240 d=10 mode=on  elapsed=111.5s  last_rt=1.2349s status=completed
+  [490/3840] n=10 Bgw=5 tw=30 d=5 mode=off  elapsed=112.8s  last_rt=0.0702s status=completed
+  [500/3840] n=10 Bgw=5 tw=30 d=5 mode=on  elapsed=114.6s  last_rt=0.2124s status=completed
+  [510/3840] n=10 Bgw=5 tw=30 d=10 mode=off  elapsed=117.0s  last_rt=0.2218s status=completed
+  [520/3840] n=10 Bgw=5 tw=30 d=10 mode=on  elapsed=120.8s  last_rt=0.2807s status=completed
+  [530/3840] n=10 Bgw=5 tw=60 d=5 mode=off  elapsed=128.4s  last_rt=0.3691s status=completed
+Traceback (most recent call last):
+  File "run_2a_stepB.py", line 294, in main
+    filter_mode, sd)
+  File "run_2a_stepB.py", line 173, in run_one
+    done, pending = _wait_any(pending, poll)
+  File "run_2a_stepB.py", line 219, in _wait_any
+    for fut in as_completed(futs, timeout=timeout):
+  File "C:\Users\An Khoa\AppData\Local\Programs\Python\Python37\lib\concurrent\futures\_base.py", line 238, in as_completed
+    len(pending), total_futures))
+concurrent.futures._base.TimeoutError: 2 (of 2) futures unfinished
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "run_2a_stepB.py", line 327, in <module>
+    main()
+  File "run_2a_stepB.py", line 315, in main
+    pool.shutdown(wait=False, cancel_futures=True)
+TypeError: shutdown() got an unexpected keyword argument 'cancel_futures'

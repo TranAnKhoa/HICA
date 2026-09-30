@@ -1,0 +1,27 @@
+RESUME: 70 rows already in summary, skipping those.
+  [5/360] n=20 B_gw=3 tw=60 mode=off  elapsed=0.0s
+  [10/360] n=20 B_gw=3 tw=60 mode=on  elapsed=0.0s
+  [15/360] n=20 B_gw=3 tw=120 mode=off  elapsed=0.0s
+  [20/360] n=20 B_gw=3 tw=120 mode=on  elapsed=0.0s
+  [25/360] n=20 B_gw=3 tw=240 mode=off  elapsed=0.0s
+  [30/360] n=20 B_gw=3 tw=240 mode=on  elapsed=0.0s
+  [35/360] n=20 B_gw=4 tw=60 mode=off  elapsed=0.0s
+  [40/360] n=20 B_gw=4 tw=60 mode=on  elapsed=0.0s
+  [45/360] n=20 B_gw=4 tw=120 mode=off  elapsed=0.0s
+  [50/360] n=20 B_gw=4 tw=120 mode=on  elapsed=0.0s
+  [55/360] n=20 B_gw=4 tw=240 mode=off  elapsed=0.0s
+  [60/360] n=20 B_gw=4 tw=240 mode=on  elapsed=0.0s
+  [65/360] n=20 B_gw=5 tw=60 mode=off  elapsed=0.0s
+  [70/360] n=20 B_gw=5 tw=60 mode=on  elapsed=0.0s
+  [75/360] n=20 B_gw=5 tw=120 mode=off  elapsed=361.1s
+  [80/360] n=20 B_gw=5 tw=120 mode=on  elapsed=767.7s
+  [85/360] n=20 B_gw=5 tw=240 mode=off  elapsed=1180.3s
+  [90/360] n=20 B_gw=5 tw=240 mode=on  elapsed=1591.8s
+  [95/360] n=30 B_gw=3 tw=60 mode=off  elapsed=1626.2s
+  [100/360] n=30 B_gw=3 tw=60 mode=on  elapsed=1668.2s
+  [105/360] n=30 B_gw=3 tw=120 mode=off  elapsed=1719.9s
+  [110/360] n=30 B_gw=3 tw=120 mode=on  elapsed=1778.2s
+  [115/360] n=30 B_gw=3 tw=240 mode=off  elapsed=1858.2s
+  [120/360] n=30 B_gw=3 tw=240 mode=on  elapsed=1943.0s
+  [125/360] n=30 B_gw=4 tw=60 mode=off  elapsed=2711.6s
+  [130/360] n=30 B_gw=4 tw=60 mode=on  elapsed=3420.2s

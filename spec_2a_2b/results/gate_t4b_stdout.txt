@@ -1,0 +1,3 @@
+  n=3 done  (0.5s, instances=96, violations=0)
+  n=4 done  (7.4s, instances=192, violations=0)
+  n=5 done  (204.1s, instances=288, violations=0)

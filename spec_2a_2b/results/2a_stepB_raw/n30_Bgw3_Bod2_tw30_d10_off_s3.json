@@ -1,0 +1,25 @@
+{
+ "record": {
+  "n": 30,
+  "B_gw": 3,
+  "B_od": 2,
+  "tw_width": 30,
+  "n_drivers": 10,
+  "filter_mode": "off",
+  "seed": 3,
+  "runtime_seconds": 4.84,
+  "peak_frontier_size": 42797,
+  "total_states_generated": 278402,
+  "total_states_surviving": 98956,
+  "survival_ratio": 0.355443,
+  "n_complete_bundles_found": 17709,
+  "theoretical_sequence_cap": 97.0,
+  "k_values": [
+   1,
+   2,
+   3
+  ],
+  "status": "completed",
+  "n_drivers_done": 10
+ }
+}

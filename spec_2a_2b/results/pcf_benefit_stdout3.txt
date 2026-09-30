@@ -1,0 +1,50 @@
+RESUME: 131 rows already in summary, skipping those.
+  [5/360] n=20 B_gw=3 tw=60 mode=off  elapsed=0.0s
+  [10/360] n=20 B_gw=3 tw=60 mode=on  elapsed=0.0s
+  [15/360] n=20 B_gw=3 tw=120 mode=off  elapsed=0.0s
+  [20/360] n=20 B_gw=3 tw=120 mode=on  elapsed=0.0s
+  [25/360] n=20 B_gw=3 tw=240 mode=off  elapsed=0.0s
+  [30/360] n=20 B_gw=3 tw=240 mode=on  elapsed=0.0s
+  [35/360] n=20 B_gw=4 tw=60 mode=off  elapsed=0.0s
+  [40/360] n=20 B_gw=4 tw=60 mode=on  elapsed=0.0s
+  [45/360] n=20 B_gw=4 tw=120 mode=off  elapsed=0.0s
+  [50/360] n=20 B_gw=4 tw=120 mode=on  elapsed=0.0s
+  [55/360] n=20 B_gw=4 tw=240 mode=off  elapsed=0.0s
+  [60/360] n=20 B_gw=4 tw=240 mode=on  elapsed=0.0s
+  [65/360] n=20 B_gw=5 tw=60 mode=off  elapsed=0.0s
+  [70/360] n=20 B_gw=5 tw=60 mode=on  elapsed=0.0s
+  [75/360] n=20 B_gw=5 tw=120 mode=off  elapsed=0.0s
+  [80/360] n=20 B_gw=5 tw=120 mode=on  elapsed=0.0s
+  [85/360] n=20 B_gw=5 tw=240 mode=off  elapsed=0.0s
+  [90/360] n=20 B_gw=5 tw=240 mode=on  elapsed=0.0s
+  [95/360] n=30 B_gw=3 tw=60 mode=off  elapsed=0.0s
+  [100/360] n=30 B_gw=3 tw=60 mode=on  elapsed=0.0s
+  [105/360] n=30 B_gw=3 tw=120 mode=off  elapsed=0.0s
+  [110/360] n=30 B_gw=3 tw=120 mode=on  elapsed=0.0s
+  [115/360] n=30 B_gw=3 tw=240 mode=off  elapsed=0.0s
+  [120/360] n=30 B_gw=3 tw=240 mode=on  elapsed=0.0s
+  [125/360] n=30 B_gw=4 tw=60 mode=off  elapsed=0.0s
+  [130/360] n=30 B_gw=4 tw=60 mode=on  elapsed=0.0s
+  [135/360] n=30 B_gw=4 tw=120 mode=off  elapsed=774.9s
+  [140/360] n=30 B_gw=4 tw=120 mode=on  elapsed=1502.0s
+  [145/360] n=30 B_gw=4 tw=240 mode=off  elapsed=1831.2s
+  [150/360] n=30 B_gw=4 tw=240 mode=on  elapsed=2158.0s
+  [180/360] n=30 B_gw=5 SKIPPED (brute blowup, xem _SKIP_N_BGW)
+  [185/360] n=50 B_gw=3 tw=60 mode=off  elapsed=2359.4s
+  [190/360] n=50 B_gw=3 tw=60 mode=on  elapsed=2585.6s
+  [195/360] n=50 B_gw=3 tw=120 mode=off  elapsed=2854.4s
+  [200/360] n=50 B_gw=3 tw=120 mode=on  elapsed=3154.2s
+  [205/360] n=50 B_gw=3 tw=240 mode=off  elapsed=3553.3s
+  [210/360] n=50 B_gw=3 tw=240 mode=on  elapsed=3968.4s
+  [240/360] n=50 B_gw=4 SKIPPED (brute blowup, xem _SKIP_N_BGW)
+  [270/360] n=50 B_gw=5 SKIPPED (brute blowup, xem _SKIP_N_BGW)
+  [275/360] n=75 B_gw=3 tw=60 mode=off  elapsed=4833.0s
+  [280/360] n=75 B_gw=3 tw=60 mode=on  elapsed=5696.9s
+  [285/360] n=75 B_gw=3 tw=120 mode=off  elapsed=6688.2s
+  [290/360] n=75 B_gw=3 tw=120 mode=on  elapsed=7759.7s
+  [295/360] n=75 B_gw=3 tw=240 mode=off  elapsed=9217.4s
+  [300/360] n=75 B_gw=3 tw=240 mode=on  elapsed=9821.6s
+  [330/360] n=75 B_gw=4 SKIPPED (brute blowup, xem _SKIP_N_BGW)
+  [360/360] n=75 B_gw=5 SKIPPED (brute blowup, xem _SKIP_N_BGW)
+
+=== PCF BENEFIT DONE ===  elapsed=9821.6s

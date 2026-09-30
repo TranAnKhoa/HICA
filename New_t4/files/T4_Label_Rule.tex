@@ -1,0 +1,375 @@
+\documentclass[11pt]{article}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs,enumitem}
+\usepackage[hidelinks]{hyperref}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\Ks}{\mathcal{K}^{\star}}
+\newcommand{\thl}{\underline{\theta}}
+\newcommand{\thu}{\overline{\theta}}
+\newcommand{\0}{\mathbf{0}}
+
+\title{HICA-S, Track T4 (addendum):\\ An FD-Completion Label Rule for Algorithm~A}
+\author{Draft for supervisor review --- Tran An Khoa}
+\date{September 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+The companion note (\emph{The Local Pruning Frontier}, hereafter [LPF]) characterises the
+smallest pool $\Ks_i$ that a bid-independent, driver-local rule may retain, but computes
+it only \emph{after} Algorithm~A has enumerated every route. This addendum moves part of that
+reasoning \emph{inside} the label-extension procedure. When a partial route has served, or
+picked up, a set $T$ of orders, we bound from below --- uniformly over all feasible
+completions and all admissible bids --- how much the route would save by dropping $T$ and
+sending it to the fixed fleet; if the saving is at least the FD price $q(T)$, the label and its
+whole subtree are discarded. We prove that the rule never discards a route of $\Ks_i$, so that
+Algorithm~A with the rule followed by $\Pi^\star$ produces exactly the same pool, allocation,
+and VCG payments as before. The rule is an adaptation of \emph{rollback pruning}
+(Lozano, Duque \& Medaglia, 2016); the adaptation is not a formality: because working time
+enters the objective and waiting is allowed, the direct transfer of rollback is unsafe
+(Example~\ref{ex:counter}), and a correction for waiting absorption
+(Lemma~\ref{lem:absorb}) is required. We also report a negative result: a forward
+lower-bound matrix, the most natural first idea, is too weak to ever fire on the test
+instances, for a structural reason. An independent brute-force audit found no violation of any
+bound, and mutation tests confirm that each component of the bound is necessary.
+\end{abstract}
+
+%=====================================================================
+\section{Setting and notation}
+%=====================================================================
+
+Notation follows [LPF]. Fix a driver $i$ with start point $v_0$, departure time $t_0$ and
+coefficient $\kappa$. A \emph{label} $L=(v_1,\dots,v_m)$ is a precedence-feasible stop
+sequence (pickups $p_o$, deliveries $d_o$). Travel distances $d(\cdot,\cdot)$ and times
+$\tau(\cdot,\cdot)$ satisfy the triangle inequality, service times $s_v\ge 0$, and a pickup
+$p_o$ has an opening (release) time $e_{p_o}$ that is met by waiting; deliveries have no
+opening time (Remark~\ref{rem:dlb} treats the general case). Service starts and ready times
+are
+\[
+a_k=\max\{e_{v_k},\,r_{k-1}+\tau(v_{k-1},v_k)\},\qquad r_k=a_k+s_{v_k},\qquad r_0=t_0 .
+\]
+For a gigworker, $K=\kappa\cdot(\text{route length})$ and $W=(r_{\text{last}}-t_0)/60$; for an
+occasional driver the route ends with a leg to the personal destination (no opening time),
+$K=\kappa\cdot(\text{length}-\text{direct length})$ and
+$W=(\text{arrival at destination}-t_0-\text{direct time})/60$. The reported cost is
+$c(b)=K+bW$ with $b\in\Theta=[\thl,\thu]$, $\thl\ge 0$.
+
+\begin{definition}[Shortcut of a label]\label{def:shortcut}
+Let $P(L)$ be the set of orders picked up in $L$ and $\emptyset\neq T\subseteq P(L)$.
+$L\setminus T$ is the subsequence of $L$ without the stops of $T$; $v'$ is its last point
+($v'=v_0$ if it is empty), $r'$ its ready time at $v'$ ($r'=t_0$ if empty), and $D'$ its
+length. Write $D=D(L)$, $v_m$ and $r=r_m$ for the label itself. Let $\mathcal F(L)$ be the set
+of pickups $p_w$ of orders $w\notin P(L)$ with $r+\tau(v_m,p_w)\le l_{p_w}$, taken empty when
+$|P(L)|=B$. Define
+\begin{align*}
+\Delta D(L,T)&:=D-D'-d(v',v_m), &
+\delta(L,T)&:=r-r'-\tau(v',v_m),\\
+A(L,T)&:=\max\Bigl\{0,\ \max_{p_w\in\mathcal F(L)}\bigl(e_{p_w}-r'-\tau(v',p_w)\bigr)\Bigr\}, &
+\beta(L,T)&:=\kappa\,\Delta D+\thl\,\frac{\max\{0,\delta-A\}}{60}.
+\end{align*}
+\end{definition}
+
+$\Delta D$ and $\delta$ are the distance and time that the label spends on $T$, measured on the
+part of the route that is already known; the terms $d(v',v_m)$ and $\tau(v',v_m)$ correct for the
+fact that the continuation may start from the last stop of $L$ (this matters when that stop
+belongs to $T$). $A$ bounds how much of the time saving later waiting can absorb.
+
+\paragraph{The rule.} \emph{Discard the label $L$ and every extension of it if
+$\beta(L,T)\ge q(T)$ for some $\emptyset\ne T\subseteq P(L)$.}
+
+%=====================================================================
+\section{Two lemmas on paths}
+%=====================================================================
+
+\begin{lemma}[Removing stops never hurts]\label{lem:remove}
+Let $\sigma'$ be a subsequence of a stop sequence $\sigma$, both started at $(v_0,t_0)$. Then the
+length of $\sigma'$ is at most that of $\sigma$, every retained stop has a service start in
+$\sigma'$ no later than in $\sigma$, and the completion time (and, for an occasional driver, the
+arrival time at the destination) does not increase.
+\end{lemma}
+
+\begin{proof}
+This is the argument of [LPF, Lemma~3], which uses only the triangle inequality, nonnegative
+service and waiting, and the recursion for $a_k$; feasibility of $\sigma'$ is not needed.
+\end{proof}
+
+The next lemma is the new ingredient. It quantifies how a time advantage survives a common
+continuation when waiting is allowed.
+
+\begin{lemma}[Absorption of a time advantage]\label{lem:absorb}
+Two paths continue with the same stops $w_1,\dots,w_k$. Path~1 leaves point $x$ at ready time
+$\eta$, path~2 leaves $x'$ at ready time $\eta'$. Let
+$T_1=\eta'+\tau(x',w_1)$ and $T_{j+1}=T_j+s_{w_j}+\tau(w_j,w_{j+1})$ be the no-wait arrival
+times of path~2, and suppose $\eta+\tau(x,w_1)\ge T_1+\delta$. Then for every $j$
+\[
+a^{(1)}_j-a^{(2)}_j\;\ge\;\delta-\max_{l\le j}\,\bigl(e_{w_l}-T_l\bigr)^+ ,
+\]
+where $a^{(1)}_j,a^{(2)}_j$ are the service starts at $w_j$, and $e_{w}=-\infty$ for stops without
+opening time.
+\end{lemma}
+
+\begin{proof}
+Write $\mathrm{dur}(l\to j):=\sum_{h=l}^{j-1}(s_{w_h}+\tau(w_h,w_{h+1}))$. Unrolling the recursion
+gives, for any path entering $w_1$ at no-wait arrival $U_1$,
+$a_j=\max\{U_1+\mathrm{dur}(1\to j),\,M_j\}$ with $M_j:=\max_{l\le j}\{e_{w_l}+\mathrm{dur}(l\to j)\}$,
+and $M_j$ is the same for both paths. For path~2, $U_1=T_1$ and
+$T_1+\mathrm{dur}(1\to j)=T_j$; for path~1, $U_1\ge T_1+\delta$. Hence
+$a^{(1)}_j\ge\max\{T_j+\delta,M_j\}$ and $a^{(2)}_j=\max\{T_j,M_j\}$. If $M_j\le T_j$ the difference
+is at least $\delta$; if $T_j<M_j\le T_j+\delta$ it is at least $T_j+\delta-M_j$; otherwise it is
+at least $0$. In all cases it is at least $\delta-(M_j-T_j)^+$, and
+$M_j-T_j=\max_{l\le j}(e_{w_l}-T_l)$ because $T_j=T_l+\mathrm{dur}(l\to j)$.
+\end{proof}
+
+%=====================================================================
+\section{Main results}
+%=====================================================================
+
+\begin{theorem}[Label bound]\label{thm:bound}
+Let $L$ be a label, $\emptyset\ne T\subseteq P(L)$, and $\rho$ any \emph{feasible} route of driver
+$i$ with prefix $L$ (possibly $\rho=L$). Let $\rho\setminus T$ be $\rho$ without the stops of $T$. Then
+\[
+K_\rho-K_{\rho\setminus T}\ \ge\ \kappa\,\Delta D(L,T),\qquad
+W_\rho-W_{\rho\setminus T}\ \ge\ \frac{\max\{0,\ \delta(L,T)-A(L,T)\}}{60},
+\]
+and therefore $c_\rho(b)-c_{\rho\setminus T}(b)\ge\beta(L,T)$ for every $b\ge\thl$.
+\end{theorem}
+
+\begin{proof}
+Write $\rho=L\cdot\sigma$ and consider the intermediate path $\pi:=(L\setminus T)\cdot\sigma$.
+Deleting from $\pi$ the stops of $T$ that lie in $\sigma$ (deliveries of orders of $T$ still on
+board at the end of $L$) gives $\rho\setminus T$, so by Lemma~\ref{lem:remove}
+$K_\pi\ge K_{\rho\setminus T}$ and $W_\pi\ge W_{\rho\setminus T}$. It is therefore enough to
+compare $\rho$ with $\pi$; also $K_\rho\ge K_\pi$ and $W_\rho\ge W_\pi$ by the same lemma.
+
+\emph{Distance.} If $\sigma$ is empty (a gigworker route ending at $v_m$), $D(\rho)-D(\pi)=D-D'\ge\Delta D$.
+Otherwise let $u$ be the first point of $\sigma$ (for an occasional driver possibly the
+destination). Then $D(\rho)-D(\pi)=D+d(v_m,u)-D'-d(v',u)\ge D-D'-d(v',v_m)$ by
+$d(v',u)\le d(v',v_m)+d(v_m,u)$. For an occasional driver the direct length cancels, and both
+detours are nonnegative, so the positive part in $K$ does not interfere.
+
+\emph{Time.} If $\sigma$ is empty, $W_\rho-W_\pi=(r-r')/60\ge\delta/60$ since $\tau\ge0$. Otherwise
+apply Lemma~\ref{lem:absorb} with $x=v_m$, $\eta=r$, $x'=v'$, $\eta'=r'$: the hypothesis holds
+because $r+\tau(v_m,w_1)\ge r'+\tau(v',w_1)+\delta$ follows from
+$\tau(v',w_1)\le\tau(v',v_m)+\tau(v_m,w_1)$. At the last stop (and at the destination), the
+completion times therefore differ by at least $\delta-\max_l(e_{w_l}-T_l)^+$. A stop $w_l$ of
+$\sigma$ with an opening time is a pickup of an order not picked in $L$; it can occur only if
+$|P(L)|<B$, and feasibility of $\rho$ requires $r+\tau(v_m,w_l)\le l_{w_l}$ (triangle
+inequality), so $w_l\in\mathcal F(L)$. Since $T_l\ge r'+\tau(v',w_l)$ (triangle inequality,
+nonnegative service), the maximum is at most $A(L,T)$. Combined with $W_\rho\ge W_\pi$ this
+gives the time bound.
+
+\emph{Cost.} $c_\rho(b)-c_{\rho\setminus T}(b)=(K_\rho-K_{\rho\setminus T})+b\,(W_\rho-W_{\rho\setminus T})$
+with a nonnegative slope, so it is at least its value at $\thl$, which is at least $\beta$.
+\end{proof}
+
+\begin{theorem}[The rule preserves the local frontier exactly]\label{thm:preserve}
+Let $R_i$ be the pool of Algorithm~A (complete enumeration, per-bundle Pareto filtering, one
+representative per pair $(K,W)$), and $R'_i$ the pool obtained when Algorithm~A in addition
+discards some or all labels satisfying the rule, together with their extensions. Under the
+assumptions of [LPF, Lemma~3] and $\thl<\thu$,
+\[
+\Ks_i(R'_i)=\Ks_i(R_i).
+\]
+Consequently the pipeline ``Algorithm~A with the rule, then $\Pi^\star$'' outputs exactly the
+same pool as before, and [LPF, Theorem~4 and Corollary~6] apply verbatim: the WDP value, every
+removal value and the Clarke-pivot payments are unchanged.
+\end{theorem}
+
+\begin{proof}
+Let $F$ be the set of all feasible routes, so $R_i$ is the Pareto representative set of $F$
+and $R'_i$ that of $F$ minus the discarded routes.
+
+\emph{(i) Discarded routes of $R_i$ lie outside $\Ks_i(R_i)$.} Let $\rho\in R_i$ extend a discarded
+label with witness $T$. By Theorem~\ref{thm:bound},
+$c_\rho(b)\ge c_{\rho\setminus T}(b)+\beta\ge c_{\rho\setminus T}(b)+q(T)$ for all $b\in\Theta$.
+The route $\rho\setminus T$ is feasible ([LPF, Lemma~3]) and by downward closure there is, for
+every $b$, some $\hat\rho\in R_i\cup\{\0_i\}$ with bundle $S_\rho\setminus T$ and
+$c_{\hat\rho}(b)\le c_{\rho\setminus T}(b)$. Since $\hat\rho\in D(\rho)$,
+$E_\rho(b)\le c_{\hat\rho}(b)+q(T)\le c_\rho(b)$; hence $\mu_\rho\le0$ on $\Theta$ and
+$\rho\notin\Ks_i(R_i)$.
+
+\emph{(ii) $\Ks_i(R_i)\subseteq R'_i$.} A route of $\Ks_i(R_i)$ is not discarded by (i), and it is
+Pareto-undominated in $F$, hence in any subset of $F$ containing it.
+
+\emph{(iii) $\Ks_i(R_i)\subseteq\Ks_i(R'_i)$.} Take $r\in\Ks_i(R_i)$. Compared with $D_{R_i}(r)$, the
+set $D_{R'_i}(r)$ lacks some routes (which can only raise $E_r$) and may contain routes $r_2$
+that were Pareto-dominated in $F$; such an $r_2$ is dominated by a route $r_1\in R_i$ with the same
+bundle, so $c_{r_2}+q(\cdot)\ge c_{r_1}+q(\cdot)$, which is at least $E^{R_i}_r$ when $r_1\ne r$; when $r_1=r$,
+Pareto dominance gives $c_{r_2}(b)>c_r(b)$ for every $b>0$. Hence on the nonempty open set where
+$\mu^{R_i}_r>0$ (minus possibly $b=0$), $E^{R'_i}_r>c_r$, and $r\in\Ks_i(R'_i)$.
+
+\emph{(iv) $\Ks_i(R'_i)\subseteq\Ks_i(R_i)$.} Let $r\in R'_i$ with $r\notin\Ks_i(R_i)$. If $r\in R_i$,
+[LPF, Lemma~5] gives, for each $b$, some $u\in\Ks_i(R_i)\cup\{\0_i\}$ with $S_u\subseteq S_r$ and
+$c_u(b)+q(S_r\setminus S_u)\le c_r(b)$; $u\in R'_i$ by (ii), so $\mu^{R'_i}_r\le 0$. If
+$r\notin R_i$, $r$ is Pareto-dominated in $F$ by some $r_1\in R_i$ with the same bundle; $r_1$ must
+have been discarded (otherwise $r$ would not survive the Pareto filter of $R'_i$), so
+$r_1\notin\Ks_i(R_i)$ by (i), and the same lemma applied to $r_1$ yields $u\in R'_i$ with
+$c_u+q(S_r\setminus S_u)\le c_{r_1}\le c_r$. In both cases $r\notin\Ks_i(R'_i)$.
+\end{proof}
+
+\begin{remark}[What the rule is and is not]
+The rule reads no bid (only the public constant $\thl$ and FD prices) and uses only driver $i$'s
+own data, so it is a local, bid-independent rule in the sense of [LPF]. By [LPF, Theorem~4(c)],
+\emph{no} rule of this kind can discard a route of $\Ks_i$; the best any such label rule can do
+is to cut every label whose subtree contains no route of $\Ks_i$. Section~\ref{sec:evidence}
+measures how close the rule comes to that ceiling.
+\end{remark}
+
+\begin{remark}[Combination with label dominance]
+If Algorithm~A also deletes a label $L_2$ because another label $L_1$ with the same end stop and
+the same picked/delivered sets dominates it (ready time, length and cost no larger), every
+completion of $L_2$ is dominated by the corresponding completion of $L_1$: the recursion for $a_k$
+is nondecreasing in the starting time, so the same continuation from $L_1$ is feasible, no longer
+and finishes no later. If $L_1$ is discarded by the rule, its completions lie outside
+$\Ks_i$, and so do those of $L_2$, since a same-bundle route that costs no less for every $b$
+cannot be in $\Ks_i$. The proof of Theorem~\ref{thm:preserve} is unchanged.
+\end{remark}
+
+\begin{remark}[Delivery time windows with an opening time]\label{rem:dlb}
+If deliveries also have opening times, include in $\mathcal F(L)$ the deliveries of orders on
+board at the end of $L$ and of every order that may still be picked up. Lemma~\ref{lem:absorb}
+is unchanged.
+\end{remark}
+
+%=====================================================================
+\section{Why each term is needed: a counterexample and a negative result}
+%=====================================================================
+
+\begin{example}[Direct transfer of rollback pruning is unsafe]\label{ex:counter}
+Rollback pruning compares a path with the same path skipping a node and prunes if skipping is
+not worse; in the ESPPRC this is safe because costs are additive over arcs and time is only a
+resource, so arriving earlier never costs anything. Here working time is part of the cost and
+waiting is allowed. Transferring rollback directly amounts to setting $A\equiv 0$ in
+Definition~\ref{def:shortcut}. On a synthetic instance (seed~2, gigworker $g_0$, $B=3$), for the
+label $L=(p_{o_2},d_{o_2})$ and $T=\{o_2\}$ with $q_{o_2}=17.13$, the uncorrected bound credits a
+time saving of $42.9$ min, giving $17.72\ge q_{o_2}$, and the label is discarded. In the feasible
+completion $(p_{o_2},d_{o_2},p_{o_0},d_{o_0})$, however, the pickup of $o_0$ opens late: without
+$o_2$ the driver would arrive early and wait, so the true time saving is only $7.8$ min and the
+true saving at $b=\thl$ is $7.24<17.13$. Serving $o_2$ in this route is therefore worth more than
+delegating it to FD, and the uncorrected rule deletes a route it must keep. With the correction
+$A$ the label is kept.
+\end{example}
+
+The mutation tests in Section~\ref{sec:evidence} show the same at scale for both correction
+terms.
+
+\paragraph{Negative result: a forward lower-bound matrix does not work.}
+The most natural first idea is to decide \emph{before} visiting $p_o$: from the current stop $v$,
+bound the extra distance by
+$\min_x\{d(v,p_o)+d(p_o,x)-d(v,x)\}$ over all possible next stops $x$ (a matrix that can be
+precomputed), and the extra time analogously. This rule is safe (the same lemmas apply) but on
+the synthetic instances it never fired. The median distance credit was $0.5$--$0.75$ USD against
+FD prices of $15$--$21$ USD, because some other stop almost always lies close to the direction of
+$p_o$; and the median time credit was $0$, because the detour (about $5$ min) is fully absorbed
+by the waiting for later-released pickups (median absorption $34$--$46$ min). Both reasons are
+structural: before $p_o$ is visited, the continuation is unknown, and the bound must hold for
+the cheapest one. The rule of this note is the same idea evaluated one stop \emph{after} $p_o$,
+when the detour to $p_o$ is known exactly; the correction terms are what make that evaluation
+safe for every continuation.
+
+%=====================================================================
+\section{Implementation}
+%=====================================================================
+
+Each label carries, for every picked order $j$, the triple $(D'_j,v'_j,r'_j)$ of its shortcut
+$L\setminus\{j\}$, as an additional resource. Extending the label by a stop $u$ updates each triple
+in $O(1)$: if $u$ is a stop of $j$ the triple is unchanged; otherwise the shortcut travels to $u$
+exactly like the label. When $j$ is picked up, its triple is the parent label's state. The check
+first evaluates $\beta$ with $A=0$, which is an upper bound; only if that reaches $q_j$ is $A$
+computed. The per-extension overhead is therefore $O(|P(L)|)\le O(B)$ plus rare $O(n)$
+evaluations of $A$. Subsets $T$ with $|T|\ge2$ added almost nothing in the experiments and are
+not needed.
+
+%=====================================================================
+\section{Evidence}\label{sec:evidence}
+%=====================================================================
+
+All numbers come from the independent brute-force reference implementation of [LPF] (synthetic
+Euclidean instances, $n=8$ orders, two gigworkers and two occasional drivers, $\Theta=[18,25]$).
+They check the mathematics; they are not thesis results.
+
+\begin{center}
+\begin{tabular}{@{}lll@{}}
+\toprule
+Check & $B=3$ (3 seeds) & $B=4$ (2 seeds) \\
+\midrule
+Rule firings audited & 5{,}868 & 33{,}292 \\
+Feasible completions checked against the bound & 9{,}975 & 87{,}744 \\
+Bound violations & 0 & 0 \\
+$\Ks$ identical with and without the rule & yes & yes \\
+Max WDP value difference (random bids) & $2.8\times10^{-14}$ & $1.3\times10^{-13}$ \\
+\midrule
+Mutation $A\equiv0$ (direct rollback transfer) & 1{,}339 violations, $\Ks$ changed & --- \\
+Mutation without junction terms $d(v',v_m),\tau(v',v_m)$ & 4{,}173 violations, $\Ks$ changed & --- \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+In both mutations the WDP values on 40 random bid profiles per seed were still identical: the
+wrongly deleted routes are rarely optimal, so bid sampling alone would not detect the error. The
+completion-level bound audit and the $\Ks$ comparison did.
+
+\paragraph{Distance to the ceiling.} Counting labels that lie on a path to some feasible route:
+an ideal local rule (Theorem~4(c) of [LPF]) keeps $2.7\%$ of them at $B=3$ and $0.6\%$ at $B=4$;
+the rule keeps $56\%$ and $50\%$, i.e.\ it closes $45\%$ and $50\%$ of the achievable gap.
+
+\paragraph{Work and time.} With the incremental implementation, label extensions fell by
+$19$--$44\%$ at $B=3$ and $26$--$61\%$ at $B=4$. Wall-clock time in this plain enumerator ranged
+from $0.8\times$ to $2\times$ the baseline. The decisive factor is the FD price level relative
+to route costs (median over three seeds and two gigworkers, $B=4$):
+
+\begin{center}
+\begin{tabular}{@{}lccc@{}}
+\toprule
+FD prices scaled by & $0.6$ & $1.0$ & $1.4$\\
+\midrule
+Label extensions saved & $73$--$76\%$ & $27$--$30\%$ & $7$--$9\%$\\
+Wall-clock speed-up & $2.8$--$3.1\times$ & $\approx1.0\times$ & $0.75\times$\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Compressing release times by a factor of four changed these figures by at most three points. On
+the RQ1 instances $\Pi^\star$ removes $77$--$97\%$ of the pool, against about $61\%$ on these synthetic
+instances, which suggests that FD is relatively cheaper there and that the rule is in its
+effective regime; this must be measured, not assumed.
+
+%=====================================================================
+\section{Position in the literature}
+%=====================================================================
+
+The principle --- compare a partial path with itself minus a node and prune if the node is not
+worth its price --- is the rollback pruning of Lozano, Duque \& Medaglia (2016,
+\emph{Transportation Science}, \S4.3), built on the dominance relation of Feillet et al.\ (2004);
+there the price is the node's dual value. It must be cited as the origin of the rule. The
+adaptation adds four things, each needed for correctness or for the mechanism: (a) the
+correction $A$ for waiting absorption, without which the rule is unsafe when time enters the
+objective (Example~\ref{ex:counter}); (b) removal of pickup--delivery \emph{pairs}, including
+orders still on board and a removed last stop (junction terms); (c) comparison uniformly over
+$\Theta$ with a bid-independent price, so that the pool stays fixed before bids; (d) the exact
+guarantee of Theorem~\ref{thm:preserve} that the local frontier, and hence the VCG outcome, is
+unchanged. Label-dominance rules for the PDPTW (Dumas, Desrosiers \& Soumis, 1991; Ropke \&
+Cordeau, 2009) and bounding strategies of the pulse family have not yet been checked for a closer
+precedent; this must be done before (a)--(d) are claimed as new.
+
+\section*{References to verify before use}
+Lozano, L., Duque, D.\ \& Medaglia, A.L.\ (2016), An exact algorithm for the elementary
+shortest path problem with resource constraints, \emph{Transportation Science} (rollback
+pruning, \S4.3; read directly from the project copy, online version dated 2015).
+Feillet, D., Dejax, P., Gendreau, M.\ \& Gueguen, C.\ (2004), \emph{Networks} (dominance for the
+ESPPRC; not read directly). Dumas, Desrosiers \& Soumis (1991), \emph{EJOR}. Ropke \& Cordeau
+(2009), \emph{Transportation Science}.
+
+\end{document}

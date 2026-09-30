@@ -1,0 +1,26 @@
+Cell: n=20 B_gw=4 tw=240 seed=0  n_gw_drivers=5 (GW co has_home=False -> khong co buoc home, chi la sanity check)
+  driver gw0 done  total_elapsed=43.2s
+  driver gw1 done  total_elapsed=83.3s
+  driver gw2 done  total_elapsed=122.7s
+  driver gw3 done  total_elapsed=162.2s
+  driver gw4 done  total_elapsed=201.9s
+
+=== KET QUA PHAN LOAI ===
+Tong so closure:                          1116325
+Closure chet hoan toan (0 survivor):       347216 (31.1%)
+  - trong do co dung buoc _try_home:       0
+  - trong do KHONG dung buoc home:         347216
+  - chet nguyen nhan la home (moi lan thu home deu that bai): 0
+
+Trong nhom 'chet, KHONG dung home' (patch LE RA phai bat duoc):
+  So closure:                              347216
+  So closure ma iv_completion_feasible tra SAI (True, tuc KHONG bat duoc): 347216
+  -> ty le mismatch trong nhom nay: 100.00%
+
+*** CO BUG THAT: iv_completion_feasible tra True sai cho closure da chet ma khong lien quan gi den home. Can debug ham nay. ***
+Vi du 3 closure mismatch dau tien (driver_id, root_id):
+    ('gw2', 2244805222296)  attempts= 3  home_attempt= 0
+    ('gw4', 2244898632088)  attempts= 3  home_attempt= 0
+    ('gw4', 2245074792856)  attempts= 2  home_attempt= 0
+
+elapsed_total=203.9s

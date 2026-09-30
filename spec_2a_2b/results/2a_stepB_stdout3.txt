@@ -1,0 +1,229 @@
+RESUME: 535 rows already in summary, skipping those.
+  [540/3840] n=10 Bgw=5 tw=60 d=5 mode=on  elapsed=10.8s  last_rt=1.339s status=completed
+  [550/3840] n=10 Bgw=5 tw=60 d=10 mode=off  elapsed=49.5s  last_rt=1.7561s status=completed
+  [560/3840] n=10 Bgw=5 tw=60 d=10 mode=on  elapsed=90.0s  last_rt=6.8604s status=completed
+  [570/3840] n=10 Bgw=5 tw=120 d=5 mode=off  elapsed=124.6s  last_rt=1.2434s status=completed
+  [580/3840] n=10 Bgw=5 tw=120 d=5 mode=on  elapsed=166.8s  last_rt=2.5463s status=completed
+  [590/3840] n=10 Bgw=5 tw=120 d=10 mode=off  elapsed=264.2s  last_rt=3.8784s status=completed
+  [600/3840] n=10 Bgw=5 tw=120 d=10 mode=on  elapsed=370.2s  last_rt=6.7057s status=completed
+  [610/3840] n=10 Bgw=5 tw=240 d=5 mode=off  elapsed=479.6s  last_rt=7.2933s status=completed
+  [620/3840] n=10 Bgw=5 tw=240 d=5 mode=on  elapsed=577.6s  last_rt=11.1367s status=completed
+  [630/3840] n=10 Bgw=5 tw=240 d=10 mode=off  elapsed=840.5s  last_rt=29.112s status=completed
+  [640/3840] n=10 Bgw=5 tw=240 d=10 mode=on  elapsed=1093.7s  last_rt=32.9858s status=completed
+  [650/3840] n=20 Bgw=2 tw=30 d=5 mode=off  elapsed=1094.2s  last_rt=0.0557s status=completed
+  [660/3840] n=20 Bgw=2 tw=30 d=5 mode=on  elapsed=1094.8s  last_rt=0.0989s status=completed
+  [670/3840] n=20 Bgw=2 tw=30 d=10 mode=off  elapsed=1095.9s  last_rt=0.1167s status=completed
+  [680/3840] n=20 Bgw=2 tw=30 d=10 mode=on  elapsed=1096.9s  last_rt=0.0845s status=completed
+  [690/3840] n=20 Bgw=2 tw=60 d=5 mode=off  elapsed=1097.6s  last_rt=0.0594s status=completed
+  [700/3840] n=20 Bgw=2 tw=60 d=5 mode=on  elapsed=1098.3s  last_rt=0.0676s status=completed
+  [710/3840] n=20 Bgw=2 tw=60 d=10 mode=off  elapsed=1099.6s  last_rt=0.1095s status=completed
+  [720/3840] n=20 Bgw=2 tw=60 d=10 mode=on  elapsed=1101.0s  last_rt=0.1369s status=completed
+  [730/3840] n=20 Bgw=2 tw=120 d=5 mode=off  elapsed=1101.6s  last_rt=0.0593s status=completed
+  [740/3840] n=20 Bgw=2 tw=120 d=5 mode=on  elapsed=1102.4s  last_rt=0.0692s status=completed
+  [750/3840] n=20 Bgw=2 tw=120 d=10 mode=off  elapsed=1103.7s  last_rt=0.107s status=completed
+  [760/3840] n=20 Bgw=2 tw=120 d=10 mode=on  elapsed=1105.1s  last_rt=0.1284s status=completed
+  [770/3840] n=20 Bgw=2 tw=240 d=5 mode=off  elapsed=1105.9s  last_rt=0.0653s status=completed
+  [780/3840] n=20 Bgw=2 tw=240 d=5 mode=on  elapsed=1106.8s  last_rt=0.082s status=completed
+  [790/3840] n=20 Bgw=2 tw=240 d=10 mode=off  elapsed=1108.4s  last_rt=0.1963s status=completed
+  [800/3840] n=20 Bgw=2 tw=240 d=10 mode=on  elapsed=1110.0s  last_rt=0.1469s status=completed
+  [810/3840] n=20 Bgw=3 tw=30 d=5 mode=off  elapsed=1113.1s  last_rt=0.2655s status=completed
+  [820/3840] n=20 Bgw=3 tw=30 d=5 mode=on  elapsed=1116.9s  last_rt=0.2738s status=completed
+  [830/3840] n=20 Bgw=3 tw=30 d=10 mode=off  elapsed=1125.0s  last_rt=0.7818s status=completed
+  [840/3840] n=20 Bgw=3 tw=30 d=10 mode=on  elapsed=1132.8s  last_rt=0.6334s status=completed
+  [850/3840] n=20 Bgw=3 tw=60 d=5 mode=off  elapsed=1141.4s  last_rt=0.9585s status=completed
+  [860/3840] n=20 Bgw=3 tw=60 d=5 mode=on  elapsed=1149.8s  last_rt=0.7755s status=completed
+  [870/3840] n=20 Bgw=3 tw=60 d=10 mode=off  elapsed=1169.6s  last_rt=1.7397s status=completed
+  [880/3840] n=20 Bgw=3 tw=60 d=10 mode=on  elapsed=1191.6s  last_rt=1.8017s status=completed
+  [890/3840] n=20 Bgw=3 tw=120 d=5 mode=off  elapsed=1202.7s  last_rt=1.2164s status=completed
+  [900/3840] n=20 Bgw=3 tw=120 d=5 mode=on  elapsed=1213.8s  last_rt=1.4641s status=completed
+  [910/3840] n=20 Bgw=3 tw=120 d=10 mode=off  elapsed=1242.4s  last_rt=2.5355s status=completed
+  [920/3840] n=20 Bgw=3 tw=120 d=10 mode=on  elapsed=1270.8s  last_rt=2.7747s status=completed
+  [930/3840] n=20 Bgw=3 tw=240 d=5 mode=off  elapsed=1286.8s  last_rt=1.8177s status=completed
+  [940/3840] n=20 Bgw=3 tw=240 d=5 mode=on  elapsed=1303.6s  last_rt=2.013s status=completed
+  [950/3840] n=20 Bgw=3 tw=240 d=10 mode=off  elapsed=1342.9s  last_rt=4.305s status=completed
+  [960/3840] n=20 Bgw=3 tw=240 d=10 mode=on  elapsed=1384.6s  last_rt=4.949s status=completed
+  [970/3840] n=20 Bgw=4 tw=30 d=5 mode=off  elapsed=1408.8s  last_rt=2.3516s status=completed
+  [980/3840] n=20 Bgw=4 tw=30 d=5 mode=on  elapsed=1437.1s  last_rt=2.3751s status=completed
+  [990/3840] n=20 Bgw=4 tw=30 d=10 mode=off  elapsed=1485.5s  last_rt=6.4446s status=completed
+  [1000/3840] n=20 Bgw=4 tw=30 d=10 mode=on  elapsed=1558.2s  last_rt=8.1844s status=completed
+  [1010/3840] n=20 Bgw=4 tw=60 d=5 mode=off  elapsed=1705.8s  last_rt=10.0941s status=completed
+  [1020/3840] n=20 Bgw=4 tw=60 d=5 mode=on  elapsed=1871.0s  last_rt=17.6626s status=completed
+  [1030/3840] n=20 Bgw=4 tw=60 d=10 mode=off  elapsed=2120.3s  last_rt=27.8617s status=completed
+  [1040/3840] n=20 Bgw=4 tw=60 d=10 mode=on  elapsed=2565.6s  last_rt=21.9704s status=completed
+  [1050/3840] n=20 Bgw=4 tw=120 d=5 mode=off  elapsed=2769.8s  last_rt=28.7016s status=completed
+  [1060/3840] n=20 Bgw=4 tw=120 d=5 mode=on  elapsed=2999.5s  last_rt=32.2672s status=completed
+  [1070/3840] n=20 Bgw=4 tw=120 d=10 mode=off  elapsed=3529.7s  last_rt=59.0089s status=completed
+  [1080/3840] n=20 Bgw=4 tw=120 d=10 mode=on  elapsed=4209.0s  last_rt=50.3539s status=completed
+  [1090/3840] n=20 Bgw=4 tw=240 d=5 mode=off  elapsed=4708.9s  last_rt=37.6976s status=completed
+  [1100/3840] n=20 Bgw=4 tw=240 d=5 mode=on  elapsed=5265.7s  last_rt=53.9714s status=completed
+  [1110/3840] n=20 Bgw=4 tw=240 d=10 mode=off  elapsed=6507.8s  last_rt=124.1942s status=completed
+  [1120/3840] n=20 Bgw=4 tw=240 d=10 mode=on  elapsed=7681.6s  last_rt=92.8047s status=completed
+  [1130/3840] n=20 Bgw=5 tw=30 d=5 mode=off  elapsed=7821.9s  last_rt=11.2859s status=completed
+  [1140/3840] n=20 Bgw=5 tw=30 d=5 mode=on  elapsed=7951.4s  last_rt=21.8112s status=completed
+  [1150/3840] n=20 Bgw=5 tw=30 d=10 mode=off  elapsed=8194.5s  last_rt=13.4996s status=completed
+  [1160/3840] n=20 Bgw=5 tw=30 d=10 mode=on  elapsed=8539.9s  last_rt=31.532s status=completed
+  [1170/3840] n=20 Bgw=5 tw=60 d=5 mode=off  elapsed=9267.6s  last_rt=49.9782s status=completed
+  [1180/3840] n=20 Bgw=5 tw=60 d=5 mode=on  elapsed=10562.9s  last_rt=207.9664s status=completed
+  [1190/3840] n=20 Bgw=5 tw=60 d=10 mode=off  elapsed=12822.1s  last_rt=204.0881s status=completed
+  [1200/3840] n=20 Bgw=5 tw=60 d=10 mode=on  elapsed=15118.0s  last_rt=166.1352s status=completed
+  [1210/3840] n=20 Bgw=5 tw=120 d=5 mode=off  elapsed=18201.2s  last_rt=s status=timeout_skipped  [cell: rest skipped, reason=timeout]
+  [1220/3840] n=20 Bgw=5 tw=120 d=5 mode=on  elapsed=18839.2s  last_rt=s status=timeout_skipped  [cell: rest skipped, reason=timeout]
+  [1230/3840] n=20 Bgw=5 tw=120 d=10 mode=off  elapsed=19466.8s  last_rt=s status=timeout_skipped  [cell: rest skipped, reason=timeout]
+  [1240/3840] n=20 Bgw=5 tw=120 d=10 mode=on  elapsed=20105.9s  last_rt=s status=timeout_skipped  [cell: rest skipped, reason=timeout]
+  [1250/3840] n=20 Bgw=5 tw=240 d=5 mode=off  elapsed=20841.8s  last_rt=s status=timeout_skipped  [cell: rest skipped, reason=timeout]
+  [1260/3840] n=20 Bgw=5 tw=240 d=5 mode=on  elapsed=21886.0s  last_rt=s status=timeout_skipped  [cell: rest skipped, reason=timeout]
+  [1270/3840] n=20 Bgw=5 tw=240 d=10 mode=off  elapsed=22707.3s  last_rt=s status=timeout_skipped  [cell: rest skipped, reason=timeout]
+  [1280/3840] n=20 Bgw=5 tw=240 d=10 mode=on  elapsed=23328.3s  last_rt=s status=timeout_skipped  [cell: rest skipped, reason=timeout]
+  [1290/3840] n=30 Bgw=2 tw=30 d=5 mode=off  elapsed=23330.0s  last_rt=0.1733s status=completed
+  [1300/3840] n=30 Bgw=2 tw=30 d=5 mode=on  elapsed=23331.6s  last_rt=0.1355s status=completed
+  [1310/3840] n=30 Bgw=2 tw=30 d=10 mode=off  elapsed=23334.8s  last_rt=0.3463s status=completed
+  [1320/3840] n=30 Bgw=2 tw=30 d=10 mode=on  elapsed=23338.0s  last_rt=0.3153s status=completed
+  [1330/3840] n=30 Bgw=2 tw=60 d=5 mode=off  elapsed=23340.0s  last_rt=0.2027s status=completed
+  [1340/3840] n=30 Bgw=2 tw=60 d=5 mode=on  elapsed=23342.3s  last_rt=0.2276s status=completed
+  [1350/3840] n=30 Bgw=2 tw=60 d=10 mode=off  elapsed=23346.4s  last_rt=0.3417s status=completed
+  [1360/3840] n=30 Bgw=2 tw=60 d=10 mode=on  elapsed=23351.0s  last_rt=0.3958s status=completed
+  [1370/3840] n=30 Bgw=2 tw=120 d=5 mode=off  elapsed=23353.3s  last_rt=0.2463s status=completed
+  [1380/3840] n=30 Bgw=2 tw=120 d=5 mode=on  elapsed=23355.8s  last_rt=0.2689s status=completed
+  [1390/3840] n=30 Bgw=2 tw=120 d=10 mode=off  elapsed=23360.9s  last_rt=0.5357s status=completed
+  [1400/3840] n=30 Bgw=2 tw=120 d=10 mode=on  elapsed=23365.8s  last_rt=0.4503s status=completed
+  [1410/3840] n=30 Bgw=2 tw=240 d=5 mode=off  elapsed=23368.5s  last_rt=0.2561s status=completed
+  [1420/3840] n=30 Bgw=2 tw=240 d=5 mode=on  elapsed=23371.2s  last_rt=0.2868s status=completed
+  [1430/3840] n=30 Bgw=2 tw=240 d=10 mode=off  elapsed=23376.4s  last_rt=0.5423s status=completed
+  [1440/3840] n=30 Bgw=2 tw=240 d=10 mode=on  elapsed=23381.8s  last_rt=0.5206s status=completed
+  [1450/3840] n=30 Bgw=3 tw=30 d=5 mode=off  elapsed=23400.1s  last_rt=1.6641s status=completed
+  [1460/3840] n=30 Bgw=3 tw=30 d=5 mode=on  elapsed=23417.1s  last_rt=1.2915s status=completed
+  [1470/3840] n=30 Bgw=3 tw=30 d=10 mode=off  elapsed=23456.3s  last_rt=4.1334s status=completed
+  [1480/3840] n=30 Bgw=3 tw=30 d=10 mode=on  elapsed=23502.3s  last_rt=3.4422s status=completed
+  [1490/3840] n=30 Bgw=3 tw=60 d=5 mode=off  elapsed=23549.8s  last_rt=3.8292s status=completed
+  [1500/3840] n=30 Bgw=3 tw=60 d=5 mode=on  elapsed=23595.7s  last_rt=5.8373s status=completed
+  [1510/3840] n=30 Bgw=3 tw=60 d=10 mode=off  elapsed=23708.6s  last_rt=8.5496s status=completed
+  [1520/3840] n=30 Bgw=3 tw=60 d=10 mode=on  elapsed=23830.5s  last_rt=11.6333s status=completed
+  [1530/3840] n=30 Bgw=3 tw=120 d=5 mode=off  elapsed=23889.0s  last_rt=6.6287s status=completed
+  [1540/3840] n=30 Bgw=3 tw=120 d=5 mode=on  elapsed=23951.3s  last_rt=5.5092s status=completed
+  [1550/3840] n=30 Bgw=3 tw=120 d=10 mode=off  elapsed=24108.7s  last_rt=17.8157s status=completed
+  [1560/3840] n=30 Bgw=3 tw=120 d=10 mode=on  elapsed=24263.0s  last_rt=23.367s status=completed
+  [1570/3840] n=30 Bgw=3 tw=240 d=5 mode=off  elapsed=24347.6s  last_rt=8.7154s status=completed
+  [1580/3840] n=30 Bgw=3 tw=240 d=5 mode=on  elapsed=24436.9s  last_rt=9.0329s status=completed
+  [1590/3840] n=30 Bgw=3 tw=240 d=10 mode=off  elapsed=24651.3s  last_rt=20.0642s status=completed
+  [1600/3840] n=30 Bgw=3 tw=240 d=10 mode=on  elapsed=24877.9s  last_rt=24.7386s status=completed
+  [1610/3840] n=30 Bgw=4 tw=30 d=5 mode=off  elapsed=25042.2s  last_rt=14.7737s status=completed
+  [1620/3840] n=30 Bgw=4 tw=30 d=5 mode=on  elapsed=25265.2s  last_rt=20.5592s status=completed
+  [1630/3840] n=30 Bgw=4 tw=30 d=10 mode=off  elapsed=25670.5s  last_rt=50.4832s status=completed
+  [1640/3840] n=30 Bgw=4 tw=30 d=10 mode=on  elapsed=26184.7s  last_rt=45.5648s status=completed
+  [1650/3840] n=30 Bgw=4 tw=60 d=5 mode=off  elapsed=26943.5s  last_rt=70.3224s status=completed
+  [1660/3840] n=30 Bgw=4 tw=60 d=5 mode=on  elapsed=27916.5s  last_rt=98.8146s status=completed
+  [1670/3840] n=30 Bgw=4 tw=60 d=10 mode=off  elapsed=29999.8s  last_rt=219.7345s status=completed
+  [1680/3840] n=30 Bgw=4 tw=60 d=10 mode=on  elapsed=32404.0s  last_rt=318.7912s status=completed
+  [1690/3840] n=30 Bgw=4 tw=120 d=5 mode=off  elapsed=34012.7s  last_rt=222.8861s status=completed
+  [1700/3840] n=30 Bgw=4 tw=120 d=5 mode=on  elapsed=35487.3s  last_rt=121.7121s status=completed
+  [1710/3840] n=30 Bgw=4 tw=120 d=10 mode=off  elapsed=39288.0s  last_rt=262.2689s status=completed
+  [1720/3840] n=30 Bgw=4 tw=120 d=10 mode=on  elapsed=40246.9s  last_rt=s status=timeout_skipped  [cell: rest skipped, reason=timeout]
+  [1730/3840] n=30 Bgw=4 tw=240 d=5 mode=off  elapsed=43113.8s  last_rt=248.7126s status=completed
+  [1740/3840] n=30 Bgw=4 tw=240 d=5 mode=on  elapsed=46345.1s  last_rt=362.1032s status=completed
+  [1750/3840] n=30 Bgw=4 tw=240 d=10 mode=off  elapsed=47058.6s  last_rt=s status=timeout_skipped  [cell: rest skipped, reason=timeout]
+  [1760/3840] n=30 Bgw=4 tw=240 d=10 mode=on  elapsed=47664.1s  last_rt=s status=timeout_skipped  [cell: rest skipped, reason=timeout]
+  [1920/3840] n=30 Bgw=5 SKIPPED toan bo (brute blowup, xem _SKIP_N_BGW)
+  [1930/3840] n=50 Bgw=2 tw=30 d=5 mode=off  elapsed=47668.7s  last_rt=0.3785s status=completed
+  [1940/3840] n=50 Bgw=2 tw=30 d=5 mode=on  elapsed=47673.7s  last_rt=0.4556s status=completed
+  [1950/3840] n=50 Bgw=2 tw=30 d=10 mode=off  elapsed=47682.6s  last_rt=0.8616s status=completed
+  [1960/3840] n=50 Bgw=2 tw=30 d=10 mode=on  elapsed=47691.7s  last_rt=0.8548s status=completed
+  [1970/3840] n=50 Bgw=2 tw=60 d=5 mode=off  elapsed=47697.3s  last_rt=0.5017s status=completed
+  [1980/3840] n=50 Bgw=2 tw=60 d=5 mode=on  elapsed=47703.4s  last_rt=0.5814s status=completed
+  [1990/3840] n=50 Bgw=2 tw=60 d=10 mode=off  elapsed=47715.2s  last_rt=1.3307s status=completed
+  [2000/3840] n=50 Bgw=2 tw=60 d=10 mode=on  elapsed=47727.6s  last_rt=1.2363s status=completed
+  [2010/3840] n=50 Bgw=2 tw=120 d=5 mode=off  elapsed=47734.0s  last_rt=0.6026s status=completed
+  [2020/3840] n=50 Bgw=2 tw=120 d=5 mode=on  elapsed=47740.9s  last_rt=0.6547s status=completed
+  [2030/3840] n=50 Bgw=2 tw=120 d=10 mode=off  elapsed=47753.1s  last_rt=1.0712s status=completed
+  [2040/3840] n=50 Bgw=2 tw=120 d=10 mode=on  elapsed=47766.6s  last_rt=1.2953s status=completed
+  [2050/3840] n=50 Bgw=2 tw=240 d=5 mode=off  elapsed=47774.4s  last_rt=0.8153s status=completed
+  [2060/3840] n=50 Bgw=2 tw=240 d=5 mode=on  elapsed=47782.5s  last_rt=0.8298s status=completed
+  [2070/3840] n=50 Bgw=2 tw=240 d=10 mode=off  elapsed=47798.2s  last_rt=1.4382s status=completed
+  [2080/3840] n=50 Bgw=2 tw=240 d=10 mode=on  elapsed=47814.0s  last_rt=1.5809s status=completed
+  [2090/3840] n=50 Bgw=3 tw=30 d=5 mode=off  elapsed=47898.2s  last_rt=6.0549s status=completed
+  [2100/3840] n=50 Bgw=3 tw=30 d=5 mode=on  elapsed=47991.4s  last_rt=6.9563s status=completed
+  [2110/3840] n=50 Bgw=3 tw=30 d=10 mode=off  elapsed=48204.3s  last_rt=23.6447s status=completed
+  [2120/3840] n=50 Bgw=3 tw=30 d=10 mode=on  elapsed=48428.6s  last_rt=30.0597s status=completed
+  [2130/3840] n=50 Bgw=3 tw=60 d=5 mode=off  elapsed=48638.6s  last_rt=23.1111s status=completed
+  [2140/3840] n=50 Bgw=3 tw=60 d=5 mode=on  elapsed=48900.0s  last_rt=30.3034s status=completed
+  [2150/3840] n=50 Bgw=3 tw=60 d=10 mode=off  elapsed=49470.2s  last_rt=64.128s status=completed
+  [2160/3840] n=50 Bgw=3 tw=60 d=10 mode=on  elapsed=50137.6s  last_rt=94.6126s status=completed
+  [2170/3840] n=50 Bgw=3 tw=120 d=5 mode=off  elapsed=50410.7s  last_rt=22.6498s status=completed
+  [2180/3840] n=50 Bgw=3 tw=120 d=5 mode=on  elapsed=50717.2s  last_rt=31.713s status=completed
+  [2190/3840] n=50 Bgw=3 tw=120 d=10 mode=off  elapsed=51417.1s  last_rt=75.3697s status=completed
+  [2200/3840] n=50 Bgw=3 tw=120 d=10 mode=on  elapsed=52207.0s  last_rt=93.0141s status=completed
+  [2210/3840] n=50 Bgw=3 tw=240 d=5 mode=off  elapsed=52617.5s  last_rt=40.8554s status=completed
+  [2220/3840] n=50 Bgw=3 tw=240 d=5 mode=on  elapsed=53065.2s  last_rt=41.4485s status=completed
+  [2230/3840] n=50 Bgw=3 tw=240 d=10 mode=off  elapsed=54112.1s  last_rt=110.2019s status=completed
+  [2240/3840] n=50 Bgw=3 tw=240 d=10 mode=on  elapsed=55239.5s  last_rt=108.0969s status=completed
+  [2400/3840] n=50 Bgw=4 SKIPPED toan bo (brute blowup, xem _SKIP_N_BGW)
+  [2560/3840] n=50 Bgw=5 SKIPPED toan bo (brute blowup, xem _SKIP_N_BGW)
+  [2570/3840] n=75 Bgw=2 tw=30 d=5 mode=off  elapsed=55250.3s  last_rt=0.944s status=completed
+  [2580/3840] n=75 Bgw=2 tw=30 d=5 mode=on  elapsed=55263.1s  last_rt=1.4024s status=completed
+  [2590/3840] n=75 Bgw=2 tw=30 d=10 mode=off  elapsed=55285.4s  last_rt=2.0447s status=completed
+  [2600/3840] n=75 Bgw=2 tw=30 d=10 mode=on  elapsed=55308.3s  last_rt=2.0374s status=completed
+  [2610/3840] n=75 Bgw=2 tw=60 d=5 mode=off  elapsed=55323.0s  last_rt=1.5794s status=completed
+  [2620/3840] n=75 Bgw=2 tw=60 d=5 mode=on  elapsed=55338.3s  last_rt=1.4432s status=completed
+  [2630/3840] n=75 Bgw=2 tw=60 d=10 mode=off  elapsed=55367.3s  last_rt=2.9224s status=completed
+  [2640/3840] n=75 Bgw=2 tw=60 d=10 mode=on  elapsed=55397.3s  last_rt=3.0046s status=completed
+  [2650/3840] n=75 Bgw=2 tw=120 d=5 mode=off  elapsed=55413.1s  last_rt=1.5207s status=completed
+  [2660/3840] n=75 Bgw=2 tw=120 d=5 mode=on  elapsed=55430.5s  last_rt=1.9902s status=completed
+  [2670/3840] n=75 Bgw=2 tw=120 d=10 mode=off  elapsed=55462.7s  last_rt=3.4349s status=completed
+  [2680/3840] n=75 Bgw=2 tw=120 d=10 mode=on  elapsed=55497.4s  last_rt=3.4446s status=completed
+  [2690/3840] n=75 Bgw=2 tw=240 d=5 mode=off  elapsed=55516.1s  last_rt=1.8314s status=completed
+  [2700/3840] n=75 Bgw=2 tw=240 d=5 mode=on  elapsed=55536.3s  last_rt=1.9363s status=completed
+  [2710/3840] n=75 Bgw=2 tw=240 d=10 mode=off  elapsed=55575.2s  last_rt=3.8662s status=completed
+  [2720/3840] n=75 Bgw=2 tw=240 d=10 mode=on  elapsed=55616.0s  last_rt=3.6989s status=completed
+  [2730/3840] n=75 Bgw=3 tw=30 d=5 mode=off  elapsed=55932.1s  last_rt=33.6499s status=completed
+  [2740/3840] n=75 Bgw=3 tw=30 d=5 mode=on  elapsed=56271.7s  last_rt=30.8392s status=completed
+  [2750/3840] n=75 Bgw=3 tw=30 d=10 mode=off  elapsed=57050.7s  last_rt=74.2404s status=completed
+  [2760/3840] n=75 Bgw=3 tw=30 d=10 mode=on  elapsed=57978.2s  last_rt=85.4643s status=completed
+  [2770/3840] n=75 Bgw=3 tw=60 d=5 mode=off  elapsed=58747.3s  last_rt=63.0869s status=completed
+  [2780/3840] n=75 Bgw=3 tw=60 d=5 mode=on  elapsed=59591.8s  last_rt=101.7642s status=completed
+  [2790/3840] n=75 Bgw=3 tw=60 d=10 mode=off  elapsed=61507.5s  last_rt=178.4004s status=completed
+  [2800/3840] n=75 Bgw=3 tw=60 d=10 mode=on  elapsed=63582.0s  last_rt=179.4838s status=completed
+  [2810/3840] n=75 Bgw=3 tw=120 d=5 mode=off  elapsed=64621.8s  last_rt=124.6316s status=completed
+  [2820/3840] n=75 Bgw=3 tw=120 d=5 mode=on  elapsed=65682.1s  last_rt=105.4877s status=completed
+  [2830/3840] n=75 Bgw=3 tw=120 d=10 mode=off  elapsed=68068.1s  last_rt=223.8238s status=completed
+  [2840/3840] n=75 Bgw=3 tw=120 d=10 mode=on  elapsed=70280.0s  last_rt=190.0287s status=completed
+  [2850/3840] n=75 Bgw=3 tw=240 d=5 mode=off  elapsed=71399.6s  last_rt=113.1335s status=completed
+  [2860/3840] n=75 Bgw=3 tw=240 d=5 mode=on  elapsed=72608.7s  last_rt=121.5192s status=completed
+  [2870/3840] n=75 Bgw=3 tw=240 d=10 mode=off  elapsed=75508.4s  last_rt=282.6044s status=completed
+  [2880/3840] n=75 Bgw=3 tw=240 d=10 mode=on  elapsed=78617.5s  last_rt=328.7903s status=completed
+  [3040/3840] n=75 Bgw=4 SKIPPED toan bo (brute blowup, xem _SKIP_N_BGW)
+  [3200/3840] n=75 Bgw=5 SKIPPED toan bo (brute blowup, xem _SKIP_N_BGW)
+  [3210/3840] n=100 Bgw=2 tw=30 d=5 mode=off  elapsed=78632.9s  last_rt=1.5863s status=completed
+  [3220/3840] n=100 Bgw=2 tw=30 d=5 mode=on  elapsed=78650.5s  last_rt=1.4855s status=completed
+  [3230/3840] n=100 Bgw=2 tw=30 d=10 mode=off  elapsed=78682.9s  last_rt=3.2752s status=completed
+  [3240/3840] n=100 Bgw=2 tw=30 d=10 mode=on  elapsed=78716.6s  last_rt=3.3833s status=completed
+  [3250/3840] n=100 Bgw=2 tw=60 d=5 mode=off  elapsed=78737.5s  last_rt=1.8106s status=completed
+  [3260/3840] n=100 Bgw=2 tw=60 d=5 mode=on  elapsed=78760.0s  last_rt=2.2608s status=completed
+  [3270/3840] n=100 Bgw=2 tw=60 d=10 mode=off  elapsed=78804.8s  last_rt=4.1205s status=completed
+  [3280/3840] n=100 Bgw=2 tw=60 d=10 mode=on  elapsed=78851.8s  last_rt=4.6709s status=completed
+  [3290/3840] n=100 Bgw=2 tw=120 d=5 mode=off  elapsed=78876.2s  last_rt=2.4714s status=completed
+  [3300/3840] n=100 Bgw=2 tw=120 d=5 mode=on  elapsed=78900.6s  last_rt=2.3922s status=completed
+  [3310/3840] n=100 Bgw=2 tw=120 d=10 mode=off  elapsed=78949.1s  last_rt=4.9518s status=completed
+  [3320/3840] n=100 Bgw=2 tw=120 d=10 mode=on  elapsed=79000.7s  last_rt=5.1899s status=completed
+  [3330/3840] n=100 Bgw=2 tw=240 d=5 mode=off  elapsed=79028.6s  last_rt=2.8368s status=completed
+  [3340/3840] n=100 Bgw=2 tw=240 d=5 mode=on  elapsed=79058.8s  last_rt=3.0255s status=completed
+  [3350/3840] n=100 Bgw=2 tw=240 d=10 mode=off  elapsed=79118.0s  last_rt=6.0208s status=completed
+  [3360/3840] n=100 Bgw=2 tw=240 d=10 mode=on  elapsed=79179.4s  last_rt=6.1839s status=completed
+  [3370/3840] n=100 Bgw=3 tw=30 d=5 mode=off  elapsed=79748.5s  last_rt=52.1136s status=completed
+  [3380/3840] n=100 Bgw=3 tw=30 d=5 mode=on  elapsed=80394.0s  last_rt=46.4399s status=completed
+  [3390/3840] n=100 Bgw=3 tw=30 d=10 mode=off  elapsed=81710.9s  last_rt=123.5648s status=completed
+  [3400/3840] n=100 Bgw=3 tw=30 d=10 mode=on  elapsed=83236.4s  last_rt=119.9849s status=completed
+  [3410/3840] n=100 Bgw=3 tw=60 d=5 mode=off  elapsed=84736.5s  last_rt=133.8072s status=completed
+  [3420/3840] n=100 Bgw=3 tw=60 d=5 mode=on  elapsed=86304.7s  last_rt=148.3178s status=completed
+  [3430/3840] n=100 Bgw=3 tw=60 d=10 mode=off  elapsed=90077.5s  last_rt=378.2908s status=completed
+  [3440/3840] n=100 Bgw=3 tw=60 d=10 mode=on  elapsed=93936.7s  last_rt=342.0104s status=completed
+  [3450/3840] n=100 Bgw=3 tw=120 d=5 mode=off  elapsed=95891.0s  last_rt=217.3051s status=completed
+  [3460/3840] n=100 Bgw=3 tw=120 d=5 mode=on  elapsed=97977.2s  last_rt=192.046s status=completed
+  [3470/3840] n=100 Bgw=3 tw=120 d=10 mode=off  elapsed=102648.1s  last_rt=464.741s status=completed
+  [3480/3840] n=100 Bgw=3 tw=120 d=10 mode=on  elapsed=105854.2s  last_rt=s status=timeout_skipped  [cell: rest skipped, reason=timeout]
+  [3490/3840] n=100 Bgw=3 tw=240 d=5 mode=off  elapsed=109191.8s  last_rt=272.4662s status=completed
+  [3500/3840] n=100 Bgw=3 tw=240 d=5 mode=on  elapsed=113619.4s  last_rt=425.7909s status=completed
+  [3510/3840] n=100 Bgw=3 tw=240 d=10 mode=off  elapsed=114278.7s  last_rt=s status=timeout_skipped  [cell: rest skipped, reason=timeout]
+  [3520/3840] n=100 Bgw=3 tw=240 d=10 mode=on  elapsed=114885.8s  last_rt=s status=timeout_skipped  [cell: rest skipped, reason=timeout]
+  [3680/3840] n=100 Bgw=4 SKIPPED toan bo (brute blowup, xem _SKIP_N_BGW)
+  [3840/3840] n=100 Bgw=5 SKIPPED toan bo (brute blowup, xem _SKIP_N_BGW)
+
+=== 2a STEP B DONE ===  runs=2185  completed=2059  timeout=14  timeout_skipped=112  memory_exceeded=0  memory_exceeded_skipped=0  (n,B_gw)_cells_skipped=7  elapsed=114885.8s

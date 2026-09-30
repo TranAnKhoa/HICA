@@ -1,0 +1,149 @@
+{
+  "_note": "Rq1.md - tham so khoa theo dung Muc 10 thu tu buoc 1-6 (theta_i/q_o Sec1.1-1.4, alignment Sec3, 5 treatment Sec5, dry-run gate Sec7, seed policy Sec4). KHONG sua lai cac truong da khoa o day sau khi da hash (buoc 6 hoan tat - xem sha256_of_this_file).",
+  "locked_at_step": "Muc10 buoc1-6 hoan tat - san sang chay Buoc 7 (main 60-cell grid, naive Algorithm C)",
+  "timestamp_utc_step1_2": "2026-09-15T20:10:17Z",
+  "timestamp_utc_step3": "2026-09-16T05:36:00Z",
+
+  "theta_vot": {
+    "distribution": "Uniform",
+    "theta_min_usd_per_hour": 18.0,
+    "theta_max_usd_per_hour": 25.0,
+    "unit_per_usd": 1.0,
+    "theta_min_cost_unit": 18.0,
+    "theta_max_cost_unit": 25.0,
+    "same_distribution_gw_od": true,
+    "source_note": "Amazon Flex / Li & Zhang benchmark VOT range, Rq1.md Sec1.1"
+  },
+
+  "kappa": {
+    "value": 1.0,
+    "unit": "cost-unit/km",
+    "source": "t4_profile.py KAPPA=1.0 (da khoa truoc RQ1, khong doi)"
+  },
+
+  "unit_check": {
+    "median_distance_km": 4.17,
+    "median_speed_kmh": 20.0,
+    "kappa_term": 4.17,
+    "theta_term_mean": 4.501084195570558,
+    "ratio_kappa_over_theta": 0.9264434564684721,
+    "ok": true,
+    "tolerance_band": "[0.2, 5.0]",
+    "note": "Rq1.md Sec1.3 - PASS, kappa*distance va theta*time cung bac do lon"
+  },
+
+  "fd_cost_q_o": {
+    "formula": "q_o = base_fee + rate_per_km * max(0, dist_km(pickup,delivery) - free_radius)",
+    "base_fee": 8.0,
+    "rate_per_km": 3.0,
+    "free_radius_km": 1.0,
+    "calibration_pass": {
+      "pilot_n": 12,
+      "pilot_B_gw": 3,
+      "pilot_B_od": 3,
+      "pilot_tw_width": 120,
+      "pilot_tau": 30.0,
+      "pilot_supply_ratios": [[2,2],[3,2],[2,3],[3,3]],
+      "pilot_seeds": [0,1,2,3,4],
+      "grid_swept_base_fee": [2.0,3.0,4.0,5.0,6.0,8.0,10.0,14.0],
+      "grid_swept_rate_per_km": [0.8,1.2,1.6,2.0,2.5,3.0],
+      "chosen_result": {
+        "fd_rate": 0.483,
+        "total_gw_wins": 32,
+        "total_od_wins": 24,
+        "n_supply_cells_gw_zero": 0,
+        "n_supply_cells_od_zero": 0
+      },
+      "note": "Bo tham so DAU TIEN (theo thu tu quet base_fee tang dan, roi rate_per_km tang dan trong moi base_fee) dat ca 2 tieu chi Rq1.md Sec1.4: fd_rate in [0.10,0.50] VA khong supply-ratio cell nao GW/OD thang 0 tuyet doi. KHONG tiep tuc quet sau khi dat - dung dung tinh than khoa tham so."
+    }
+  },
+
+  "alignment": {
+    "formula": "alignment(instance) = (1/|O|) * Sum_o 1[ min_k dist(pickup_o, corridor_k) <= r0 ]",
+    "r0_km": 1.3615,
+    "r0_computation": {
+      "method": "percentile-25 cua toan bo pairwise (pickup, corridor OD) distance tren 1 pilot instance TRUNG LAP (KHONG dung lai cho main RQ1 grid)",
+      "pilot_n": 18, "pilot_B_gw": 3, "pilot_B_od": 3, "pilot_tw_width": 120,
+      "pilot_n_drivers": 5, "pilot_gw_od_ratio": 0.4, "pilot_tau": 30.0,
+      "n_pairwise_distances": 54, "min_dist": 0.2255, "max_dist": 8.3581, "median_dist": 2.7166
+    },
+    "control_params": {
+      "corridor_share": "instance_gen.generate_instance() optional kwarg moi, default None=0.7 (khong doi hanh vi goc)",
+      "corridor_buffer_km": "instance_gen.generate_instance() optional kwarg moi, default None=3.0km (khong doi hanh vi goc); THEM SAU calibration 1D voi chi corridor_share khong du manh de phu target range (2026-09-16)"
+    },
+    "calibration_2d_grid": {
+      "corridor_share_grid": [0.0, 0.2, 0.4, 0.6, 0.8, 1.0],
+      "corridor_buffer_km_grid": [0.3, 0.6, 1.0, 1.5, 2.0, 3.0, 5.0],
+      "calib_n": 15, "calib_B_gw": 3, "calib_B_od": 3, "calib_tw_width": 120,
+      "calib_n_drivers": 4, "calib_tau": 30.0, "calib_seeds_per_combo": 8,
+      "note": "42 to hop x 8 seed = 336 instance nho (chi sinh instance, khong chay DP)"
+    },
+    "locked_targets": {
+      "0.10": {
+        "corridor_share": 0.2, "corridor_buffer_km": 3.0,
+        "achieved_alignment_mean": 0.3500, "achieved_alignment_std": 0.1976,
+        "deviation": true,
+        "deviation_note": "[DEVIATION] KHONG dat duoc trong tolerance +-0.05. GIOI HAN CAU TRUC that: ngay ca corridor_share=0.0 (tat hoan toan corridor bias) cho alignment nen tu nhien ~0.27-0.53 (mean~0.36) vi khong gian nho (AREA_KM=8.0, da khoa truoc) + r0=1.3615km khien order ngau nhien van de roi gan >=1 corridor OD trong vai driver. Quyet dinh nguoi dung 2026-09-16: GIU target=0.10 trong grid, dung to hop gan nhat (mean=0.35), BAO CAO TRUNG THUC deviation nay trong moi phan tich RQ1 lien quan target=0.10 - khong loai bo target de 'lam dep' theo dung Rq1.md Sec3 dong 117-118."
+      },
+      "0.30": {
+        "corridor_share": 0.2, "corridor_buffer_km": 3.0,
+        "achieved_alignment_mean": 0.3500, "achieved_alignment_std": 0.1976,
+        "deviation": true,
+        "deviation_note": "[DEVIATION] |0.35-0.30|=0.05, dung nguong tol=0.05 (bien) - ghi nhan la deviation nhe theo dung tinh than 'khong am tham chon'."
+      },
+      "0.50": {
+        "corridor_share": 0.0, "corridor_buffer_km": 3.0,
+        "achieved_alignment_mean": 0.4917, "achieved_alignment_std": 0.1467,
+        "deviation": false
+      },
+      "0.70": {
+        "corridor_share": 0.4, "corridor_buffer_km": 0.6,
+        "achieved_alignment_mean": 0.6917, "achieved_alignment_std": 0.1377,
+        "deviation": false
+      },
+      "0.90": {
+        "corridor_share": 1.0, "corridor_buffer_km": 1.5,
+        "achieved_alignment_mean": 0.9083, "achieved_alignment_std": 0.0707,
+        "deviation": false
+      }
+    }
+  },
+
+  "treatments": {
+    "dry_run_gate_sec7": {
+      "grid": "n in {3,4,5,6} x (B_gw,B_od) in {(2,2),(3,2),(2,3)} x tw_width in {60,120} x seed in {0,1,2}",
+      "n_instances": 72,
+      "n_checks": 360,
+      "result": "PASS 0/360 violation - JOINT, GW-ONLY, OD-ONLY, OD-FIRST->GW, GW-FIRST->OD deu khop CHINH XAC voi oracle exhaustive doc lap (khong CPLEX)",
+      "oracle_note": "Oracle dung brute_force.brute_pool_for_driver (da audit doc lap, dung lai tu Gate 0/616/160 va Testb_hull_final.md) cho route pool, cong voi 1 ham exhaustive_wdp thuan Python (khong CPLEX) rieng cho gate nay. Gate lan dau FAIL 7/360 (chi treatment GW-FIRST) - loi nam O CHINH ORACLE (rq1_dryrun_gate.py): tra cuu lai cost theo bundle sau khi da co assignment toi uu, lay nham diem Pareto DAU TIEN thay vi diem THAT SU duoc chon (1 bundle co the co nhieu diem (K,W) Pareto khac true-cost). Sua bang cach luu truc tiep (bundle,cost) da chon trong qua trinh tim kiem, khong tra cuu lai. rq1_treatments.py (pipeline CPLEX that) DUNG tu dau - bug chi o oracle so sanh.",
+      "gate_script": "spec_2a_2b/src/rq1_dryrun_gate.py",
+      "pipeline_script": "spec_2a_2b/src/rq1_treatments.py",
+      "timestamp_utc": "2026-09-16T09:40:00Z"
+    },
+    "fixed_generator_params_main_grid": {
+      "tw_width": 120,
+      "tau": 30.0,
+      "note": "Rq1.md Sec4 dong 129: 'giu nguyen default hien tai cua generator' cho tw_width/tau/capacity. tw_width KHONG co default that trong generate_instance() (tham so bat buoc) - dung 120, gia tri DA DUNG XUYEN SUOT moi calibration pass truoc cua RQ1 (q_o pilot, r0 pilot, alignment calibration curve). tau=30.0 KHONG phai default ham (default that=20.0) nhung CUNG la gia tri da dung nhat quan xuyen suot moi buoc calibration RQ1 truoc do - giu nguyen de nhat quan, khong quay ve default ham (se la thay doi am tham chua tung kiem tra)."
+    },
+    "b_gw_b_od": {"value": 3, "note": "Rq1.md Sec4 dong 127 - khop gia tri dung o main experiment khac, khong mo them truc"},
+    "n_grid": [10, 15, 20],
+    "supply_ratios": [[2,2],[3,2],[2,3],[3,3]],
+    "seed_policy": {
+      "note": "Rq1.md Sec4 dong 131: '1 master seed/cell, sub-seed deterministic/replication'. Dung IG.stable_seed(*args) (SHA256-based, on dinh xuyen tien trinh) - cung ho ham da dung o run_2b_v2.py/rq1_calibration.py, khong tao co che seed rieng.",
+      "instance_seed_formula": "gen_seed = stable_seed(n, B_gw, B_od, alignment_target, supply_ratio_gw, supply_ratio_od, replication_idx, 'rq1_main_grid')",
+      "theta_rng_seed_formula": "theta_seed = stable_seed(n, B_gw, B_od, alignment_target, supply_ratio_gw, supply_ratio_od, replication_idx, 'rq1_main_grid_theta')",
+      "rationale": "Tham so cell (n, B_gw, B_od, alignment_target, supply_ratio) + replication_idx xac dinh DUY NHAT 1 instance - doi tag ('rq1_main_grid' vs '..._theta') de RNG sinh geometry (order/driver location, time window) VA RNG sinh theta_i KHONG dung chung 1 stream (tranh tuong quan an gia giua vi tri va gia tri thoi gian rieng cua tai xe). corridor_share/corridor_buffer_km cho alignment_target lay tu bang locked_targets o tren (KHONG phai tham so seed - la tham so generator co dinh cho ca alignment level).",
+      "replication_per_cell": 25,
+      "same_draw_across_5_treatments": "CO - ca 5 treatment (JOINT, GW-ONLY, OD-ONLY, OD-FIRST, GW-FIRST) DUNG CHUNG 1 instance (cung order draw + driver draw + theta draw) cho 1 replication - Rq1.md Sec4 dong 130 'paired = cung order draw + driver draw dung cho ca 5 treatment'. Chi khac o TAP DRIVER duoc dua vao WDP (GW-ONLY loai OD, v.v.) - KHONG sinh lai instance rieng cho tung treatment."
+    }
+  },
+
+  "_pending_sections_not_yet_locked": [],
+
+  "sha256_of_this_file": {
+    "method": "SHA-256 cua toan bo noi dung file NAY, voi gia tri truong 'sha256_of_this_file' tam thoi la chuoi 'PLACEHOLDER' luc hash (tranh vong lap tu-tham-chieu) - hash duoc tinh truoc, roi moi ghi ket qua vao chinh truong nay.",
+    "hash": "16a84c7793548f65381b6a0edcb471d2c3f6188a7f0929315c9a6231a5fac979",
+    "hashed_at_utc": "2026-09-16T10:05:00Z",
+    "note": "Khoa NGAY TRUOC instance dau tien cua main 60-cell grid, dung theo Rq1.md muc 8.1. Ban hash truoc (87efd628...) bi THAY vi phat hien thieu tw_width/tau/n_grid/supply_ratios/B tuong minh cho main grid truoc khi chay instance nao - sua NGAY, chua co instance nao chay voi hash cu nen khong vi pham Sec8.3 (chi ap dung cho thay doi SAU khi da bat dau chay). Tu day tro di, MOI thay doi tham so trong file nay BAT BUOC ghi [DEVIATION] + ly do va chay lai TOAN BO grid tu dau, khong duoc patch mot phan."
+  }
+}

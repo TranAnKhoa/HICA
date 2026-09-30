@@ -1,0 +1,7 @@
+  [3/108] n=20 Bgw=3 tw=30  verdict(last_seed)=case1_present  feas_kill_r0=0.0%->lastround=54.7%  elapsed=3.7s
+  [6/108] n=20 Bgw=3 tw=60  verdict(last_seed)=case2_dominant  feas_kill_r0=0.0%->lastround=0.0%  elapsed=15.8s
+  [9/108] n=20 Bgw=3 tw=120  verdict(last_seed)=case1_present  feas_kill_r0=0.0%->lastround=16.6%  elapsed=28.7s
+  [12/108] n=20 Bgw=3 tw=240  verdict(last_seed)=case2_dominant  feas_kill_r0=0.0%->lastround=1.1%  elapsed=45.8s
+  [15/108] n=20 Bgw=4 tw=30  verdict(last_seed)=case1_present  feas_kill_r0=0.0%->lastround=71.6%  elapsed=79.5s
+  [18/108] n=20 Bgw=4 tw=60  verdict(last_seed)=case1_present  feas_kill_r0=0.0%->lastround=42.5%  elapsed=186.7s
+  [21/108] n=20 Bgw=4 tw=120  verdict(last_seed)=case1_present  feas_kill_r0=0.0%->lastround=16.8%  elapsed=468.6s

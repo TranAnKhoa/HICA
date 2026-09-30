@@ -1,0 +1,6 @@
+driver: gw2
+Tong so closure root: 224887
+Closure chet THAT SU (KHONG dominance trong closure, chi con dominance o pickup round sau): 0
+Trong do, so mismatch voi iv_completion_feasible (tra True sai): 0
+
+=> XAC NHAN: iv_completion_feasible HOAN TOAN DUNG. Toan bo 'mismatch' truoc day la do dominance CHEO GIUA CAC CLOSURE trong buoc closure BFS (xay ra o moi buoc trung gian, khong chi buoc cuoi) - HANH VI DUNG cua thuat toan t6_dp.py, KHONG PHAI BUG trong iv_completion_feasible.

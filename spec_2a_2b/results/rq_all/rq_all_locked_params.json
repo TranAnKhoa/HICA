@@ -1,0 +1,236 @@
+{
+  "_note": "RQ_Master.md - tham so khoa cho RQ2-RQ5. Ke thua NGUYEN rq1_locked_params.json (theta, q_o, alignment, tw=120, tau=30, seed formula). KHONG sua sau khi hash.",
+  "gate": {
+    "result": "PASS 0/1035 (G1a 48, G1b 24, G1c 96, G2_vcg 120, G2_posted 72, G2_pab 315, G3 360) + G1a n>=15 0/32",
+    "script": "spec_2a_2b/src/rq_gate.py"
+  },
+  "inherits": {
+    "file": "spec_2a_2b/results/rq1_locked_params.json",
+    "sha256": "16a84c7793548f65381b6a0edcb471d2c3f6188a7f0929315c9a6231a5fac979"
+  },
+  "locked_at_utc": "2026-09-27T13:02:16Z",
+  "rq2": {
+    "B4_only_n": [
+      10,
+      15
+    ],
+    "B4_reason": "Algorithm A ~101.7s/instance o n=20,B=4 (probe 2026-09-27) - gioi han tinh toan, khong dua tren ket qua",
+    "b1_b2_from_filtering_b3_pool": true,
+    "grid": {
+      "alignment": [
+        0.1,
+        0.3,
+        0.5,
+        0.7,
+        0.9
+      ],
+      "instances": "identical to RQ1 main grid (same gen_seed/theta_seed)",
+      "n": [
+        10,
+        15,
+        20
+      ],
+      "reps": 25,
+      "supply": [
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          3
+        ]
+      ]
+    },
+    "heur": {
+      "D_max": "percentile-25 of pairwise distances in instance",
+      "distance": "dist(p,p')+dist(d,d') km",
+      "max_block": 3,
+      "menu": "singletons + blocks>=2",
+      "tw_rule": "|ready_p - ready_p'| <= tw_width"
+    },
+    "menus": [
+      "B1",
+      "B2",
+      "B3",
+      "B4",
+      "HEUR"
+    ]
+  },
+  "rq3": {
+    "grid": {
+      "alignment": [
+        0.5,
+        0.9
+      ],
+      "n": [
+        10,
+        15,
+        20
+      ],
+      "reps": 25,
+      "supply": [
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          3
+        ]
+      ]
+    },
+    "menu_B": 3,
+    "pab_br": {
+      "bid_domain": [
+        18.0,
+        25.0
+      ],
+      "grid_step": 0.5,
+      "profile": "unilateral best response vs truthful others, then applied simultaneously",
+      "tie": "smallest bid"
+    },
+    "posted_lambda": 0.8,
+    "posted_pilot": {
+      "lambda_grid": [
+        0.4,
+        0.45,
+        0.5,
+        0.55,
+        0.6,
+        0.65,
+        0.7,
+        0.75,
+        0.8,
+        0.85,
+        0.9,
+        0.95,
+        1.0
+      ],
+      "n_instances": 120,
+      "rule": "min mean payout",
+      "tag": "rq3_pilot_lambda"
+    }
+  },
+  "rq4": {
+    "accelerated": "K* prune (Theta=[18,25], FD=q_o) once/instance",
+    "equality_tol": 1e-06,
+    "instances": "same 600 as RQ3",
+    "order": "alternate by rep parity"
+  },
+  "rq5": {
+    "baseline": {
+      "alignment": 0.5,
+      "fd_scale": 1.0,
+      "n": 15,
+      "spatial": "dispersed",
+      "tau": 30.0,
+      "theta": [
+        18.0,
+        25.0
+      ],
+      "tw": 120
+    },
+    "reps_per_supply": 15,
+    "seed": "stable_seed(n, n_gw, n_od, rep, 'rq5')",
+    "solve_rate_budget_s": 300,
+    "supply_base": [
+      [
+        2,
+        2
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        3
+      ]
+    ],
+    "supply_scale_n25_n30": [
+      [
+        3,
+        3
+      ],
+      [
+        4,
+        3
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        4,
+        4
+      ]
+    ],
+    "variants": {
+      "V0_baseline": {},
+      "V10_n30": {
+        "n": 30
+      },
+      "V1_tw60": {
+        "tw": 60
+      },
+      "V2_tw240": {
+        "tw": 240
+      },
+      "V3_tau20": {
+        "tau": 20.0
+      },
+      "V4_tau45": {
+        "tau": 45.0
+      },
+      "V5_fd075": {
+        "fd_scale": 0.75
+      },
+      "V6_fd125": {
+        "fd_scale": 1.25
+      },
+      "V7_clustered": {
+        "spatial": "clustered"
+      },
+      "V8_theta15_30": {
+        "theta_range": [
+          15.0,
+          30.0
+        ]
+      },
+      "V9_n25": {
+        "n": 25
+      }
+    }
+  },
+  "sha256_of_this_file": {
+    "hash": "73f0ca62e37885c3bc6eebade68c9395d1dbabd51aa844cc231256be4a1a6d47",
+    "hashed_at_utc": "2026-09-27T13:02:16Z",
+    "method": "sha256 of json.dumps(indent=2,sort_keys=True) with this field='PLACEHOLDER'"
+  },
+  "stats": {
+    "bootstrap": 2000,
+    "bootstrap_seed": 20260927,
+    "resample_unit": "instance"
+  }
+}

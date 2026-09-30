@@ -1,0 +1,21 @@
+[rq34 shard 2] 10/200 new done, 0.1 min
+[rq34 shard 2] 20/200 new done, 0.2 min
+[rq34 shard 2] 30/200 new done, 0.3 min
+[rq34 shard 2] 40/200 new done, 0.5 min
+[rq34 shard 2] 50/200 new done, 0.9 min
+[rq34 shard 2] 60/200 new done, 1.1 min
+[rq34 shard 2] 70/200 new done, 1.6 min
+[rq34 shard 2] 80/200 new done, 2.3 min
+[rq34 shard 2] 90/200 new done, 3.0 min
+[rq34 shard 2] 100/200 new done, 3.9 min
+[rq34 shard 2] 110/200 new done, 4.2 min
+[rq34 shard 2] 120/200 new done, 4.5 min
+[rq34 shard 2] 130/200 new done, 4.8 min
+[rq34 shard 2] 140/200 new done, 5.4 min
+[rq34 shard 2] 150/200 new done, 6.2 min
+[rq34 shard 2] 160/200 new done, 7.1 min
+[rq34 shard 2] 170/200 new done, 8.5 min
+[rq34 shard 2] 180/200 new done, 10.9 min
+[rq34 shard 2] 190/200 new done, 13.4 min
+[rq34 shard 2] 200/200 new done, 16.2 min
+[rq34 shard 2] FINISHED 200 jobs in 16.2 min

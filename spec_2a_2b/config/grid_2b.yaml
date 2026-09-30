@@ -1,0 +1,43 @@
+# Spec 2b - luoi tham so, KHOA LUC: 2026-09-10T12:59:28Z
+# Khong sua sau khi thay ket qua dau tien (Spec "Canh bao lap lai").
+locked_at: "2026-09-10T12:59:28Z"
+
+# Lat cat co dinh cua 2a (o "trung binh", khong cuc doan):
+slice_of_2a:
+  n:        [30, 50]
+  B:        3
+  tw_width: 120
+
+# Bien quet moi cua 2b (bien quyet dinh do roi rac component):
+grid:
+  tau:               [10, 15, 20, 30, 45, 60]    # phut, detour budget OD
+  spatial_mode:      ["dispersed", "clustered"]
+  supply_ratio:      [0.3, 0.6, 1.0]             # n_drivers / n_orders
+  seeds:             [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+fixed:
+  gw_od_ratio:  0.5
+  area_km:      20.0
+  speed_kmh:    20.0
+  service_min:  5.0
+
+# n_drivers duoc suy tu supply_ratio * n  (lam tron), KHAC 2a (2a n_drivers
+# la {5,10} co dinh). Khac biet nay co chu dich - ghi ro trong report.
+runs_total: 720                      # 2 * 6 * 2 * 3 * 10
+
+# Chi chay 2b tren instance 2a-style co status = "completed" (route pool day du).
+
+measure:
+  - n_components
+  - component_sizes                  # list day du (histogram)
+  - largest_component_fraction       # max(size) / n_drivers
+  - n_singleton_components
+  - median_component_size
+
+output:
+  - "heatmap: largest_component_fraction ~ (tau, spatial_mode, supply_ratio), n co dinh"
+  - "heatmap: median(component_size) ~ (tau, spatial_mode, supply_ratio), n co dinh"
+
+decision_rule:
+  A: "phan lon vung hop ly (tau<=20-30, dispersed, supply vua) -> largest_frac nho (~<0.3-0.5) + nhieu component -> T5 co gia tri, tiep 2c/2d"
+  B: "component luon gop gan het driver bat ke tham so -> ha ky vong T5 xuong 'correctness result', khong dau tu speedup 2c/2d"

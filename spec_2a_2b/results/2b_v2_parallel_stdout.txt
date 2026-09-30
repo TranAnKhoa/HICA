@@ -1,0 +1,442 @@
+RESUME: 399 rows already in summary, skipping those. workers=11
+  [400/1080] Bgw=3 Bod=2 n=30 dispersed sr=0.6 tau=45 seed=4  comps=1  largest_frac=1.000  elapsed=39.1s
+  [401/1080] Bgw=3 Bod=2 n=30 dispersed sr=0.6 tau=45 seed=9  comps=1  largest_frac=1.000  elapsed=44.1s
+  [402/1080] Bgw=3 Bod=2 n=30 dispersed sr=0.6 tau=45 seed=7  comps=1  largest_frac=1.000  elapsed=46.6s
+  [403/1080] Bgw=3 Bod=2 n=30 dispersed sr=0.6 tau=45 seed=5  comps=1  largest_frac=1.000  elapsed=47.4s
+  [404/1080] Bgw=3 Bod=2 n=30 dispersed sr=0.6 tau=30 seed=9  comps=1  largest_frac=1.000  elapsed=49.1s
+  [405/1080] Bgw=3 Bod=2 n=30 dispersed sr=0.6 tau=45 seed=3  comps=1  largest_frac=1.000  elapsed=51.9s
+  [406/1080] Bgw=3 Bod=2 n=30 dispersed sr=0.6 tau=45 seed=8  comps=1  largest_frac=1.000  elapsed=56.0s
+  [407/1080] Bgw=3 Bod=2 n=30 dispersed sr=0.6 tau=45 seed=6  comps=1  largest_frac=1.000  elapsed=56.9s
+  [408/1080] Bgw=3 Bod=2 n=30 dispersed sr=0.6 tau=45 seed=0  comps=1  largest_frac=1.000  elapsed=63.8s
+  [409/1080] Bgw=3 Bod=2 n=30 dispersed sr=0.6 tau=45 seed=1  comps=1  largest_frac=1.000  elapsed=65.8s
+  [410/1080] Bgw=3 Bod=2 n=30 dispersed sr=0.6 tau=45 seed=2  comps=1  largest_frac=1.000  elapsed=70.0s
+  [411/1080] Bgw=3 Bod=2 n=30 dispersed sr=0.6 tau=60 seed=0  comps=1  largest_frac=1.000  elapsed=89.2s
+  [412/1080] Bgw=3 Bod=2 n=30 dispersed sr=0.6 tau=60 seed=1  comps=1  largest_frac=1.000  elapsed=92.8s
+  [413/1080] Bgw=3 Bod=2 n=30 dispersed sr=0.6 tau=60 seed=7  comps=1  largest_frac=1.000  elapsed=102.3s
+  [414/1080] Bgw=3 Bod=2 n=30 dispersed sr=0.6 tau=60 seed=2  comps=1  largest_frac=1.000  elapsed=102.4s
+  [415/1080] Bgw=3 Bod=2 n=30 dispersed sr=0.6 tau=60 seed=3  comps=1  largest_frac=1.000  elapsed=103.3s
+  [416/1080] Bgw=3 Bod=2 n=30 dispersed sr=0.6 tau=60 seed=5  comps=1  largest_frac=1.000  elapsed=106.2s
+  [417/1080] Bgw=3 Bod=2 n=30 dispersed sr=0.6 tau=60 seed=8  comps=1  largest_frac=1.000  elapsed=121.3s
+  [418/1080] Bgw=3 Bod=2 n=30 dispersed sr=0.6 tau=60 seed=6  comps=1  largest_frac=1.000  elapsed=123.6s
+  [419/1080] Bgw=3 Bod=2 n=30 dispersed sr=0.6 tau=60 seed=9  comps=1  largest_frac=1.000  elapsed=135.5s
+  [420/1080] Bgw=3 Bod=2 n=30 dispersed sr=0.6 tau=60 seed=4  comps=1  largest_frac=1.000  elapsed=135.6s
+  [421/1080] Bgw=3 Bod=2 n=30 dispersed sr=1.0 tau=30 seed=0  comps=2  largest_frac=0.967  elapsed=166.9s
+  [422/1080] Bgw=3 Bod=2 n=30 dispersed sr=1.0 tau=30 seed=1  comps=1  largest_frac=1.000  elapsed=173.6s
+  [423/1080] Bgw=3 Bod=2 n=30 dispersed sr=1.0 tau=30 seed=2  comps=1  largest_frac=1.000  elapsed=182.6s
+  [424/1080] Bgw=3 Bod=2 n=30 dispersed sr=1.0 tau=30 seed=4  comps=1  largest_frac=1.000  elapsed=195.7s
+  [425/1080] Bgw=3 Bod=2 n=30 dispersed sr=1.0 tau=30 seed=5  comps=1  largest_frac=1.000  elapsed=198.0s
+  [426/1080] Bgw=3 Bod=2 n=30 dispersed sr=1.0 tau=30 seed=3  comps=1  largest_frac=1.000  elapsed=203.4s
+  [427/1080] Bgw=3 Bod=2 n=30 dispersed sr=1.0 tau=30 seed=7  comps=1  largest_frac=1.000  elapsed=208.3s
+  [428/1080] Bgw=3 Bod=2 n=30 dispersed sr=1.0 tau=30 seed=8  comps=2  largest_frac=0.967  elapsed=215.3s
+  [429/1080] Bgw=3 Bod=2 n=30 dispersed sr=1.0 tau=45 seed=0  comps=1  largest_frac=1.000  elapsed=216.4s
+  [430/1080] Bgw=3 Bod=2 n=30 dispersed sr=1.0 tau=30 seed=6  comps=1  largest_frac=1.000  elapsed=218.3s
+  [431/1080] Bgw=3 Bod=2 n=30 dispersed sr=1.0 tau=30 seed=9  comps=1  largest_frac=1.000  elapsed=246.2s
+  [432/1080] Bgw=3 Bod=2 n=30 dispersed sr=1.0 tau=45 seed=1  comps=1  largest_frac=1.000  elapsed=253.7s
+  [433/1080] Bgw=3 Bod=2 n=30 dispersed sr=1.0 tau=45 seed=5  comps=1  largest_frac=1.000  elapsed=275.0s
+  [434/1080] Bgw=3 Bod=2 n=30 dispersed sr=1.0 tau=45 seed=2  comps=1  largest_frac=1.000  elapsed=276.8s
+  [435/1080] Bgw=3 Bod=2 n=30 dispersed sr=1.0 tau=45 seed=4  comps=1  largest_frac=1.000  elapsed=283.1s
+  [436/1080] Bgw=3 Bod=2 n=30 dispersed sr=1.0 tau=45 seed=3  comps=1  largest_frac=1.000  elapsed=299.3s
+  [437/1080] Bgw=3 Bod=2 n=30 dispersed sr=1.0 tau=60 seed=0  comps=1  largest_frac=1.000  elapsed=302.6s
+  [438/1080] Bgw=3 Bod=2 n=30 dispersed sr=1.0 tau=45 seed=6  comps=1  largest_frac=1.000  elapsed=317.3s
+  [439/1080] Bgw=3 Bod=2 n=30 dispersed sr=1.0 tau=45 seed=7  comps=1  largest_frac=1.000  elapsed=320.4s
+  [440/1080] Bgw=3 Bod=2 n=30 dispersed sr=1.0 tau=45 seed=9  comps=1  largest_frac=1.000  elapsed=325.4s
+  [441/1080] Bgw=3 Bod=2 n=30 clustered sr=0.3 tau=30 seed=0  comps=1  largest_frac=1.000  elapsed=351.4s
+  [442/1080] Bgw=3 Bod=2 n=30 dispersed sr=1.0 tau=45 seed=8  comps=1  largest_frac=1.000  elapsed=353.5s
+  [443/1080] Bgw=3 Bod=2 n=30 dispersed sr=1.0 tau=60 seed=2  comps=1  largest_frac=1.000  elapsed=374.8s
+  [444/1080] Bgw=3 Bod=2 n=30 clustered sr=0.3 tau=30 seed=2  comps=1  largest_frac=1.000  elapsed=375.9s
+  [445/1080] Bgw=3 Bod=2 n=30 clustered sr=0.3 tau=30 seed=1  comps=1  largest_frac=1.000  elapsed=377.4s
+  [446/1080] Bgw=3 Bod=2 n=30 dispersed sr=1.0 tau=60 seed=4  comps=1  largest_frac=1.000  elapsed=378.4s
+  [447/1080] Bgw=3 Bod=2 n=30 dispersed sr=1.0 tau=60 seed=3  comps=1  largest_frac=1.000  elapsed=392.1s
+  [448/1080] Bgw=3 Bod=2 n=30 clustered sr=0.3 tau=30 seed=4  comps=1  largest_frac=1.000  elapsed=393.9s
+  [449/1080] Bgw=3 Bod=2 n=30 clustered sr=0.3 tau=30 seed=5  comps=2  largest_frac=0.889  elapsed=398.1s
+  [450/1080] Bgw=3 Bod=2 n=30 dispersed sr=1.0 tau=60 seed=1  comps=1  largest_frac=1.000  elapsed=399.9s
+  [451/1080] Bgw=3 Bod=2 n=30 dispersed sr=1.0 tau=60 seed=5  comps=1  largest_frac=1.000  elapsed=400.1s
+  [452/1080] Bgw=3 Bod=2 n=30 clustered sr=0.3 tau=30 seed=3  comps=1  largest_frac=1.000  elapsed=402.5s
+  [453/1080] Bgw=3 Bod=2 n=30 clustered sr=0.3 tau=30 seed=6  comps=1  largest_frac=1.000  elapsed=403.8s
+  [454/1080] Bgw=3 Bod=2 n=30 clustered sr=0.3 tau=45 seed=0  comps=1  largest_frac=1.000  elapsed=418.6s
+  [455/1080] Bgw=3 Bod=2 n=30 dispersed sr=1.0 tau=60 seed=6  comps=1  largest_frac=1.000  elapsed=420.0s
+  [456/1080] Bgw=3 Bod=2 n=30 dispersed sr=1.0 tau=60 seed=8  comps=1  largest_frac=1.000  elapsed=421.1s
+  [457/1080] Bgw=3 Bod=2 n=30 clustered sr=0.3 tau=45 seed=2  comps=1  largest_frac=1.000  elapsed=422.1s
+  [458/1080] Bgw=3 Bod=2 n=30 clustered sr=0.3 tau=30 seed=8  comps=1  largest_frac=1.000  elapsed=422.1s
+  [459/1080] Bgw=3 Bod=2 n=30 clustered sr=0.3 tau=30 seed=7  comps=1  largest_frac=1.000  elapsed=423.3s
+  [460/1080] Bgw=3 Bod=2 n=30 clustered sr=0.3 tau=30 seed=9  comps=1  largest_frac=1.000  elapsed=423.4s
+  [461/1080] Bgw=3 Bod=2 n=30 clustered sr=0.3 tau=45 seed=1  comps=1  largest_frac=1.000  elapsed=424.5s
+  [462/1080] Bgw=3 Bod=2 n=30 clustered sr=0.3 tau=45 seed=3  comps=1  largest_frac=1.000  elapsed=428.3s
+  [463/1080] Bgw=3 Bod=2 n=30 dispersed sr=1.0 tau=60 seed=9  comps=1  largest_frac=1.000  elapsed=432.9s
+  [464/1080] Bgw=3 Bod=2 n=30 dispersed sr=1.0 tau=60 seed=7  comps=1  largest_frac=1.000  elapsed=439.6s
+  [465/1080] Bgw=3 Bod=2 n=30 clustered sr=0.3 tau=45 seed=8  comps=1  largest_frac=1.000  elapsed=443.4s
+  [466/1080] Bgw=3 Bod=2 n=30 clustered sr=0.3 tau=45 seed=7  comps=1  largest_frac=1.000  elapsed=444.2s
+  [467/1080] Bgw=3 Bod=2 n=30 clustered sr=0.3 tau=60 seed=2  comps=1  largest_frac=1.000  elapsed=447.6s
+  [468/1080] Bgw=3 Bod=2 n=30 clustered sr=0.3 tau=45 seed=6  comps=1  largest_frac=1.000  elapsed=447.9s
+  [469/1080] Bgw=3 Bod=2 n=30 clustered sr=0.3 tau=45 seed=4  comps=1  largest_frac=1.000  elapsed=448.9s
+  [470/1080] Bgw=3 Bod=2 n=30 clustered sr=0.3 tau=60 seed=1  comps=1  largest_frac=1.000  elapsed=449.0s
+  [471/1080] Bgw=3 Bod=2 n=30 clustered sr=0.3 tau=45 seed=9  comps=1  largest_frac=1.000  elapsed=450.4s
+  [472/1080] Bgw=3 Bod=2 n=30 clustered sr=0.3 tau=45 seed=5  comps=1  largest_frac=1.000  elapsed=452.0s
+  [473/1080] Bgw=3 Bod=2 n=30 clustered sr=0.3 tau=60 seed=0  comps=1  largest_frac=1.000  elapsed=454.1s
+  [474/1080] Bgw=3 Bod=2 n=30 clustered sr=0.3 tau=60 seed=3  comps=1  largest_frac=1.000  elapsed=457.9s
+  [475/1080] Bgw=3 Bod=2 n=30 clustered sr=0.3 tau=60 seed=4  comps=1  largest_frac=1.000  elapsed=459.0s
+  [476/1080] Bgw=3 Bod=2 n=30 clustered sr=0.3 tau=60 seed=5  comps=1  largest_frac=1.000  elapsed=461.3s
+  [477/1080] Bgw=3 Bod=2 n=30 clustered sr=0.3 tau=60 seed=6  comps=1  largest_frac=1.000  elapsed=463.8s
+  [478/1080] Bgw=3 Bod=2 n=30 clustered sr=0.3 tau=60 seed=9  comps=1  largest_frac=1.000  elapsed=476.9s
+  [479/1080] Bgw=3 Bod=2 n=30 clustered sr=0.3 tau=60 seed=8  comps=1  largest_frac=1.000  elapsed=478.0s
+  [480/1080] Bgw=3 Bod=2 n=30 clustered sr=0.3 tau=60 seed=7  comps=1  largest_frac=1.000  elapsed=478.9s
+  [481/1080] Bgw=3 Bod=2 n=30 clustered sr=0.6 tau=30 seed=3  comps=2  largest_frac=0.944  elapsed=495.9s
+  [482/1080] Bgw=3 Bod=2 n=30 clustered sr=0.6 tau=30 seed=4  comps=1  largest_frac=1.000  elapsed=499.5s
+  [483/1080] Bgw=3 Bod=2 n=30 clustered sr=0.6 tau=30 seed=2  comps=1  largest_frac=1.000  elapsed=500.7s
+  [484/1080] Bgw=3 Bod=2 n=30 clustered sr=0.6 tau=30 seed=6  comps=1  largest_frac=1.000  elapsed=502.4s
+  [485/1080] Bgw=3 Bod=2 n=30 clustered sr=0.6 tau=30 seed=1  comps=1  largest_frac=1.000  elapsed=506.5s
+  [486/1080] Bgw=3 Bod=2 n=30 clustered sr=0.6 tau=30 seed=5  comps=1  largest_frac=1.000  elapsed=508.1s
+  [487/1080] Bgw=3 Bod=2 n=30 clustered sr=0.6 tau=30 seed=7  comps=1  largest_frac=1.000  elapsed=520.3s
+  [488/1080] Bgw=3 Bod=2 n=30 clustered sr=0.6 tau=30 seed=0  comps=1  largest_frac=1.000  elapsed=521.1s
+  [489/1080] Bgw=3 Bod=2 n=30 clustered sr=0.6 tau=30 seed=9  comps=1  largest_frac=1.000  elapsed=526.3s
+  [490/1080] Bgw=3 Bod=2 n=30 clustered sr=0.6 tau=45 seed=0  comps=1  largest_frac=1.000  elapsed=529.3s
+  [491/1080] Bgw=3 Bod=2 n=30 clustered sr=0.6 tau=30 seed=8  comps=1  largest_frac=1.000  elapsed=530.5s
+  [492/1080] Bgw=3 Bod=2 n=30 clustered sr=0.6 tau=45 seed=1  comps=1  largest_frac=1.000  elapsed=539.6s
+  [493/1080] Bgw=3 Bod=2 n=30 clustered sr=0.6 tau=45 seed=5  comps=1  largest_frac=1.000  elapsed=549.6s
+  [494/1080] Bgw=3 Bod=2 n=30 clustered sr=0.6 tau=45 seed=6  comps=1  largest_frac=1.000  elapsed=555.0s
+  [495/1080] Bgw=3 Bod=2 n=30 clustered sr=0.6 tau=45 seed=2  comps=1  largest_frac=1.000  elapsed=560.9s
+  [496/1080] Bgw=3 Bod=2 n=30 clustered sr=0.6 tau=45 seed=3  comps=1  largest_frac=1.000  elapsed=571.1s
+  [497/1080] Bgw=3 Bod=2 n=30 clustered sr=0.6 tau=45 seed=4  comps=1  largest_frac=1.000  elapsed=573.9s
+  [498/1080] Bgw=3 Bod=2 n=30 clustered sr=0.6 tau=45 seed=8  comps=1  largest_frac=1.000  elapsed=575.2s
+  [499/1080] Bgw=3 Bod=2 n=30 clustered sr=0.6 tau=45 seed=7  comps=1  largest_frac=1.000  elapsed=586.2s
+  [500/1080] Bgw=3 Bod=2 n=30 clustered sr=0.6 tau=60 seed=3  comps=1  largest_frac=1.000  elapsed=592.8s
+  [501/1080] Bgw=3 Bod=2 n=30 clustered sr=0.6 tau=60 seed=1  comps=1  largest_frac=1.000  elapsed=593.9s
+  [502/1080] Bgw=3 Bod=2 n=30 clustered sr=0.6 tau=60 seed=4  comps=1  largest_frac=1.000  elapsed=603.2s
+  [503/1080] Bgw=3 Bod=2 n=30 clustered sr=0.6 tau=45 seed=9  comps=1  largest_frac=1.000  elapsed=607.5s
+  [504/1080] Bgw=3 Bod=2 n=30 clustered sr=0.6 tau=60 seed=5  comps=1  largest_frac=1.000  elapsed=609.3s
+  [505/1080] Bgw=3 Bod=2 n=30 clustered sr=0.6 tau=60 seed=0  comps=1  largest_frac=1.000  elapsed=614.6s
+  [506/1080] Bgw=3 Bod=2 n=30 clustered sr=0.6 tau=60 seed=2  comps=1  largest_frac=1.000  elapsed=625.3s
+  [507/1080] Bgw=3 Bod=2 n=30 clustered sr=0.6 tau=60 seed=8  comps=1  largest_frac=1.000  elapsed=627.5s
+  [508/1080] Bgw=3 Bod=2 n=30 clustered sr=0.6 tau=60 seed=7  comps=1  largest_frac=1.000  elapsed=628.0s
+  [509/1080] Bgw=3 Bod=2 n=30 clustered sr=0.6 tau=60 seed=9  comps=1  largest_frac=1.000  elapsed=630.7s
+  [510/1080] Bgw=3 Bod=2 n=30 clustered sr=0.6 tau=60 seed=6  comps=1  largest_frac=1.000  elapsed=637.0s
+  [511/1080] Bgw=3 Bod=2 n=30 clustered sr=1.0 tau=30 seed=5  comps=1  largest_frac=1.000  elapsed=685.8s
+  [512/1080] Bgw=3 Bod=2 n=30 clustered sr=1.0 tau=30 seed=0  comps=2  largest_frac=0.967  elapsed=696.4s
+  [513/1080] Bgw=3 Bod=2 n=30 clustered sr=1.0 tau=30 seed=2  comps=1  largest_frac=1.000  elapsed=708.5s
+  [514/1080] Bgw=3 Bod=2 n=30 clustered sr=1.0 tau=30 seed=3  comps=1  largest_frac=1.000  elapsed=708.7s
+  [515/1080] Bgw=3 Bod=2 n=30 clustered sr=1.0 tau=30 seed=1  comps=1  largest_frac=1.000  elapsed=714.1s
+  [516/1080] Bgw=3 Bod=2 n=30 clustered sr=1.0 tau=30 seed=7  comps=1  largest_frac=1.000  elapsed=715.0s
+  [517/1080] Bgw=3 Bod=2 n=30 clustered sr=1.0 tau=30 seed=8  comps=1  largest_frac=1.000  elapsed=718.0s
+  [518/1080] Bgw=3 Bod=2 n=30 clustered sr=1.0 tau=30 seed=6  comps=1  largest_frac=1.000  elapsed=719.7s
+  [519/1080] Bgw=3 Bod=2 n=30 clustered sr=1.0 tau=30 seed=9  comps=2  largest_frac=0.967  elapsed=730.2s
+  [520/1080] Bgw=3 Bod=2 n=30 clustered sr=1.0 tau=30 seed=4  comps=1  largest_frac=1.000  elapsed=732.7s
+  [521/1080] Bgw=3 Bod=2 n=30 clustered sr=1.0 tau=45 seed=0  comps=1  largest_frac=1.000  elapsed=740.6s
+  [522/1080] Bgw=3 Bod=2 n=30 clustered sr=1.0 tau=45 seed=1  comps=1  largest_frac=1.000  elapsed=770.0s
+  [523/1080] Bgw=3 Bod=2 n=30 clustered sr=1.0 tau=45 seed=2  comps=1  largest_frac=1.000  elapsed=801.0s
+  [524/1080] Bgw=3 Bod=2 n=30 clustered sr=1.0 tau=45 seed=3  comps=1  largest_frac=1.000  elapsed=807.0s
+  [525/1080] Bgw=3 Bod=2 n=30 clustered sr=1.0 tau=45 seed=5  comps=1  largest_frac=1.000  elapsed=808.1s
+  [526/1080] Bgw=3 Bod=2 n=30 clustered sr=1.0 tau=45 seed=6  comps=1  largest_frac=1.000  elapsed=812.3s
+  [527/1080] Bgw=3 Bod=2 n=30 clustered sr=1.0 tau=45 seed=4  comps=1  largest_frac=1.000  elapsed=815.1s
+  [528/1080] Bgw=3 Bod=2 n=30 clustered sr=1.0 tau=60 seed=1  comps=1  largest_frac=1.000  elapsed=822.3s
+  [529/1080] Bgw=3 Bod=2 n=30 clustered sr=1.0 tau=45 seed=7  comps=1  largest_frac=1.000  elapsed=824.3s
+  [530/1080] Bgw=3 Bod=2 n=30 clustered sr=1.0 tau=45 seed=8  comps=1  largest_frac=1.000  elapsed=838.1s
+  [531/1080] Bgw=3 Bod=2 n=30 clustered sr=1.0 tau=45 seed=9  comps=1  largest_frac=1.000  elapsed=846.2s
+  [532/1080] Bgw=3 Bod=2 n=30 clustered sr=1.0 tau=60 seed=0  comps=1  largest_frac=1.000  elapsed=872.7s
+  [533/1080] Bgw=3 Bod=2 n=30 clustered sr=1.0 tau=60 seed=4  comps=1  largest_frac=1.000  elapsed=886.3s
+  [534/1080] Bgw=3 Bod=2 n=30 clustered sr=1.0 tau=60 seed=2  comps=1  largest_frac=1.000  elapsed=897.7s
+  [535/1080] Bgw=3 Bod=2 n=30 clustered sr=1.0 tau=60 seed=3  comps=1  largest_frac=1.000  elapsed=907.1s
+  [536/1080] Bgw=3 Bod=2 n=30 clustered sr=1.0 tau=60 seed=5  comps=1  largest_frac=1.000  elapsed=908.2s
+  [537/1080] Bgw=3 Bod=2 n=30 clustered sr=1.0 tau=60 seed=6  comps=1  largest_frac=1.000  elapsed=940.7s
+  [538/1080] Bgw=3 Bod=2 n=30 clustered sr=1.0 tau=60 seed=8  comps=1  largest_frac=1.000  elapsed=942.1s
+  [539/1080] Bgw=3 Bod=2 n=30 clustered sr=1.0 tau=60 seed=9  comps=1  largest_frac=1.000  elapsed=948.4s
+  [540/1080] Bgw=3 Bod=2 n=30 clustered sr=1.0 tau=60 seed=7  comps=1  largest_frac=1.000  elapsed=952.6s
+  [541/1080] Bgw=3 Bod=2 n=50 dispersed sr=0.3 tau=30 seed=0  comps=1  largest_frac=1.000  elapsed=1064.5s
+  [542/1080] Bgw=3 Bod=2 n=50 dispersed sr=0.3 tau=30 seed=1  comps=1  largest_frac=1.000  elapsed=1097.0s
+  [543/1080] Bgw=3 Bod=2 n=50 dispersed sr=0.3 tau=30 seed=5  comps=1  largest_frac=1.000  elapsed=1142.4s
+  [544/1080] Bgw=3 Bod=2 n=50 dispersed sr=0.3 tau=30 seed=6  comps=1  largest_frac=1.000  elapsed=1146.2s
+  [545/1080] Bgw=3 Bod=2 n=50 dispersed sr=0.3 tau=30 seed=4  comps=1  largest_frac=1.000  elapsed=1156.9s
+  [546/1080] Bgw=3 Bod=2 n=50 dispersed sr=0.3 tau=30 seed=7  comps=1  largest_frac=1.000  elapsed=1161.1s
+  [547/1080] Bgw=3 Bod=2 n=50 dispersed sr=0.3 tau=30 seed=3  comps=1  largest_frac=1.000  elapsed=1169.1s
+  [548/1080] Bgw=3 Bod=2 n=50 dispersed sr=0.3 tau=30 seed=2  comps=1  largest_frac=1.000  elapsed=1175.1s
+  [549/1080] Bgw=3 Bod=2 n=50 dispersed sr=0.3 tau=30 seed=8  comps=1  largest_frac=1.000  elapsed=1196.8s
+  [550/1080] Bgw=3 Bod=2 n=50 dispersed sr=0.3 tau=45 seed=0  comps=1  largest_frac=1.000  elapsed=1201.6s
+  [551/1080] Bgw=3 Bod=2 n=50 dispersed sr=0.3 tau=30 seed=9  comps=1  largest_frac=1.000  elapsed=1204.0s
+  [552/1080] Bgw=3 Bod=2 n=50 dispersed sr=0.3 tau=45 seed=2  comps=1  largest_frac=1.000  elapsed=1305.4s
+  [553/1080] Bgw=3 Bod=2 n=50 dispersed sr=0.3 tau=45 seed=1  comps=1  largest_frac=1.000  elapsed=1307.0s
+  [554/1080] Bgw=3 Bod=2 n=50 dispersed sr=0.3 tau=45 seed=5  comps=1  largest_frac=1.000  elapsed=1371.5s
+  [555/1080] Bgw=3 Bod=2 n=50 dispersed sr=0.3 tau=45 seed=3  comps=1  largest_frac=1.000  elapsed=1385.6s
+  [556/1080] Bgw=3 Bod=2 n=50 dispersed sr=0.3 tau=45 seed=6  comps=1  largest_frac=1.000  elapsed=1403.8s
+  [557/1080] Bgw=3 Bod=2 n=50 dispersed sr=0.3 tau=45 seed=7  comps=1  largest_frac=1.000  elapsed=1405.4s
+  [558/1080] Bgw=3 Bod=2 n=50 dispersed sr=0.3 tau=45 seed=9  comps=1  largest_frac=1.000  elapsed=1411.1s
+  [559/1080] Bgw=3 Bod=2 n=50 dispersed sr=0.3 tau=45 seed=8  comps=1  largest_frac=1.000  elapsed=1417.2s
+  [560/1080] Bgw=3 Bod=2 n=50 dispersed sr=0.3 tau=45 seed=4  comps=1  largest_frac=1.000  elapsed=1424.8s
+  [561/1080] Bgw=3 Bod=2 n=50 dispersed sr=0.3 tau=60 seed=1  comps=1  largest_frac=1.000  elapsed=1427.2s
+  [562/1080] Bgw=3 Bod=2 n=50 dispersed sr=0.3 tau=60 seed=0  comps=1  largest_frac=1.000  elapsed=1450.3s
+  [563/1080] Bgw=3 Bod=2 n=50 dispersed sr=0.3 tau=60 seed=3  comps=1  largest_frac=1.000  elapsed=1512.9s
+  [564/1080] Bgw=3 Bod=2 n=50 dispersed sr=0.3 tau=60 seed=2  comps=1  largest_frac=1.000  elapsed=1544.4s
+  [565/1080] Bgw=3 Bod=2 n=50 dispersed sr=0.3 tau=60 seed=8  comps=1  largest_frac=1.000  elapsed=1587.1s
+  [566/1080] Bgw=3 Bod=2 n=50 dispersed sr=0.3 tau=60 seed=6  comps=1  largest_frac=1.000  elapsed=1595.4s
+  [567/1080] Bgw=3 Bod=2 n=50 dispersed sr=0.3 tau=60 seed=5  comps=1  largest_frac=1.000  elapsed=1607.4s
+  [568/1080] Bgw=3 Bod=2 n=50 dispersed sr=0.3 tau=60 seed=4  comps=1  largest_frac=1.000  elapsed=1615.2s
+  [569/1080] Bgw=3 Bod=2 n=50 dispersed sr=0.3 tau=60 seed=7  comps=1  largest_frac=1.000  elapsed=1628.0s
+  [570/1080] Bgw=3 Bod=2 n=50 dispersed sr=0.3 tau=60 seed=9  comps=1  largest_frac=1.000  elapsed=1650.9s
+  [571/1080] Bgw=3 Bod=2 n=50 dispersed sr=0.6 tau=30 seed=0  comps=2  largest_frac=0.967  elapsed=1778.6s
+  [572/1080] Bgw=3 Bod=2 n=50 dispersed sr=0.6 tau=30 seed=4  comps=1  largest_frac=1.000  elapsed=1822.4s
+  [573/1080] Bgw=3 Bod=2 n=50 dispersed sr=0.6 tau=30 seed=1  comps=1  largest_frac=1.000  elapsed=1841.5s
+  [574/1080] Bgw=3 Bod=2 n=50 dispersed sr=0.6 tau=30 seed=2  comps=1  largest_frac=1.000  elapsed=1853.6s
+  [575/1080] Bgw=3 Bod=2 n=50 dispersed sr=0.6 tau=30 seed=6  comps=1  largest_frac=1.000  elapsed=1890.2s
+  [576/1080] Bgw=3 Bod=2 n=50 dispersed sr=0.6 tau=30 seed=3  comps=1  largest_frac=1.000  elapsed=1892.4s
+  [577/1080] Bgw=3 Bod=2 n=50 dispersed sr=0.6 tau=45 seed=0  comps=1  largest_frac=1.000  elapsed=1957.4s
+  [578/1080] Bgw=3 Bod=2 n=50 dispersed sr=0.6 tau=30 seed=5  comps=1  largest_frac=1.000  elapsed=2016.4s
+  [579/1080] Bgw=3 Bod=2 n=50 dispersed sr=0.6 tau=30 seed=7  comps=1  largest_frac=1.000  elapsed=2026.6s
+  [580/1080] Bgw=3 Bod=2 n=50 dispersed sr=0.6 tau=30 seed=9  comps=1  largest_frac=1.000  elapsed=2027.3s
+  [581/1080] Bgw=3 Bod=2 n=50 dispersed sr=0.6 tau=30 seed=8  comps=1  largest_frac=1.000  elapsed=2072.3s
+  [582/1080] Bgw=3 Bod=2 n=50 dispersed sr=0.6 tau=45 seed=2  comps=1  largest_frac=1.000  elapsed=2151.2s
+  [583/1080] Bgw=3 Bod=2 n=50 dispersed sr=0.6 tau=45 seed=4  comps=1  largest_frac=1.000  elapsed=2153.9s
+  [584/1080] Bgw=3 Bod=2 n=50 dispersed sr=0.6 tau=45 seed=1  comps=1  largest_frac=1.000  elapsed=2182.2s
+  [585/1080] Bgw=3 Bod=2 n=50 dispersed sr=0.6 tau=45 seed=3  comps=1  largest_frac=1.000  elapsed=2268.9s
+  [586/1080] Bgw=3 Bod=2 n=50 dispersed sr=0.6 tau=45 seed=6  comps=1  largest_frac=1.000  elapsed=2285.0s
+  [587/1080] Bgw=3 Bod=2 n=50 dispersed sr=0.6 tau=45 seed=5  comps=1  largest_frac=1.000  elapsed=2366.9s
+  [588/1080] Bgw=3 Bod=2 n=50 dispersed sr=0.6 tau=45 seed=7  comps=1  largest_frac=1.000  elapsed=2383.0s
+  [589/1080] Bgw=3 Bod=2 n=50 dispersed sr=0.6 tau=60 seed=0  comps=1  largest_frac=1.000  elapsed=2442.8s
+  [590/1080] Bgw=3 Bod=2 n=50 dispersed sr=0.6 tau=45 seed=9  comps=1  largest_frac=1.000  elapsed=2475.0s
+  [591/1080] Bgw=3 Bod=2 n=50 dispersed sr=0.6 tau=45 seed=8  comps=1  largest_frac=1.000  elapsed=2497.4s
+  [592/1080] Bgw=3 Bod=2 n=50 dispersed sr=0.6 tau=60 seed=4  comps=1  largest_frac=1.000  elapsed=2536.2s
+  [593/1080] Bgw=3 Bod=2 n=50 dispersed sr=0.6 tau=60 seed=1  comps=1  largest_frac=1.000  elapsed=2548.6s
+  [594/1080] Bgw=3 Bod=2 n=50 dispersed sr=0.6 tau=60 seed=3  comps=1  largest_frac=1.000  elapsed=2568.1s
+  [595/1080] Bgw=3 Bod=2 n=50 dispersed sr=0.6 tau=60 seed=2  comps=1  largest_frac=1.000  elapsed=2609.6s
+  [596/1080] Bgw=3 Bod=2 n=50 dispersed sr=0.6 tau=60 seed=5  comps=1  largest_frac=1.000  elapsed=2663.2s
+  [597/1080] Bgw=3 Bod=2 n=50 dispersed sr=0.6 tau=60 seed=6  comps=1  largest_frac=1.000  elapsed=2812.0s
+  [598/1080] Bgw=3 Bod=2 n=50 dispersed sr=0.6 tau=60 seed=8  comps=1  largest_frac=1.000  elapsed=2820.1s
+  [599/1080] Bgw=3 Bod=2 n=50 dispersed sr=0.6 tau=60 seed=7  comps=1  largest_frac=1.000  elapsed=2844.3s
+  [600/1080] Bgw=3 Bod=2 n=50 dispersed sr=0.6 tau=60 seed=9  comps=1  largest_frac=1.000  elapsed=2973.9s
+  [601/1080] Bgw=3 Bod=2 n=50 dispersed sr=1.0 tau=30 seed=2  comps=1  largest_frac=1.000  elapsed=3215.8s
+  [602/1080] Bgw=3 Bod=2 n=50 dispersed sr=1.0 tau=30 seed=4  comps=1  largest_frac=1.000  elapsed=3296.8s
+  [603/1080] Bgw=3 Bod=2 n=50 dispersed sr=1.0 tau=30 seed=3  comps=1  largest_frac=1.000  elapsed=3305.4s
+  [604/1080] Bgw=3 Bod=2 n=50 dispersed sr=1.0 tau=30 seed=0  comps=1  largest_frac=1.000  elapsed=3322.6s
+  [605/1080] Bgw=3 Bod=2 n=50 dispersed sr=1.0 tau=30 seed=5  comps=1  largest_frac=1.000  elapsed=3473.7s
+  [606/1080] Bgw=3 Bod=2 n=50 dispersed sr=1.0 tau=30 seed=1  comps=1  largest_frac=1.000  elapsed=3520.5s
+  [607/1080] Bgw=3 Bod=2 n=50 dispersed sr=1.0 tau=30 seed=6  comps=1  largest_frac=1.000  elapsed=3549.9s
+  [608/1080] Bgw=3 Bod=2 n=50 dispersed sr=1.0 tau=30 seed=7  comps=1  largest_frac=1.000  elapsed=3630.2s
+  [609/1080] Bgw=3 Bod=2 n=50 dispersed sr=1.0 tau=30 seed=8  comps=1  largest_frac=1.000  elapsed=3632.5s
+  [610/1080] Bgw=3 Bod=2 n=50 dispersed sr=1.0 tau=30 seed=9  comps=1  largest_frac=1.000  elapsed=3752.0s
+  [611/1080] Bgw=3 Bod=2 n=50 dispersed sr=1.0 tau=45 seed=0  comps=1  largest_frac=1.000  elapsed=3897.2s
+  [612/1080] Bgw=3 Bod=2 n=50 dispersed sr=1.0 tau=45 seed=2  comps=1  largest_frac=1.000  elapsed=4012.7s
+  [613/1080] Bgw=3 Bod=2 n=50 dispersed sr=1.0 tau=45 seed=1  comps=1  largest_frac=1.000  elapsed=4066.0s
+  [614/1080] Bgw=3 Bod=2 n=50 dispersed sr=1.0 tau=45 seed=3  comps=1  largest_frac=1.000  elapsed=4182.7s
+  [615/1080] Bgw=3 Bod=2 n=50 dispersed sr=1.0 tau=45 seed=4  comps=1  largest_frac=1.000  elapsed=4323.8s
+  [616/1080] Bgw=3 Bod=2 n=50 dispersed sr=1.0 tau=45 seed=5  comps=1  largest_frac=1.000  elapsed=4392.5s
+  [617/1080] Bgw=3 Bod=2 n=50 dispersed sr=1.0 tau=45 seed=7  comps=1  largest_frac=1.000  elapsed=4401.3s
+  [618/1080] Bgw=3 Bod=2 n=50 dispersed sr=1.0 tau=45 seed=9  comps=1  largest_frac=1.000  elapsed=4435.3s
+  [619/1080] Bgw=3 Bod=2 n=50 dispersed sr=1.0 tau=45 seed=6  comps=1  largest_frac=1.000  elapsed=4448.0s
+  [620/1080] Bgw=3 Bod=2 n=50 dispersed sr=1.0 tau=45 seed=8  comps=1  largest_frac=1.000  elapsed=4540.6s
+  [621/1080] Bgw=3 Bod=2 n=50 dispersed sr=1.0 tau=60 seed=0  comps=1  largest_frac=1.000  elapsed=4575.4s
+  [622/1080] Bgw=3 Bod=2 n=50 dispersed sr=1.0 tau=60 seed=1  comps=1  largest_frac=1.000  elapsed=4763.7s
+  [623/1080] Bgw=3 Bod=2 n=50 clustered sr=0.3 tau=30 seed=0  comps=1  largest_frac=1.000  elapsed=4765.7s
+  [624/1080] Bgw=3 Bod=2 n=50 clustered sr=0.3 tau=30 seed=1  comps=1  largest_frac=1.000  elapsed=4791.9s
+  [625/1080] Bgw=3 Bod=2 n=50 dispersed sr=1.0 tau=60 seed=2  comps=1  largest_frac=1.000  elapsed=4814.6s
+  [626/1080] Bgw=3 Bod=2 n=50 dispersed sr=1.0 tau=60 seed=3  comps=1  largest_frac=1.000  elapsed=4944.5s
+  [627/1080] Bgw=3 Bod=2 n=50 clustered sr=0.3 tau=30 seed=2  comps=1  largest_frac=1.000  elapsed=4962.3s
+  [628/1080] Bgw=3 Bod=2 n=50 dispersed sr=1.0 tau=60 seed=4  comps=1  largest_frac=1.000  elapsed=4967.4s
+  [629/1080] Bgw=3 Bod=2 n=50 clustered sr=0.3 tau=30 seed=5  comps=1  largest_frac=1.000  elapsed=4981.2s
+  [630/1080] Bgw=3 Bod=2 n=50 clustered sr=0.3 tau=30 seed=3  comps=1  largest_frac=1.000  elapsed=4984.9s
+  [631/1080] Bgw=3 Bod=2 n=50 clustered sr=0.3 tau=30 seed=4  comps=1  largest_frac=1.000  elapsed=5005.9s
+  [632/1080] Bgw=3 Bod=2 n=50 dispersed sr=1.0 tau=60 seed=7  comps=1  largest_frac=1.000  elapsed=5087.9s
+  [633/1080] Bgw=3 Bod=2 n=50 dispersed sr=1.0 tau=60 seed=5  comps=1  largest_frac=1.000  elapsed=5102.9s
+  [634/1080] Bgw=3 Bod=2 n=50 clustered sr=0.3 tau=30 seed=6  comps=1  largest_frac=1.000  elapsed=5132.1s
+  [635/1080] Bgw=3 Bod=2 n=50 dispersed sr=1.0 tau=60 seed=6  comps=1  largest_frac=1.000  elapsed=5143.0s
+  [636/1080] Bgw=3 Bod=2 n=50 clustered sr=0.3 tau=30 seed=8  comps=1  largest_frac=1.000  elapsed=5154.8s
+  [637/1080] Bgw=3 Bod=2 n=50 clustered sr=0.3 tau=30 seed=9  comps=1  largest_frac=1.000  elapsed=5168.6s
+  [638/1080] Bgw=3 Bod=2 n=50 dispersed sr=1.0 tau=60 seed=9  comps=1  largest_frac=1.000  elapsed=5174.4s
+  [639/1080] Bgw=3 Bod=2 n=50 clustered sr=0.3 tau=45 seed=0  comps=1  largest_frac=1.000  elapsed=5187.0s
+  [640/1080] Bgw=3 Bod=2 n=50 clustered sr=0.3 tau=45 seed=1  comps=1  largest_frac=1.000  elapsed=5206.5s
+  [641/1080] Bgw=3 Bod=2 n=50 clustered sr=0.3 tau=30 seed=7  comps=1  largest_frac=1.000  elapsed=5241.0s
+  [642/1080] Bgw=3 Bod=2 n=50 dispersed sr=1.0 tau=60 seed=8  comps=1  largest_frac=1.000  elapsed=5272.4s
+  [643/1080] Bgw=3 Bod=2 n=50 clustered sr=0.3 tau=45 seed=4  comps=1  largest_frac=1.000  elapsed=5280.9s
+  [644/1080] Bgw=3 Bod=2 n=50 clustered sr=0.3 tau=45 seed=2  comps=1  largest_frac=1.000  elapsed=5294.3s
+  [645/1080] Bgw=3 Bod=2 n=50 clustered sr=0.3 tau=45 seed=7  comps=1  largest_frac=1.000  elapsed=5320.7s
+  [646/1080] Bgw=3 Bod=2 n=50 clustered sr=0.3 tau=45 seed=3  comps=1  largest_frac=1.000  elapsed=5326.1s
+  [647/1080] Bgw=3 Bod=2 n=50 clustered sr=0.3 tau=45 seed=5  comps=1  largest_frac=1.000  elapsed=5336.6s
+  [648/1080] Bgw=3 Bod=2 n=50 clustered sr=0.3 tau=45 seed=8  comps=1  largest_frac=1.000  elapsed=5337.6s
+  [649/1080] Bgw=3 Bod=2 n=50 clustered sr=0.3 tau=45 seed=6  comps=1  largest_frac=1.000  elapsed=5369.4s
+  [650/1080] Bgw=3 Bod=2 n=50 clustered sr=0.3 tau=60 seed=1  comps=1  largest_frac=1.000  elapsed=5403.4s
+  [651/1080] Bgw=3 Bod=2 n=50 clustered sr=0.3 tau=45 seed=9  comps=1  largest_frac=1.000  elapsed=5407.3s
+  [652/1080] Bgw=3 Bod=2 n=50 clustered sr=0.3 tau=60 seed=0  comps=1  largest_frac=1.000  elapsed=5420.7s
+  [653/1080] Bgw=3 Bod=2 n=50 clustered sr=0.3 tau=60 seed=3  comps=1  largest_frac=1.000  elapsed=5421.1s
+  [654/1080] Bgw=3 Bod=2 n=50 clustered sr=0.3 tau=60 seed=4  comps=1  largest_frac=1.000  elapsed=5487.2s
+  [655/1080] Bgw=3 Bod=2 n=50 clustered sr=0.3 tau=60 seed=2  comps=1  largest_frac=1.000  elapsed=5490.8s
+  [656/1080] Bgw=3 Bod=2 n=50 clustered sr=0.3 tau=60 seed=5  comps=1  largest_frac=1.000  elapsed=5495.6s
+  [657/1080] Bgw=3 Bod=2 n=50 clustered sr=0.3 tau=60 seed=6  comps=1  largest_frac=1.000  elapsed=5505.8s
+  [658/1080] Bgw=3 Bod=2 n=50 clustered sr=0.3 tau=60 seed=8  comps=1  largest_frac=1.000  elapsed=5518.8s
+  [659/1080] Bgw=3 Bod=2 n=50 clustered sr=0.3 tau=60 seed=7  comps=1  largest_frac=1.000  elapsed=5529.3s
+  [660/1080] Bgw=3 Bod=2 n=50 clustered sr=0.3 tau=60 seed=9  comps=1  largest_frac=1.000  elapsed=5571.9s
+  [661/1080] Bgw=3 Bod=2 n=50 clustered sr=0.6 tau=30 seed=0  comps=1  largest_frac=1.000  elapsed=5711.7s
+  [662/1080] Bgw=3 Bod=2 n=50 clustered sr=0.6 tau=30 seed=3  comps=1  largest_frac=1.000  elapsed=5771.7s
+  [663/1080] Bgw=3 Bod=2 n=50 clustered sr=0.6 tau=30 seed=6  comps=1  largest_frac=1.000  elapsed=5781.7s
+  [664/1080] Bgw=3 Bod=2 n=50 clustered sr=0.6 tau=30 seed=2  comps=1  largest_frac=1.000  elapsed=5786.8s
+  [665/1080] Bgw=3 Bod=2 n=50 clustered sr=0.6 tau=30 seed=1  comps=1  largest_frac=1.000  elapsed=5805.1s
+  [666/1080] Bgw=3 Bod=2 n=50 clustered sr=0.6 tau=30 seed=4  comps=2  largest_frac=0.967  elapsed=5808.9s
+  [667/1080] Bgw=3 Bod=2 n=50 clustered sr=0.6 tau=30 seed=7  comps=1  largest_frac=1.000  elapsed=5860.8s
+  [668/1080] Bgw=3 Bod=2 n=50 clustered sr=0.6 tau=30 seed=9  comps=1  largest_frac=1.000  elapsed=5875.4s
+  [669/1080] Bgw=3 Bod=2 n=50 clustered sr=0.6 tau=30 seed=8  comps=1  largest_frac=1.000  elapsed=5879.4s
+  [670/1080] Bgw=3 Bod=2 n=50 clustered sr=0.6 tau=45 seed=0  comps=1  largest_frac=1.000  elapsed=5976.9s
+  [671/1080] Bgw=3 Bod=2 n=50 clustered sr=0.6 tau=30 seed=5  comps=1  largest_frac=1.000  elapsed=5987.7s
+  [672/1080] Bgw=3 Bod=2 n=50 clustered sr=0.6 tau=45 seed=3  comps=1  largest_frac=1.000  elapsed=6123.1s
+  [673/1080] Bgw=3 Bod=2 n=50 clustered sr=0.6 tau=45 seed=6  comps=1  largest_frac=1.000  elapsed=6135.3s
+  [674/1080] Bgw=3 Bod=2 n=50 clustered sr=0.6 tau=45 seed=7  comps=1  largest_frac=1.000  elapsed=6155.6s
+  [675/1080] Bgw=3 Bod=2 n=50 clustered sr=0.6 tau=45 seed=2  comps=1  largest_frac=1.000  elapsed=6197.2s
+  [676/1080] Bgw=3 Bod=2 n=50 clustered sr=0.6 tau=45 seed=8  comps=1  largest_frac=1.000  elapsed=6197.9s
+  [677/1080] Bgw=3 Bod=2 n=50 clustered sr=0.6 tau=45 seed=5  comps=1  largest_frac=1.000  elapsed=6200.9s
+  [678/1080] Bgw=3 Bod=2 n=50 clustered sr=0.6 tau=45 seed=1  comps=1  largest_frac=1.000  elapsed=6218.4s
+  [679/1080] Bgw=3 Bod=2 n=50 clustered sr=0.6 tau=45 seed=9  comps=1  largest_frac=1.000  elapsed=6254.1s
+  [680/1080] Bgw=3 Bod=2 n=50 clustered sr=0.6 tau=45 seed=4  comps=1  largest_frac=1.000  elapsed=6256.6s
+  [681/1080] Bgw=3 Bod=2 n=50 clustered sr=0.6 tau=60 seed=1  comps=1  largest_frac=1.000  elapsed=6352.5s
+  [682/1080] Bgw=3 Bod=2 n=50 clustered sr=0.6 tau=60 seed=0  comps=1  largest_frac=1.000  elapsed=6380.4s
+  [683/1080] Bgw=3 Bod=2 n=50 clustered sr=0.6 tau=60 seed=8  comps=1  largest_frac=1.000  elapsed=6537.7s
+  [684/1080] Bgw=3 Bod=2 n=50 clustered sr=0.6 tau=60 seed=2  comps=1  largest_frac=1.000  elapsed=6549.3s
+  [685/1080] Bgw=3 Bod=2 n=50 clustered sr=0.6 tau=60 seed=4  comps=1  largest_frac=1.000  elapsed=6549.6s
+  [686/1080] Bgw=3 Bod=2 n=50 clustered sr=0.6 tau=60 seed=3  comps=1  largest_frac=1.000  elapsed=6556.3s
+  [687/1080] Bgw=3 Bod=2 n=50 clustered sr=0.6 tau=60 seed=6  comps=1  largest_frac=1.000  elapsed=6556.6s
+  [688/1080] Bgw=3 Bod=2 n=50 clustered sr=0.6 tau=60 seed=7  comps=1  largest_frac=1.000  elapsed=6574.8s
+  [689/1080] Bgw=3 Bod=2 n=50 clustered sr=0.6 tau=60 seed=9  comps=1  largest_frac=1.000  elapsed=6612.1s
+  [690/1080] Bgw=3 Bod=2 n=50 clustered sr=0.6 tau=60 seed=5  comps=1  largest_frac=1.000  elapsed=6728.2s
+  [691/1080] Bgw=3 Bod=2 n=50 clustered sr=1.0 tau=30 seed=2  comps=2  largest_frac=0.980  elapsed=6884.5s
+  [692/1080] Bgw=3 Bod=2 n=50 clustered sr=1.0 tau=30 seed=0  comps=2  largest_frac=0.980  elapsed=7087.2s
+  [693/1080] Bgw=3 Bod=2 n=50 clustered sr=1.0 tau=30 seed=1  comps=1  largest_frac=1.000  elapsed=7182.2s
+  [694/1080] Bgw=3 Bod=2 n=50 clustered sr=1.0 tau=30 seed=3  comps=1  largest_frac=1.000  elapsed=7220.2s
+  [695/1080] Bgw=3 Bod=2 n=50 clustered sr=1.0 tau=30 seed=4  comps=1  largest_frac=1.000  elapsed=7225.1s
+  [696/1080] Bgw=3 Bod=2 n=50 clustered sr=1.0 tau=30 seed=6  comps=1  largest_frac=1.000  elapsed=7241.9s
+  [697/1080] Bgw=3 Bod=2 n=50 clustered sr=1.0 tau=30 seed=8  comps=2  largest_frac=0.980  elapsed=7243.4s
+  [698/1080] Bgw=3 Bod=2 n=50 clustered sr=1.0 tau=30 seed=5  comps=1  largest_frac=1.000  elapsed=7301.6s
+  [699/1080] Bgw=3 Bod=2 n=50 clustered sr=1.0 tau=30 seed=9  comps=1  largest_frac=1.000  elapsed=7302.0s
+  [700/1080] Bgw=3 Bod=2 n=50 clustered sr=1.0 tau=30 seed=7  comps=1  largest_frac=1.000  elapsed=7381.7s
+  [701/1080] Bgw=3 Bod=2 n=50 clustered sr=1.0 tau=45 seed=0  comps=1  largest_frac=1.000  elapsed=7411.1s
+  [702/1080] Bgw=3 Bod=2 n=50 clustered sr=1.0 tau=45 seed=1  comps=1  largest_frac=1.000  elapsed=7633.4s
+  [703/1080] Bgw=3 Bod=2 n=50 clustered sr=1.0 tau=45 seed=2  comps=1  largest_frac=1.000  elapsed=7714.5s
+  [704/1080] Bgw=3 Bod=2 n=50 clustered sr=1.0 tau=45 seed=3  comps=1  largest_frac=1.000  elapsed=7864.0s
+  [705/1080] Bgw=3 Bod=2 n=50 clustered sr=1.0 tau=45 seed=5  comps=1  largest_frac=1.000  elapsed=7905.4s
+  [706/1080] Bgw=3 Bod=2 n=50 clustered sr=1.0 tau=45 seed=6  comps=1  largest_frac=1.000  elapsed=7907.9s
+  [707/1080] Bgw=3 Bod=2 n=50 clustered sr=1.0 tau=45 seed=8  comps=1  largest_frac=1.000  elapsed=7967.1s
+  [708/1080] Bgw=3 Bod=2 n=50 clustered sr=1.0 tau=45 seed=4  comps=1  largest_frac=1.000  elapsed=8056.7s
+  [709/1080] Bgw=3 Bod=2 n=50 clustered sr=1.0 tau=45 seed=9  comps=1  largest_frac=1.000  elapsed=8062.1s
+  [710/1080] Bgw=3 Bod=2 n=50 clustered sr=1.0 tau=45 seed=7  comps=1  largest_frac=1.000  elapsed=8301.1s
+  [711/1080] Bgw=3 Bod=2 n=50 clustered sr=1.0 tau=60 seed=0  comps=1  largest_frac=1.000  elapsed=8302.3s
+  [712/1080] Bgw=3 Bod=2 n=50 clustered sr=1.0 tau=60 seed=1  comps=1  largest_frac=1.000  elapsed=8388.7s
+  [713/1080] Bgw=3 Bod=2 n=50 clustered sr=1.0 tau=60 seed=2  comps=1  largest_frac=1.000  elapsed=8401.2s
+  [714/1080] Bgw=3 Bod=2 n=50 clustered sr=1.0 tau=60 seed=3  comps=1  largest_frac=1.000  elapsed=8609.3s
+  [715/1080] Bgw=3 Bod=2 n=50 clustered sr=1.0 tau=60 seed=4  comps=1  largest_frac=1.000  elapsed=8754.6s
+  [716/1080] Bgw=3 Bod=2 n=50 clustered sr=1.0 tau=60 seed=6  comps=1  largest_frac=1.000  elapsed=9038.2s
+  [717/1080] Bgw=3 Bod=2 n=50 clustered sr=1.0 tau=60 seed=5  comps=1  largest_frac=1.000  elapsed=9118.6s
+  [718/1080] Bgw=3 Bod=2 n=50 clustered sr=1.0 tau=60 seed=9  comps=1  largest_frac=1.000  elapsed=9121.5s
+  [719/1080] Bgw=3 Bod=2 n=50 clustered sr=1.0 tau=60 seed=7  comps=1  largest_frac=1.000  elapsed=9125.8s
+Process SpawnProcess-9:
+Traceback (most recent call last):
+  File "C:\Users\An Khoa\AppData\Local\Programs\Python\Python37\lib\concurrent\futures\process.py", line 239, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+  File "K:\Data Science\Q1 Research\spec_2a_2b\src\run_2b_v2_parallel.py", line 27, in _task
+    rec = run_one(n, B_gw, B_od, tau, spatial_mode, supply_ratio, sd)
+  File "K:\Data Science\Q1 Research\spec_2a_2b\src\run_2b_v2.py", line 60, in run_one
+    pool_by_driver, agg = DL.build_route_pool(tt, drivers, orders, B_gw, B_od)
+  File "K:\Data Science\Q1 Research\spec_2a_2b\src\dp_labeling.py", line 112, in build_route_pool
+    r = run_pool(travel_time, drv, orders, B_gw, B_od, compat_graph=compat_graph)
+  File "K:\Data Science\Q1 Research\spec_2a_2b\src\dp_labeling.py", line 70, in run_pool
+    compat_graph=compat_graph)
+  File "K:\Data Science\Q1 Research\experiments\T2BFS\t6_dp.py", line 278, in run_dp
+    compat_graph=compat_graph)
+  File "K:\Data Science\Q1 Research\experiments\T2BFS\t6_dp.py", line 139, in _try_pickup
+    return Label(p.id, lab.IV | {j}, lab.Cd, Dt, K2, W2, parent=lab, action=("pickup", j))
+MemoryError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\An Khoa\AppData\Local\Programs\Python\Python37\lib\multiprocessing\process.py", line 297, in _bootstrap
+    self.run()
+  File "C:\Users\An Khoa\AppData\Local\Programs\Python\Python37\lib\multiprocessing\process.py", line 99, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\An Khoa\AppData\Local\Programs\Python\Python37\lib\concurrent\futures\process.py", line 241, in _process_worker
+  File "C:\Users\An Khoa\AppData\Local\Programs\Python\Python37\lib\concurrent\futures\process.py", line 129, in __init__
+    tb = traceback.format_exception(type(exc), exc, tb)
+  File "C:\Users\An Khoa\AppData\Local\Programs\Python\Python37\lib\traceback.py", line 121, in format_exception
+    type(value), value, tb, limit=limit).format(chain=chain))
+  File "C:\Users\An Khoa\AppData\Local\Programs\Python\Python37\lib\traceback.py", line 508, in __init__
+    capture_locals=capture_locals)
+  File "C:\Users\An Khoa\AppData\Local\Programs\Python\Python37\lib\traceback.py", line 343, in extract
+    fnames = set()
+MemoryError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "C:\Users\An Khoa\AppData\Local\Programs\Python\Python37\lib\multiprocessing\spawn.py", line 105, in spawn_main
+    exitcode = _main(fd)
+  File "C:\Users\An Khoa\AppData\Local\Programs\Python\Python37\lib\multiprocessing\spawn.py", line 118, in _main
+    return self._bootstrap()
+  File "C:\Users\An Khoa\AppData\Local\Programs\Python\Python37\lib\multiprocessing\process.py", line 313, in _bootstrap
+    traceback.print_exc()
+  File "C:\Users\An Khoa\AppData\Local\Programs\Python\Python37\lib\traceback.py", line 163, in print_exc
+    print_exception(*sys.exc_info(), limit=limit, file=file, chain=chain)
+  File "C:\Users\An Khoa\AppData\Local\Programs\Python\Python37\lib\traceback.py", line 104, in print_exception
+    type(value), value, tb, limit=limit).format(chain=chain):
+  File "C:\Users\An Khoa\AppData\Local\Programs\Python\Python37\lib\traceback.py", line 472, in __init__
+    _seen = set()
+MemoryError
+RESUME: 719 rows already in summary, skipping those. workers=5
+  [720/1080] Bgw=3 Bod=2 n=50 clustered sr=1.0 tau=60 seed=8  comps=1  largest_frac=1.000  elapsed=1040.8s
+Error in atexit._run_exitfuncs:
+Traceback (most recent call last):
+  File "C:\Users\An Khoa\AppData\Local\Programs\Python\Python37\lib\logging\__init__.py", line 2036, in shutdown
+  File "C:\Users\An Khoa\AppData\Local\Programs\Python\Python37\lib\logging\__init__.py", line 1009, in flush
+    self.stream.flush()
+MemoryError
+Process SpawnProcess-1:
+Traceback (most recent call last):
+  File "C:\Users\An Khoa\AppData\Local\Programs\Python\Python37\lib\concurrent\futures\process.py", line 239, in _process_worker
+  File "K:\Data Science\Q1 Research\spec_2a_2b\src\run_2b_v2_parallel.py", line 27, in _task
+  File "K:\Data Science\Q1 Research\spec_2a_2b\src\run_2b_v2.py", line 60, in run_one
+  File "K:\Data Science\Q1 Research\spec_2a_2b\src\dp_labeling.py", line 112, in build_route_pool
+  File "K:\Data Science\Q1 Research\spec_2a_2b\src\dp_labeling.py", line 70, in run_pool
+    compat_graph=compat_graph)
+  File "K:\Data Science\Q1 Research\experiments\T2BFS\t6_dp.py", line 278, in run_dp
+  File "K:\Data Science\Q1 Research\experiments\T2BFS\t6_dp.py", line 139, in _try_pickup
+MemoryError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\An Khoa\AppData\Local\Programs\Python\Python37\lib\multiprocessing\process.py", line 297, in _bootstrap
+  File "C:\Users\An Khoa\AppData\Local\Programs\Python\Python37\lib\multiprocessing\process.py", line 99, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\An Khoa\AppData\Local\Programs\Python\Python37\lib\concurrent\futures\process.py", line 241, in _process_worker
+  File "C:\Users\An Khoa\AppData\Local\Programs\Python\Python37\lib\concurrent\futures\process.py", line 129, in __init__
+    tb = traceback.format_exception(type(exc), exc, tb)
+  File "C:\Users\An Khoa\AppData\Local\Programs\Python\Python37\lib\traceback.py", line 121, in format_exception
+    type(value), value, tb, limit=limit).format(chain=chain))
+  File "C:\Users\An Khoa\AppData\Local\Programs\Python\Python37\lib\traceback.py", line 508, in __init__
+  File "C:\Users\An Khoa\AppData\Local\Programs\Python\Python37\lib\traceback.py", line 343, in extract
+MemoryError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\An Khoa\AppData\Local\Programs\Python\Python37\lib\multiprocessing\process.py", line 313, in _bootstrap
+    traceback.print_exc()
+  File "C:\Users\An Khoa\AppData\Local\Programs\Python\Python37\lib\traceback.py", line 163, in print_exc
+    print_exception(*sys.exc_info(), limit=limit, file=file, chain=chain)
+  File "C:\Users\An Khoa\AppData\Local\Programs\Python\Python37\lib\traceback.py", line 104, in print_exception
+  File "C:\Users\An Khoa\AppData\Local\Programs\Python\Python37\lib\traceback.py", line 472, in __init__
+MemoryError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "C:\Users\An Khoa\AppData\Local\Programs\Python\Python37\lib\multiprocessing\spawn.py", line 105, in spawn_main
+  File "C:\Users\An Khoa\AppData\Local\Programs\Python\Python37\lib\multiprocessing\spawn.py", line 118, in _main
+  File "C:\Users\An Khoa\AppData\Local\Programs\Python\Python37\lib\multiprocessing\process.py", line 317, in _bootstrap
+  File "C:\Users\An Khoa\AppData\Local\Programs\Python\Python37\lib\multiprocessing\util.py", line 416, in _flush_std_streams
+    sys.stderr.flush()
+OSError: [Errno 22] Invalid argument
+RESUME: 720 rows already in summary, skipping those. workers=2
+RESUME: 720 rows already in summary, skipping those. workers=1
+Traceback (most recent call last):
+  File "run_2b_v2_parallel.py", line 84, in <module>
+    main()
+  File "run_2b_v2_parallel.py", line 67, in main
+    args, rec = fut.result()
+  File "C:\Users\An Khoa\AppData\Local\Programs\Python\Python37\lib\concurrent\futures\_base.py", line 428, in result
+    return self.__get_result()
+  File "C:\Users\An Khoa\AppData\Local\Programs\Python\Python37\lib\concurrent\futures\_base.py", line 384, in __get_result
+    raise self._exception
+concurrent.futures.process.BrokenProcessPool: A process in the process pool was terminated abruptly while the future was running or pending.

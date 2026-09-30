@@ -1,0 +1,42 @@
+=== Kiem tra kich thuoc route pool GW vs OD - alignment=0.70 va 0.90 ===
+(Dung DUNG seed formula + tham so da khoa cua RQ1 main grid, tai tao
+ CHINH XAC cac instance da chay - khong logic moi, chi them dem pool)
+
+--- alignment=0.70 (corridor_share=0.40 corridor_buffer_km=0.60) ---
+  n=10 supply=(2,2): GW mean_bundles/driver= 175.00 (n_driver= 50)  OD mean_bundles/driver=   2.68 (n_driver= 50)  ratio(OD/GW)=0.0153
+  n=10 supply=(3,2): GW mean_bundles/driver= 175.00 (n_driver= 75)  OD mean_bundles/driver=   3.40 (n_driver= 50)  ratio(OD/GW)=0.0194
+  n=10 supply=(2,3): GW mean_bundles/driver= 175.00 (n_driver= 50)  OD mean_bundles/driver=   2.31 (n_driver= 75)  ratio(OD/GW)=0.0132
+  n=10 supply=(3,3): GW mean_bundles/driver= 175.00 (n_driver= 75)  OD mean_bundles/driver=   2.57 (n_driver= 75)  ratio(OD/GW)=0.0147
+  n=15 supply=(2,2): GW mean_bundles/driver= 575.00 (n_driver= 50)  OD mean_bundles/driver=   4.82 (n_driver= 50)  ratio(OD/GW)=0.0084
+  n=15 supply=(3,2): GW mean_bundles/driver= 575.00 (n_driver= 75)  OD mean_bundles/driver=   4.62 (n_driver= 50)  ratio(OD/GW)=0.0080
+  n=15 supply=(2,3): GW mean_bundles/driver= 575.00 (n_driver= 50)  OD mean_bundles/driver=   4.48 (n_driver= 75)  ratio(OD/GW)=0.0078
+  n=15 supply=(3,3): GW mean_bundles/driver= 575.00 (n_driver= 75)  OD mean_bundles/driver=   4.00 (n_driver= 75)  ratio(OD/GW)=0.0070
+  n=20 supply=(2,2): GW mean_bundles/driver=1350.00 (n_driver= 50)  OD mean_bundles/driver=   7.12 (n_driver= 50)  ratio(OD/GW)=0.0053
+  n=20 supply=(3,2): GW mean_bundles/driver=1350.00 (n_driver= 75)  OD mean_bundles/driver=   9.62 (n_driver= 50)  ratio(OD/GW)=0.0071
+  n=20 supply=(2,3): GW mean_bundles/driver=1350.00 (n_driver= 50)  OD mean_bundles/driver=   8.20 (n_driver= 75)  ratio(OD/GW)=0.0061
+  n=20 supply=(3,3): GW mean_bundles/driver=1350.00 (n_driver= 75)  OD mean_bundles/driver=   6.44 (n_driver= 75)  ratio(OD/GW)=0.0048
+
+  [TONG HOP alignment=0.70]
+  GW: mean=700.00  median=575.00  min=175  max=1350  (n_driver=750)
+  OD: mean=4.95  median=4.00  min=0  max=40  (n_driver=750)
+  ratio OD/GW (mean bundles/driver) = 0.0071
+
+--- alignment=0.90 (corridor_share=1.00 corridor_buffer_km=1.50) ---
+  n=10 supply=(2,2): GW mean_bundles/driver= 175.00 (n_driver= 50)  OD mean_bundles/driver=   8.84 (n_driver= 50)  ratio(OD/GW)=0.0505
+  n=10 supply=(3,2): GW mean_bundles/driver= 175.00 (n_driver= 75)  OD mean_bundles/driver=   6.58 (n_driver= 50)  ratio(OD/GW)=0.0376
+  n=10 supply=(2,3): GW mean_bundles/driver= 175.00 (n_driver= 50)  OD mean_bundles/driver=   7.32 (n_driver= 75)  ratio(OD/GW)=0.0418
+  n=10 supply=(3,3): GW mean_bundles/driver= 175.00 (n_driver= 75)  OD mean_bundles/driver=   6.53 (n_driver= 75)  ratio(OD/GW)=0.0373
+  n=15 supply=(2,2): GW mean_bundles/driver= 575.00 (n_driver= 50)  OD mean_bundles/driver=  10.54 (n_driver= 50)  ratio(OD/GW)=0.0183
+  n=15 supply=(3,2): GW mean_bundles/driver= 575.00 (n_driver= 75)  OD mean_bundles/driver=  11.62 (n_driver= 50)  ratio(OD/GW)=0.0202
+  n=15 supply=(2,3): GW mean_bundles/driver= 575.00 (n_driver= 50)  OD mean_bundles/driver=  11.25 (n_driver= 75)  ratio(OD/GW)=0.0196
+  n=15 supply=(3,3): GW mean_bundles/driver= 575.00 (n_driver= 75)  OD mean_bundles/driver=   8.61 (n_driver= 75)  ratio(OD/GW)=0.0150
+  n=20 supply=(2,2): GW mean_bundles/driver=1350.00 (n_driver= 50)  OD mean_bundles/driver=  19.28 (n_driver= 50)  ratio(OD/GW)=0.0143
+  n=20 supply=(3,2): GW mean_bundles/driver=1350.00 (n_driver= 75)  OD mean_bundles/driver=  20.20 (n_driver= 50)  ratio(OD/GW)=0.0150
+  n=20 supply=(2,3): GW mean_bundles/driver=1350.00 (n_driver= 50)  OD mean_bundles/driver=  14.92 (n_driver= 75)  ratio(OD/GW)=0.0111
+  n=20 supply=(3,3): GW mean_bundles/driver=1350.00 (n_driver= 75)  OD mean_bundles/driver=  17.49 (n_driver= 75)  ratio(OD/GW)=0.0130
+
+  [TONG HOP alignment=0.90]
+  GW: mean=700.00  median=575.00  min=175  max=1350  (n_driver=750)
+  OD: mean=11.75  median=9.00  min=0  max=75  (n_driver=750)
+  ratio OD/GW (mean bundles/driver) = 0.0168
+

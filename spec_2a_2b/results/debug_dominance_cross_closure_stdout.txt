@@ -1,0 +1,6 @@
+driver: gw2
+Tong so closure root (co iv_feasible ghi nhan): 224887
+Closure 'chet' theo POST-dominance (nhu Test A): 117257
+  - trong do CO sinh IV-rong nhung bi dominance loai (khong phai chet that): 46679
+  - trong do KHONG BAO GIO sinh duoc IV-rong (chet that su): 70578
+  Trong nhom 'chet that su', so mismatch voi iv_completion_feasible (tra True sai): 70578
