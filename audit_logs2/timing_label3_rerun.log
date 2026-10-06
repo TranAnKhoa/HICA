@@ -1,0 +1,6 @@
+n12_s42 B=3 reps=10 | C1 tot 0.583 x1.00 ext 71870 | C3 tot 0.875 x0.67 ext 52627 | C4 tot 0.510 x1.18 ext 62875 | C5 tot 0.492 x1.19 ext 62875 | C6 tot 0.695 x0.88 ext 54895 | C7 tot 0.681 x0.85 ext 54895 | K* equal: True
+n10_s1 B=3 reps=10 | C1 tot 0.490 x1.00 ext 51361 | C3 tot 0.740 x0.66 ext 40057 | C4 tot 0.445 x1.11 ext 43548 | C5 tot 0.409 x1.19 ext 43548 | C6 tot 0.584 x0.85 ext 38090 | C7 tot 0.551 x0.89 ext 38090 | K* equal: True
+n15_s7 B=3 reps=10 | C1 tot 1.739 x1.00 ext 187895 | C3 tot 2.195 x0.78 ext 118506 | C4 tot 1.528 x1.18 ext 156332 | C5 tot 1.490 x1.16 ext 156332 | C6 tot 1.897 x0.93 ext 126363 | C7 tot 1.834 x0.96 ext 126363 | K* equal: True
+n12_s123 B=3 reps=10 | C1 tot 1.094 x1.00 ext 111944 | C3 tot 1.465 x0.77 ext 78879 | C4 tot 0.916 x1.22 ext 94338 | C5 tot 0.870 x1.25 ext 94338 | C6 tot 1.172 x0.95 ext 81056 | C7 tot 1.125 x0.96 ext 81056 | K* equal: True
+n10_s999 B=3 reps=10 | C1 tot 0.327 x1.00 ext 37800 | C3 tot 0.489 x0.67 ext 29553 | C4 tot 0.274 x1.17 ext 32574 | C5 tot 0.246 x1.34 ext 32574 | C6 tot 0.369 x0.90 ext 28927 | C7 tot 0.370 x0.90 ext 28927 | K* equal: True
+saved ../audit_logs2/timing_label3.json

@@ -1,0 +1,48 @@
+% =====================================================================
+\chapter{PROOF OF THE SUBSTITUTE LEMMA}
+\label{app:proofs}
+% =====================================================================
+
+This appendix proves Lemma~\ref{lem:substitute}, on which the safety of the
+local frontier (Theorem~\ref{thm:frontier}) rests: for every route $r$
+outside the frontier and every admissible report $b$, there is a substitute
+$u$ in the frontier (or the idle route) with $S_u\subseteq S_r$ and
+$c_u(b)+q(S_r\setminus S_u)\le c_r(b)$.
+
+\begin{proof}
+Fix $r\notin\Kstar_i$ and $b\in\Theta$. On $\bar D=D(r)\cup\{r\}$ define
+$\Phi(\rho)=c_\rho(b)+q(S_r\setminus S_\rho)$, the cost of serving $S_r$ with
+route $\rho$ and sending the rest to FD. Since $\mu_r(b)\le 0$,
+$m:=\min_{\bar D}\Phi\le\Phi(r)=c_r(b)$. Let $M=\arg\min_{\bar D}\Phi$ and
+$k=\min_{\rho\in M}|S_\rho|$, the smallest bundle among the cheapest options.
+
+\emph{Case $k=0$.} Then $0_i\in M$ and $u=0_i$ satisfies
+$c_u(b)+q(S_r)=m\le c_r(b)$.
+
+\emph{Case $k\ge 1$.} Fix $\rho_0\in M$ with $|S_{\rho_0}|=k$, let
+$T=S_{\rho_0}$ and $M_T=\{\rho\in R_i:S_\rho=T,\;c_\rho(b)=c_{\rho_0}(b)\}$;
+every $\rho\in M_T$ has $\Phi(\rho)=m$.
+
+\emph{Claim.} For every $\rho\in M_T$ and every $\rho''\in D(\rho)\setminus M_T$,
+$c_{\rho''}(b)+q(T\setminus S_{\rho''})>c_\rho(b)$.
+If $S_{\rho''}\subsetneq T$, then $\rho''\in\bar D$ and $|S_{\rho''}|<k$, so
+$\rho''\notin M$ and $\Phi(\rho'')>m=\Phi(\rho)$; since
+$S_r\setminus S_{\rho''}=(T\setminus S_{\rho''})\cup(S_r\setminus T)$
+disjointly, $\Phi(\rho'')-\Phi(\rho)=c_{\rho''}(b)+q(T\setminus S_{\rho''})-c_\rho(b)>0$.
+If $S_{\rho''}=T$ and $\rho''\notin M_T$, then $\Phi(\rho'')\ge m$ gives
+$c_{\rho''}(b)\ge c_\rho(b)$, and equality would place $\rho''$ in $M_T$.
+
+The claim consists of finitely many strict inequalities between affine
+functions of $b$, so there is $\eta>0$ such that they hold for every
+$b'\in\Theta$ with $|b'-b|<\eta$. All routes of $M_T$ have bundle $T$ and the
+same cost at $b$; by Assumption~\ref{ass:nodup} their slopes $W$ are
+pairwise distinct. If $b<\uth$, let $u=\arg\min_{\rho\in M_T}W_\rho$ and choose
+$b'\in(b,\min\{b+\eta,\uth\})$: then $c_u(b')<c_\rho(b')$ for all
+$\rho\in M_T\setminus\{u\}$, and by the claim at $b'$,
+$c_u(b')<c_{\rho''}(b')+q(T\setminus S_{\rho''})$ for all other
+$\rho''\in D(u)$. Hence $\mu_u(b')>0$ and $u\in\Kstar_i$. If $b=\uth$, take
+$u=\arg\max_{\rho\in M_T}W_\rho$ and $b'<b$ close to $b$; the same argument
+applies. In both cases $u\ne r$, since otherwise $\mu_r(b')>0$ would
+contradict $r\notin\Kstar_i$. Moreover $S_u=T\subseteq S_r$ and
+$c_u(b)+q(S_r\setminus T)=m\le c_r(b)$.
+\end{proof}

@@ -1,0 +1,11 @@
+n12_s42 B=3 reps=10 | C1 tot 0.644 x1.00 ext 71870 | C3 tot 0.967 x0.65 ext 52627 | C4 tot 0.556 x1.12 ext 62875 | C5 tot 0.539 x1.15 ext 62875 | C6 tot 0.779 x0.81 ext 54895 | C7 tot 0.748 x0.86 ext 54895 | K* equal: True
+n10_s1 B=3 reps=10 | C1 tot 0.592 x1.00 ext 51361 | C3 tot 0.830 x0.69 ext 40057 | C4 tot 0.498 x1.14 ext 43548 | C5 tot 0.486 x1.20 ext 43548 | C6 tot 0.696 x0.84 ext 38090 | C7 tot 0.693 x0.86 ext 38090 | K* equal: True
+n15_s7 B=3 reps=10 | C1 tot 1.957 x1.00 ext 187895 | C3 tot 2.479 x0.79 ext 118506 | C4 tot 1.689 x1.15 ext 156332 | C5 tot 1.612 x1.18 ext 156332 | C6 tot 2.234 x0.90 ext 126363 | C7 tot 1.979 x0.94 ext 126363 | K* equal: True
+n12_s123 B=3 reps=10 | C1 tot 1.165 x1.00 ext 111944 | C3 tot 1.604 x0.74 ext 78879 | C4 tot 1.016 x1.22 ext 94338 | C5 tot 0.988 x1.23 ext 94338 | C6 tot 1.413 x0.88 ext 81056 | C7 tot 1.288 x0.94 ext 81056 | K* equal: True
+n10_s999 B=3 reps=10 | C1 tot 0.340 x1.00 ext 37800 | C3 tot 0.541 x0.64 ext 29553 | C4 tot 0.314 x1.07 ext 32574 | C5 tot 0.278 x1.23 ext 32574 | C6 tot 0.396 x0.83 ext 28927 | C7 tot 0.395 x0.90 ext 28927 | K* equal: True
+n12_s42 B=4 reps=10 | C1 tot 4.971 x1.00 ext 658706 | C3 tot 7.346 x0.69 ext 512837 | C4 tot 3.941 x1.22 ext 527545 | C5 tot 3.720 x1.33 ext 527545 | C6 tot 5.760 x0.86 ext 459607 | C7 tot 5.500 x0.88 ext 459607 | K* equal: True
+n10_s1 B=4 reps=10 | C1 tot 4.896 x1.00 ext 530486 | C3 tot 7.104 x0.69 ext 436193 | C4 tot 3.773 x1.29 ext 389497 | C5 tot 3.421 x1.43 ext 389497 | C6 tot 5.338 x0.93 ext 339916 | C7 tot 4.915 x1.00 ext 339916 | K* equal: True
+n15_s7 B=4 reps=5 | C1 tot 22.530 x1.00 ext 2635861 | C3 tot 29.167 x0.78 ext 1783862 | C4 tot 17.220 x1.28 ext 1893101 | C5 tot 16.620 x1.35 ext 1893101 | C6 tot 22.304 x1.01 ext 1539907 | C7 tot 21.764 x1.05 ext 1539907 | K* equal: True
+n12_s123 B=4 reps=10 | C1 tot 10.414 x1.00 ext 1208860 | C3 tot 13.818 x0.75 ext 896323 | C4 tot 8.194 x1.28 ext 881938 | C5 tot 7.522 x1.38 ext 881938 | C6 tot 10.943 x0.95 ext 763227 | C7 tot 10.561 x0.99 ext 763227 | K* equal: True
+n10_s999 B=4 reps=10 | C1 tot 2.526 x1.00 ext 316079 | C3 tot 3.905 x0.66 ext 267626 | C4 tot 1.964 x1.30 ext 238575 | C5 tot 1.834 x1.38 ext 238575 | C6 tot 2.837 x0.90 ext 216584 | C7 tot 2.683 x0.94 ext 216584 | K* equal: True
+saved ../audit_logs2/timing_label.json

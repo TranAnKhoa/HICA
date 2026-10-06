@@ -1,0 +1,39 @@
+label n12_s42          B=3 | K*(C1)=28 | C3:ok C4:ok C5:ok C6:ok C7:ok | G2 R(C4)==R(C1): True
+label n10_s1           B=3 | K*(C1)=165 | C3:ok C4:ok C5:ok C6:ok C7:ok | G2 R(C4)==R(C1): True
+label n15_s7           B=3 | K*(C1)=165 | C3:ok C4:ok C5:ok C6:ok C7:ok | G2 R(C4)==R(C1): True
+label n12_s123         B=3 | K*(C1)=208 | C3:ok C4:ok C5:ok C6:ok C7:ok | G2 R(C4)==R(C1): True
+label n10_s999         B=3 | K*(C1)=77 | C3:ok C4:ok C5:ok C6:ok C7:ok | G2 R(C4)==R(C1): True
+label n12_s42          B=4 | K*(C1)=74 | C3:ok C4:ok C5:ok C6:ok C7:ok | G2 R(C4)==R(C1): True
+label n10_s1           B=4 | K*(C1)=416 | C3:ok C4:ok C5:ok C6:ok C7:ok | G2 R(C4)==R(C1): True
+label n15_s7           B=4 | K*(C1)=603 | C3:ok C4:ok C5:ok C6:ok C7:ok | G2 R(C4)==R(C1): True
+label n12_s123         B=4 | K*(C1)=482 | C3:ok C4:ok C5:ok C6:ok C7:ok | G2 R(C4)==R(C1): True
+label n10_s999         B=4 | K*(C1)=193 | C3:ok C4:ok C5:ok C6:ok C7:ok | G2 R(C4)==R(C1): True
+grid a0.90_rep0        B=3 | K*(C1)=336 | C3:ok C4:ok C5:ok C6:ok C7:ok | G2 R(C4)==R(C1): True
+grid a0.90_rep1        B=3 | K*(C1)=691 | C3:ok C4:ok C5:ok C6:ok C7:ok | G2 R(C4)==R(C1): True
+grid a0.90_rep2        B=3 | K*(C1)=522 | C3:ok C4:ok C5:ok C6:ok C7:ok | G2 R(C4)==R(C1): True
+grid a0.90_rep3        B=3 | K*(C1)=254 | C3:ok C4:ok C5:ok C6:ok C7:ok | G2 R(C4)==R(C1): True
+grid a0.90_rep4        B=3 | K*(C1)=332 | C3:ok C4:ok C5:ok C6:ok C7:ok | G2 R(C4)==R(C1): True
+grid a0.90_rep5        B=3 | K*(C1)=497 | C3:ok C4:ok C5:ok C6:ok C7:ok | G2 R(C4)==R(C1): True
+grid a0.90_rep6        B=3 | K*(C1)=805 | C3:ok C4:ok C5:ok C6:ok C7:ok | G2 R(C4)==R(C1): True
+grid a0.90_rep7        B=3 | K*(C1)=213 | C3:ok C4:ok C5:ok C6:ok C7:ok | G2 R(C4)==R(C1): True
+grid a0.90_rep8        B=3 | K*(C1)=772 | C3:ok C4:ok C5:ok C6:ok C7:ok | G2 R(C4)==R(C1): True
+grid a0.90_rep9        B=3 | K*(C1)=320 | C3:ok C4:ok C5:ok C6:ok C7:ok | G2 R(C4)==R(C1): True
+grid a0.50_rep0        B=3 | K*(C1)=0 | C3:ok C4:ok C5:ok C6:ok C7:ok | G2 R(C4)==R(C1): True
+grid a0.50_rep1        B=3 | K*(C1)=0 | C3:ok C4:ok C5:ok C6:ok C7:ok | G2 R(C4)==R(C1): True
+grid a0.50_rep2        B=3 | K*(C1)=0 | C3:ok C4:ok C5:ok C6:ok C7:ok | G2 R(C4)==R(C1): True
+grid a0.50_rep3        B=3 | K*(C1)=4 | C3:ok C4:ok C5:ok C6:ok C7:ok | G2 R(C4)==R(C1): True
+grid a0.50_rep4        B=3 | K*(C1)=0 | C3:ok C4:ok C5:ok C6:ok C7:ok | G2 R(C4)==R(C1): True
+grid a0.50_rep5        B=3 | K*(C1)=8 | C3:ok C4:ok C5:ok C6:ok C7:ok | G2 R(C4)==R(C1): True
+grid a0.50_rep6        B=3 | K*(C1)=0 | C3:ok C4:ok C5:ok C6:ok C7:ok | G2 R(C4)==R(C1): True
+grid a0.50_rep7        B=3 | K*(C1)=0 | C3:ok C4:ok C5:ok C6:ok C7:ok | G2 R(C4)==R(C1): True
+grid a0.50_rep8        B=3 | K*(C1)=0 | C3:ok C4:ok C5:ok C6:ok C7:ok | G2 R(C4)==R(C1): True
+grid a0.50_rep9        B=3 | K*(C1)=0 | C3:ok C4:ok C5:ok C6:ok C7:ok | G2 R(C4)==R(C1): True
+G4 brute n=5 seed=0 K*(brute)=15  C1:ok C3:ok C4:ok C5:ok C6:ok C7:ok
+G4 brute n=5 seed=1 K*(brute)=30  C1:ok C3:ok C4:ok C5:ok C6:ok C7:ok
+G4 brute n=5 seed=2 K*(brute)=1  C1:ok C3:ok C4:ok C5:ok C6:ok C7:ok
+G4 brute n=6 seed=0 K*(brute)=15  C1:ok C3:ok C4:ok C5:ok C6:ok C7:ok
+G4 brute n=6 seed=1 K*(brute)=54  C1:ok C3:ok C4:ok C5:ok C6:ok C7:ok
+G4 brute n=6 seed=2 K*(brute)=2  C1:ok C3:ok C4:ok C5:ok C6:ok C7:ok
+HUNT (random n=6..9, 80 instances, B=3; C5,C6,C7 vs Frontier(R_C1)): {'instances': 80, 'drivers': 960, 'mismatches': 0}
+
+G1/G2/G7 on label+grid instances: PASS | G4: PASS | hunt mismatches: 0 | fails: 0

@@ -1,0 +1,390 @@
+% =====================================================================
+\chapter{INTRODUCTION}
+\label{ch:intro}
+% =====================================================================
+
+\section{Background}
+\label{sec:background}
+
+The last mile, the final leg from a pickup point to the customer, is widely
+regarded as the most expensive and least efficient part of a parcel's
+journey, and it has attracted a large body of operational research on new
+delivery concepts \citep{boysen2021lastmile}. One of the most visible of
+these concepts is \emph{crowdsourced delivery} (also called crowdshipping):
+instead of relying only on employed drivers, a platform hands orders to
+independent individuals who are paid per task. Reviews of the field document
+both the rapid growth of such platforms and the new planning problems they
+create, because the people who deliver are not employees and their capacity
+and costs are not under the platform's control
+\citep{alnaggar2021crowdsourced,savelsbergh2022challenges,savelsbergh2024update}.
+Crowdshipping is also studied as a lever for more sustainable urban
+logistics, since parcels can ride along on trips that take place anyway
+\citep{mohri2023crowdshipping}.
+
+In practice a delivery platform therefore combines three sources of
+capacity \citep{archetti2016vrpod,luy2024workforce}, summarised in
+Table~\ref{tab:classes}:
+\begin{itemize}[leftmargin=*,itemsep=2pt]
+\item a \emph{fixed-capacity fleet} (FD) operated under contract, which
+serves any order at a known, published price;
+\item \emph{gigworkers} (GW), who accept multi-stop routes through an
+application. A gigworker starts from her current location, and her route is
+\emph{open}: it ends at the last delivery;
+\item \emph{occasional drivers} (OD), who carry parcels along a personal
+trip they would make anyway. Their route must end at their own destination,
+and the extra time they are willing to spend is limited by a \emph{detour
+budget}.
+\end{itemize}
+
+\begin{table}[t]
+\centering
+\caption{The three sources of last-mile capacity considered in this thesis}
+\label{tab:classes}
+\small
+\begin{tabular}{P{2.5cm}P{4.3cm}P{2.0cm}P{5.0cm}}
+\toprule
+Class & Route geometry & Strategic? & Private information\\
+\midrule
+Gigworker (GW) & Open route from the current location, ends at the last delivery & Yes & Value of time $\theta_i$ (one scalar)\\
+Occasional driver (OD) & From origin to personal destination, limited by a detour budget & Yes & Value of time $\theta_i$ (one scalar)\\
+Fixed fleet (FD) & Not routed in the model; serves any order & No & None: public price $q_o$ per order\\
+\bottomrule
+\end{tabular}
+\par\smallskip\footnotesize Source: taxonomy adopted from \citet{luy2024workforce}.
+\end{table}
+
+The fixed fleet has a known price. The other two sources do not. How much
+an hour of driving is worth to a particular driver --- her \emph{value of
+time} --- is private information, and it determines her cost of serving a
+route. A platform that pays drivers what they claim invites them to
+overstate it. The classical remedy from mechanism design is the
+Vickrey--Clarke--Groves (VCG) mechanism: the platform selects the
+allocation that minimises total reported cost and pays each winner her
+externality on the others. Under this payment rule, reporting the true cost
+is a dominant strategy, that is, the best action for a driver regardless of
+what the others report \citep{nisan2007agt}. In routing applications the
+mechanism is implemented in four steps \citep{zou2022mechanisms,li2026auction}:
+the platform generates candidate routes, collects one scalar bid per driver,
+solves a set-partitioning winner-determination problem (WDP), and re-solves
+it once per winner to compute the Clarke-pivot payments.
+
+This thesis studies such a procurement mechanism for a platform that buys
+from \emph{both} crowd classes at once, with the fixed fleet as a publicly
+priced outside option. Studying the two crowd classes together matters because their capacities
+are complementary: an occasional driver is cheap but only for orders that
+lie along her trip, whereas a gigworker can go anywhere but charges for all
+of her working time.
+
+\section{Problem Statement}
+\label{sec:problem}
+
+\subsection{The need for a bid-independent route pool}
+
+For the VCG mechanism above to remain truthful, the set of routes among
+which the platform chooses must be fixed \emph{before} any bid is seen. The
+mechanism is then VCG on a bid-independent range, and dominant-strategy
+incentive compatibility follows from the maximal-in-range argument of
+\citet{nisan2007computationally}. If the platform let the bids influence
+which routes are generated --- for example by generating routes with column
+generation, whose pricing step depends on dual values and hence on the bids
+--- a driver could change the set of available routes by changing her bid,
+and truthfulness would no longer be guaranteed.
+
+\subsection{The pool is the bottleneck, and the two classes differ}
+
+The price of this requirement is the size of the route pool. For an
+occasional driver, the detour budget anchors the search: adding orders to a
+bundle can only lengthen the detour, so a bundle whose detour already
+exceeds the budget can be discarded together with all its supersets before
+any visiting sequence is enumerated \citep{li2026auction}. A gigworker has no
+such anchor. Her route is open and is limited only by time windows. Two
+orders may each be servable on their own while the pair is not, and a bundle
+of distant orders remains feasible whenever the windows are wide. Her pool
+therefore grows as $\Theta(n^B)$ in the number of orders $n$ for a bundle cap
+$B$. On the experimental instances of this thesis, the pool of an occasional
+driver is only 0.7--1.7\% of that of a gigworker, and on five instances only
+0.4--1.5\% of all generated routes are optimal for \emph{any} of 1,000 sampled
+bid profiles. Most of the pool is never used, yet the platform cannot tell
+in advance which part.
+
+Removing routes is not straightforward either. Every cheap reduction rule
+that was tried during the development of this thesis either deleted routes
+that some bid profile needs, or pruned almost nothing
+(Section~\ref{sec:selection} lists them). Two obstacles explain why:
+\begin{enumerate}[leftmargin=*,itemsep=2pt]
+\item any rule that reads the bids changes the allocation range and can
+destroy truthfulness;
+\item any rule that reasons about \emph{other} drivers must, in the worst
+case, solve the winner-determination problem itself, which is NP-hard
+(Remark~\ref{rem:scope}).
+\end{enumerate}
+What remains are \emph{local, bid-independent} rules, which look only at
+the pruned driver's own data and the public prices. No study in the
+literature characterises how far such rules can go
+(Chapter~\ref{ch:related}).
+
+\subsection{Research questions}
+
+The problem leads to one central question and four technical
+sub-questions. This proposal answers TQ1 in Chapter~\ref{ch:solution};
+TQ2--TQ4 are planned for the final thesis (Section~\ref{sec:sd-planned}).
+
+\begin{quote}
+\emph{How far can a route pool be pruned, before bids are observed, by a rule
+that uses only the pruned driver's own data, without changing the outcome of
+the VCG mechanism?}
+\end{quote}
+
+\begin{description}[leftmargin=1.2cm,style=nextline,itemsep=2pt]
+\item[TQ1] Which routes can a local bid-independent rule safely delete, and
+is there a smallest pool that every such rule must keep?
+\item[TQ2] How large can that smallest pool be, and does it contain routes
+that are never useful?
+\item[TQ3] Can the pruning be moved inside the route enumeration so that
+fewer partial routes are explored, without losing safety?
+\item[TQ4] Can the repeated counterfactual solves required by the payments be
+decomposed into smaller problems, and when does this fail?
+\end{description}
+
+Since the mechanism is meant to be used by a platform, the thesis also asks
+five empirical questions about its economic and computational behaviour,
+which are answered by the computational study (Chapter~5):
+
+\begin{description}[leftmargin=1.2cm,style=nextline,itemsep=2pt]
+\item[RQ1] Does letting gigworkers and occasional drivers bid jointly lower
+system cost compared with using either class alone or consulting them in
+sequence?
+\item[RQ2] Does endogenous bundling --- letting the market choose among
+platform-generated bundles --- add value compared with single-order routes
+and with a fixed bundling heuristic?
+\item[RQ3] What does truthful procurement cost compared with a
+full-information benchmark, pay-as-bid and posted prices?
+\item[RQ4] How much of the pool does the frontier remove, does it change any
+payment, and what does it save in computation?
+\item[RQ5] Are the conclusions robust to time windows, detour budgets,
+fixed-fleet prices, spatial clustering, type dispersion and instance size?
+\end{description}
+
+\section{Objectives of the Study}
+\label{sec:objectives}
+
+\subsection{General and specific objectives}
+
+The general objective is to design, analyse and evaluate a truthful
+procurement mechanism in which gigworkers and occasional drivers bid jointly
+for platform-generated route bundles, with the fixed fleet as a publicly
+priced outside option, and to characterise exactly how far its route pool
+can be reduced without affecting the mechanism. The specific objectives are:
+\begin{enumerate}[label=O\arabic*.,leftmargin=1.2cm,itemsep=2pt]
+\item To formulate the procurement problem of a static dispatch session as a
+mechanism: a cost model for the two crowd classes, a winner-determination
+model, and Clarke-pivot payments.
+\item To develop a complete, bid-independent route-generation algorithm for
+both driver classes (Algorithm~A).
+\item To define a local pruning rule (the local frontier), prove that it is
+safe (TQ1), and determine whether it is minimal and how large it can be
+(TQ2).
+\item To develop and prove a label rule that applies the frontier reasoning
+during route generation (TQ3), and to establish when payment counterfactuals
+decompose (TQ4).
+\item To implement the complete pipeline and verify every component against
+an independent brute-force oracle.
+\item To evaluate the mechanism in a pre-registered computational study
+(RQ1--RQ5).
+\end{enumerate}
+
+\subsection{Beneficiaries and expected outputs}
+
+The results address three groups.
+\emph{Delivery platforms} obtain a procurement procedure that remains
+correct when the crowd becomes competitive, and a certificate, computed
+before any bid is collected, that tells them whether an auction is worth
+opening and which drivers need to be invited. \emph{Drivers} benefit
+because truthful reporting is their best strategy, so they need no
+strategic reasoning, and because a winner is never paid less than her
+reported cost. \emph{Researchers} in routing and mechanism design obtain a
+provably safe way to reduce route pools before bidding, which applies to any
+set-partitioning auction with a priced outside option.
+
+The expected outputs are:
+\begin{itemize}[leftmargin=*,itemsep=2pt]
+\item a three-stage procurement pipeline (route generation, winner
+determination, payments) with a provably safe pruning step in between;
+\item a theorem, with full proof, that pruning the pool to the local frontier
+is safe, followed in the final thesis by results on its minimality and
+worst-case size, the label rule and payment decomposition;
+\item a tested implementation in Python with the CPLEX solver, a synthetic
+instance generator and locked, hashed experiment parameters;
+\item a computational study that quantifies when joint bidding, bundling and
+truthful payments matter.
+\end{itemize}
+
+\subsection{Expected scientific contributions}
+
+\begin{enumerate}[leftmargin=*,itemsep=3pt]
+\item \emph{The local pruning frontier} (Theorem~\ref{thm:frontier}, proved
+in this proposal). An envelope compares each route with the cheapest subset
+route of the same driver whose unserved orders are sent to the fixed fleet,
+uniformly over the admissible report range. Deleting every route outside the
+resulting frontier preserves the optimal value of the winner-determination
+problem, every counterfactual value and therefore all VCG payments, because
+every deleted route has a substitute that is itself retained.
+\item \emph{Minimality and the price of locality} (planned). Every route in
+the frontier should be indispensable in some instance that looks the same
+from the driver's own data, and a single gigworker's frontier can contain
+$\Theta(n^B)$ routes that are never optimal.
+\item \emph{A safe label rule} (planned). Rollback pruning
+\citep{lozano2016exact} cannot be transferred directly, because working time
+is priced and waiting is allowed; a correction for waiting makes it safe.
+\item \emph{Payment decomposition with a matching negative result}
+(planned). With a separable outside option the counterfactual solves
+decompose along the components of a conflict graph; a shared capacity on the
+outside option breaks the decomposition.
+\item \emph{A pre-registered computational study} of RQ1--RQ5, in which all
+parameters were locked and hashed before the main runs.
+\end{enumerate}
+
+Two things are \emph{not} claimed. The incentive property is not new: the
+mechanism is exact VCG on a bid-independent range, and its truthfulness is
+classical. Nor is the three-class driver taxonomy, which is adopted from
+\citet{luy2024workforce}.
+
+\subsection{Design requirements}
+
+The mechanism and its implementation must satisfy the requirements in
+Table~\ref{tab:requirements}. Requirements R1--R7 are correctness
+requirements that the design must meet exactly; R8 and R9 are practical
+requirements.
+
+\begin{table}[t]
+\centering
+\caption{Design requirements of the procurement system}
+\label{tab:requirements}
+\small
+\begin{tabular}{P{0.8cm}P{3.6cm}P{9.6cm}}
+\toprule
+No. & Requirement & Description\\
+\midrule
+R1 & Truthfulness (DSIC) & Reporting the true value of time is a dominant strategy for every driver of both classes.\\
+R2 & Individual rationality & A winner is paid at least her reported cost; a loser pays and receives nothing.\\
+R3 & Service coverage & Every order is served exactly once, by one selected route or by the fixed fleet.\\
+R4 & Exactness & Every winner-determination and counterfactual problem is solved to proven optimality (zero gap).\\
+R5 & Bid independence & No step before report collection reads a report; the pool is fixed and hashed before bidding.\\
+R6 & Deterministic tie-breaking & Ties among optimal solutions are broken by a rule that does not depend on reports.\\
+R7 & Safe pruning & Any pool reduction leaves the optimal value, every counterfactual value and every payment unchanged for every admissible report profile.\\
+R8 & Tractability & The complete pipeline finishes within 300 seconds per instance up to 30 orders on a single CPU thread, and route generation remains tractable for instances of 100 orders or more.\\
+R9 & Reproducibility & Parameters are fixed and hashed before the main runs; every component is checked against an independent oracle.\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Scope and Limitation}
+\label{sec:scope}
+
+\subsection{Scope}
+
+\paragraph{Problem setting.} The study considers a single, static and
+deterministic dispatch session: all orders and drivers are known when the
+session opens, travel times are deterministic, and the mechanism is run once.
+Every order must be served (mandatory fulfilment), each driver receives at
+most one route (unit demand), and routes carry at most $B$ orders. Each
+driver has one private parameter, her value of time; all other driver data
+are public or committed before the session opens.
+
+\paragraph{Instances and data.} All experimental instances are synthetic.
+They are produced by an instance generator on a plane with dispersed pickups
+and deliveries, time windows of 120 minutes, a detour budget of 30 minutes
+for occasional drivers, 5 minutes of service per stop and a speed of
+20\,km/h. The distance coefficient is $\kappa=1$ cost unit per kilometre,
+values of time are drawn from $U[18,25]$ cost units per hour for both
+classes, and the fixed-fleet price of order $o$ is
+$q_o=8+3\max\{0,\mathrm{dist}_o-1\}$, where $\mathrm{dist}_o$ is its
+pickup--delivery distance in kilometres. The main grid crosses five levels of
+an \emph{alignment} parameter (how strongly occasional drivers' trips overlap
+the demand region), three instance sizes $n\in\{10,15,20\}$ and four supply
+mixes with two or three drivers of each class, with 25 replications per
+cell (1,500 instances). Robustness tests extend the size to $n=30$. The
+bundle cap is $B=3$, with $B=4$ as a sensitivity case for $n\le 15$, and the
+report domain is $\Theta=[18,25]$. No time frame of data collection applies,
+since no field data are used.
+
+\paragraph{Instance size.} Small instances are not the limit of the method.
+A separate scaling study has already run the route-generation algorithm
+(Algorithm~A) on instances of the same generator with up to $n=100$ orders,
+bundle caps $B\in\{2,3,4\}$ and time windows of 30 to 240 minutes
+(Section~\ref{sec:sd-algA}). The results chapter will extend the evaluation of
+the complete mechanism to large instances with $n\in\{50,75,100\}$ orders,
+and to larger instances where the time budget allows, so that its
+behaviour at the scale of a real dispatch session can be assessed.
+
+\paragraph{Tools.} The pipeline is implemented in Python~3.7.7. The
+winner-determination and counterfactual problems are solved with
+IBM ILOG CPLEX~12.10 on one thread with zero relative and absolute gap
+tolerances.
+
+\subsection{Main assumptions}
+
+\begin{enumerate}[label=(\roman*),leftmargin=1cm,itemsep=2pt]
+\item Static, deterministic, single-session procurement.
+\item Mandatory fulfilment: each order is served exactly once, by a route or
+by the fixed fleet.
+\item The fixed fleet is uncapacitated and serves each order at a public,
+fixed price $q_o$.
+\item Unit demand: each driver receives at most one route.
+\item The allocation range (bundle cap $B$, route generation and any
+pruning) is fixed before bids.
+\item Single-parameter private information: a driver's cost is affine in
+her value of time, $C_{ir}=K_{ir}+\theta_iW_{ir}$
+(Section~\ref{sec:sd-costs} explains why this is an empirical approximation
+rather than a mere convenience).
+\item Occasional drivers' destinations and detour budgets are public, or are
+committed before the session opens.
+\item Travel distances and times satisfy the triangle inequality; arriving
+before a time window opens is met by waiting.
+\end{enumerate}
+
+\subsection{Limitations}
+
+\begin{itemize}[leftmargin=*,itemsep=2pt]
+\item \emph{Synthetic data.} All instances are synthetic and static; no
+field data from a delivery platform were available. The fixed-fleet price
+was calibrated on a pilot without corridor concentration, and that
+calibration did not carry over to the main grid, so the alignment levels do
+not order the regimes monotonically by how competitive the crowd is. Results
+are therefore reported by regime and observed fixed-fleet share.
+\item \emph{Information structure.} Treating occasional drivers' destination
+and detour budget as public is a restriction: \citet{li2026auction} let
+carriers report four parameters. Private costs are single-parameter and
+affine in the report.
+\item \emph{Report domain.} Pruning requires a report domain announced in
+advance. The pay-as-bid benchmark inherits that bound, which favours it.
+\item \emph{Scale.} The economic experiments completed so far cover
+$n\le 30$; at $n=100$ only route generation has been measured so far. The
+largest bundle cap ($B=4$) was not evaluated at $n=20$, and the scaling study
+shows that it becomes intractable before $n=50$, so large instances are
+limited to $B\le 3$. The robustness experiment is centred on the least
+competitive regime.
+\item \emph{Implementation.} The label rule has been integrated only into an
+experimental build of the route generator, and in pure Python its extra
+bookkeeping currently makes route generation slower
+(Section~\ref{sec:sd-label}). The payment decomposition requires a
+separable outside option.
+\item \emph{Out of scope.} The study makes no claims about online arrivals,
+stochastic travel times, budget balance, collusion, false-name bids or
+fairness.
+\end{itemize}
+
+\section{Structure of the Thesis}
+
+Chapter~\ref{ch:related} introduces the theoretical foundations and reviews
+the literature on crowdshipping, procurement mechanisms, column pool
+reduction, label dominance and VCG payment computation, and describes the
+candidate solution methods. Chapter~\ref{ch:method} compares these
+candidates, selects the approach and presents the design of the proposed
+system. Chapter~\ref{ch:solution} develops the solution: the mathematical
+model, the route-generation algorithm, the local pruning frontier and its
+safety theorem, payment computation, the results planned for the final
+thesis, a complete numerical example, the implementation and a comparison of
+alternatives. The computational study (Chapter~5) and the conclusions
+(Chapter~6) follow. The proof of the key lemma is in
+Appendix~\ref{app:proofs}.

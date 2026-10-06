@@ -1,0 +1,283 @@
+{
+ "evaluator": {
+  "labels": 2811,
+  "mismatches": 0
+ },
+ "g5_real": {
+  "firings": 9517,
+  "completions": 6239,
+  "violations": 0,
+  "GW": 4557,
+  "OD": 4960,
+  "min_margin": 0.002990191526379249,
+  "first_violation": null
+ },
+ "mutations": {
+  "A0": {
+   "kind": "invalid",
+   "g1_failed_instances": [
+    "n15_s7",
+    "n10_s999",
+    "n10_s999_B4"
+   ],
+   "g5": {
+    "firings": 9797,
+    "completions": 11154,
+    "violations": 1186,
+    "GW": 4733,
+    "OD": 5064,
+    "min_margin": -18.869078732614582,
+    "first_violation": {
+     "driver": "gw0",
+     "L2": [
+      [
+       "p",
+       "o0"
+      ],
+      [
+       "d",
+       "o0"
+      ],
+      [
+       "p",
+       "o3"
+      ]
+     ],
+     "L1": [
+      [
+       "p",
+       "o3"
+      ]
+     ],
+     "T": [
+      "o0"
+     ],
+     "sigma": [
+      [
+       "p",
+       "o6"
+      ],
+      [
+       "d",
+       "o3"
+      ],
+      [
+       "d",
+       "o6"
+      ]
+     ],
+     "cost_gap": 16.370054142741388,
+     "qT": 18.652375167595658
+    }
+   }
+  },
+  "noK": {
+   "kind": "invalid",
+   "g1_failed_instances": [],
+   "g5": {
+    "firings": 2540,
+    "completions": 1839,
+    "violations": 4,
+    "GW": 1311,
+    "OD": 1229,
+    "min_margin": -1.9434682587792267,
+    "first_violation": {
+     "driver": "gw0",
+     "L2": [
+      [
+       "p",
+       "o5"
+      ],
+      [
+       "p",
+       "o0"
+      ],
+      [
+       "p",
+       "o6"
+      ],
+      [
+       "d",
+       "o0"
+      ],
+      [
+       "d",
+       "o5"
+      ],
+      [
+       "d",
+       "o6"
+      ]
+     ],
+     "L1": [
+      [
+       "p",
+       "o0"
+      ],
+      [
+       "d",
+       "o0"
+      ],
+      [
+       "p",
+       "o6"
+      ],
+      [
+       "d",
+       "o6"
+      ]
+     ],
+     "T": [
+      "o5"
+     ],
+     "sigma": [],
+     "cost_gap": 6.983667386392995,
+     "qT": 8.0
+    }
+   }
+  },
+  "t5": {
+   "kind": "invalid",
+   "g1_failed_instances": [],
+   "g5": {
+    "firings": 9522,
+    "completions": 6241,
+    "violations": 2,
+    "GW": 4559,
+    "OD": 4963,
+    "min_margin": -0.8029586149979764,
+    "first_violation": {
+     "driver": "gw1",
+     "L2": [
+      [
+       "p",
+       "o5"
+      ],
+      [
+       "d",
+       "o5"
+      ],
+      [
+       "p",
+       "o1"
+      ],
+      [
+       "d",
+       "o1"
+      ],
+      [
+       "p",
+       "o2"
+      ],
+      [
+       "d",
+       "o2"
+      ]
+     ],
+     "L1": [
+      [
+       "p",
+       "o1"
+      ],
+      [
+       "p",
+       "o2"
+      ],
+      [
+       "d",
+       "o1"
+      ],
+      [
+       "d",
+       "o2"
+      ]
+     ],
+     "T": [
+      "o5"
+     ],
+     "sigma": [],
+     "cost_gap": 7.197041385002024,
+     "qT": 8.0
+    }
+   }
+  },
+  "minus1": {
+   "kind": "invalid(extra)",
+   "g1_failed_instances": [
+    "n12_s42",
+    "n10_s1",
+    "n15_s7",
+    "n12_s123",
+    "n10_s999",
+    "n10_s999_B4"
+   ],
+   "g5": {
+    "firings": 10729,
+    "completions": 7183,
+    "violations": 820,
+    "GW": 5159,
+    "OD": 5570,
+    "min_margin": -0.9986928721450354,
+    "first_violation": {
+     "driver": "gw0",
+     "L2": [
+      [
+       "p",
+       "o5"
+      ],
+      [
+       "p",
+       "o0"
+      ],
+      [
+       "d",
+       "o0"
+      ],
+      [
+       "p",
+       "o4"
+      ]
+     ],
+     "L1": [
+      [
+       "p",
+       "o5"
+      ],
+      [
+       "p",
+       "o4"
+      ]
+     ],
+     "T": [
+      "o0"
+     ],
+     "sigma": [
+      [
+       "d",
+       "o4"
+      ],
+      [
+       "d",
+       "o5"
+      ]
+     ],
+     "cost_gap": 17.902543472481213,
+     "qT": 18.652375167595658
+    }
+   }
+  },
+  "plus1": {
+   "kind": "valid control",
+   "g1_failed_instances": [],
+   "g5": {
+    "firings": 8389,
+    "completions": 5424,
+    "violations": 0,
+    "GW": 4045,
+    "OD": 4344,
+    "min_margin": 1.0024369644585462,
+    "first_violation": null
+   }
+  }
+ }
+}

@@ -1,0 +1,28 @@
+== C1 : top 8 by cumulative time (seconds per full run, n12_s42 B=3, profiler overhead included)
+    0.649 cum    0.000 self          1 calls  variants.py:372 build_all
+    0.649 cum    0.023 self          5 calls  variants.py:165 run_c1
+    0.625 cum    0.150 self          5 calls  variants.py:60 run_round
+    0.182 cum    0.122 self      34827 calls  t6_dp.py:149 _try_delivery
+    0.125 cum    0.078 self      32724 calls  t6_dp.py:112 _try_pickup
+    0.106 cum    0.068 self      23334 calls  t6_dp.py:84 _filter_dominated_labels
+    0.073 cum    0.030 self      66546 calls  instance_gen.py:147 travel_time
+    0.058 cum    0.000 self          1 calls  common.py:37 kstar_pool
+== C4 : top 8 by cumulative time (seconds per full run, n12_s42 B=3, profiler overhead included)
+    0.731 cum    0.000 self          1 calls  variants.py:372 build_all
+    0.731 cum    0.015 self          5 calls  variants.py:352 run_c4
+    0.716 cum    0.181 self          5 calls  variants.py:224 run_tier
+    0.207 cum    0.142 self      31757 calls  t6_dp.py:149 _try_delivery
+    0.147 cum    0.094 self      28836 calls  t6_dp.py:112 _try_pickup
+    0.113 cum    0.071 self      18539 calls  t6_dp.py:84 _filter_dominated_labels
+    0.082 cum    0.033 self      58199 calls  instance_gen.py:147 travel_time
+    0.066 cum    0.000 self          1 calls  common.py:37 kstar_pool
+== C6 : top 8 by cumulative time (seconds per full run, n12_s42 B=3, profiler overhead included)
+    1.014 cum    0.000 self          1 calls  variants.py:372 build_all
+    1.014 cum    0.021 self          5 calls  variants.py:360 run_c6
+    0.993 cum    0.194 self          5 calls  variants.py:224 run_tier
+    0.323 cum    0.168 self      19553 calls  variants.py:244 fd_dominated
+    0.159 cum    0.107 self      25613 calls  t6_dp.py:149 _try_delivery
+    0.138 cum    0.087 self      27972 calls  t6_dp.py:112 _try_pickup
+    0.096 cum    0.040 self      69853 calls  instance_gen.py:147 travel_time
+    0.095 cum    0.063 self      17962 calls  t6_dp.py:84 _filter_dominated_labels
+  FD-dominance: total 0.323 s (fd_dominated cum), of which absorption A 0.057 s; subset lookups+tests ~ 0.266 s

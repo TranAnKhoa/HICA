@@ -1,0 +1,209 @@
+%% =====================================================================
+%% Truthful auctions for last-mile delivery -- Undergraduate thesis, IEM School, International University
+%% (VNU-HCM). Format: "IEM-IU Thesis Guidelines (Updated 03/2023)".
+%%
+%%   * A4, margins top 2.5 / left 3 / right 2 / bottom 2.5 cm, page number
+%%     centred 1.5 cm from the bottom edge
+%%   * Times New Roman 13 pt body, 14 pt headings, 1.5 line spacing
+%%   * Roman page numbers from the Abstract to the List of Symbols,
+%%     Arabic numbers from Chapter 1
+%%   * Chapters "Chapter n: TITLE" centred at the top; sections 1.1, 1.1.1
+%%   * Tables and figures numbered by chapter; table captions above the
+%%     table, figure captions below the figure
+%%   * APA-style author--year citations, alphabetical reference list
+%%
+%% Compile with pdfLaTeX (twice, for the table of contents and the cross
+%% references). No BibTeX run is needed: the reference list is in
+%% references.tex.
+%%
+%% Source of all numbers: Paper.tex (rev. 2026-09-30), Master_writeup.md
+%% (rev. 2, 2026-09-28) and AUDIT_REPORT.md (2026-10-01). Where the audit
+%% corrects the paper (label-rule speed-up), the audit is followed.
+%% Lines marked "% TODO" need input from the author.
+%% =====================================================================
+\documentclass[a4paper,12pt,oneside]{report}
+
+% ---------------------------------------------------------------- fonts
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsthm}               % must be loaded before newtxmath
+\usepackage{newtxtext}           % Times New Roman clone
+\usepackage{newtxmath}            % matching math fonts (provides \mathbb)
+\usepackage[fontsize=13pt]{scrextend}   % 13 pt body text
+
+% ---------------------------------------------------------------- page layout
+\usepackage[a4paper,top=2.5cm,bottom=2.5cm,left=3cm,right=2cm,
+            footskip=1.0cm]{geometry}   % number sits 1.5 cm above the edge
+\usepackage{setspace}
+\onehalfspacing
+
+% ---------------------------------------------------------------- packages
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{threeparttable}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage[chapter]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,fit,backgrounds,shapes.geometric}
+\usepackage[labelsep=space,font=normalsize,skip=6pt]{caption}
+\usepackage{titlesec}
+\usepackage[titles]{tocloft}
+\usepackage[round,authoryear]{natbib}
+\usepackage[hidelinks]{hyperref}
+
+\graphicspath{{figures/}}
+
+% ---------------------------------------------------------------- headings
+% Chapter: "Chapter 1: INTRODUCTION", centred at the top, 14 pt bold,
+% followed by a double space.
+\titleformat{\chapter}[block]
+  {\centering\bfseries\fontsize{14}{18}\selectfont}
+  {Chapter \thechapter:}{0.4em}{}
+\titlespacing*{\chapter}{0pt}{0pt}{2\baselineskip}
+\titleformat{\section}
+  {\bfseries\fontsize{13}{16}\selectfont}{\thesection.}{0.5em}{}
+\titlespacing*{\section}{0pt}{12pt}{6pt}
+\titleformat{\subsection}
+  {\bfseries\fontsize{13}{16}\selectfont}{\thesubsection.}{0.5em}{}
+\titlespacing*{\subsection}{0.6cm}{10pt}{4pt}
+\titleformat{\subsubsection}
+  {\bfseries\itshape\fontsize{13}{16}\selectfont}{\thesubsubsection.}{0.5em}{}
+\titlespacing*{\subsubsection}{1.2cm}{8pt}{2pt}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{2}
+
+% ---------------------------------------------------------------- contents lists
+\renewcommand{\cftchappresnum}{Chapter }
+\renewcommand{\cftchapaftersnum}{:}
+\setlength{\cftchapnumwidth}{5.6em}
+\renewcommand{\cftchapfont}{\bfseries}
+\renewcommand{\cftchappagefont}{\bfseries}
+\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsecaftersnum}{.}
+\renewcommand{\cftsubsecaftersnum}{.}
+\setlength{\cftsecnumwidth}{2.6em}
+\setlength{\cftsubsecnumwidth}{3.4em}
+\renewcommand{\cfttoctitlefont}{\hfill\bfseries\fontsize{14}{18}\selectfont}
+\renewcommand{\cftaftertoctitle}{\hfill}
+\renewcommand{\cftlottitlefont}{\hfill\bfseries\fontsize{14}{18}\selectfont}
+\renewcommand{\cftafterlottitle}{\hfill}
+\renewcommand{\cftloftitlefont}{\hfill\bfseries\fontsize{14}{18}\selectfont}
+\renewcommand{\cftafterloftitle}{\hfill}
+\renewcommand{\cfttabpresnum}{Table }
+\renewcommand{\cftfigpresnum}{Figure }
+\setlength{\cfttabnumwidth}{5.2em}
+\setlength{\cftfignumwidth}{5.8em}
+\setlength{\cfttabindent}{0pt}
+\setlength{\cftfigindent}{0pt}
+
+% ---------------------------------------------------------------- floats
+\captionsetup[table]{position=top}
+% Ragged-right paragraph column for tables (avoids stretched word spacing)
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+\floatname{algorithm}{Procedure}
+\algrenewcommand\algorithmicrequire{\textbf{Input:}}
+\algrenewcommand\algorithmicensure{\textbf{Output:}}
+\setlength{\textfloatsep}{14pt plus 2pt minus 4pt}
+
+% ---------------------------------------------------------------- theorems
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{assumption}{Assumption}
+\renewcommand{\theassumption}{A\arabic{assumption}}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+% ---------------------------------------------------------------- notation
+\newcommand{\Kstar}{\mathcal{K}^\star}
+\newcommand{\lth}{\underline{\theta}}
+\newcommand{\uth}{\overline{\theta}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\FD}{\mathrm{FD}}
+
+% ---------------------------------------------------------------- thesis data
+\newcommand{\thesistitle}{Truthful Auctions for Last-Mile Delivery with
+  Gigworkers and Occasional Drivers}
+\newcommand{\THESISTITLE}{TRUTHFUL AUCTIONS FOR LAST-MILE DELIVERY WITH
+  GIGWORKERS AND OCCASIONAL DRIVERS}
+\newcommand{\studentname}{Tran An Khoa}
+\newcommand{\studentid}{IELSIU23040}
+\newcommand{\advisorname}{Dr.~Pham Nhat Tan}
+\newcommand{\degreename}{Bachelor of Engineering in Logistics and Supply
+  Chain Management}
+\newcommand{\thesisdate}{December 2026}
+
+% Unnumbered heading that still appears in the table of contents
+\newcommand{\frontchapter}[1]{%
+  \chapter*{#1}\addcontentsline{toc}{chapter}{#1}}
+
+\begin{document}
+
+% =====================================================================
+% Front cover, inside cover and approval page (no page numbers)
+% =====================================================================
+\pagenumbering{gobble}
+\input{frontmatter/cover}
+
+% =====================================================================
+% Preliminary pages: lowercase Roman numerals
+% =====================================================================
+\cleardoublepage
+\pagenumbering{roman}
+\pagestyle{plain}
+\input{frontmatter/abstract}
+\input{frontmatter/acknowledgements}
+
+\clearpage
+\phantomsection
+\addcontentsline{toc}{chapter}{Table of Contents}
+\renewcommand{\contentsname}{Table of Contents}
+\tableofcontents
+
+\clearpage
+\phantomsection
+\addcontentsline{toc}{chapter}{List of Tables}
+\listoftables
+
+\clearpage
+\phantomsection
+\addcontentsline{toc}{chapter}{List of Figures}
+\listoffigures
+
+\input{frontmatter/abbreviations}
+\input{frontmatter/symbols}
+
+% =====================================================================
+% Main text: Arabic numerals
+% =====================================================================
+\clearpage
+\pagenumbering{arabic}
+\input{chapters/ch1_introduction}
+\input{chapters/ch2_related_works}
+\input{chapters/ch3_methodology}
+\input{chapters/ch4_solution_development}
+% \input{chapters/ch5_result_analysis}   % TODO: Chapter 5
+% \input{chapters/ch6_conclusions}       % TODO: Chapter 6
+
+% =====================================================================
+% References and appendices
+% =====================================================================
+\input{references}
+
+\appendix
+\titleformat{\chapter}[block]
+  {\centering\bfseries\fontsize{14}{18}\selectfont}
+  {Appendix \thechapter}{0.6em}{}
+\addtocontents{toc}{\protect\renewcommand{\protect\cftchappresnum}{Appendix }%
+  \protect\renewcommand{\protect\cftchapaftersnum}{}}
+\input{chapters/appA_proofs}
+
+\end{document}
