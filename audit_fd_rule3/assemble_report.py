@@ -172,6 +172,18 @@ after the run, so Layer 3 cannot be switched on in advance with a guaranteed gai
 rule has removed little after the first tiers) is possible future work; it was not tried here, to avoid tuning on these
 instances.
 
+### 6.6 A stronger dead-end test does not help (C5s, `variants_s.py`, `timing_s.py`, `audit_logs3/timing_s.log`)
+
+C5s keeps C5h's test and, when at least two orders are on board, also asks whether SOME order of the remaining
+deliveries (then home, for an occasional driver) meets every deadline, by a depth-first search that stops at the first
+feasible sequence. The test is exact for the same reason as C5h's (Euclidean travel times, nonnegative waiting and
+service, monotone in the clock), and K\\* was identical on all ten label configurations. It removes almost nothing that
+C5h's per-order test misses: 0-271 labels per configuration, at most 0.3% of the extension attempts, while it is run on
+3.5k-324k labels. C5s runs at 0.70-0.84x of C5h (shared table, median of three runs). Almost every label that cannot be
+completed is already caught by the per-order test; the remaining waste of C5h is in labels that CAN be completed (on the
+label instances, 91-99% of the gigworkers' completed routes are not in K\\*), which a feasibility test cannot touch.
+C5s is not used.
+
 ## 7. Implementation detail: a precomputed travel-time table (`ttable_effect.py`)
 
 The generator's `travel_time(a, b)` recomputes a Euclidean distance on every call. Reading a table built once per instance
@@ -231,7 +243,7 @@ tested). Keep both as theory, with safety as the claim, and leave Layer 3 as an 
 ## 10. Files
 
 - Code (`audit_fd_rule3/`): `paths.py` (repository paths; the private `Dataset` package is stubbed in `_stubs/`, it is only
-  imported, never used), `variants3.py` (C8, C9, C5copy), `fastrule.py` (C8f), `variants_h.py` (C4h, C5h, C8h),
+  imported, never used), `variants3.py` (C8, C9, C5copy), `fastrule.py` (C8f), `variants_h.py` (C4h, C5h, C8h), `variants_s.py` and `timing_s.py` (C5s),
   `gate_c8.py`, `gate_c8_eval.py` (independent evaluator), `gate_h.py`, `timing_c8.py`, `timing_h.py`, `scale_c8.py`,
   `kill_depth.py`, `explore_open_policy.py`, `ttable_effect.py`, `make_tables_c8.py`, `report_part_c8.py`,
   `report_part_h.py`, `assemble_report.py` (this report), `run_chain*.sh` (the order in which everything was run).

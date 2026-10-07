@@ -1,0 +1,10 @@
+n12_s42 B=3 C5h 0.050 C5s 0.060 x0.84 same=True | ext 18456 -> 18442 | dead 1804, seq tests 4172 kills 1
+n12_s42 B=4 C5h 0.306 C5s 0.424 x0.72 same=True | ext 128785 -> 128771 | dead 15708, seq tests 39396 kills 1
+n10_s1 B=3 C5h 0.059 C5s 0.073 x0.80 same=True | ext 21034 -> 21004 | dead 276, seq tests 6332 kills 11
+n10_s1 B=4 C5h 0.560 C5s 0.788 x0.71 same=True | ext 188766 -> 188208 | dead 2321, seq tests 82520 kills 271
+n15_s7 B=3 C5h 0.156 C5s 0.208 x0.75 same=True | ext 54434 -> 54417 | dead 2361, seq tests 18200 kills 1
+n15_s7 B=4 C5h 2.101 C5s 2.985 x0.70 same=True | ext 645939 -> 645922 | dead 35211, seq tests 324449 kills 1
+n12_s123 B=3 C5h 0.131 C5s 0.158 x0.83 same=True | ext 43429 -> 43387 | dead 1354, seq tests 13278 kills 3
+n12_s123 B=4 C5h 1.234 C5s 1.774 x0.70 same=True | ext 408182 -> 408056 | dead 15199, seq tests 180055 kills 57
+n10_s999 B=3 C5h 0.035 C5s 0.044 x0.81 same=True | ext 13181 -> 13181 | dead 958, seq tests 3536 kills 0
+n10_s999 B=4 C5h 0.233 C5s 0.328 x0.71 same=True | ext 91029 -> 91029 | dead 8004, seq tests 35293 kills 0
