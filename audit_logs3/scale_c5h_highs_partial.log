@@ -1,0 +1,7 @@
+jobs: 76 total, 76 to do
+a0.50_n100_s3-3_rep0  A_sum 88.0 A_max 48.6  B 0.06 C 0.15  winners 4  K* 622  ['Optimal']  2134 MB
+a0.50_n100_s3-3_rep1  A_sum 63.8 A_max 21.4  B 0.01 C 0.02  winners 2  K* 119  ['Optimal']  2286 MB
+a0.50_n100_s3-3_rep2  A_sum 64.8 A_max 25.2  B 0.10 C 0.17  winners 3  K* 926  ['Optimal']  2069 MB
+a0.90_n75_s3-3_rep1  A_sum 75.5 A_max 26.4  B 3.98 C 17.58  winners 6  K* 48121  ['Optimal']  2945 MB
+a0.90_n75_s3-3_rep0  A_sum 85.4 A_max 29.7  B 13.39 C 59.52  winners 6  K* 95113  ['Optimal']  3003 MB
+a0.50_n75_s3-3_rep0  A_sum 29.6 A_max 10.1  B 0.01 C 0.01  winners 1  K* 54  ['Optimal']  1139 MB

@@ -1,4 +1,9 @@
-"""Scale study of the final pipeline: Algorithm A = C5h (variants_h.py), Algorithms B and C with HiGHS (wdp_highs.py).
+"""Scale study of the final pipeline: Algorithm A = C5h (variants_h.py), Algorithms B and C with CPLEX (default, the
+paper's solver, via rq_common.vcg / t8_cplex.py) or HiGHS (wdp_highs.py). See BENCHMARK_GUIDE.md at the repository root.
+
+Environment variables:
+  HICA_SOLVER  = cplex (default) | highs
+  HICA_WORKERS = number of jobs run in parallel (default 3; each job may need 2-3 GB at n = 75-100)
 
 Instances: the paper's main-grid generator (rq_common.make_rq1_instance), B = 3, alignment 0.90 (crowd competitive) and
 0.50 (FD dominant), area 8 x 8 km as in the paper, so larger n also means denser demand.
@@ -10,7 +15,7 @@ extension attempts, frontier size, B = base WDP, C = one removal solve per winne
 Check jobs: at n = 30, supply (3,3), reps 0-1, the frontier of C5h is compared with the production Algorithm A (C1)
 followed by the frontier (common.kstar_pool).
 One process per job (3 in parallel on 4 cores), garbage collection off while a driver runs.
-Output: ../audit_logs3/scale_c5h.jsonl (one line per job; the script skips jobs already present).
+Output: ../audit_logs3/scale_c5h_<solver>.jsonl (one line per job; the script skips jobs already present).
 """
 import gc
 import json
@@ -21,7 +26,9 @@ import sys
 import time
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-OUT = os.path.join(HERE, "..", "audit_logs3", "scale_c5h.jsonl")
+SOLVER = os.environ.get("HICA_SOLVER", "cplex").lower()
+WORKERS = int(os.environ.get("HICA_WORKERS", "3"))
+OUT = os.path.join(HERE, "..", "audit_logs3", "scale_c5h_%s.jsonl" % SOLVER)
 
 
 def jobs():
@@ -50,7 +57,6 @@ def run(j):
     import paths  # noqa: F401
     import variants_h as VH
     import rq_common as RQ
-    import wdp_highs as WH
     a, n, ng, no, rep = j
     d, o, tt, meta, th, q = RQ.make_rq1_instance(a, n, ng, no, rep, B=3)
     pool, per = {}, []
@@ -62,8 +68,16 @@ def run(j):
         gc.enable()
         pool[dr["id"]] = p
         per.append(dict(id=dr["id"], cls=dr["cls"], t=t, ext=c["ext_attempts"], kstar=c["routes_kept"]))
-    v = WH.vcg(pool, th, q, sorted(o))
-    row = dict(key=key(j), alignment=a, n=n, n_gw=ng, n_od=no, rep=rep, drivers=per,
+    if SOLVER == "highs":
+        import wdp_highs as WH
+        v = WH.vcg(pool, th, q, sorted(o))
+    else:                                   # CPLEX 12.10, single thread, gap 0 (experiments/T2BFS/t8_cplex.py)
+        r = RQ.vcg(pool, th, q, sorted(o))
+        t_B = r["full"]["wall"]
+        v = dict(Z=r["Z"], winners=len(r["pay"]), fd=len(r["full"]["fd_orders"]), t_B=t_B,
+                 t_C=r["wall"] - t_B, statuses=r["statuses"],
+                 n_cols=sum(len(k) for p in pool.values() for S, k in p.items() if S) + len(o))
+    row = dict(key=key(j), solver=SOLVER, alignment=a, n=n, n_gw=ng, n_od=no, rep=rep, drivers=per,
                A_sum=sum(x["t"] for x in per), A_max=max(x["t"] for x in per),
                A_gw_mean=sum(x["t"] for x in per if x["cls"] == "GW") / max(1, sum(1 for x in per if x["cls"] == "GW")),
                ext=sum(x["ext"] for x in per), kstar=sum(x["kstar"] for x in per),
@@ -83,8 +97,8 @@ def main():
     if os.path.exists(OUT):
         done = {json.loads(l)["key"] for l in open(OUT) if l.strip()}
     todo = [j for j in jobs() if key(j) not in done]
-    print("jobs: %d total, %d to do" % (len(jobs()), len(todo)), flush=True)
-    with mp.get_context("fork").Pool(3, maxtasksperchild=1) as pool:
+    print("solver %s, %d workers; jobs: %d total, %d to do" % (SOLVER, WORKERS, len(jobs()), len(todo)), flush=True)
+    with mp.get_context("spawn").Pool(WORKERS, maxtasksperchild=1) as pool:
         for row in pool.imap_unordered(run, todo):
             with open(OUT, "a") as f:
                 f.write(json.dumps(row) + "\n")
