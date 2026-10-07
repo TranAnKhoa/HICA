@@ -1,0 +1,11 @@
+label n20_s42  B=3 K*eq=True | C1 0.97s ext 437065 | C5 0.82s ext 379029 | C8f 1.01s ext 288592 | C8f x0.82 vs C5 | C5 x1.21 vs C1
+label n20_s7   B=3 K*eq=True | C1 1.66s ext 627418 | C5 1.46s ext 520212 | C8f 1.81s ext 391553 | C8f x0.82 vs C5 | C5 x1.14 vs C1
+label n20_s123 B=3 K*eq=True | C1 1.08s ext 443121 | C5 0.88s ext 377939 | C8f 1.00s ext 266276 | C8f x0.88 vs C5 | C5 x1.23 vs C1
+label n20_s42  B=4 K*eq=True | C5 14.73s ext 5860609 | C8f 17.32s ext 4631590 | C8f x0.85 vs C5
+label n20_s7   B=4 K*eq=True | C5 29.53s ext 9605160 | C8f 34.07s ext 7593255 | C8f x0.86 vs C5
+label n20_s123 B=4 K*eq=True | C5 13.98s ext 5730924 | C8f 15.83s ext 4251322 | C8f x0.89 vs C5
+grid a0.90_n20_rep0 B=3 K*eq=True | C1 1.99s ext 725167 | C5 1.73s ext 589169 | C8f 1.47s ext 297708 | C8f x1.17 vs C5 | C5 x1.15 vs C1
+grid a0.90_n20_rep1 B=3 K*eq=True | C1 2.23s ext 764346 | C5 1.93s ext 620552 | C8f 2.35s ext 467874 | C8f x0.82 vs C5 | C5 x1.23 vs C1
+grid a0.90_n20_rep2 B=3 K*eq=True | C1 2.10s ext 755007 | C5 1.74s ext 612531 | C8f 1.89s ext 380380 | C8f x0.91 vs C5 | C5 x1.18 vs C1
+grid a0.90_n20_rep3 B=3 K*eq=True | C1 2.30s ext 771227 | C5 2.00s ext 627411 | C8f 2.42s ext 500466 | C8f x0.77 vs C5 | C5 x1.15 vs C1
+grid a0.90_n20_rep4 B=3 K*eq=True | C1 2.10s ext 732485 | C5 1.93s ext 595897 | C8f 1.66s ext 328181 | C8f x1.13 vs C5 | C5 x1.08 vs C1

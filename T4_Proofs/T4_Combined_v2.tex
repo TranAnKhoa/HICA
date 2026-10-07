@@ -110,8 +110,16 @@ contain one route for each of the $\Theta(n^B)$ bundles of at most $B$ orders,
 even in instances in which none of these routes is ever used.
 \item \textbf{Theorem 3 (label rule).} Part of the test can be carried out
 while routes are being generated, so that partial routes are discarded early,
-without changing the surviving pool.
+without changing the surviving pool. (It reduces the number of label
+extensions, but in our implementation not the running time; see
+\cref{sec:evidence}.)
 \end{itemize}
+\Cref{sec:finalA} adds three results behind the final version of
+Algorithm~A: the frontier can be computed inside the generation loop
+(\cref{prop:inloop}); labels that can no longer be completed can be discarded
+without changing the pool (\cref{prop:dead}), which makes Algorithm~A
+1.9--3.9$\times$ faster on our instances; and a second label rule that compares
+generated labels is also safe (\cref{prop:fddom}).
 
 \Cref{sec:remarks} contains remarks, the procedures that compute these objects,
 the NP-hardness of exact non-local pruning, and the computational evidence.
@@ -363,8 +371,9 @@ regarded as a final stop without opening time.
 Algorithm~A generates the pool of each driver by forward label setting. A
 \emph{label} is a partial route, stored as $(v,IV,C,t,K,W)$: current stop,
 orders on board, orders delivered, clock, and accumulated costs. Labels are
-extended one stop at a time and pass three filters (\cref{alg:routegen} in
-\cref{sec:remarks}):
+extended one stop at a time and pass three filters (the final version,
+\cref{alg:routegen} in \cref{sec:finalA}, processes the batches as tiers of
+equal event count and also computes the frontier inside the loop):
 \begin{itemize}[leftmargin=1.4em, itemsep=1pt]
 \item \emph{Layer 1 (label dominance).} Labels are processed in
 \emph{batches}. Within a batch, a label is removed if another label with the
@@ -1601,7 +1610,168 @@ unknown, and the bound must hold for the cheapest one. The rule of
 known.
 
 % ---------------------------------------------------------------------
-\subsection{Implementation of Algorithm A and of the label rule}
+\subsection{The final version of Algorithm A}
+\label{sec:finalA}
+% ---------------------------------------------------------------------
+
+The production code of Algorithm~A processes labels in rounds of equal
+$|IV|+|C|$ and, inside a round, in repeated closures over deliveries; Layer~1
+compares only labels created in the same round and the same closure step. Two
+labels with the same key $(v,IV,C)$ can therefore be created in different
+batches and never be compared, and the dominated one is expanded (7.9--22.1\%
+of the extension work on the five label instances, \texttt{EXPERIMENT\_REPORT.md}).
+The final version processes labels in \emph{tiers} of equal event count
+$m=|IV|+2|C|$: every extension adds exactly one event, two labels with the same
+key have the same $m$, so every pair of same-key labels meets in one Layer-1
+batch. Each label is filtered in exactly one tier and its extensions in later
+tiers, so \cref{lem:complete} and Theorem~3 hold verbatim. Moreover, all routes
+with $k$ orders are complete once tier $2k$ has been processed, which allows the
+frontier to be computed inside the loop.
+
+\begin{proposition}[The frontier can be computed inside the loop]\label{prop:inloop}
+Let $R_i$ satisfy \cref{ass:nodup} and $\thl<\thu$, and let $R_i(S)$ be its
+routes with bundle $S$. Examine the bundles in order of nondecreasing size and
+accept a route $r\in R_i(S)$ if and only if $\mu'_r(b)>0$ for some $b\in\Theta$,
+where $\mu'_r$ is the margin of \cref{def:frontier} computed over the restricted
+set of substitutes
+\[
+D'(r)=\{\idle_i\}\ \cup\bigcup_{S'\subsetneq S}\mathcal K'(S')\ \cup\ \bigl(R_i(S)\setminus\{r\}\bigr),
+\]
+and $\mathcal K'(S')$ is the set of routes already accepted for the bundle $S'$.
+Then the accepted routes are exactly $\Ks_i$.
+\end{proposition}
+
+\begin{proof}
+By induction on $|S|$; assume $\mathcal K'(S')=\Ks_i\cap R_i(S')$ for every
+bundle with fewer orders than $S$, and let $r\in R_i(S)$. Since $D'(r)\subseteq
+D(r)$, the restricted envelope is no lower than $E_r$, so $\mu'_r\ge\mu_r$; if
+$r\in\Ks_i$, then $\mu'_r(b)>0$ for some $b$ and $r$ is accepted. If
+$r\notin\Ks_i$, fix $b\in\Theta$. \Cref{lem:substitute} gives
+$u\in\Ks_i\cup\{\idle_i\}$, $u\ne r$, with $S_u\subseteq S$ and
+$c_u(b)+q(S\setminus S_u)\le c_r(b)$. Either $u=\idle_i$; or
+$S_u\subsetneq S$, and then $u\in\Ks_i\cap R_i(S_u)=\mathcal K'(S_u)$ by
+induction; or $S_u=S$ and $u\in R_i(S)\setminus\{r\}$. In every case
+$u\in D'(r)$, so $\mu'_r(b)\le0$. As $b$ was arbitrary, $r$ is rejected.
+\end{proof}
+
+The proposition needs only \cref{ass:nodup}, so it also applies to a pool
+generated with the label rule: by Theorem~3 that pool has the same frontier,
+and the in-loop computation returns it. In \texttt{EXPERIMENT\_REPORT.md} the
+tiered version with the in-loop frontier is called C5; its in-loop frontier was
+validated by tests only, and \cref{prop:inloop} is the missing proof.
+
+\paragraph{Removing dead ends.} The production code checks the detour budget
+of an occasional driver only when the home leg is added, and checks a
+delivery's closing time only when that delivery is added. Labels that can no
+longer be completed are therefore extended to the end; on the five label
+instances, occasional drivers account for 50--62\% of all extension attempts,
+while their frontier holds 6--7 routes.
+
+\begin{proposition}[Removing dead ends]\label{prop:dead}
+Call a label $L=(v,IV,C,t,K,W)$ \emph{dead} if $t+\tau(v,d_j)>l_{d_j}$ for some
+$j\in IV$, or if the driver is an occasional driver with home $h$ and home
+deadline $l_h$, and
+\[
+\max\Bigl\{t+\tau(v,h),\ \max_{j\in IV}\bigl(\max\{t+\tau(v,d_j),\,e_{d_j}\}+s_{d_j}+\tau(d_j,h)\bigr)\Bigr\}>l_h .
+\]
+Discarding every dead label when it is created leaves $R_i$, and hence $\Ks_i$,
+unchanged.
+\end{proposition}
+
+\begin{proof}
+Call a label \emph{useless} if it has no feasible completion. (i) A dead label is
+useless: any completion reaches $d_j$ no earlier than $t+\tau(v,d_j)$ and, for an
+occasional driver, reaches home no earlier than the left-hand side above
+(triangle inequality, nonnegative waiting and service). (ii) Extensions of a
+useless label are useless, since their completions are completions of the
+label. (iii) A label dominated by a useless label is useless: if $L'$, with the same
+key as $L$ and no earlier clock, had a feasible completion $\sigma$, then
+$L\cdot\sigma$ would be feasible by \eqref{eq:recursion}. By (ii), the filter
+removes only useless labels and prevents only useless labels from being created.
+By (iii), a label that is not useless can be dominated only by labels that are
+not useless; by induction over the batches, these are present with and without
+the filter, so exactly the same labels that are not useless survive Layer~1.
+Every completed route comes from such labels, so the completed routes, the
+Pareto fronts of Layer~2 and therefore $R_i$ are unchanged.
+\end{proof}
+
+Tiers, the dead-end filter and the in-loop frontier together give Algorithm~A in
+its final form (\cref{alg:routegen}). It never stores $R_i$ and outputs $\Ks_i$
+directly; \cref{sec:evidence} reports its running time.
+
+\begin{algorithm}[!htbp]
+\caption{\textsc{GenerateRoutes}$(i)$: Algorithm A for one driver (final version: event tiers, dead-end filter, frontier inside the loop)}
+\label{alg:routegen}
+\begin{algorithmic}[1]
+\Require public data of driver $i$; orders $O$; cap $B$; FD prices $q$; $\Theta=[\thl,\thu]$; flag \textit{useRule}
+\Ensure local frontier $\Ks_i$
+\State $\mathcal L\gets\{(v_0,\emptyset,\emptyset,t_0,0,0)\}$;\quad $m\gets0$;\quad $\mathcal C[S]\gets\emptyset$ and $\mathcal K'(S)\gets\emptyset$ for every bundle $S$
+\While{$\mathcal L\ne\emptyset$} \Comment{$\mathcal L$ = labels with $m=|IV|+2|C|$ events}
+  \State $\mathcal L\gets\textsc{FilterDominated}(\mathcal L)$ \Comment{Layer 1: one batch per tier, key $(v,IV,C)$}
+  \If{\textit{useRule}} $\mathcal L\gets\{\ell\in\mathcal L:\ \textbf{not}\ \textsc{RuleFires}(\ell)\}$ \Comment{Layer 3, optional (\cref{alg:labelrule})}
+  \EndIf
+  \State $\mathcal L'\gets\emptyset$
+  \For{each label $\ell\in\mathcal L$}
+    \If{$IV(\ell)=\emptyset$ \textbf{and} $C(\ell)\ne\emptyset$}
+      \State add $\ell$ (gigworker) or \textsc{TryHome}$(\ell)$ (occasional driver, if feasible) to $\mathcal C[C(\ell)]$
+    \EndIf
+    \State add every feasible \textsc{TryDelivery}$(\ell,j)$, $j\in IV(\ell)$, that is not dead to $\mathcal L'$ \Comment{\cref{prop:dead}}
+    \If{$|IV(\ell)|+|C(\ell)|<B$}
+      \State add every feasible \textsc{TryPickup}$(\ell,j)$, $j\notin IV(\ell)\cup C(\ell)$, that is not dead to $\mathcal L'$
+    \EndIf
+  \EndFor
+  \If{$m\ge2$ \textbf{is even}} \Comment{every route with $k=m/2$ orders is now complete}
+    \For{each bundle $S$ with $|S|=m/2$ and $\mathcal C[S]\ne\emptyset$}
+      \State $F\gets\textsc{ParetoFront}\bigl(\{(K_\ell,W_\ell):\ell\in\mathcal C[S]\}\bigr)$ \Comment{Layer 2}
+      \State $\mathcal K'(S)\gets\{r\in F:\ \mu'_r(b)>0$ for some $b\in\Theta\}$ \Comment{\cref{prop:inloop}, test as in \cref{alg:frontier}}
+    \EndFor
+  \EndIf
+  \State $\mathcal L\gets\mathcal L'$;\quad $m\gets m+1$
+\EndWhile
+\State \Return $\Ks_i=\bigcup_S\mathcal K'(S)$
+\end{algorithmic}
+\end{algorithm}
+
+\paragraph{A second safe label rule.} The label rule of \cref{sec:label}
+compares a label with its own virtual shortcut. One can instead compare it with
+another label that has actually been generated.
+
+\begin{proposition}[FD-dominance between generated labels]\label{prop:fddom}
+Let $L_1=(v,IV,C_1,t_1,K_1,W_1)$ and $L_2=(v,IV,C_2,t_2,K_2,W_2)$ be labels of
+the same driver at the same stop with the same orders on board, where $K$ and
+$W$ are the accumulated distance cost and time of Algorithm~A. Suppose
+$C_1\subsetneq C_2$ and $t_1\le t_2$, let $T=C_2\setminus C_1$ and
+$A=\max\{0,\max_{w\in\mathcal F(L_2)}(e_w-t_1-\tau(v,w))\}$ with $\mathcal F$ as
+in \cref{def:shortcut}. If
+\[
+(K_2-K_1)+\thl\,\frac{\max\{0,\ t_2-t_1-A\}}{60}\;\ge\;q(T),
+\]
+then discarding $L_2$ and all its extensions leaves $\Ks_i$ unchanged.
+\end{proposition}
+
+\begin{proof}
+Let $\rho_2=L_2\cdot\sigma$ be a feasible route through $L_2$ and
+$\rho_1=L_1\cdot\sigma$. The continuation $\sigma$ starts at $v$, delivers the
+orders of $IV$ and serves only orders outside $C_2\cup IV$. Started at the same
+stop no later, it serves every stop no later (by \eqref{eq:recursion}), so all
+closing times and the home deadline are met; the load along $\sigma$ is the same;
+and $\rho_1$ serves fewer orders. Hence $\rho_1$ is feasible and serves
+$S_{\rho_2}\setminus T$. The distance added by $\sigma$ is the same, so
+$K_{\rho_2}-K_{\rho_1}=K_2-K_1$ (for an occasional driver the same direct trip is
+subtracted from both). \Cref{lem:absorb}, applied to two paths that leave the
+same point $v$ at $t_2$ and $t_1$ (lead $\delta=t_2-t_1$, no junction term), and
+the argument of \cref{prop:labelbound} for the stops with an opening time give
+$W_{\rho_2}-W_{\rho_1}\ge\max\{0,t_2-t_1-A\}/60$. Therefore
+$c_{\rho_2}(b)\ge c_{\rho_1}(b)+q(T)$ for every $b\ge\thl$. This is the
+conclusion of \cref{prop:labelbound} with the feasible route $\rho_1$ in place of
+$\rho\setminus T$, and the proof of Theorem~3 goes through unchanged.
+\end{proof}
+
+\Cref{prop:fddom} is Idea~3 (variants C6/C7) of \texttt{EXPERIMENT\_REPORT.md}, where it
+was validated by a completion-level audit but not proved.
+
+% ---------------------------------------------------------------------
+\subsection{Implementation of the label rule}
 % ---------------------------------------------------------------------
 
 Each label carries, for every picked order $j$, the triple $(D'_j,v'_j,r'_j)$
@@ -1613,43 +1783,6 @@ $\beta$ with $A=0$, which is an upper bound, and computes $A$ only if that bound
 reaches $q_j$. The overhead per extension is $O(B)$ plus rare $O(n)$ evaluations
 of $A$. Subsets $T$ with $|T|\ge2$ added almost nothing in the experiments and
 are not used.
-
-\begin{algorithm}[!htbp]
-\caption{\textsc{GenerateRoutes}$(i)$: Algorithm A for one driver}
-\label{alg:routegen}
-\begin{algorithmic}[1]
-\Require public data of driver $i$; orders $O$; cap $B$; flag \textit{useRule}
-\Ensure route pool $R_i$ (Pareto-minimal $(K,W)$ per bundle)
-\State $\mathcal L_0\gets\{(v_0,\emptyset,\emptyset,t_0,0,0)\}$; $\mathcal L_k\gets\emptyset$ for $k=1,\dots,B$; $\mathcal C\gets\emptyset$
-\For{$k\gets 0$ \textbf{to} $B$} \Comment{$k=|IV|+|C|$, the number of touched orders}
-  \State $\mathcal Q\gets\mathcal L_k$
-  \While{$\mathcal Q\ne\emptyset$}
-    \State $\mathcal Q\gets\textsc{FilterDominated}(\mathcal Q)$ \Comment{Layer 1 on one batch}
-    \State $\mathcal Q'\gets\emptyset$
-    \For{each label $\ell\in\mathcal Q$}
-      \If{$IV(\ell)=\emptyset$ \textbf{and} $C(\ell)\ne\emptyset$}
-        \State add $\ell$ (gigworker) or \textsc{TryHome}$(\ell)$ (occasional driver, if within budget) to $\mathcal C$
-      \EndIf
-      \For{each $j\in IV(\ell)$}
-        \State $\ell'\gets\textsc{TryDelivery}(\ell,j)$
-        \If{$\ell'\ne\bot$ \textbf{and not} (\textit{useRule} \textbf{and} \textsc{RuleFires}$(\ell')$)} add $\ell'$ to $\mathcal Q'$ \EndIf
-      \EndFor
-      \If{$k<B$}
-        \For{each $j\in O\setminus(IV(\ell)\cup C(\ell))$}
-          \State $\ell'\gets\textsc{TryPickup}(\ell,j)$
-          \If{$\ell'\ne\bot$ \textbf{and not} (\textit{useRule} \textbf{and} \textsc{RuleFires}$(\ell')$)} add $\ell'$ to $\mathcal L_{k+1}$ \EndIf
-        \EndFor
-      \EndIf
-    \EndFor
-    \State $\mathcal Q\gets\mathcal Q'$ \Comment{each delivery moves one order from $IV$ to $C$}
-  \EndWhile
-\EndFor
-\For{each bundle $S$ appearing in $\mathcal C$}
-  \State $R_i(S)\gets\textsc{ParetoFront}\bigl(\{(K_\ell,W_\ell):\ell\in\mathcal C,\ C(\ell)=S\}\bigr)$ \Comment{Layer 2}
-\EndFor
-\State \Return $R_i=\bigcup_S R_i(S)$, one route per distinct pair $(K,W)$
-\end{algorithmic}
-\end{algorithm}
 
 \begin{algorithm}[!htbp]
 \caption{\textsc{RuleFires}$(\ell')$: label rule after extending $\ell$ by stop $u$ (Layer 3)}
@@ -1794,23 +1927,39 @@ Instances in which no auction is needed (\%) & 8.3 & 7.7 & 53.0 & 1.7 & 0.0\\
 \end{tabular}
 \end{table}
 
-\paragraph{The label rule.} The rule was evaluated on five instances with
-$n\in\{10,12,15\}$ at $B=3$ and $B=4$. Every firing was checked against every
-feasible completion of the discarded label: 114,627 completions at $B=3$ and
-5,539,924 at $B=4$, with no violation of \cref{prop:labelbound} and no change of
-the frontier for any of the 15 drivers. Removing the absorption term produced
-4,279 violations at $B=3$ and 123,237 at $B=4$; removing the junction terms
-produced 3,149 and 96,112; both mutations changed the frontier of two to four
-gigworkers. \Cref{tab:label} reports the work saved. The rule never fired for
-occasional drivers, whose detour budget already keeps their pools at 5--24
-routes after filtering. On the synthetic instances the rule keeps about half of
-the labels that lie on a path to some feasible route, whereas an ideal local
-rule would keep 2.7\% ($B=3$) and 0.6\% ($B=4$); it thus closes 45--50\% of the
-achievable gap, and its benefit grows as the FD tariff falls.
+\paragraph{The label rule: safety.} The rule was evaluated on five instances
+with $n\in\{10,12,15\}$ at $B=3$ and $B=4$. Every firing was checked against
+every feasible completion of the discarded label: 114,627 completions at $B=3$
+and 5,539,924 at $B=4$, with no violation of \cref{prop:labelbound} and no
+change of the frontier for any of the 15 drivers. Removing the absorption term
+produced 4,279 violations at $B=3$ and 123,237 at $B=4$; removing the junction
+terms produced 3,149 and 96,112; both mutations changed the frontier of two to
+four gigworkers. The audit was repeated inside the tiered version of
+Algorithm~A (the rule added to C5): 11,238 firings, 8,589 completions, no
+violation; both mutations were detected again
+(\texttt{EXPERIMENT\_REPORT\_C8.md}). On the synthetic instances the rule keeps
+about half of the labels that lie on a path to some feasible route, whereas an
+ideal local rule would keep 2.7\% ($B=3$) and 0.6\% ($B=4$).
+
+\paragraph{The label rule: running time.} \Cref{tab:label} compares the rule
+with a plain enumerator \emph{without} label dominance; this is the experiment
+behind the speed-ups quoted in earlier drafts, and it does not measure
+Algorithm~A. Against Algorithm~A with label dominance the result reverses
+(\cref{tab:final}, last two columns). Added to the tiered version C5, the rule
+removes a further 14--32\% of the extension attempts, but testing every
+surviving label costs more than the extensions it saves: the run becomes
+slower on every label instance (0.60--0.80$\times$; 0.73--0.95$\times$ with a
+faster implementation that takes exactly the same decisions), and on the
+main-grid sample it breaks even where the crowd competes (alignment 0.90) and
+is slower elsewhere. The reason is where it fires: 95--99\% of the labels it
+removes already hold $B$ orders, so each removal saves only the remaining
+deliveries. The rule also fires for occasional drivers (for all 30 of them in
+the grid sample), mostly on prefixes that can no longer reach home in time;
+the dead-end filter of \cref{prop:dead} removes those far more cheaply.
 
 \begin{table}[!htbp]
 \centering
-\caption{Speed-up of Algorithm~A from the label rule: median over ten timed runs [IQR], and share of label extensions saved.}
+\caption{Label rule against a plain enumerator without label dominance (earlier experiment; this is not a comparison with Algorithm~A): median over ten timed runs [IQR], and share of label extensions saved.}
 \label{tab:label}
 \small
 \begin{tabular}{lcccc}
@@ -1827,6 +1976,47 @@ $n=10$, seed 999 & 1.41 [1.36, 1.53] & 39.4\% & 1.98 [1.97, 1.98] & 55.8\%\\
 \midrule
 Median over instances & 1.48 & & 2.19 & \\
 Pooled                & 1.72 & & 2.94 & \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{The final version of Algorithm~A.} \Cref{tab:final} reports the time
+to the frontier of the production code (C1), of the tiered version with the
+in-loop frontier (C5) and of the final version, which adds the dead-end filter
+(C5h, \cref{alg:routegen}). The filter removes 52--76\% of the extension
+attempts of C5, and 99\% of those of occasional drivers; the frontier is
+unchanged on every instance, as \cref{prop:dead} guarantees, and an
+independent audit found no removed label with a feasible completion (12,182
+labels checked). The final version is 1.9--3.9$\times$ faster than the
+production code and 1.6--2.9$\times$ faster than C5; on the main-grid sample
+it is 2.1$\times$ (alignment 0.90) and 2.3$\times$ (alignment 0.50) faster than
+the production code. Adding the label rule on top (C8h) is not a reliable gain:
+0.81--1.03$\times$ on these instances and 0.78--1.32$\times$ (median
+0.92$\times$) over 41 instances that include the main-grid sample and $n=20$;
+it is faster only where it removes at least about 40\% of the remaining work,
+which cannot be known before the run.
+
+\begin{table}[!htbp]
+\centering
+\caption{Time to the frontier (seconds, median of ten timed runs) of the production Algorithm~A (C1), the tiered version with the frontier inside the loop (C5) and the final version with the dead-end filter (C5h); speed-ups are medians of paired ratios. The last two columns add the label rule to C5 (C8) and to C5h (C8h); values below 1 mean that the rule makes the run slower. Pure Python 3.13, one core of an Intel Xeon at 2.1~GHz.}
+\label{tab:final}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lcrrrcccc}
+\toprule
+Instance & $B$ & C1 & C5 & C5h & C5h vs C1 & C5h vs C5 & C8 vs C5 & C8h vs C5h\\
+\midrule
+$n=12$, seed 42 & 3 & 0.143 & 0.121 & 0.052 & 2.73 & 2.36 & 0.65 & 0.94\\
+$n=10$, seed 1 & 3 & 0.131 & 0.108 & 0.068 & 1.92 & 1.57 & 0.66 & 0.84\\
+$n=15$, seed 7 & 3 & 0.442 & 0.361 & 0.177 & 2.46 & 2.04 & 0.75 & 0.98\\
+$n=12$, seed 123 & 3 & 0.274 & 0.221 & 0.137 & 1.97 & 1.60 & 0.69 & 0.98\\
+$n=10$, seed 999 & 3 & 0.089 & 0.075 & 0.039 & 2.21 & 1.85 & 0.65 & 0.81\\
+\midrule
+$n=12$, seed 42 & 4 & 1.391 & 1.025 & 0.349 & 3.90 & 2.86 & 0.60 & 0.90\\
+$n=10$, seed 1 & 4 & 1.437 & 1.000 & 0.611 & 2.33 & 1.63 & 0.67 & 0.84\\
+$n=15$, seed 7 & 4 & 7.455 & 5.521 & 2.503 & 3.00 & 2.25 & 0.80 & 1.03\\
+$n=12$, seed 123 & 4 & 3.294 & 2.211 & 1.342 & 2.43 & 1.64 & 0.72 & 0.99\\
+$n=10$, seed 999 & 4 & 0.758 & 0.531 & 0.275 & 2.77 & 1.90 & 0.65 & 0.83\\
 \bottomrule
 \end{tabular}
 \end{table}

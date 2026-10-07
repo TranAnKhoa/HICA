@@ -1,0 +1,407 @@
+{
+ "rows": [
+  {
+   "tag": "label n12_s42",
+   "B": 3,
+   "R": 879,
+   "Kstar": 28,
+   "R_equal": true,
+   "C5h_kstar_equal": true,
+   "dead_kills_GW": 1568,
+   "dead_kills_OD": 236,
+   "C8h_kstar_equal": true
+  },
+  {
+   "tag": "label n10_s1",
+   "B": 3,
+   "R": 714,
+   "Kstar": 165,
+   "R_equal": true,
+   "C5h_kstar_equal": true,
+   "dead_kills_GW": 138,
+   "dead_kills_OD": 138,
+   "C8h_kstar_equal": true
+  },
+  {
+   "tag": "label n15_s7",
+   "B": 3,
+   "R": 1561,
+   "Kstar": 165,
+   "R_equal": true,
+   "C5h_kstar_equal": true,
+   "dead_kills_GW": 2059,
+   "dead_kills_OD": 302,
+   "C8h_kstar_equal": true
+  },
+  {
+   "tag": "label n12_s123",
+   "B": 3,
+   "R": 1416,
+   "Kstar": 208,
+   "R_equal": true,
+   "C5h_kstar_equal": true,
+   "dead_kills_GW": 1075,
+   "dead_kills_OD": 279,
+   "C8h_kstar_equal": true
+  },
+  {
+   "tag": "label n10_s999",
+   "B": 3,
+   "R": 510,
+   "Kstar": 77,
+   "R_equal": true,
+   "C5h_kstar_equal": true,
+   "dead_kills_GW": 768,
+   "dead_kills_OD": 190,
+   "C8h_kstar_equal": true
+  },
+  {
+   "tag": "label n12_s42",
+   "B": 4,
+   "R": 2648,
+   "Kstar": 74,
+   "R_equal": true,
+   "C5h_kstar_equal": true,
+   "dead_kills_GW": 15472,
+   "dead_kills_OD": 236,
+   "C8h_kstar_equal": true
+  },
+  {
+   "tag": "label n10_s1",
+   "B": 4,
+   "R": 1845,
+   "Kstar": 416,
+   "R_equal": true,
+   "C5h_kstar_equal": true,
+   "dead_kills_GW": 2183,
+   "dead_kills_OD": 138,
+   "C8h_kstar_equal": true
+  },
+  {
+   "tag": "label n15_s7",
+   "B": 4,
+   "R": 5401,
+   "Kstar": 603,
+   "R_equal": true,
+   "C5h_kstar_equal": true,
+   "dead_kills_GW": 34909,
+   "dead_kills_OD": 302,
+   "C8h_kstar_equal": true
+  },
+  {
+   "tag": "label n12_s123",
+   "B": 4,
+   "R": 4199,
+   "Kstar": 482,
+   "R_equal": true,
+   "C5h_kstar_equal": true,
+   "dead_kills_GW": 14920,
+   "dead_kills_OD": 279,
+   "C8h_kstar_equal": true
+  },
+  {
+   "tag": "label n10_s999",
+   "B": 4,
+   "R": 1104,
+   "Kstar": 193,
+   "R_equal": true,
+   "C5h_kstar_equal": true,
+   "dead_kills_GW": 7814,
+   "dead_kills_OD": 190,
+   "C8h_kstar_equal": true
+  },
+  {
+   "tag": "grid a0.90_rep0",
+   "B": 3,
+   "R": 2749,
+   "Kstar": 336,
+   "R_equal": true,
+   "C5h_kstar_equal": true,
+   "dead_kills_GW": 0,
+   "dead_kills_OD": 887,
+   "C8h_kstar_equal": true
+  },
+  {
+   "tag": "grid a0.90_rep1",
+   "B": 3,
+   "R": 2955,
+   "Kstar": 691,
+   "R_equal": true,
+   "C5h_kstar_equal": true,
+   "dead_kills_GW": 0,
+   "dead_kills_OD": 1247,
+   "C8h_kstar_equal": true
+  },
+  {
+   "tag": "grid a0.90_rep2",
+   "B": 3,
+   "R": 3075,
+   "Kstar": 522,
+   "R_equal": true,
+   "C5h_kstar_equal": true,
+   "dead_kills_GW": 0,
+   "dead_kills_OD": 1428,
+   "C8h_kstar_equal": true
+  },
+  {
+   "tag": "grid a0.90_rep3",
+   "B": 3,
+   "R": 2563,
+   "Kstar": 254,
+   "R_equal": true,
+   "C5h_kstar_equal": true,
+   "dead_kills_GW": 0,
+   "dead_kills_OD": 1409,
+   "C8h_kstar_equal": true
+  },
+  {
+   "tag": "grid a0.90_rep4",
+   "B": 3,
+   "R": 2521,
+   "Kstar": 332,
+   "R_equal": true,
+   "C5h_kstar_equal": true,
+   "dead_kills_GW": 0,
+   "dead_kills_OD": 1017,
+   "C8h_kstar_equal": true
+  },
+  {
+   "tag": "grid a0.90_rep5",
+   "B": 3,
+   "R": 2516,
+   "Kstar": 497,
+   "R_equal": true,
+   "C5h_kstar_equal": true,
+   "dead_kills_GW": 0,
+   "dead_kills_OD": 1563,
+   "C8h_kstar_equal": true
+  },
+  {
+   "tag": "grid a0.90_rep6",
+   "B": 3,
+   "R": 2867,
+   "Kstar": 805,
+   "R_equal": true,
+   "C5h_kstar_equal": true,
+   "dead_kills_GW": 0,
+   "dead_kills_OD": 1593,
+   "C8h_kstar_equal": true
+  },
+  {
+   "tag": "grid a0.90_rep7",
+   "B": 3,
+   "R": 2542,
+   "Kstar": 213,
+   "R_equal": true,
+   "C5h_kstar_equal": true,
+   "dead_kills_GW": 0,
+   "dead_kills_OD": 1206,
+   "C8h_kstar_equal": true
+  },
+  {
+   "tag": "grid a0.90_rep8",
+   "B": 3,
+   "R": 2590,
+   "Kstar": 772,
+   "R_equal": true,
+   "C5h_kstar_equal": true,
+   "dead_kills_GW": 0,
+   "dead_kills_OD": 798,
+   "C8h_kstar_equal": true
+  },
+  {
+   "tag": "grid a0.90_rep9",
+   "B": 3,
+   "R": 2414,
+   "Kstar": 320,
+   "R_equal": true,
+   "C5h_kstar_equal": true,
+   "dead_kills_GW": 0,
+   "dead_kills_OD": 1057,
+   "C8h_kstar_equal": true
+  },
+  {
+   "tag": "grid a0.50_rep0",
+   "B": 3,
+   "R": 2723,
+   "Kstar": 0,
+   "R_equal": true,
+   "C5h_kstar_equal": true,
+   "dead_kills_GW": 3701,
+   "dead_kills_OD": 45,
+   "C8h_kstar_equal": true
+  },
+  {
+   "tag": "grid a0.50_rep1",
+   "B": 3,
+   "R": 3040,
+   "Kstar": 0,
+   "R_equal": true,
+   "C5h_kstar_equal": true,
+   "dead_kills_GW": 2927,
+   "dead_kills_OD": 45,
+   "C8h_kstar_equal": true
+  },
+  {
+   "tag": "grid a0.50_rep2",
+   "B": 3,
+   "R": 3029,
+   "Kstar": 0,
+   "R_equal": true,
+   "C5h_kstar_equal": true,
+   "dead_kills_GW": 4205,
+   "dead_kills_OD": 45,
+   "C8h_kstar_equal": true
+  },
+  {
+   "tag": "grid a0.50_rep3",
+   "B": 3,
+   "R": 3035,
+   "Kstar": 4,
+   "R_equal": true,
+   "C5h_kstar_equal": true,
+   "dead_kills_GW": 2783,
+   "dead_kills_OD": 45,
+   "C8h_kstar_equal": true
+  },
+  {
+   "tag": "grid a0.50_rep4",
+   "B": 3,
+   "R": 2724,
+   "Kstar": 0,
+   "R_equal": true,
+   "C5h_kstar_equal": true,
+   "dead_kills_GW": 3131,
+   "dead_kills_OD": 45,
+   "C8h_kstar_equal": true
+  },
+  {
+   "tag": "grid a0.50_rep5",
+   "B": 3,
+   "R": 2615,
+   "Kstar": 8,
+   "R_equal": true,
+   "C5h_kstar_equal": true,
+   "dead_kills_GW": 3844,
+   "dead_kills_OD": 45,
+   "C8h_kstar_equal": true
+  },
+  {
+   "tag": "grid a0.50_rep6",
+   "B": 3,
+   "R": 3690,
+   "Kstar": 0,
+   "R_equal": true,
+   "C5h_kstar_equal": true,
+   "dead_kills_GW": 3214,
+   "dead_kills_OD": 45,
+   "C8h_kstar_equal": true
+  },
+  {
+   "tag": "grid a0.50_rep7",
+   "B": 3,
+   "R": 3029,
+   "Kstar": 0,
+   "R_equal": true,
+   "C5h_kstar_equal": true,
+   "dead_kills_GW": 2833,
+   "dead_kills_OD": 45,
+   "C8h_kstar_equal": true
+  },
+  {
+   "tag": "grid a0.50_rep8",
+   "B": 3,
+   "R": 3125,
+   "Kstar": 0,
+   "R_equal": true,
+   "C5h_kstar_equal": true,
+   "dead_kills_GW": 2463,
+   "dead_kills_OD": 45,
+   "C8h_kstar_equal": true
+  },
+  {
+   "tag": "grid a0.50_rep9",
+   "B": 3,
+   "R": 2850,
+   "Kstar": 0,
+   "R_equal": true,
+   "C5h_kstar_equal": true,
+   "dead_kills_GW": 3738,
+   "dead_kills_OD": 45,
+   "C8h_kstar_equal": true
+  }
+ ],
+ "hunt": {
+  "instances": 80,
+  "ok": 80
+ },
+ "G4": [
+  {
+   "n": 5,
+   "seed": 0,
+   "ok": true
+  },
+  {
+   "n": 5,
+   "seed": 1,
+   "ok": true
+  },
+  {
+   "n": 5,
+   "seed": 2,
+   "ok": true
+  },
+  {
+   "n": 6,
+   "seed": 0,
+   "ok": true
+  },
+  {
+   "n": 6,
+   "seed": 1,
+   "ok": true
+  },
+  {
+   "n": 6,
+   "seed": 2,
+   "ok": true
+  }
+ ],
+ "DA": {
+  "dead_labels": 12182,
+  "with_feasible_completion": 0,
+  "GW": 11325,
+  "OD": 857,
+  "first": null
+ },
+ "M": {
+  "home_deadline_minus5": {
+   "valid": false,
+   "R_fails": [
+    "n12_s42",
+    "n10_s1",
+    "n15_s7",
+    "n12_s123",
+    "n10_s999"
+   ],
+   "DA_dead": 11959,
+   "DA_with_completion": 15,
+   "detected": true
+  },
+  "delivery_deadline_minus5": {
+   "valid": false,
+   "R_fails": [],
+   "DA_dead": 12514,
+   "DA_with_completion": 883,
+   "detected": true
+  },
+  "control_test_a_only": {
+   "valid": true,
+   "R_fails": [],
+   "DA_dead": 23831,
+   "DA_with_completion": 0,
+   "detected": false
+  }
+ },
+ "fails": []
+}

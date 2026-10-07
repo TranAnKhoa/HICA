@@ -1,0 +1,12 @@
+matrix label n20_s42      B=3 reps=3 | C1 1.058s ext 437065 x1.00 vs C1 x0.82 vs C5 | C5 0.818s ext 379029 x1.22 vs C1 x1.00 vs C5 | C5h 0.453s ext 154377 x2.25 vs C1 x1.80 vs C5 | C8h 0.471s ext 123585 x2.14 vs C1 x1.75 vs C5 | K* equal: True
+matrix label n20_s7       B=3 reps=3 | C1 1.701s ext 627418 x1.00 vs C1 x0.85 vs C5 | C5 1.433s ext 520212 x1.18 vs C1 x1.00 vs C5 | C5h 0.787s ext 236739 x2.20 vs C1 x1.77 vs C5 | C8h 0.856s ext 182557 x1.99 vs C1 x1.68 vs C5 | K* equal: True
+matrix label n20_s123     B=3 reps=3 | C1 1.095s ext 443121 x1.00 vs C1 x0.79 vs C5 | C5 0.863s ext 377939 x1.27 vs C1 x1.00 vs C5 | C5h 0.442s ext 160551 x2.48 vs C1 x1.85 vs C5 | C8h 0.473s ext 117336 x2.28 vs C1 x1.82 vs C5 | K* equal: True
+matrix label n20_s42      B=4 reps=3 | C5 14.698s ext 5860609 x1.00 vs C5 | C5h 7.156s ext 2202082 x2.10 vs C5 | C8h 7.908s ext 1827309 x1.89 vs C5 | K* equal: True
+matrix label n20_s7       B=4 reps=3 | C5 31.126s ext 9605160 x1.00 vs C5 | C5h 16.766s ext 4372843 x1.84 vs C5 | C8h 18.055s ext 3519347 x1.73 vs C5 | K* equal: True
+matrix label n20_s123     B=4 reps=3 | C5 14.595s ext 5730924 x1.00 vs C5 | C5h 7.642s ext 2335542 x1.91 vs C5 | C8h 7.457s ext 1765999 x1.96 vs C5 | K* equal: True
+matrix grid a0.90_n20_rep0 B=3 reps=3 | C1 2.109s ext 725167 x1.00 vs C1 x0.87 vs C5 | C5 1.918s ext 589169 x1.15 vs C1 x1.00 vs C5 | C5h 1.030s ext 278657 x2.03 vs C1 x1.86 vs C5 | C8h 0.783s ext 145930 x2.58 vs C1 x2.45 vs C5 | K* equal: True
+matrix grid a0.90_n20_rep1 B=3 reps=3 | C1 2.497s ext 764346 x1.00 vs C1 x0.83 vs C5 | C5 2.100s ext 620552 x1.21 vs C1 x1.00 vs C5 | C5h 1.117s ext 295825 x2.20 vs C1 x1.81 vs C5 | C8h 1.333s ext 227260 x1.82 vs C1 x1.49 vs C5 | K* equal: True
+matrix grid a0.90_n20_rep2 B=3 reps=3 | C1 2.190s ext 755007 x1.00 vs C1 x0.86 vs C5 | C5 1.890s ext 612531 x1.17 vs C1 x1.00 vs C5 | C5h 1.067s ext 286547 x2.07 vs C1 x1.77 vs C5 | C8h 1.058s ext 184108 x2.04 vs C1 x1.71 vs C5 | K* equal: True
+matrix grid a0.90_n20_rep3 B=3 reps=3 | C1 2.403s ext 771227 x1.00 vs C1 x0.87 vs C5 | C5 2.102s ext 627411 x1.14 vs C1 x1.00 vs C5 | C5h 1.129s ext 296505 x2.06 vs C1 x1.81 vs C5 | C8h 1.449s ext 239338 x1.71 vs C1 x1.51 vs C5 | K* equal: True
+matrix grid a0.90_n20_rep4 B=3 reps=3 | C1 2.135s ext 732485 x1.00 vs C1 x0.88 vs C5 | C5 1.940s ext 595897 x1.13 vs C1 x1.00 vs C5 | C5h 1.078s ext 286646 x1.97 vs C1 x1.74 vs C5 | C8h 0.916s ext 161001 x2.32 vs C1 x2.05 vs C5 | K* equal: True
+saved ../audit_logs3/timing_h_matrix_scale.json

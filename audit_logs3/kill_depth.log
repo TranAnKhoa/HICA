@@ -1,0 +1,10 @@
+n12_s42   B=3 kills=   8102  share at |P|=B:  98.7%  share with nothing on board:  18.1%  by |P|: {'1': 1, '2': 101, '3': 8000}
+n10_s1    B=3 kills=   4570  share at |P|=B:  97.7%  share with nothing on board:  19.2%  by |P|: {'1': 4, '2': 102, '3': 4464}
+n15_s7    B=3 kills=  23908  share at |P|=B:  98.1%  share with nothing on board:  13.6%  by |P|: {'1': 5, '2': 453, '3': 23450}
+n12_s123  B=3 kills=  12390  share at |P|=B:  98.0%  share with nothing on board:  16.1%  by |P|: {'1': 6, '2': 242, '3': 12142}
+n10_s999  B=3 kills=   3715  share at |P|=B:  97.5%  share with nothing on board:  18.3%  by |P|: {'1': 4, '2': 90, '3': 3621}
+n12_s42   B=4 kills=  39050  share at |P|=B:  96.9%  share with nothing on board:  10.5%  by |P|: {'1': 1, '2': 101, '3': 1091, '4': 37857}
+n10_s1    B=4 kills=  19842  share at |P|=B:  94.8%  share with nothing on board:   8.8%  by |P|: {'1': 4, '2': 102, '3': 929, '4': 18807}
+n15_s7    B=4 kills= 184532  share at |P|=B:  97.1%  share with nothing on board:   6.7%  by |P|: {'1': 5, '2': 453, '3': 4904, '4': 179170}
+n12_s123  B=4 kills=  73529  share at |P|=B:  96.8%  share with nothing on board:   9.2%  by |P|: {'1': 6, '2': 242, '3': 2107, '4': 71174}
+n10_s999  B=4 kills=  13662  share at |P|=B:  94.7%  share with nothing on board:   8.5%  by |P|: {'1': 4, '2': 90, '3': 624, '4': 12944}

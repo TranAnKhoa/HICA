@@ -1,0 +1,7 @@
+n=41 corr=0.89
+rule cut  0- 25%: 26 instances, C8h/C5h median 0.89, faster on 1
+rule cut 25- 30%:  5 instances, C8h/C5h median 0.94, faster on 0
+rule cut 30- 35%:  1 instances, C8h/C5h median 0.97, faster on 0
+rule cut 35- 40%:  2 instances, C8h/C5h median 1.02, faster on 1
+rule cut 40-100%:  7 instances, C8h/C5h median 1.14, faster on 7
+overall C8h vs C5h: min 0.78 median 0.92 max 1.32, faster on 9 of 41

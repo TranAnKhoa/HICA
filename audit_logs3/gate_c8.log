@@ -1,0 +1,42 @@
+label n12_s42        B=3 K*=  28 | R0 C5copy=C5:True C8f=C8:True | G1 C5:True C8:True C8f:True | rule kills 8102 (GW drivers 2, OD drivers 3)
+label n10_s1         B=3 K*= 165 | R0 C5copy=C5:True C8f=C8:True | G1 C5:True C8:True C8f:True | rule kills 4570 (GW drivers 2, OD drivers 2)
+label n15_s7         B=3 K*= 165 | R0 C5copy=C5:True C8f=C8:True | G1 C5:True C8:True C8f:True | rule kills 23908 (GW drivers 2, OD drivers 3)
+label n12_s123       B=3 K*= 208 | R0 C5copy=C5:True C8f=C8:True | G1 C5:True C8:True C8f:True | rule kills 12390 (GW drivers 3, OD drivers 3)
+label n10_s999       B=3 K*=  77 | R0 C5copy=C5:True C8f=C8:True | G1 C5:True C8:True C8f:True | rule kills 3715 (GW drivers 2, OD drivers 2)
+label n12_s42        B=4 K*=  74 | R0 C5copy=C5:True C8f=C8:True | G1 C5:True C8:True C8f:True | rule kills 39050 (GW drivers 2, OD drivers 3)
+label n10_s1         B=4 K*= 416 | R0 C5copy=C5:True C8f=C8:True | G1 C5:True C8:True C8f:True | rule kills 19842 (GW drivers 2, OD drivers 2)
+label n15_s7         B=4 K*= 603 | R0 C5copy=C5:True C8f=C8:True | G1 C5:True C8:True C8f:True | rule kills 184532 (GW drivers 2, OD drivers 3)
+label n12_s123       B=4 K*= 482 | R0 C5copy=C5:True C8f=C8:True | G1 C5:True C8:True C8f:True | rule kills 73529 (GW drivers 3, OD drivers 3)
+label n10_s999       B=4 K*= 193 | R0 C5copy=C5:True C8f=C8:True | G1 C5:True C8:True C8f:True | rule kills 13662 (GW drivers 2, OD drivers 2)
+grid a0.90_rep0      B=3 K*= 336 | R0 C5copy=C5:True C8f=C8:True | G1 C5:True C8:True C8f:True | rule kills 28226 (GW drivers 3, OD drivers 3)
+grid a0.90_rep1      B=3 K*= 691 | R0 C5copy=C5:True C8f=C8:True | G1 C5:True C8:True C8f:True | rule kills 22943 (GW drivers 3, OD drivers 3)
+grid a0.90_rep2      B=3 K*= 522 | R0 C5copy=C5:True C8f=C8:True | G1 C5:True C8:True C8f:True | rule kills 24279 (GW drivers 3, OD drivers 3)
+grid a0.90_rep3      B=3 K*= 254 | R0 C5copy=C5:True C8f=C8:True | G1 C5:True C8:True C8f:True | rule kills 26896 (GW drivers 3, OD drivers 3)
+grid a0.90_rep4      B=3 K*= 332 | R0 C5copy=C5:True C8f=C8:True | G1 C5:True C8:True C8f:True | rule kills 30512 (GW drivers 3, OD drivers 3)
+grid a0.90_rep5      B=3 K*= 497 | R0 C5copy=C5:True C8f=C8:True | G1 C5:True C8:True C8f:True | rule kills 23154 (GW drivers 3, OD drivers 3)
+grid a0.90_rep6      B=3 K*= 805 | R0 C5copy=C5:True C8f=C8:True | G1 C5:True C8:True C8f:True | rule kills 19378 (GW drivers 3, OD drivers 3)
+grid a0.90_rep7      B=3 K*= 213 | R0 C5copy=C5:True C8f=C8:True | G1 C5:True C8:True C8f:True | rule kills 25390 (GW drivers 3, OD drivers 3)
+grid a0.90_rep8      B=3 K*= 772 | R0 C5copy=C5:True C8f=C8:True | G1 C5:True C8:True C8f:True | rule kills 23392 (GW drivers 3, OD drivers 3)
+grid a0.90_rep9      B=3 K*= 320 | R0 C5copy=C5:True C8f=C8:True | G1 C5:True C8:True C8f:True | rule kills 25429 (GW drivers 3, OD drivers 3)
+grid a0.50_rep0      B=3 K*=   0 | R0 C5copy=C5:True C8f=C8:True | G1 C5:True C8:True C8f:True | rule kills 16389 (GW drivers 3, OD drivers 3)
+grid a0.50_rep1      B=3 K*=   0 | R0 C5copy=C5:True C8f=C8:True | G1 C5:True C8:True C8f:True | rule kills 17433 (GW drivers 3, OD drivers 3)
+grid a0.50_rep2      B=3 K*=   0 | R0 C5copy=C5:True C8f=C8:True | G1 C5:True C8:True C8f:True | rule kills 17641 (GW drivers 3, OD drivers 3)
+grid a0.50_rep3      B=3 K*=   4 | R0 C5copy=C5:True C8f=C8:True | G1 C5:True C8:True C8f:True | rule kills 20306 (GW drivers 3, OD drivers 3)
+grid a0.50_rep4      B=3 K*=   0 | R0 C5copy=C5:True C8f=C8:True | G1 C5:True C8:True C8f:True | rule kills 17905 (GW drivers 3, OD drivers 3)
+grid a0.50_rep5      B=3 K*=   8 | R0 C5copy=C5:True C8f=C8:True | G1 C5:True C8:True C8f:True | rule kills 16925 (GW drivers 3, OD drivers 3)
+grid a0.50_rep6      B=3 K*=   0 | R0 C5copy=C5:True C8f=C8:True | G1 C5:True C8:True C8f:True | rule kills 20935 (GW drivers 3, OD drivers 3)
+grid a0.50_rep7      B=3 K*=   0 | R0 C5copy=C5:True C8f=C8:True | G1 C5:True C8:True C8f:True | rule kills 18510 (GW drivers 3, OD drivers 3)
+grid a0.50_rep8      B=3 K*=   0 | R0 C5copy=C5:True C8f=C8:True | G1 C5:True C8:True C8f:True | rule kills 17852 (GW drivers 3, OD drivers 3)
+grid a0.50_rep9      B=3 K*=   0 | R0 C5copy=C5:True C8f=C8:True | G1 C5:True C8:True C8f:True | rule kills 18806 (GW drivers 3, OD drivers 3)
+G4 brute n=5 seed=0 K*(brute)=15 C8:ok
+G4 brute n=5 seed=1 K*(brute)=30 C8:ok
+G4 brute n=5 seed=2 K*(brute)=1 C8:ok
+G4 brute n=6 seed=0 K*(brute)=15 C8:ok
+G4 brute n=6 seed=1 K*(brute)=54 C8:ok
+G4 brute n=6 seed=2 K*(brute)=2 C8:ok
+HUNT (80 random instances n=6..9, B=3): {'instances': 80, 'drivers': 320, 'mismatches': 0}
+G5 (real C8): firings=11238 (GW 5419, OD 5819) completions=8589 violations=0 min margin=0.009565484157931792
+G6 mutation A0         G1 fails on ['n12_s42', 'n10_s1', 'n15_s7', 'n12_s123', 'n10_s999'] | G5 firings=9499 completions=19427 violations=2331 | detected=True
+G6 mutation nojunction G1 fails on ['n10_s1', 'n15_s7', 'n12_s123', 'n10_s999'] | G5 firings=12756 completions=11441 violations=813 | detected=True
+
+SUMMARY: fails=0  [164s]

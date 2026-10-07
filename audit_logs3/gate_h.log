@@ -1,0 +1,19 @@
+label n12_s42      B=3 | R(C4h)=R(C1): True | K* C5h: True C8h: True | dead kills GW 1568 OD 236
+label n10_s1       B=3 | R(C4h)=R(C1): True | K* C5h: True C8h: True | dead kills GW 138 OD 138
+label n15_s7       B=3 | R(C4h)=R(C1): True | K* C5h: True C8h: True | dead kills GW 2059 OD 302
+label n12_s123     B=3 | R(C4h)=R(C1): True | K* C5h: True C8h: True | dead kills GW 1075 OD 279
+label n10_s999     B=3 | R(C4h)=R(C1): True | K* C5h: True C8h: True | dead kills GW 768 OD 190
+label n12_s42      B=4 | R(C4h)=R(C1): True | K* C5h: True C8h: True | dead kills GW 15472 OD 236
+label n10_s1       B=4 | R(C4h)=R(C1): True | K* C5h: True C8h: True | dead kills GW 2183 OD 138
+label n15_s7       B=4 | R(C4h)=R(C1): True | K* C5h: True C8h: True | dead kills GW 34909 OD 302
+label n12_s123     B=4 | R(C4h)=R(C1): True | K* C5h: True C8h: True | dead kills GW 14920 OD 279
+label n10_s999     B=4 | R(C4h)=R(C1): True | K* C5h: True C8h: True | dead kills GW 7814 OD 190
+grid sample (20 instances): R equal True | K* C5h True | K* C8h True
+HUNT 80 random instances (n=6..9, B=3): all equal on 80 of 80
+G4 brute force n=5,6 (6 instances): PASS
+DA dead-end audit: 12182 removed labels (GW 11325, OD 857), 0 with a feasible completion
+M home_deadline_minus5       (invalid): R differs on ['n12_s42', 'n10_s1', 'n15_s7', 'n12_s123', 'n10_s999'] | DA: 11959 removed, 15 with a feasible completion | detected=True
+M delivery_deadline_minus5   (invalid): R differs on [] | DA: 12514 removed, 883 with a feasible completion | detected=True
+M control_test_a_only        (valid control): R differs on [] | DA: 23831 removed, 0 with a feasible completion | detected=False
+
+SUMMARY gate_h: fails=0  [141s]

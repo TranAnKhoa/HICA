@@ -1,0 +1,11 @@
+matrix n12_s42 B=3 reps=10 | C1 0.125s x1.00(vsC1) x0.83(vsC5) ext 71870 | C4 0.113s x1.11(vsC1) x0.93(vsC5) ext 62875 | C5 0.105s x1.20(vsC1) x1.00(vsC5) ext 62875 | C8f 0.136s x0.92(vsC1) x0.77(vsC5) ext 48082 | K* equal: True
+matrix n10_s1 B=3 reps=10 | C1 0.111s x1.00(vsC1) x0.80(vsC5) ext 51361 | C4 0.099s x1.12(vsC1) x0.91(vsC5) ext 43548 | C5 0.090s x1.25(vsC1) x1.00(vsC5) ext 43548 | C8f 0.119s x0.94(vsC1) x0.76(vsC5) ext 35119 | K* equal: True
+matrix n15_s7 B=3 reps=10 | C1 0.415s x1.00(vsC1) x0.79(vsC5) ext 187895 | C4 0.365s x1.19(vsC1) x0.92(vsC5) ext 156332 | C5 0.332s x1.27(vsC1) x1.00(vsC5) ext 156332 | C8f 0.382s x1.11(vsC1) x0.88(vsC5) ext 105949 | K* equal: True
+matrix n12_s123 B=3 reps=10 | C1 0.253s x1.00(vsC1) x0.78(vsC5) ext 111944 | C4 0.212s x1.17(vsC1) x0.92(vsC5) ext 94338 | C5 0.194s x1.28(vsC1) x1.00(vsC5) ext 94338 | C8f 0.234s x1.05(vsC1) x0.83(vsC5) ext 69937 | K* equal: True
+matrix n10_s999 B=3 reps=10 | C1 0.078s x1.00(vsC1) x0.82(vsC5) ext 37800 | C4 0.068s x1.14(vsC1) x0.93(vsC5) ext 32574 | C5 0.066s x1.21(vsC1) x1.00(vsC5) ext 32574 | C8f 0.091s x0.87(vsC1) x0.73(vsC5) ext 26302 | K* equal: True
+matrix n12_s42 B=4 reps=10 | C1 1.265s x1.00(vsC1) x0.71(vsC5) ext 658706 | C4 1.011s x1.23(vsC1) x0.89(vsC5) ext 527545 | C5 0.900s x1.41(vsC1) x1.00(vsC5) ext 527545 | C8f 1.219s x1.07(vsC1) x0.74(vsC5) ext 425721 | K* equal: True
+matrix n10_s1 B=4 reps=10 | C1 1.375s x1.00(vsC1) x0.70(vsC5) ext 530486 | C4 1.071s x1.29(vsC1) x0.90(vsC5) ext 389497 | C5 0.936s x1.43(vsC1) x1.00(vsC5) ext 389497 | C8f 1.226s x1.14(vsC1) x0.77(vsC5) ext 327025 | K* equal: True
+matrix n15_s7 B=4 reps=10 | C1 6.838s x1.00(vsC1) x0.76(vsC5) ext 2635861 | C4 5.506s x1.25(vsC1) x0.94(vsC5) ext 1893101 | C5 5.197s x1.31(vsC1) x1.00(vsC5) ext 1893101 | C8f 5.757s x1.18(vsC1) x0.89(vsC5) ext 1360327 | K* equal: True
+matrix n12_s123 B=4 reps=10 | C1 3.089s x1.00(vsC1) x0.72(vsC5) ext 1208860 | C4 2.509s x1.25(vsC1) x0.89(vsC5) ext 881938 | C5 2.232s x1.39(vsC1) x1.00(vsC5) ext 881938 | C8f 2.674s x1.17(vsC1) x0.84(vsC5) ext 682910 | K* equal: True
+matrix n10_s999 B=4 reps=10 | C1 0.686s x1.00(vsC1) x0.69(vsC5) ext 316079 | C4 0.520s x1.32(vsC1) x0.92(vsC5) ext 238575 | C5 0.474s x1.44(vsC1) x1.00(vsC5) ext 238575 | C8f 0.662s x1.05(vsC1) x0.73(vsC5) ext 204063 | K* equal: True
+saved ../audit_logs3/timing_matrix_label.json
