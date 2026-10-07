@@ -1,0 +1,3 @@
+key v=n11 IV=[] C=['o0', 'o2']
+ dominator a: seq=[po0 do0 po2 do2] batch=('D', 2, 1) created#298 (t,K,W)=(71.16,17.053,71.16) children=8
+ dominated b (EXPANDED): seq=[po2 po0 do0 do2] batch=('D', 2, 2) created#370 (t,K,W)=(71.78,17.259,71.78) children=8

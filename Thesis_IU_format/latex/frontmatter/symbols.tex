@@ -1,0 +1,46 @@
+﻿\clearpage
+\frontchapter{List of Symbols}
+
+\begin{singlespace}
+\small
+\renewcommand{\arraystretch}{1.0}
+\begin{tabular}{@{}P{2.6cm}P{12.1cm}@{}}
+\multicolumn{2}{@{}l}{\textbf{Sets and indices}}\\[2pt]
+$O$, $o$ & Set of orders, an order\\
+$N=G\cup C$ & Set of strategic drivers: gigworkers $G$ and occasional drivers $C$\\
+$i,j,k$ & Drivers\\
+$R_i$ & Route pool of driver $i$, fixed before reports are collected\\
+$r$, $0_i$ & A route; the empty (idle) route of driver $i$\\
+$S_r$ & Bundle (set of orders) served by route $r$\\
+$D(r)$ & Subset routes of $r$: routes $r'$ of the same driver with $S_{r'}\subseteq S_r$\\
+$\Kstar_i$ & Local pruning frontier of driver $i$\\
+$\mathcal G$, $\mathcal P$ & Conflict graph between drivers; its connected components\\[3pt]
+\multicolumn{2}{@{}l}{\textbf{Parameters}}\\[2pt]
+$p_o$, $d_o$ & Pickup and delivery node of order $o$\\
+$q_o$, $q(A)$ & Public fixed-fleet price of order $o$; $q(A)=\sum_{o\in A}q_o$\\
+$B$ & Bundle cap (maximum number of orders per route)\\
+$d(\cdot,\cdot)$, $\tau(\cdot,\cdot)$ & Travel distance (km) and travel time (min)\\
+$e_v$, $l_v$, $s_v$ & Opening time, closing time and service time of stop $v$\\
+$t_0$ & Departure time of a driver\\
+$\tau_i$ & Detour budget of occasional driver $i$ (min)\\
+$\kappa_i$ & Distance-cost coefficient of driver $i$ (cost units per km)\\
+$K_{ir}$, $W_{ir}$ & Distance cost (cost units) and working time (h) of route $r$ of driver $i$\\
+$\Theta=[\lth,\uth]$ & Report domain announced before bidding\\[3pt]
+\multicolumn{2}{@{}l}{\textbf{Private information, reports and decisions}}\\[2pt]
+$\theta_i$ & Private value of time of driver $i$ (cost units per hour)\\
+$b_i$ & Report (bid) of driver $i$\\
+$C_{ir}(\theta_i)$ & True cost of route $r$ for driver $i$: $K_{ir}+\theta_iW_{ir}$\\
+$c_{ir}(b_i)$ & Reported cost: $K_{ir}+b_iW_{ir}$\\
+$x_{ir}$ & 1 if driver $i$ receives route $r$, 0 otherwise\\
+$z_o$ & 1 if order $o$ is delegated to the fixed fleet, 0 otherwise\\[3pt]
+\multicolumn{2}{@{}l}{\textbf{Values and derived quantities}}\\[2pt]
+$V(R;b)$ & Optimal value of the winner-determination problem on pools $R$ at reports $b$\\
+$V_{-k}(R;b)$ & Optimal value with driver $k$ removed\\
+$p_i$ & VCG (Clarke-pivot) payment to driver $i$\\
+$E_r(b)$ & FD-completion envelope of route $r$\\
+$\mu_r(b)$ & Local margin of route $r$: $E_r(b)-c_r(b)$\\
+$\Pi$, $\Pi^\star$ & A local pruning rule; the frontier rule\\
+$\Delta D$, $\delta$, $A$, $\beta$ & Distance saving, time saving, absorption term and lower bound of the label rule\\
+$Z^\ast(S;A)$ & Optimal value restricted to drivers $S$ and orders $A$\\
+\end{tabular}
+\end{singlespace}

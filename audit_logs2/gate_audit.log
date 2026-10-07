@@ -1,0 +1,7 @@
+EVALUATOR VALIDATION: 2811 complete labels, 0 mismatches vs finalize_KW
+G5 (real C6): {"firings": 9517, "completions": 6239, "violations": 0, "GW": 4557, "OD": 4960, "min_margin": 0.002990191526379249}  [2s]
+G6 mutation A0      (invalid): G1 fails on ['n15_s7', 'n10_s999', 'n10_s999_B4'] | G5 firings=9797 completions=11154 violations=1186 min_margin=-18.869078732614582  [18s]
+G6 mutation noK     (invalid): G1 fails on [] | G5 firings=2540 completions=1839 violations=4 min_margin=-1.9434682587792267  [20s]
+G6 mutation t5      (invalid): G1 fails on [] | G5 firings=9522 completions=6241 violations=2 min_margin=-0.8029586149979764  [19s]
+G6 mutation minus1  (invalid(extra)): G1 fails on ['n12_s42', 'n10_s1', 'n15_s7', 'n12_s123', 'n10_s999', 'n10_s999_B4'] | G5 firings=10729 completions=7183 violations=820 min_margin=-0.9986928721450354  [20s]
+G6 mutation plus1   (valid control): G1 fails on [] | G5 firings=8389 completions=5424 violations=0 min_margin=1.0024369644585462  [18s]

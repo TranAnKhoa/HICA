@@ -1,0 +1,1073 @@
+% =====================================================================
+\chapter{SOLUTION DEVELOPMENT}
+\label{ch:solution}
+% =====================================================================
+
+This chapter develops the solution selected in Chapter~\ref{ch:method}.
+Section~\ref{sec:model} identifies the components, parameters, assumptions
+and constraints of the system and formulates the mathematical model of the
+mechanism. Section~\ref{sec:development} develops the solution: the overall
+procedure, the route-generation algorithm, the local pruning frontier and its
+worst-case size, the label rule, payment computation, a complete small
+numerical solution, the implementation, the investigation of alternative
+solutions, and a comparison of alternatives under feasibility constraints and
+standards.
+
+\section{Model / Prototype Solution}
+\label{sec:model}
+
+\subsection{Components and parameters of the system}
+
+A dispatch session is static and deterministic. It consists of a finite set
+of orders $O$ and a set of strategic drivers $N=G\cup C$, where $G$ is the
+set of gigworkers and $C$ the set of occasional drivers.
+
+\paragraph{Orders.} Order $o\in O$ has a pickup node $p_o$, a delivery node
+$d_o$, a demand, a release time, and time windows at both nodes; an arrival
+before the opening of a window is met by waiting. Every order can be
+delegated to the fixed-capacity fleet (FD) at a public price $q_o\ge0$; for
+$A\subseteq O$ we write $q(A)=\sum_{o\in A}q_o$.
+
+\paragraph{Network.} Travel distances $d(\cdot,\cdot)$ and times
+$\tau(\cdot,\cdot)$ are nonnegative and satisfy the triangle inequality, and
+service times are nonnegative.
+
+\paragraph{Drivers.} A gigworker has a start location, an availability
+interval and a capacity; her route is open and ends at its last delivery. An
+occasional driver has an origin, a personal destination, a direct trip from
+one to the other, a detour budget $\tau_i$, an availability interval and a
+capacity; her route ends at the destination and its detour time may not
+exceed $\tau_i$. These data are public or committed before the session
+opens. Each driver also has a public distance coefficient $\kappa_i$ and a
+private value of time $\theta_i$.
+
+\paragraph{Platform parameters.} The platform publishes a bundle cap $B$ and,
+when pruning is used, a report domain $\Theta=[\lth,\uth]$.
+Table~\ref{tab:params} lists the parameter values used in the computational
+study.
+
+\begin{table}[t]
+\centering
+\caption{Parameter values of the computational study}
+\label{tab:params}
+\small
+\begin{tabular}{P{6.0cm}P{8.4cm}}
+\toprule
+Parameter & Value\\
+\midrule
+Number of orders $n$ & 10, 15, 20 (main grid); 25, 30 (robustness); up to 100 (route-generation scaling study); 50, 75, 100 and beyond (planned large-scale experiments)\\
+Supply mix $(|G|,|C|)$ & (2,2), (3,2), (2,3), (3,3); one more of each at $n\ge 25$\\
+Bundle cap $B$ & 3; 4 as a sensitivity case for $n\le15$\\
+Time-window width & 120 min (60 and 240 in robustness tests)\\
+Detour budget $\tau_i$ & 30 min (20 and 45 in robustness tests)\\
+Service time per stop; speed & 5 min; 20 km/h\\
+Distance coefficient $\kappa_i$ & 1 cost unit per km\\
+Value of time $\theta_i$ & $U[18,25]$ cost units per hour ($U[15,30]$ in one robustness test)\\
+FD price $q_o$ & $8+3\max\{0,\mathrm{dist}_o-1\}$, $\mathrm{dist}_o$ in km (scaled by 0.75 and 1.25 in robustness tests)\\
+Report domain $\Theta$ & $[18,25]$\\
+Alignment of OD trips with demand & 0.10, 0.30, 0.50, 0.70, 0.90\\
+Replications & 25 per cell (1,500 instances in the main grid)\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Assumptions and constraints}
+
+A route $r$ of driver $i$ serves a bundle $S_r\subseteq O$ with
+$1\le|S_r|\le B$. It is \emph{feasible} if:
+\begin{enumerate}[label=(F\arabic*),leftmargin=1.3cm,itemsep=1pt]
+\item the pickup of every order precedes its delivery, and both are served
+by the same driver;
+\item every order has been released when it is picked up;
+\item service at every stop starts within its time window, waiting if the
+driver arrives early;
+\item the load after every stop lies between zero and the driver's capacity;
+\item the route is completed within the driver's availability interval;
+\item for an occasional driver, the route ends at her destination and its
+detour time does not exceed $\tau_i$.
+\end{enumerate}
+The assumptions of Section~\ref{sec:scope} apply. In addition, the
+mechanism itself imposes three constraints: every order is served exactly
+once, by a route or by FD; every driver receives at most one route; and the
+pools $R_i$ are fixed before any report is collected.
+
+\subsection{Cost model}
+\label{sec:sd-costs}
+
+Serving route $r$ costs driver $i$
+\begin{equation}
+  C_{ir}(\theta_i)=K_{ir}+\theta_i\,W_{ir},
+  \label{eq:cost}
+\end{equation}
+where $K_{ir}\ge 0$ is a distance cost, $W_{ir}\ge 0$ is working time in
+hours, and $\theta_i>0$ is the driver's private value of time. Both
+coefficients are computed by the platform from public data. For a gigworker
+with departure time $t_0$,
+\[
+K_{ir}=\kappa_i\cdot(\text{route length}),\qquad
+W_{ir}=(\text{completion time}-t_0)/60,
+\]
+with times in minutes. For an occasional driver, costs are incremental over
+the direct trip:
+\begin{align*}
+K_{ir}&=\kappa_i\max\{0,\text{route length}-\text{direct length}\},\\
+W_{ir}&=\max\{0,\text{route time}-\text{direct time}\}/60 .
+\end{align*}
+A driver who reports $b_i$ in place of $\theta_i$ is evaluated at the
+\emph{reported cost} $c_{ir}(b_i)=K_{ir}+b_iW_{ir}$. The idle option of
+driver $i$ is the empty route $0_i$ with $S_{0_i}=\emptyset$ and $K=W=0$.
+
+\paragraph{Why one private parameter suffices.} A driver's true cost has two
+dimensions, a cost per kilometre and a cost per hour, and the single-parameter
+form~\eqref{eq:cost} treats the first as public. This is an empirical
+approximation, not merely a convenience. In last-mile geometry route time is
+close to route length divided by speed plus service time, so the vectors
+(length, time) of a driver's bundle menu lie close to one ray. In
+preliminary measurements on instances of the same generator, the angular
+spread of a driver's menu was about one degree, the median number of distinct
+bundle orderings over the type range was one under tight time windows, and
+the welfare loss from projecting a two-dimensional cost onto one parameter
+was 0.002--0.05\%. The conclusion was unchanged when the variability of
+speed was inflated eightfold: a change of speed rotates a driver's menu
+rather than spreading it, and the spread is governed by the ratio of service
+time to route length.
+
+\subsection{Winner-determination model}
+
+Let $R_i$ be the route pool of driver $i$, fixed before reports are
+collected. Given a report profile $b$, the winner-determination problem
+(Algorithm~B) is the set-partitioning model
+\begin{align}
+V(R;b)=\min_{x,z}\;&\sum_{i\in N}\sum_{r\in R_i}c_{ir}(b_i)\,x_{ir}+\sum_{o\in O}q_o z_o
+\label{eq:wdp}\\
+\text{s.t.}\;&\sum_{i\in N}\sum_{r\in R_i:\,o\in S_r}x_{ir}+z_o=1 && o\in O,\label{eq:cover}\\
+&\sum_{r\in R_i}x_{ir}\le 1 && i\in N,\label{eq:unit}\\
+&x_{ir},z_o\in\{0,1\} && i\in N,\ r\in R_i,\ o\in O,\notag
+\end{align}
+where $x_{ir}=1$ if driver $i$ receives route $r$ and $z_o=1$ if order $o$
+is delegated to FD. The objective~\eqref{eq:wdp} is the total reported cost
+of the selected routes plus the FD cost of the delegated orders.
+Constraints~\eqref{eq:cover} ensure that every order is served exactly once,
+and constraints~\eqref{eq:unit} that every driver receives at most one route.
+The problem is always feasible, because FD is uncapacitated: setting every
+$z_o=1$ is a solution of value $q(O)$.
+
+Ties are broken deterministically and independently of reports: among
+optimal solutions the model minimises the number of orders sent to FD and
+then chooses lexicographically by route identifier. $V_{-k}(R;b)$ denotes the
+optimal value of~\eqref{eq:wdp} with driver $k$ removed.
+
+\subsection{Payment rule and truthfulness}
+
+Algorithm~C pays each winner $i$ with selected route $r_i^\ast$
+\begin{equation}
+p_i=c_{ir_i^\ast}(b_i)+V_{-i}(R;b)-V(R;b),
+\label{eq:payment}
+\end{equation}
+and pays losers nothing. Only solutions proven optimal with zero gap are
+used.
+
+\begin{proposition}[Truthfulness; adapted from the Groves--VCG argument]
+\label{prop:dsic}
+If the pools $R_i$ are fixed before reports are observed, every base and
+removal problem is solved exactly with report-independent tie-breaking, and
+each report is a nonnegative scalar entering the objective as in
+\eqref{eq:wdp}, then truthful reporting is a dominant strategy for every
+driver and every winner's utility is nonnegative.
+\end{proposition}
+
+This is the standard maximal-in-range argument
+\citep{nisan2007computationally}: driver $i$'s utility under
+report $b_i$ equals $V_{-i}$, which she cannot influence, minus the
+\emph{true} total cost of the allocation chosen at $b_i$; truthful reporting
+makes the mechanism minimise exactly that true total cost over the fixed
+range. The argument does not depend on whether a route belongs to a
+gigworker or an occasional driver, and it is not claimed as a contribution.
+
+\subsection{Report domain}
+\label{sec:reportdomain}
+
+The basic mechanism places no restriction on reports. The pruning results of
+Sections~\ref{sec:sd-frontier} and~\ref{sec:sd-label} are stated for a report
+domain $\Theta=[\lth,\uth]$ with $0\le\lth<\uth$, announced before bidding;
+pruning is exact for every report profile in $\Theta^N$. When pruning is
+used, the message space is therefore restricted to $\Theta$. Setting
+$\Theta=[0,\infty)$ removes the restriction at the price of a larger frontier
+(Remark~\ref{rem:monotone}). In the experiments $\Theta=[18,25]$, which
+coincides with the support of the baseline type distribution.
+
+\section{Solution Development}
+\label{sec:development}
+
+\subsection{Overview of the procedure}
+
+Procedure~\ref{alg:mechanism} states the complete mechanism. Lines 1--4 use
+public data only; the frontier step is optional and, by
+Theorem~\ref{thm:frontier}, does not change any outcome.
+
+\begin{algorithm}[!htbp]
+\caption{Truthful route-bundle procurement}
+\label{alg:mechanism}
+\begin{algorithmic}[1]
+\Require orders $O$, FD prices $q$, bundle cap $B$, report domain $\Theta$, public driver data
+\Ensure allocation $(x^\ast,z^\ast)$ and payments $(p_i)_{i\in N}$
+\For{each driver $i\in N$} \Comment{no report is read in lines 1--4}
+  \State $R_i\gets\textsc{GenerateRoutes}(i)$ \Comment{Algorithm A, Proc.~\ref{alg:routegen}}
+  \State $R_i\gets\textsc{Frontier}(R_i,q,\Theta)$ \Comment{optional, Proc.~\ref{alg:frontier}}
+\EndFor
+\State publish a hash of $(R_i)_{i\in N}$; collect one report $b_i\in\Theta$ per driver
+\State solve~\eqref{eq:wdp} on $R$ at $b$ to optimality $\to(x^\ast,z^\ast)$, $V(R;b)$ \Comment{Algorithm B}
+\State $(p_i)_{i\in N}\gets\textsc{Payments}(R,b,x^\ast)$ \Comment{Algorithm C, Proc.~\ref{alg:payments}}
+\State \Return $(x^\ast,z^\ast)$, $(p_i)_{i\in N}$
+\end{algorithmic}
+\end{algorithm}
+
+% ---------------------------------------------------------------------
+\subsection{Algorithm A: bid-independent route generation}
+\label{sec:sd-algA}
+
+Algorithm~A enumerates, for each driver separately, all feasible routes
+with at most $B$ orders and keeps, for each bundle, the Pareto-minimal
+pairs $(K,W)$. It never reads a report.
+
+\paragraph{Labels.} A label is a tuple $\ell=(v,IV,C,t,K,W)$ consisting of
+the current node $v$, the set $IV$ of orders on board, the set $C$ of
+delivered orders, the clock $t$ after service at $v$, and the accumulated
+distance and time costs. A pickup of order $j$ is admissible if
+$j\notin IV\cup C$, $|IV|+|C|<B$ and the pickup is reached before the
+closing of its window; a delivery requires $j\in IV$; an occasional driver
+may return to her destination once $IV=\emptyset$, provided the detour budget
+is respected. Each transition waits for the opening of the next window if
+necessary. A gigworker's label is complete when $IV=\emptyset$ and
+$C\neq\emptyset$; an occasional driver's label is complete when it has
+reached the destination, after which the direct trip is subtracted once.
+Labels are processed in rounds of increasing $|IV|+|C|$.
+
+\paragraph{Dominance.} Two labels are compared only if they share the key
+$(v,IV,C)$; $\ell_A$ dominates $\ell_B$ if $t_A\le t_B$, $K_A\le K_B$ and
+$W_A\le W_B$ with at least one strict inequality. This is the forward
+dominance of \citet{dumas1991pickup}. Labels with the same key have exactly
+the same feasible continuations, so every completion of $\ell_B$ is matched
+by a no-worse completion of $\ell_A$. The key cannot be coarsened in
+general. If two labels at the same node with the same orders on board have
+delivered different orders, and an order delivered by one of them can no
+longer be picked up in time by the other, then their completions serve
+different bundles. Merging labels under the coarser key $(v,IV)$ can
+therefore discard the only label able to reach some bundle. On 720 instances with $n\le 6$, both
+coarsenings that were tested (dropping $C$, or keeping only $|C|$) disagreed
+with brute-force enumeration in 46--47\% of instances.
+
+\paragraph{Pruning layers.} Procedure~\ref{alg:routegen} states Algorithm~A
+in full. It contains three pruning layers. Layer~1 is the label dominance
+above. Layer~2 keeps, for each bundle, the Pareto-minimal pairs $(K,W)$ of
+the completed routes; it never compares routes with different bundles,
+because the orders missing from the smaller bundle would have to be served
+by someone. Layer~3 is the optional FD-completion label rule of
+Section~\ref{sec:sd-label}. Table~\ref{tab:layers} contrasts the three
+layers with the frontier filter of Section~\ref{sec:sd-frontier}.
+
+\begin{algorithm}[!htbp]
+\caption{\textsc{GenerateRoutes}$(i)$: Algorithm A for one driver}
+\label{alg:routegen}
+\begin{algorithmic}[1]
+\Require public data of driver $i$; orders $O$; cap $B$; flag \textit{useRule}
+\Ensure route pool $R_i$ (Pareto-minimal $(K,W)$ per bundle)
+\State $\mathcal L_0\gets\{(v_0,\emptyset,\emptyset,t_0,0,0)\}$; $\mathcal L_k\gets\emptyset$ for $k=1,\dots,B$; $\mathcal C\gets\emptyset$
+\For{$k\gets 0$ \textbf{to} $B$} \Comment{$k=|IV|+|C|$, the number of touched orders}
+  \State $\mathcal Q\gets\mathcal L_k$
+  \While{$\mathcal Q\ne\emptyset$}
+    \State $\mathcal Q\gets\textsc{FilterDominated}(\mathcal Q)$ \Comment{Layer 1: same key $(v,IV,C)$}
+    \State $\mathcal Q'\gets\emptyset$
+    \For{each label $\ell\in\mathcal Q$}
+      \If{$i\in G$ \textbf{and} $IV(\ell)=\emptyset$ \textbf{and} $C(\ell)\ne\emptyset$}
+        \State add $\ell$ to $\mathcal C$ \Comment{complete gigworker route; $\ell$ may still be extended}
+      \EndIf
+      \If{$i\in C$ \textbf{and} $IV(\ell)=\emptyset$ \textbf{and} $C(\ell)\ne\emptyset$}
+        \State $\ell'\gets\textsc{TryHome}(\ell)$; \textbf{if} $\ell'\ne\bot$ \textbf{then} add $\ell'$ to $\mathcal C$ \Comment{checks the detour budget}
+      \EndIf
+      \For{each $j\in IV(\ell)$}
+        \State $\ell'\gets\textsc{TryDelivery}(\ell,j)$
+        \If{$\ell'\ne\bot$ \textbf{and not} (\textit{useRule} \textbf{and} $\textsc{RuleFires}(\ell')$)} add $\ell'$ to $\mathcal Q'$ \EndIf
+      \EndFor
+      \If{$k<B$}
+        \For{each $j\in O\setminus(IV(\ell)\cup C(\ell))$}
+          \State $\ell'\gets\textsc{TryPickup}(\ell,j)$
+          \If{$\ell'\ne\bot$ \textbf{and not} (\textit{useRule} \textbf{and} $\textsc{RuleFires}(\ell')$)} add $\ell'$ to $\mathcal L_{k+1}$ \EndIf
+        \EndFor
+      \EndIf
+    \EndFor
+    \State $\mathcal Q\gets\mathcal Q'$ \Comment{each delivery adds one order to $C$}
+  \EndWhile
+\EndFor
+\State for occasional drivers, subtract the direct trip from each complete label
+\For{each bundle $S$ appearing in $\mathcal C$}
+  \State $R_i(S)\gets\textsc{ParetoFront}\bigl(\{(K_\ell,W_\ell):\ell\in\mathcal C,\ C(\ell)=S\}\bigr)$ \Comment{Layer 2}
+\EndFor
+\State \Return $R_i=\bigcup_S R_i(S)$, one route per distinct pair $(K,W)$
+\end{algorithmic}
+\end{algorithm}
+
+\begin{table}[t]
+\centering
+\caption{Pruning layers of Algorithm A and the frontier filter}
+\label{tab:layers}
+\small
+\begin{tabular}{P{3.1cm}P{3.0cm}P{3.2cm}P{1.5cm}P{2.9cm}}
+\toprule
+Filter & Compares & Scope & Uses $q$? & When\\
+\midrule
+Layer 1: label dominance & label vs.\ label & same $(v,IV,C)$ & No & During generation\\
+Layer 2: per-bundle Pareto & route vs.\ route & same bundle $S$ & No & After generation\\
+Layer 3: label rule (Sec.~\ref{sec:sd-label}) & partial route vs.\ FD, lower bound & any $T\subseteq P(L)$ & Yes & During generation\\
+Frontier $\Pi^\star$ (Sec.~\ref{sec:sd-frontier}) & route vs.\ subset route $+$ FD, exact & any $r'$ with $S_{r'}\subseteq S_r$ & Yes & After generation\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Properties.} Algorithm~A is complete: for $n\le 6$ its output
+coincides with brute-force enumeration. For fixed $B$ the pool of a driver
+has size $O(|O|^B(2B)!/2^B)$. The pool, and a hash of it, are invariant
+under any change of reports. Keeping only same-bundle Pareto-minimal pairs
+is safe because $b\ge 0$: if $K_1\le K_2$ and $W_1\le W_2$, then
+$K_1+bW_1\le K_2+bW_2$ for every report.
+
+\paragraph{Scaling.} Before the main experiments, Algorithm~A was run on
+instances with up to $n=100$ orders in a $20\times20$\,km area, for bundle caps
+$B\in\{2,3,4\}$ and time-window widths from 30 to 240 minutes. Its
+correctness on the same generator was first checked against brute-force
+enumeration on 180 small cases ($n\le 7$, no violation).
+Table~\ref{tab:scaling} reports running times. Grids with $n\le 50$ were
+run in full (mean over up to 20 instance--driver-count combinations); the
+cells for $n=75$ and $n=100$ come from a probe with one driver per point and
+are therefore per driver. With $B=2$ the algorithm stays below one second up
+to $n=100$. With $B=3$ it handles $n=75$ for every window width, and $n=100$
+when windows are at most 120 minutes. With $B=4$ it exceeds the 90-second
+probe limit before $n=50$ for most window widths. The bundle cap, not the
+number of orders, is therefore the main driver of cost, consistent with the
+$O(|O|^B)$ bound, and large instances must use $B\le 3$.
+
+\begin{table}[t]
+\centering
+\caption{Running time of Algorithm A against the number of orders (selected cells)}
+\label{tab:scaling}
+\small
+\begin{tabular}{cccccccc}
+\toprule
+$B$ & Window (min) & $n=10$ & $n=20$ & $n=30$ & $n=50$ & $n=75$\textsuperscript{a} & $n=100$\textsuperscript{a}\\
+\midrule
+2 & 120 & 0.01 s & 0.02 s & 0.06 s & 0.31 s & 0.3 s & 0.5 s\\
+2 & 240 & 0.01 s & 0.03 s & 0.09 s & 0.44 s & 0.5 s & 0.7 s\\
+3 & 60  & 0.03 s & 0.18 s & 0.78 s & 8.07 s & 14 s & 33 s\\
+3 & 120 & 0.05 s & 0.35 s & 1.69 s & 16.9 s & 30 s & 77 s\\
+3 & 240 & 0.15 s & 1.02 s & 4.99 s & 46.2 s & 76 s & $>90$ s\\
+4 & 60  & 0.13 s & 2.29 s & 14.9 s & 218 s & -- & --\\
+4 & 120 & 0.33 s & 7.81 s & 44.0 s & timeout & -- & --\\
+\bottomrule
+\end{tabular}
+\par\smallskip\footnotesize \textsuperscript{a}Single-driver probe, time per driver; other columns are means over the instances of a grid cell. ``$>90$ s'' exceeded the probe limit; ``--'' not run.
+\end{table}
+
+\paragraph{The asymmetry between the classes.} For an occasional driver the
+detour budget provides a monotone bound: a lower bound on the detour of a
+bundle eliminates the bundle and all its supersets before any sequence is
+enumerated \citep{li2026auction}. For a gigworker the only constraints are
+time windows. Two orders may each be servable while the pair is not, and a
+bundle of distant orders remains feasible whenever the windows are wide, so
+no bound as strong as a detour budget is available. On the experimental
+instances the pool of an occasional driver is 0.7--1.7\% of that of a
+gigworker. Reducing the gigworkers' pools safely is therefore the purpose of
+the frontier of Section~\ref{sec:sd-frontier}.
+
+% ---------------------------------------------------------------------
+\subsection{The local pruning frontier}
+\label{sec:sd-frontier}
+
+When the platform considers deleting a route $r$ of driver $i$ without
+looking at the other drivers, the only substitutes it can certify are those
+that involve nobody else: a route of the same driver that serves part of
+$S_r$, with the remainder sent to FD. The frontier keeps exactly the routes
+for which no such substitute is at least as cheap for every admissible
+report. This section proves that deleting all other routes is safe: it
+changes neither the optimal value, nor any counterfactual value, nor any
+payment.
+
+\begin{definition}[Local view, local rule, safety]
+\label{def:local}
+The local view of driver $i$ is $L_i=(O,q,B,\Theta,R_i)$. A local pruning
+rule $\Pi$ is a deterministic map that assigns to every local view a set
+$\Pi(L_i)\subseteq R_i$ of routes to delete; it is applied to every driver
+and yields pools $R^\Pi_j=R_j\setminus\Pi(L_j)$. An instance is any finite
+set of drivers whose pools consist of routes with bundles of size at most
+$B$ and nonnegative coefficients. The rule is safe if $V(R^\Pi;b)=V(R;b)$
+for every instance and every $b\in\Theta^N$.
+\end{definition}
+
+A local rule reads no report, so it leaves the allocation range fixed before
+bidding and Proposition~\ref{prop:dsic} continues to apply to the pruned
+mechanism.
+
+\begin{definition}[FD-completion envelope and local frontier]
+\label{def:frontier}
+For $r\in R_i$ let $D(r)=\{r'\in R_i\cup\{0_i\}\setminus\{r\}:S_{r'}\subseteq S_r\}$
+and
+\begin{equation}
+E_r(b)=\min_{r'\in D(r)}\bigl\{c_{r'}(b)+q(S_r\setminus S_{r'})\bigr\},\qquad
+\mu_r(b)=E_r(b)-c_r(b).
+\label{eq:envelope}
+\end{equation}
+The local frontier of driver $i$ is
+$\Kstar_i=\{r\in R_i:\max_{b\in\Theta}\mu_r(b)>0\}$, and the rule $\Pi^\star$
+deletes $R_i\setminus\Kstar_i$ for every driver.
+\end{definition}
+
+In words, $E_r(b)$ is the cheapest way to serve the bundle of $r$ using a
+\emph{smaller} route of the same driver and sending the missing orders to
+FD, and $\mu_r(b)$ is the margin by which $r$ beats that alternative. A route
+is kept if its margin is positive for at least one admissible report.
+Because $0_i\in D(r)$, $E_r(b)\le q(S_r)$. The envelope $E_r$ is the minimum
+of finitely many affine functions of $b$, hence concave and piecewise linear,
+so $\mu_r$ is concave and its maximum over $\Theta$ is attained at an
+endpoint or at a breakpoint of $E_r$. One assumption on the pools is used.
+
+\begin{assumption}[No duplicates]\label{ass:nodup}
+Distinct routes of $R_i$ with the same bundle have distinct pairs $(K,W)$.
+\end{assumption}
+
+Algorithm~A satisfies Assumption~\ref{ass:nodup} by construction, because
+Layer~2 returns one route per distinct pair $(K,W)$ of each bundle.
+
+\paragraph{An example.} The following example shows how the frontier
+decides, and why a cruder rule that compares routes with different bundles
+is not safe.
+
+\begin{example}[Twin instances]
+\label{ex:twin}
+Let gigworker $g$ face orders $o_1,o_2$ with $q_{o_1}=15$, $q_{o_2}=45$ and
+$\Theta=[18,25]$, and own three routes: $r_a$ serving $\{o_1\}$ with
+$(K,W)=(6,0.6)$; $r_b$ serving $\{o_2\}$ with $(8,0.8)$; and $r_c$ serving
+$\{o_1,o_2\}$ with $(11,1.2)$. Route $r_a$ is outside the frontier, since
+$E_{r_a}=q_{o_1}=15<6+0.6b$ on $\Theta$. Route $r_b$ is in the frontier,
+since $E_{r_b}=45>8+0.8b$. Route $r_c$ is in the frontier, since
+$E_{r_c}(18)=\min\{6+10.8+45,\;8+14.4+15,\;60\}=37.4>32.6=c_{r_c}(18)$. In
+instance $I_0$, in which $g$ is the only driver, $r_c$ is optimal on all of
+$\Theta$ and $r_b$ is never optimal. In instance $I_1$, which adds a driver
+who serves $o_1$ at cost $0.5$, the optimum at $b=18$ is $22.4+0.5=22.9$ and
+uses $r_b$; without $r_b$ it is $32.6$. A rule that deletes $r_b$ --- for
+instance a per-driver hull across bundles, under which $r_a$ dominates $r_b$
+componentwise --- is correct on $I_0$ and wrong on $I_1$, and no rule that
+sees only $g$'s data can tell the two instances apart.
+\end{example}
+
+Figure~\ref{fig:frontier-intuition} draws the three margins of
+Example~\ref{ex:twin}.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{fig_c1_frontier_intuition.pdf}
+\caption{Local margins in Example~\ref{ex:twin}. Solid lines: reported cost
+$c_r(b)$; dashed: FD-completion envelope $E_r(b)$ (dotted in (c): its three
+affine branches); grey band: report domain $\Theta=[18,25]$. A route belongs
+to $\Kstar$ if and only if the envelope lies strictly above its cost
+somewhere in $\Theta$ (shaded). Route $r_a$ is deleted only because $\Theta$
+excludes reports below 15; with unrestricted reports it would be retained
+(Remark~\ref{rem:monotone}).}
+\label{fig:frontier-intuition}
+\end{figure}
+
+\paragraph{Main result.} The next theorem answers TQ1: deleting every route
+outside the frontier is safe.
+
+\begin{theorem}[Safety of the local frontier]
+\label{thm:frontier}
+Let $\lth<\uth$ and let every pool satisfy Assumption~\ref{ass:nodup}. Then
+$\Pi^\star$ is safe: $V(R^{\Pi^\star};b)=V(R;b)$ for every instance and every
+$b\in\Theta^N$. Moreover $V_{-k}(R^{\Pi^\star};b)=V_{-k}(R;b)$ for every
+driver $k$ and every $b\in\Theta^N$.
+\end{theorem}
+
+The difficulty is that a deleted route must be replaced by a route that is
+itself \emph{retained}. Its envelope may be attained by a subset route that
+is also outside the frontier, which would then also be deleted. The
+following lemma shows that a retained substitute always exists.
+
+\begin{lemma}[A retained substitute exists]
+\label{lem:substitute}
+Let $R_i$ satisfy Assumption~\ref{ass:nodup} and $\lth<\uth$. For every
+$r\in R_i\setminus\Kstar_i$ and every $b\in\Theta$ there is
+$u\in\Kstar_i\cup\{0_i\}$ with $S_u\subseteq S_r$ and
+$c_u(b)+q(S_r\setminus S_u)\le c_r(b)$.
+\end{lemma}
+
+\paragraph{Idea of the proof.} Fix $b$ and consider all ways of serving
+$S_r$ with $r$ itself or with one subset route plus FD. Among the cheapest of
+these, take one whose bundle $T$ is as small as possible. If $T$ is empty,
+the idle route $0_i$ is the substitute. Otherwise every smaller alternative is
+strictly more expensive at $b$, and these strict inequalities between lines
+in the report remain true for reports close to $b$. Among the cheapest routes
+with bundle $T$, which have pairwise different slopes $W$ by
+Assumption~\ref{ass:nodup}, the one with the smallest slope (or the largest,
+if $b=\uth$) becomes strictly cheapest after a small move of the report
+inside $\Theta$. At that report its margin is positive, so it belongs to
+$\Kstar_i$. The full proof is in Appendix~\ref{app:proofs}.
+
+\begin{proof}[Proof of Theorem~\ref{thm:frontier}]
+Fix an instance, a profile $b\in\Theta^N$ and an optimal allocation $\rho$
+for the full pools. For every driver $j$ whose route $\rho_j$ is not in
+$\Kstar_j\cup\{0_j\}$, Lemma~\ref{lem:substitute} gives
+$u_j\in\Kstar_j\cup\{0_j\}$ with $S_{u_j}\subseteq S_{\rho_j}$ and
+$c_{u_j}(b_j)+q(S_{\rho_j}\setminus S_{u_j})\le c_{\rho_j}(b_j)$. Replace
+$\rho_j$ by $u_j$ and send $S_{\rho_j}\setminus S_{u_j}$ to FD. Bundles only
+shrink, so they remain disjoint; every order is still served once; and no
+other driver is affected, so all replacements can be made simultaneously.
+The resulting allocation uses only pruned pools and costs at most
+$V(R;b)$, so $V(R^{\Pi^\star};b)\le V(R;b)$; the reverse inequality holds
+because pruned pools are subsets. Removing driver $k$ yields another
+instance in which every remaining driver has the same local view, so the
+same argument applies to $V_{-k}$.
+\end{proof}
+
+\begin{corollary}[VCG outcomes are preserved]
+\label{cor:vcg}
+Running Algorithms~B and~C on $R^{\Pi^\star}$ is VCG on a bid-independent
+range and is therefore truthful and individually rational. At every profile
+at which the full problem has a unique optimal allocation, the pruned problem
+has the same allocation and every payment~\eqref{eq:payment} coincides with
+its full-pool value.
+\end{corollary}
+
+\begin{proof}
+The first statement is Proposition~\ref{prop:dsic}. Under uniqueness, any
+pruned optimum has value $V(R;b)$ by Theorem~\ref{thm:frontier} and is
+feasible for the full pools, hence equal to the full optimum; $V$ and every
+$V_{-k}$ coincide by Theorem~\ref{thm:frontier}.
+\end{proof}
+
+\paragraph{Scope of the result.}
+
+\begin{remark}[What the frontier does not do]
+\label{rem:scope}
+The theorem guarantees safety, not that the frontier is small. Rules outside
+the local class can keep fewer routes. (i) \emph{Non-local rules} that use
+the public data of other drivers remain bid-independent, but deciding
+exactly which routes they may delete requires reasoning about the other
+drivers' winner-determination problem, which is NP-hard for $B\ge 3$ already
+at a single report profile: with one driver per 3-set, each owning one route
+of cost zero, and $q_o=1$, the optimal value is zero if and only if an exact
+cover by 3-sets exists. (ii) \emph{Instance-specific rules}, which only need
+to be correct on the instance at hand, can retain far less: on five
+experimental instances only 0.4--1.5\% of generated routes are optimal for
+any of 1,000 sampled report profiles, whereas the frontier retains 3--23\% of
+the pool on the same instances.
+\end{remark}
+
+\begin{remark}[Monotonicity]
+\label{rem:monotone}
+$E_r$ is nondecreasing in every $q_o$, and the maximum of $\mu_r$ over a
+larger interval is larger. The frontier therefore grows with the FD tariff
+and with the width of $\Theta$: local pruning is strong when FD is cheap and
+weak when it is expensive. With $\Theta=[0,\infty)$ the rule remains safe but
+retains more routes.
+\end{remark}
+
+\begin{remark}[Computation]
+\label{rem:computation}
+$|D(r)|\le 2^Bf$, where $f$ bounds the number of routes per bundle. Since
+$\mu_r$ is concave, membership in $\Kstar_i$ is decided by evaluating $\mu_r$
+at the endpoints of $\Theta$ and at the breakpoints of $E_r$, in
+$O(|D(r)|\log|D(r)|)$ time; the whole frontier of a driver costs
+$O(|R_i|\,2^Bf\log(2^Bf))$. The frontier is a post-processing step: it does
+not speed up enumeration, but it shrinks every problem solved by
+Algorithms~B and~C. Procedure~\ref{alg:frontier} states the computation.
+\end{remark}
+
+\begin{algorithm}[!htbp]
+\caption{\textsc{Frontier}$(R_i,q,\Theta)$: the rule $\Pi^\star$ for one driver}
+\label{alg:frontier}
+\begin{algorithmic}[1]
+\Require pool $R_i$ with bundles $S_r$ and coefficients $(K_r,W_r)$; FD prices $q$; $\Theta=[\lth,\uth]$
+\Ensure local frontier $\Kstar_i\subseteq R_i$
+\State $\Kstar_i\gets\emptyset$
+\For{each $r\in R_i$}
+  \State $D(r)\gets\{r'\in R_i\cup\{0_i\}\setminus\{r\}:S_{r'}\subseteq S_r\}$
+  \State for each $r'\in D(r)$ form the line $g_{r'}(b)=K_{r'}+q(S_r\setminus S_{r'})+b\,W_{r'}$
+  \State compute the lower envelope $E_r=\min_{r'\in D(r)}g_{r'}$ on $\Theta$ \Comment{$O(|D(r)|\log|D(r)|)$}
+  \State $\mathcal B\gets\{\lth,\uth\}\cup\{\text{breakpoints of }E_r\text{ in }\Theta\}$
+  \If{$\max_{b\in\mathcal B}\bigl(E_r(b)-K_r-b\,W_r\bigr)>0$} \Comment{$\mu_r$ is concave}
+    \State add $r$ to $\Kstar_i$
+  \EndIf
+\EndFor
+\State \Return $\Kstar_i$
+\end{algorithmic}
+\end{algorithm}
+
+\begin{remark}[Relation to column dominance and redundancy]
+\label{rem:lp}
+In the linear relaxation of~\eqref{eq:wdp} let $\pi_o$ be the duals of the
+order constraints and $\sigma_i\le 0$ that of driver $i$'s constraint. The FD
+columns impose $\pi_o\le q_o$. If $S_{r'}\subseteq S_r$ and
+$c_r\ge c_{r'}+q(S_r\setminus S_{r'})$, then, since both routes belong to
+driver $i$, the term $\sigma_i$ cancels and
+\[
+\bar c_r-\bar c_{r'}=c_r-c_{r'}-\pi(S_r\setminus S_{r'})
+\ge\sum_{o\in S_r\setminus S_{r'}}(q_o-\pi_o)\ge 0
+\]
+for every dual vector with $\pi\le q$. The rule $\Pi^\star$ thus deletes a
+route when, at each admissible report, a route of the same driver dominates
+it in reduced cost over the dual domain restricted by the outside option.
+Equivalently, $r$ is redundant in the sense of \citet{sol1994column}, with
+the combination consisting of $r'$ and the FD columns of
+$S_r\setminus S_{r'}$.
+\end{remark}
+
+% ---------------------------------------------------------------------
+\subsection{Payment computation}
+\label{sec:sd-payments}
+
+Exact payments~\eqref{eq:payment} require one removal solve per winner.
+The reference implementation re-solves the base model once per winner with
+all variables of that winner fixed to zero (Procedure~\ref{alg:payments}).
+
+\begin{algorithm}[!htbp]
+\caption{\textsc{Payments}$(R,b,x^\ast)$: exact Clarke-pivot payments (Algorithm C)}
+\label{alg:payments}
+\begin{algorithmic}[1]
+\Require pools $R$ (fixed before reports), reports $b$, optimal allocation $x^\ast$ with value $V(R;b)$
+\Ensure payments $(p_i)_{i\in N}$
+\For{each driver $i$}
+  \If{$i$ receives no route in $x^\ast$} $p_i\gets 0$; \textbf{continue} \EndIf
+  \State fix $x_{ir}=0$ for all $r\in R_i$; re-solve~\eqref{eq:wdp} to optimality with the same tie-breaking
+  \State $p_i\gets c_{ir_i^\ast}(b_i)+V_{-i}(R;b)-V(R;b)$
+\EndFor
+\State \Return $(p_i)_{i\in N}$
+\end{algorithmic}
+\end{algorithm}
+
+% ---------------------------------------------------------------------
+\subsection{Further results planned for the final thesis}
+\label{sec:sd-planned}
+
+This proposal establishes the safety of the frontier. Three further
+questions from Section~\ref{sec:problem} will be developed, with statements
+and proofs, in the final thesis. Preliminary checks for each are already
+available.
+
+\subsubsection{Minimality and worst-case size of the frontier (TQ2)}
+\label{sec:sd-pol}
+
+The plan is to show that the frontier cannot be improved by any rule of the
+same kind: every route in $\Kstar_i$ should be indispensable in some instance
+that looks identical from driver $i$'s own data, so that no safe local rule
+can delete it. The planned proof adds to driver $i$ cheap single-order
+competitors for every order outside the route's bundle. A second planned
+result is a family of instances in which a gigworker's frontier contains
+$\sum_{k\le B}\binom nk=\Theta(n^B)$ routes, none of which is ever optimal.
+Such a result would show that the gap between gigworkers and occasional
+drivers is structural. In a synthetic audit, every one of 1,157 frontier
+routes was indeed indispensable in the constructed instance, and the planned
+worst-case family behaved as predicted for $n=3,5,7,9$.
+
+\subsubsection{Pruning during route generation (TQ3)}
+\label{sec:sd-label}
+
+The frontier is computed only after every route has been enumerated. A
+\emph{label rule} would apply the same reasoning to partial routes during
+enumeration: if dropping an order already picked up, and sending it to FD,
+is guaranteed to be cheaper for every completion and every admissible report,
+the partial route and all its extensions can be discarded. The direct
+transfer of rollback pruning \citep{lozano2016exact} is unsafe here, because
+working time is priced and waiting is allowed: a time saving on the known
+part of the route can be absorbed by waiting later. A corrected rule with
+\emph{junction} and \emph{absorption} terms has been designed and audited.
+In an experimental build it left the frontier and every payment unchanged
+(maximum difference $5.7\times10^{-14}$) and removed 15--43\% of label
+extensions, but in pure Python its bookkeeping made route generation slower
+(median time ratio 0.52--0.87). The final thesis will state the rule and
+prove that it never changes the frontier.
+
+\subsubsection{Decomposing the payment computation (TQ4)}
+\label{sec:sd-decomp}
+
+The \emph{conflict graph} links two drivers whenever some of their routes
+share an order; it is built once from the pools, before any report is
+read. When the FD price of each order is a fixed constant, the
+counterfactual problem of a winner should involve only the connected
+component of the graph that contains that winner, so each payment would
+require re-solving a smaller problem. This property fails if the fixed fleet
+has a shared capacity: removing one driver can then change the allocation in
+a component that does not contain that driver. A small counterexample with
+two orders and a fleet that can serve only one order has already been
+constructed. On the experimental instances, the conflict graph was almost
+always connected where the crowd is competitive, so the decomposition is
+expected to bring little benefit there. The final thesis will give the
+decomposition result with its proof.
+% ---------------------------------------------------------------------
+\subsection{A small numerical solution}
+\label{sec:sd-example}
+
+This section runs the complete procedure by hand on a small instance with
+four orders, two gigworkers and two occasional drivers. All numbers are
+illustrative; they were chosen so that every step can be checked by hand,
+and every value below was recomputed by exhaustive enumeration.
+
+\paragraph{Input.} The bundle cap is $B=2$, the distance coefficient is
+$\kappa=0.5$ for every driver, the speed is 20\,km/h, every driver has
+capacity 2, and the report domain is $\Theta=[18,25]$.
+Table~\ref{tab:ex-input} lists the orders and drivers. The true values of
+time are private; the platform never sees them.
+
+\begin{table}[t]
+\centering
+\caption{Input of the numerical example}
+\label{tab:ex-input}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lccc@{\hspace{0.8cm}}llccc}
+\toprule
+\multicolumn{4}{c}{Orders} & \multicolumn{5}{c}{Drivers}\\
+\cmidrule(r{0.6cm}){1-4}\cmidrule(l){5-9}
+Order & Pickup & Delivery & $q_o$ & Driver & Class & Direct trip & Detour & True $\theta_i$\\
+\midrule
+$o_1$ & $P_1$ & $D_1$ & 15 & $g_1$ & GW & -- & -- & 20\\
+$o_2$ & $P_2$ & $D_2$ & 45 & $g_2$ & GW & -- & -- & 24\\
+$o_3$ & $P_3$ & $D_3$ & 40 & $c_1$ & OD & 10 km / 30 min & 20 min & 18\\
+$o_4$ & $P_4$ & $D_4$ & 50 & $c_2$ & OD & 8 km / 24 min & 18 min & 22\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Step 1: route generation (Algorithm A).} For the occasional
+driver $c_1$ the detour budget of 20 minutes eliminates every bundle that
+contains $o_1$ or $o_4$, since a lower bound on their detour (34 and 29
+minutes) already exceeds it; only $\{o_2\}$, $\{o_3\}$ and $\{o_2,o_3\}$
+remain, out of ten bundles of size at most two. For the gigworker $g_1$ no
+such bound exists: order $o_3$ is infeasible because of its time window, and
+the pairs $\{o_1,o_4\}$ and $\{o_2,o_4\}$ are infeasible although each of
+their orders is feasible on its own, which can only be discovered by
+building the sequences. To keep the example small, it uses the nine routes
+of Table~\ref{tab:ex-pool}; the routes of $g_1$ serving $\{o_4\}$ and of
+$c_1$ serving $\{o_3\}$ alone are left out, and all values below refer to
+this pool.
+
+\begin{table}[t]
+\centering
+\caption{Route pool of the numerical example and reported costs at the true values of time}
+\label{tab:ex-pool}
+\small
+\begin{tabular}{lllccccc}
+\toprule
+Route & Driver & Bundle & Distance & Time & $K$ & $W$ (h) & $c=K+\theta W$\\
+\midrule
+$r_1$ & $g_1$ & $\{o_1\}$ & 12 km & 36 min & 6.0 & 0.600 & 18.00\\
+$r_2$ & $g_1$ & $\{o_2\}$ & 16 km & 48 min & 8.0 & 0.800 & 24.00\\
+$r_3$ & $g_1$ & $\{o_1,o_2\}$ & 22 km & 72 min & 11.0 & 1.200 & 35.00\\
+$r_4$ & $g_2$ & $\{o_3\}$ & 10 km & 30 min & 5.0 & 0.500 & 17.00\\
+$r_5$ & $g_2$ & $\{o_4\}$ & 14 km & 42 min & 7.0 & 0.700 & 23.80\\
+$r_6$ & $g_2$ & $\{o_3,o_4\}$ & 20 km & 60 min & 10.0 & 1.000 & 34.00\\
+$r_7$ & $c_1$ & $\{o_2\}$ & 4 km (detour) & 15 min (detour) & 2.0 & 0.250 & 6.50\\
+$r_8$ & $c_1$ & $\{o_2,o_3\}$ & 6 km (detour) & 20 min (detour) & 3.0 & 0.333 & 9.00\\
+$r_9$ & $c_2$ & $\{o_4\}$ & 3 km (detour) & 15 min (detour) & 1.5 & 0.250 & 7.00\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Step 2: the local frontier.} For every route, the frontier
+compares its cost with the envelope $E_r$ of~\eqref{eq:envelope} at the ends of
+$\Theta$ (all envelopes here are linear on $\Theta$, so the endpoints
+suffice). Table~\ref{tab:ex-frontier} gives the result. Only $r_1$ is
+deleted: serving $o_1$ costs $g_1$ at least $16.80$ at any admissible report,
+more than the FD price of 15. Route $r_3$ is kept although $r_1$ is deleted,
+because the bundle $\{o_1,o_2\}$ is cheaper than $r_2$ plus FD for $o_1$
+(margin 4.80 at $b=18$). This is the twin situation of Example~\ref{ex:twin}.
+
+\begin{table}[t]
+\centering
+\caption{Local frontier of the numerical example, $\Theta=[18,25]$}
+\label{tab:ex-frontier}
+\small
+\begin{tabular}{llcccccc}
+\toprule
+Route & $D(r)$ & $E_r(18)$ & $c_r(18)$ & $\mu_r(18)$ & $E_r(25)$ & $c_r(25)$ & In $\Kstar$?\\
+\midrule
+$r_1$ & $0$ & 15.00 & 16.80 & $-1.80$ & 15.00 & 21.00 & No\\
+$r_2$ & $0$ & 45.00 & 22.40 & 22.60 & 45.00 & 28.00 & Yes\\
+$r_3$ & $r_1,r_2,0$ & 37.40 & 32.60 & 4.80 & 43.00 & 41.00 & Yes\\
+$r_4$ & $0$ & 40.00 & 14.00 & 26.00 & 40.00 & 17.50 & Yes\\
+$r_5$ & $0$ & 50.00 & 19.60 & 30.40 & 50.00 & 24.50 & Yes\\
+$r_6$ & $r_4,r_5,0$ & 59.60 & 28.00 & 31.60 & 64.50 & 35.00 & Yes\\
+$r_7$ & $0$ & 45.00 & 6.50 & 38.50 & 45.00 & 8.25 & Yes\\
+$r_8$ & $r_7,0$ & 46.50 & 9.00 & 37.50 & 48.25 & 11.33 & Yes\\
+$r_9$ & $0$ & 50.00 & 6.00 & 44.00 & 50.00 & 7.75 & Yes\\
+\bottomrule
+\end{tabular}
+\par\smallskip\footnotesize $0$ denotes the idle route; $E_r(b)$ for $r_3$ is attained by $r_2$ plus FD for $o_1$, and for $r_6$ by $r_5$ plus FD for $o_3$.
+\end{table}
+
+\paragraph{Step 3: winner determination (Algorithm B).} With truthful
+reports, the optimal allocation gives $r_8=\{o_2,o_3\}$ to $c_1$ and
+$r_9=\{o_4\}$ to $c_2$, and sends $o_1$ to FD:
+\[
+V=9.00+7.00+15=31.00 .
+\]
+The second-best allocation costs 34.00: it adds $r_1$, so that $g_1$ serves
+$o_1$ at a reported cost of 18.00 instead of the FD price of 15. This is the
+route deleted by the frontier, and it is used only by a worse allocation.
+Both gigworkers lose. The same optimum is obtained on the pruned pool, as
+Theorem~\ref{thm:frontier}(a) guarantees.
+
+\paragraph{Step 4: payments (Algorithm C).} Each winner is removed in turn
+and the problem re-solved:
+\begin{align*}
+V_{-c_1}&=c_{r_3}+c_{r_4}+c_{r_9}=35.00+17.00+7.00=59.00,\\
+p_{c_1}&=c_{r_8}+V_{-c_1}-V=9.00+59.00-31.00=37.00,\\
+V_{-c_2}&=q_{o_1}+c_{r_8}+c_{r_5}=15+9.00+23.80=47.80,\\
+p_{c_2}&=c_{r_9}+V_{-c_2}-V=7.00+47.80-31.00=23.80.
+\end{align*}
+Without $c_1$, gigworker $g_1$ takes the bundle $\{o_1,o_2\}$ and $g_2$ takes
+$o_3$; without $c_2$, gigworker $g_2$ takes $o_4$. Table~\ref{tab:ex-money}
+summarises the financial outcome. The platform pays 75.80 in total, against
+150 if every order were sent to FD; the difference between payments and true
+costs, 44.80, is the information rent that buys truthfulness. All values,
+including the counterfactuals, are identical on the pruned pool.
+
+\begin{table}[t]
+\centering
+\caption{Financial outcome of the numerical example}
+\label{tab:ex-money}
+\small
+\begin{tabular}{lccccc}
+\toprule
+Driver & Route & True cost & $V_{-i}$ & Payment $p_i$ & Utility $p_i-C_i$\\
+\midrule
+$c_1$ & $r_8$ & 9.00 & 59.00 & 37.00 & 28.00\\
+$c_2$ & $r_9$ & 7.00 & 47.80 & 23.80 & 16.80\\
+$g_1$, $g_2$ & -- & -- & -- & 0 & 0\\
+\midrule
+\multicolumn{2}{l}{Optimal value $V$} & \multicolumn{4}{l}{31.00 (routes 16.00, FD 15.00)}\\
+\multicolumn{2}{l}{Total platform outlay} & \multicolumn{4}{l}{$37.00+23.80+15=75.80$ (all-FD: 150.00)}\\
+\multicolumn{2}{l}{Information rent} & \multicolumn{4}{l}{$28.00+16.80=44.80$}\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Step 5: checking truthfulness.} Table~\ref{tab:ex-dsic} lets each
+driver misreport within $\Theta$. A winner who misreports keeps the same
+bundle, her payment does not change, and her utility does not change: the
+Clarke-pivot payment depends on her own report only through which bundle she
+wins. A loser who underbids to the lower end of $\Theta$ still loses. No
+driver gains by misreporting, as Proposition~\ref{prop:dsic} guarantees.
+
+\begin{table}[t]
+\centering
+\caption{Outcome of unilateral misreports in the numerical example}
+\label{tab:ex-dsic}
+\small
+\begin{tabular}{lcccccc}
+\toprule
+Driver & True $\theta_i$ & Report $b_i$ & Wins & $V$ & Payment & Utility (true)\\
+\midrule
+$c_1$ & 18 & 18 (truthful) & $r_8$ & 31.00 & 37.00 & 28.00\\
+$c_1$ & 18 & 18.5 & $r_8$ & 31.17 & 37.00 & 28.00\\
+$c_1$ & 18 & 25 & $r_8$ & 33.33 & 37.00 & 28.00\\
+$c_2$ & 22 & 22 (truthful) & $r_9$ & 31.00 & 23.80 & 16.80\\
+$c_2$ & 22 & 18 & $r_9$ & 30.00 & 23.80 & 16.80\\
+$c_2$ & 22 & 25 & $r_9$ & 31.75 & 23.80 & 16.80\\
+$g_1$ & 20 & 18 & -- & 31.00 & 0 & 0\\
+$g_2$ & 24 & 18 & -- & 31.00 & 0 & 0\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Step 6: payment decomposition.} Driver $g_1$ shares $o_2$ with
+$c_1$, $c_1$ shares $o_3$ with $g_2$, and $g_2$ shares $o_4$ with $c_2$. The
+conflict graph is a single component, so the planned decomposition of
+Section~\ref{sec:sd-decomp} would give no saving here; this mirrors the finding of the computational study that the
+graph is almost always connected where the crowd is competitive.
+
+% ---------------------------------------------------------------------
+\subsection{Implementation}
+\label{sec:sd-impl}
+
+The pipeline is implemented in Python~3.7.7. Table~\ref{tab:modules} maps the
+components of Procedure~\ref{alg:mechanism} to the modules of the code base.
+
+\begin{table}[t]
+\centering
+\caption{Implementation of the components}
+\label{tab:modules}
+\small
+\begin{tabular}{P{3.6cm}P{6.0cm}P{4.6cm}}
+\toprule
+Component & Module (function) & Remarks\\
+\midrule
+Instance generator & \texttt{instance\_gen.py} (\texttt{generate\_instance}) & Locked, hashed parameters\\
+Algorithm A & \texttt{dp\_labeling.py} (\texttt{build\_route\_pool}) $\to$ \texttt{t6\_dp.py} (\texttt{run\_dp}) & Layers 1 and 2\\
+Frontier $\Pi^\star$ & \texttt{kstar\_rule.py} (\texttt{local\_frontier}) & Breakpoints of the lower envelope\\
+Label rule (experimental) & \texttt{fdrule\_dp.py}; enumerator \texttt{dp\_fast.py} & Not used in the main runs\\
+Algorithms B and C & \texttt{rq1\_wdp.py}, \texttt{rq\_common.py} (\texttt{vcg}) & CPLEX 12.10, one thread, zero gap\\
+Conflict graph & \texttt{conflict\_graph.py} & Payment decomposition\\
+Test oracle & \texttt{brute\_force.py} (\texttt{brute\_pool\_for\_driver}) & Exhaustive enumeration and WDP\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Solver settings and tie-breaking.} Algorithms~B and~C call CPLEX
+12.10 through its Python interface with one thread and relative and absolute
+gap tolerances of zero; any solve not reported as optimal is treated as a
+failure and is not used. Tie-breaking is implemented in three steps: the
+objective is fixed at its optimal value, the number of orders sent to FD is
+minimised, and remaining ties are broken lexicographically by route
+identifier. Algorithm~C uses the same pool and the same tie-breaking for
+every counterfactual problem.
+
+\paragraph{Bid independence.} Algorithm~A and the frontier take no report
+as an argument. A hash of every driver's pool is computed before reports are
+read, and a regression test checks that the pool and its hash are unchanged
+when the reports change.
+
+\paragraph{Verification.} Before any main run, every component was checked
+against the independent oracle on instances with $n\in\{3,\dots,6\}$, two
+time-window widths, three seeds and four drivers: 360 preliminary checks and
+1,035 checks for the later research questions, all passed with deviations
+below $10^{-6}$. The theoretical results were additionally audited with a
+reference implementation that shares no code with the production one
+(Table~\ref{tab:audit1}). It enumerates every precedence-feasible sequence,
+computes the frontier analytically, and solves every winner-determination
+problem exactly with the HiGHS solver on synthetic instances with $n=8$
+orders, two gigworkers and two occasional drivers, $B=3$ and nine seeds.
+Deliberate mutations (for example removing the FD term from the envelope)
+were detected.
+
+\begin{table}[t]
+\centering
+\caption{Synthetic audit of the local pruning frontier}
+\label{tab:audit1}
+\small
+\begin{tabular}{P{10.2cm}P{4.0cm}}
+\toprule
+Check & Result\\
+\midrule
+Routes after Pareto filtering / retained by $\Pi^\star$ & 2,985 / 1,157 (38.8\%)\\
+Max.\ $|V(R^{\Pi^\star})-V(R)|$ over base and removal solves & $5.7\times10^{-14}$\\
+Max.\ payment difference (1,737 payments) & $5.7\times10^{-14}$\\
+Routes optimal for some of 400 report profiles (three seeds) & 1.9--3.8\% of pool, all in $\Kstar$\\
+Frontier routes deleted by a per-driver hull across bundles & 1,144 / 1,157\\
+Mutation: FD term removed from $E_r$ & Detected\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% ---------------------------------------------------------------------
+\subsection{Investigation of alternative solutions and the improved solution}
+\label{sec:sd-alternatives}
+
+The final design is the result of an iterative development in which each
+candidate was tested against brute force and either rejected or improved.
+Table~\ref{tab:history} summarises the development path.
+
+\begin{table}[t]
+\centering
+\caption{Development path of the solution}
+\label{tab:history}
+\small
+\begin{tabular}{P{0.8cm}P{4.0cm}P{5.0cm}P{3.6cm}}
+\toprule
+Step & Candidate & Finding & Decision\\
+\midrule
+1 & Level-wise insertion & Complete (0 mismatches, 1,152 instances); sequence count explodes under wide windows & Keep as baseline; needs compression\\
+2 & Pareto dominance between sequences & 31.26\% of gigworker bundles lose sequences & Rejected\\
+3 & Lookahead-profile dominance & Sound at depth 1; 66.5--72.4\% violations at depth $\ge 2$ & Rejected for generation\\
+4 & Self-survival bound & Sound; prunes 0\% under wide windows & Rejected (no effect)\\
+5 & Forward label-setting, exact key & 0 violations, including adversarial 2D cases; 5--10$\times$ faster & \textbf{Adopted as Algorithm A}\\
+6 & Per-driver hull across bundles & Deletes routes that some instance needs (Example~\ref{ex:twin}) & Rejected\\
+7 & Local FD-completion frontier & Safe (Theorem~\ref{thm:frontier}) & \textbf{Adopted as $\Pi^\star$}\\
+8 & Rollback pruning transferred directly & Unsafe when waiting is priced & Corrected\\
+9 & Label rule with junction and absorption terms & Frontier unchanged in audit; slower in pure Python & Planned (Section~\ref{sec:sd-label})\\
+10 & Component decomposition of payments & Exact under separability; fails with shared FD capacity & Planned (Section~\ref{sec:sd-decomp})\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The improvement from step~1 to step~5 is in completeness and speed: the
+label-setting algorithm is provably complete and 5--10 times faster than the
+level-wise baseline. The improvement from step~6 to step~7 is in safety:
+the per-driver hull is strong but wrong, whereas the frontier is exact for
+every admissible report (Theorem~\ref{thm:frontier}). Whether any other
+local rule can do better is the subject of the minimality result planned in
+Section~\ref{sec:sd-pol}.
+
+% ---------------------------------------------------------------------
+\subsection{Comparison of alternative solutions under feasibility constraints and standards}
+\label{sec:sd-compare}
+
+\paragraph{Economic feasibility.} On the numerical example,
+Table~\ref{tab:ex-alt} compares the selected design with alternative
+designs. Using both crowd classes is as good as the better single class here
+(both 31.00), and much better than gigworkers alone (69.00). Allowing bundles
+lowers the cost from 45.50 (single-order routes) to 31.00, a 31.9\%
+reduction. A posted price of $0.8\,q_o$ attracts a cover of all orders, but
+since the platform cannot see costs, its payout (120.00) is higher than the
+VCG outlay (75.80) and the selected routes have a true cost of at least
+59.00. This small example is illustrative only: in the computational study
+the optimised posted price paid less than VCG on average but lost about 4\%
+efficiency, and the value of joint bidding and bundling depended on whether
+the crowd could compete with the fixed fleet (Chapter~5).
+
+\begin{table}[t]
+\centering
+\caption{Alternative designs on the numerical example (true values of time)}
+\label{tab:ex-alt}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{P{4.4cm}P{1.9cm}P{1.9cm}P{2.0cm}P{3.6cm}}
+\toprule
+Design & True system cost & Platform outlay & Truthful? & Selected routes\\
+\midrule
+All orders to FD & 150.00 & 150.00 & -- & none\\
+Gigworkers only (VCG) & 69.00 & -- & Yes & $r_3$, $r_6$\\
+Occasional drivers only (VCG) & 31.00 & -- & Yes & $r_8$, $r_9$\\
+Single-order routes only (VCG) & 45.50 & -- & Yes & $r_4$, $r_7$, $r_9$\\
+Posted price $0.8\,q_o$ & $\ge 59.00$ & 120.00 & Accept or decline only & e.g.\ $r_3$, $r_4$, $r_9$\\
+\textbf{Joint bidding, bundles, VCG (selected)} & \textbf{31.00} & \textbf{75.80} & \textbf{Yes} & $r_8$, $r_9$, FD for $o_1$\\
+\bottomrule
+\end{tabular}
+\par\smallskip\footnotesize Outlay is reported only where a payment rule is specified for the design. Under the posted price every cover of all orders has the same payout, so the true cost depends on tie-breaking.
+\end{table}
+
+\paragraph{Environmental aspects.} The mechanism influences emissions
+through the distance driven. Bundling lets one driver serve several orders on
+one route, and occasional drivers are charged only for their detour, so
+orders that lie along their trips are served with little extra driving. In
+the computational study, larger bundles reduced the share of orders sent to
+the fixed fleet from 0.897 (single-order routes) to 0.731 with $B=3$. The
+model does not price emissions; the ISO~14083:2023 standard for quantifying
+greenhouse-gas emissions of transport chains would provide a consistent basis
+for converting the distances of selected routes into emissions in an
+extension.
+
+\paragraph{Social aspects.} For drivers, the mechanism makes truthful
+reporting a dominant strategy and guarantees nonnegative utility to
+winners, so drivers with little experience in bidding are not disadvantaged
+by others' strategic skill. Publishing a hash of the route pool before
+bidding lets drivers verify that the allocation range was not changed after
+the bids were seen. The pre-auction certificate avoids inviting drivers who
+cannot win at any admissible report. The mechanism does not address
+minimum earnings, working-hour limits or fairness across drivers, which
+platforms must handle under applicable labour regulation.
+
+\paragraph{Data and information security.} The mechanism collects one
+number per driver and uses location and trip data of occasional drivers.
+Such data are personal data; a deployment in Vietnam would have to comply
+with the Law on Personal Data Protection (Law No.~91/2025/QH15, in force
+since 1 January 2026) and its guiding Decree No.~356/2025/ND-CP, which
+replaced Decree No.~13/2023/ND-CP, and an information-security management
+system such as ISO/IEC~27001 would govern their storage and access.
+Standards such as OSHA, HACCP or TCVN product standards do not apply directly
+to a procurement algorithm.
+
+\paragraph{Summary.} Among the alternatives, the selected design is the only
+one that satisfies all correctness requirements R1--R7 simultaneously:
+exact VCG on a bid-independent pool reduced to the local frontier. Its costs
+are a payout premium over true costs (the information rent) and the work of
+enumerating the pool, which for gigworkers grows quickly with the number of
+orders. Chapter~5 quantifies both on
+the full experimental grid.

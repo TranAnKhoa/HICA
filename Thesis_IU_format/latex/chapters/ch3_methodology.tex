@@ -1,0 +1,312 @@
+% =====================================================================
+\chapter{METHODOLOGY}
+\label{ch:method}
+% =====================================================================
+
+This chapter compares the candidate methods of Section~\ref{sec:candidates}
+component by component and selects one for each
+(Section~\ref{sec:selection}), then presents the design of the proposed
+system: its structure, conceptual design and the justification of the
+techniques used (Section~\ref{sec:design}).
+
+\section{Approaches Comparison and Selection}
+\label{sec:selection}
+
+\subsection{Selection criteria}
+
+The candidates are compared against six criteria derived from the design
+requirements of Table~\ref{tab:requirements}:
+\begin{description}[leftmargin=1.2cm,style=nextline,itemsep=2pt]
+\item[C1] \emph{Truthfulness}: does the method keep reporting the true value
+of time a dominant strategy (R1)?
+\item[C2] \emph{Efficiency within the range}: is the selected allocation
+optimal among the generated routes (R4)?
+\item[C3] \emph{Bid independence}: is the method's output fixed before any
+report is read (R5)?
+\item[C4] \emph{Completeness or safety}: does a generation method find every
+needed route, and does a reduction rule leave all outcomes unchanged (R7)?
+\item[C5] \emph{Computational cost}: how much time and memory does it need at
+the instance sizes of the study (R8)?
+\item[C6] \emph{Verifiability}: can it be checked against an independent
+oracle (R9)?
+\end{description}
+C1, C3 and C4 are knock-out criteria: a method that fails one of them
+cannot be used, however fast it is.
+
+\subsection{Mechanism}
+
+Table~\ref{tab:cmp-mech} compares the candidate mechanisms. Posted prices
+and pay-as-bid fail C1 or C2: under pay-as-bid drivers gain from inflating
+their reports, and posted prices give up efficiency because the platform
+cannot see costs. Approximate VCG-like mechanisms give up either exact
+efficiency within the range or deterministic truthfulness. Exact VCG is the
+only candidate that satisfies all knock-out criteria; its cost is one extra
+exact solve per winner, which is acceptable if the solves are small, and
+reducing their size is exactly what the pruning rules address.
+\textbf{Selected: exact VCG with Clarke-pivot payments.} Posted prices and
+pay-as-bid are kept as benchmarks for RQ3.
+
+\begin{table}[t]
+\centering
+\caption{Comparison of candidate mechanisms}
+\label{tab:cmp-mech}
+\small
+\begin{tabular}{P{2.6cm}P{2.5cm}P{2.1cm}P{2.6cm}P{3.6cm}}
+\toprule
+Mechanism & C1 truthful & C2 efficient in range & C5 cost & Main drawback\\
+\midrule
+Posted price & Accept/decline only & No & One solve & Price must be tuned; inefficient allocation\\
+Pay-as-bid & No & On reports only & One solve & Drivers inflate reports; outcome depends on strategic reasoning\\
+Approximate / greedy VCG & In expectation or approx. & No & Low & Loses exactness or deterministic truthfulness\\
+\textbf{Exact VCG} & \textbf{Yes (DSIC)} & \textbf{Yes} & One solve per winner extra & Needs exact solves; payout premium (information rent)\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Route generation}
+
+Route generation was the subject of six preliminary verification rounds
+(Tests~2--6 of the project), each of which checked a candidate against
+brute-force enumeration on small instances ($n\le 6$, $B\le 4$) and measured
+its cost. Table~\ref{tab:cmp-gen} summarises the evidence.
+
+\begin{table}[t]
+\centering
+\caption{Comparison of candidate route-generation methods (preliminary verification rounds)}
+\label{tab:cmp-gen}
+\small
+\begin{tabular}{P{3.4cm}P{1.7cm}P{4.6cm}P{4.0cm}}
+\toprule
+Method & C3 bid-indep. & C4 completeness (evidence) & C5 cost (evidence)\\
+\midrule
+Brute force & Yes & Complete by construction & Explosive; used only as test oracle\\
+Level-wise insertion & Yes & Complete: 0 mismatches on 1,152 instances & Sequences per bundle reach the ceiling $(2k)!/2^k$ (2,520 at $k=4$) under wide windows\\
+Insertion + Pareto dominance on sequences & Yes & \textbf{Fails}: 31.26\% of gigworker bundles lose feasible sequences & --\\
+Insertion + lookahead-profile dominance & Yes & Sound at depth 1; \textbf{fails} at depth $\ge2$ (66.5--72.4\% violations) & Good compression at depth 1 only\\
+Self-survival bound & Yes & Sound (0 violations on 62,728 checks) & Prunes 0\% where windows are wide\\
+\textbf{Forward label-setting, exact key} & \textbf{Yes} & \textbf{0 violations on 616 instances; 0/451 and 0/493 in adversarial re-checks} & \textbf{5--10$\times$ faster than level-wise insertion for $n$ up to 15}\\
+Column generation & \textbf{No} & -- & --\\
+Detour-monotone branching & Yes & Complete & Applies to occasional drivers only\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The level-wise insertion method is complete but stores too many sequences.
+Every attempt to compress it by comparing \emph{finished} sequences of the
+same bundle through a few summary numbers failed, for a structural reason:
+two sequences with the same summary can end at different positions, and a
+later order may be reachable cheaply from one but not from the other (a
+``hidden diagonal shortcut''). Forward label-setting avoids this flaw
+because it compares only labels that share the exact current node, the set
+of orders on board and the set of delivered orders; such labels have
+exactly the same future options, and the dominance argument of
+\citet{dumas1991pickup} applies. It passed every completeness check,
+including hand-built two-dimensional counterexamples designed to defeat
+it, and its compression improves as $n$ grows. Column generation is
+excluded by C3, because its pricing step uses dual values that depend on the
+reported costs. Detour-monotone branching is valuable but covers only one of
+the two classes. \textbf{Selected: forward label-setting with exact-key
+dominance for both classes (Algorithm~A), followed by a same-bundle Pareto
+filter.}
+
+\subsection{Pool reduction}
+
+Table~\ref{tab:cmp-prune} compares the pool-reduction rules. Two rules that
+look natural are unsafe. A per-driver hull across bundles deletes a route
+whenever another route of the same driver is cheaper in both cost
+components; in a synthetic audit it deleted 1,144 of 1,157 frontier routes,
+and Example~\ref{ex:twin} shows that deleting such a route can change the
+optimum. Merging labels under a coarser key (dropping the delivered set, or
+keeping only its size) disagreed with brute-force enumeration in 46--47\% of
+720 small instances (Section~\ref{sec:sd-algA} explains why). Instance-specific reduction by
+sampling reports is not safe for unsampled reports, and any rule that reads
+reports breaks C3. A non-local exact rule would be safe, but deciding it is
+NP-hard (Remark~\ref{rem:scope}).
+
+\begin{table}[t]
+\centering
+\caption{Comparison of candidate pool-reduction rules}
+\label{tab:cmp-prune}
+\small
+\begin{tabular}{P{3.3cm}P{1.6cm}P{1.6cm}P{3.1cm}P{4.2cm}}
+\toprule
+Rule & C3 bid-indep. & C4 safe & Strength & Remark\\
+\midrule
+No reduction & Yes & Yes & None & Baseline\\
+Same-bundle Pareto & Yes & Yes & Weak & Never compares different bundles\\
+Per-driver hull across bundles & Yes & \textbf{No} & Strong & Deleted 1,144 of 1,157 frontier routes in an audit\\
+Coarser label key & Yes & \textbf{No} & Strong & 46--47\% of 720 instances disagree with brute force\\
+Report sampling & \textbf{No} & \textbf{No} & Very strong & Keeps only 0.4--1.5\% of the pool, but only for sampled reports\\
+Non-local exact & Yes & Yes & Strongest & NP-hard to decide\\
+\textbf{Local FD-completion frontier} & \textbf{Yes} & \textbf{Yes (proved)} & \textbf{Strong} & Post-processing; minimality planned\\
+FD-completion label rule & Yes & Yes (in audit) & Reaches the same frontier & Planned; saves label extensions\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The local frontier is the only candidate that is bid-independent, provably
+safe (Theorem~\ref{thm:frontier}) and still removes a large part of the pool.
+\textbf{Selected: the local FD-completion frontier $\Pi^\star$ as a
+post-processing step}, with the FD-completion label rule as a planned
+accelerator that reaches the same frontier.
+
+\subsection{Payment computation}
+
+Naive re-solving is exact, simple and verifiable, and on the instance sizes
+of this study its cost is small compared with route generation (at most
+0.66 seconds median per instance at $n=20$). Component decomposition is
+also exact, but only when the outside option is separable
+(Section~\ref{sec:sd-decomp}); it is planned as a variant. Approximate counterfactuals fail C1
+and C2. \textbf{Selected: naive exact re-solve as the reference method, with
+component decomposition as an exact alternative under a separable outside
+option.}
+
+\subsection{Selected approach}
+
+The selected approach is therefore an exact VCG mechanism on a
+bid-independent route pool generated by forward label-setting, reduced to
+the local FD-completion frontier, with winner determination and
+counterfactual problems solved exactly as set-partitioning MILPs.
+
+\section{Proposed Solution Approach}
+\label{sec:design}
+
+\subsection{System structure: inputs, process and outputs}
+
+Figure~\ref{fig:pipeline} shows the structure of the proposed system, and
+Table~\ref{tab:ipo} lists its inputs, processing stages and outputs.
+Everything to the left of the report-collection step uses public data only;
+this is what makes the allocation range independent of the reports.
+
+\begin{figure}[t]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tikzpicture}[
+  node distance=5mm and 7mm,
+  every node/.style={font=\small},
+  box/.style={rectangle, rounded corners, draw, align=center, minimum height=13mm, inner sep=2mm, fill=gray!6},
+  arr/.style={-{Stealth[length=2mm]}, thick}]
+\node[box] (data) {Public data\\$O$, $q$, $B$, $\Theta$,\\driver data};
+\node[box, right=of data] (A) {Algorithm A\\route generation\\label dominance,\\Pareto per bundle};
+\node[box, right=of A] (K) {Frontier $\Pi^\star$\\$R_i\mapsto\Kstar_i$\\certificate,\\pool hash};
+\node[box, right=of K] (bids) {Collect reports\\$b\in\Theta^N$};
+\node[box, right=of bids] (B) {Algorithm B\\winner\\determination};
+\node[box, right=of B] (C) {Algorithm C\\Clarke-pivot\\payments};
+\draw[arr] (data) -- (A); \draw[arr] (A) -- (K); \draw[arr] (K) -- (bids);
+\draw[arr] (bids) -- (B); \draw[arr] (B) -- (C);
+\begin{scope}[on background layer]
+\node[draw, dashed, rounded corners, inner sep=3mm, fit=(data)(A)(K),
+      label={[font=\small]above:pre-auction phase: no report is read}] {};
+\node[draw, dashed, rounded corners, inner sep=3mm, fit=(B)(C),
+      label={[font=\small]above:clearing phase}] {};
+\end{scope}
+\end{tikzpicture}}
+\caption{Structure of the proposed procurement system. Route generation and
+frontier pruning use public data only and are completed before reports are
+collected; the pruned pools define the allocation range on which exact VCG
+is run.}
+\label{fig:pipeline}
+\end{figure}
+
+\begin{table}[t]
+\centering
+\caption{Inputs, process and outputs of the proposed system}
+\label{tab:ipo}
+\small
+\begin{tabular}{P{2.1cm}P{12.3cm}}
+\toprule
+Element & Content\\
+\midrule
+Inputs & Orders (pickup and delivery locations, demand, release time, time windows); fixed-fleet prices $q_o$; bundle cap $B$; report domain $\Theta$; public driver data (start location, availability, capacity, distance coefficient $\kappa_i$; for occasional drivers also origin, destination, direct trip and detour budget); travel distance and time matrices; one report $b_i$ per driver.\\
+\addlinespace
+Process & (1) Algorithm~A generates each driver's route pool from public data. (2) The frontier rule $\Pi^\star$ deletes routes that cannot matter for any admissible report and certifies drivers with an empty frontier. (3) The pools are hashed and published; reports are collected. (4) Algorithm~B solves the winner-determination MILP exactly. (5) Algorithm~C solves one counterfactual MILP per winner and computes the payments.\\
+\addlinespace
+Outputs & Allocation (which driver serves which route, which orders go to the fixed fleet); payment to every driver; optimal value; pre-auction certificate (drivers with an empty frontier); pool hash; run statistics (pool sizes, times, solver status).\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Conceptual design}
+
+The conceptual design separates \emph{what the platform knows when}. The
+platform holds three kinds of information (Table~\ref{tab:publicprivate}):
+public order data and prices, public or committed driver data, and each
+driver's private value of time. The system is organised into three phases
+that respect this separation.
+
+\begin{table}[t]
+\centering
+\caption{Public and private information in the proposed system}
+\label{tab:publicprivate}
+\small
+\begin{tabular}{P{6.3cm}P{1.4cm}P{1.4cm}P{4.7cm}}
+\toprule
+Item & GW & OD & Status\\
+\midrule
+Start location, availability, capacity & Yes & Yes & Public\\
+Distance coefficient $\kappa_i$ & Yes & Yes & Public or contractual\\
+Personal destination, direct trip & -- & Yes & Public or committed before bidding\\
+Detour budget $\tau_i$ & -- & Yes & Public or committed before bidding\\
+Value of time $\theta_i$ & Yes & Yes & \textbf{Private}\\
+Report $b_i$ & Yes & Yes & The only message sent\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{enumerate}[leftmargin=*,itemsep=4pt]
+\item \emph{Pre-auction phase.} From public data only, Algorithm~A builds
+each driver's route pool and the frontier rule reduces it. The reduced pool
+of each driver is described by a list of routes with their bundle, visiting
+sequence and the two coefficients $(K,W)$ of the cost model. A driver whose
+frontier is empty although she has a feasible route is certified as
+dominated by the fixed fleet at every admissible report; if every driver
+is certified, no auction needs to be opened. The pools are hashed, so that
+drivers can later check that the allocation range was not changed after
+bidding.
+\item \emph{Auction phase.} Each remaining driver submits one number, her
+reported value of time $b_i\in\Theta$.
+\item \emph{Clearing phase.} The reported cost of every route is
+$K+b_iW$. Algorithm~B selects routes and fixed-fleet assignments at minimum
+total reported cost; Algorithm~C removes each winner in turn, re-solves and
+pays the Clarke-pivot payment.
+\end{enumerate}
+
+The design reflects the concepts of Section~\ref{sec:litreview}: bid
+independence (phase 1 never reads a report), exactness (phase 3 uses proven
+optimal solutions), locality (the frontier of a driver uses only her own
+pool and the public prices), the fixed fleet as a priced outside option
+(it appears in the envelope that defines the frontier), and a single private
+parameter (each route is summarised by two coefficients, so its cost is a
+line in the report).
+
+\subsection{Justification of the techniques}
+
+\paragraph{Set-partitioning MILP and an exact solver.} Winner
+determination is a set-partitioning problem with one convexity row per
+driver. Exactness is a correctness requirement, not a quality target:
+the truthfulness argument of Proposition~\ref{prop:dsic} needs proven
+optimal solutions with report-independent tie-breaking. A commercial MILP
+solver (CPLEX~12.10) with zero gap tolerance provides proven optimality; on
+the pools of this study each solve takes a fraction of a second.
+
+\paragraph{Label-setting for route generation.} Forward label-setting
+builds routes in the order in which they are driven, so waiting, release
+times and time windows are evaluated exactly at every step; its dominance
+rule is safe because it compares only states with identical futures. It
+handles the open routes of gigworkers and the destination-bound routes of
+occasional drivers in one procedure.
+
+\paragraph{The local frontier.} The frontier is the strongest reduction
+that can be certified without reading reports and without reasoning about
+other drivers, and it is exact for every admissible report. Because the
+cost of each route is a line in the report, membership in the frontier is
+decided by comparing finitely many lines, which is cheap.
+
+\paragraph{Oracle-based verification and pre-registration.} Because every
+claim of the mechanism rests on exactness, each component is checked against
+an independent brute-force oracle on small instances before any main run,
+and the theoretical results are additionally checked by a reference
+implementation that shares no code with the production one, including
+deliberate mutations that must be detected. All experimental parameters are
+locked and hashed before the main runs, so that no parameter can be tuned
+after results are seen.

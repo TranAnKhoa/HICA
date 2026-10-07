@@ -1,0 +1,68 @@
+%% Front cover (Appendix A of the guideline), inside cover (Appendix B)
+%% and approval page (Appendix C). Font sizes follow the Word template:
+%% institution lines 14 pt bold, title 22 pt bold, degree line 16 pt,
+%% student/advisor 16 pt bold, place and date 14 pt.
+%% Cover colour when bound: dark green (bachelor) / blue (master).
+
+\newcommand{\coverpage}{%
+\begin{titlepage}
+\begin{singlespace}
+\centering
+{\fontsize{14}{18}\selectfont\bfseries
+ VIETNAM NATIONAL UNIVERSITY -- HO CHI MINH CITY\\[2pt]
+ INTERNATIONAL UNIVERSITY\\[2pt]
+ SCHOOL OF INDUSTRIAL ENGINEERING AND MANAGEMENT\par}
+\vspace{1.2cm}
+\includegraphics[width=4.2cm]{logoIU.png}\par
+\vspace{1.4cm}
+{\fontsize{22}{28}\selectfont\bfseries \THESISTITLE\par}
+\vspace{1.4cm}
+{\fontsize{16}{21}\selectfont Submitted in partial fulfilment of the
+ requirements for the Degree of \degreename\par}
+\vfill
+{\fontsize{16}{22}\selectfont\bfseries
+\begin{tabular}{@{}ll@{}}
+Student:        & \studentname\\
+ID:             & \studentid\\
+Thesis Advisor: & \advisorname\\
+\end{tabular}\par}
+\vspace{1.6cm}
+{\fontsize{14}{18}\selectfont Ho Chi Minh City, Vietnam\\ \thesisdate\par}
+\end{singlespace}
+\end{titlepage}}
+
+% ---------------------------------------------------------------- front cover
+\coverpage
+
+% ---------------------------------------------------------------- inside cover
+\coverpage
+
+% ---------------------------------------------------------------- approval page
+\begin{titlepage}
+\begin{singlespace}
+\centering
+{\fontsize{14}{18}\selectfont\bfseries \THESISTITLE\par}
+\vspace{1.2cm}
+By\par
+\vspace{0.4cm}
+{\fontsize{12}{15}\selectfont \studentname\par}
+\vspace{1.2cm}
+{\fontsize{14}{18}\selectfont Submitted in partial fulfilment of the
+ requirements for the Degree of \degreename\par}
+\vspace{0.8cm}
+{\fontsize{14}{18}\selectfont International University, Ho Chi Minh City\\
+ \thesisdate\par}
+\vspace{2cm}
+\raggedright
+{\fontsize{14}{18}\selectfont
+Signature of Student: \hrulefill\par
+\hfill \studentname\par
+\vspace{1.6cm}
+Certified by \hrulefill\par
+\hfill Thesis Advisor\par
+\hfill \advisorname\par
+\vspace{1.6cm}
+Approved by \hrulefill\par
+\hfill Dean of IEM School\par}
+\end{singlespace}
+\end{titlepage}

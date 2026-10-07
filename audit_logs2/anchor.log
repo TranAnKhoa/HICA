@@ -1,0 +1,5 @@
+n12_s42 old-audit C1 t_A now 0.516 s vs AUDIT_REPORT 0.536 s  diff -3.8%
+n10_s1 old-audit C1 t_A now 0.506 s vs AUDIT_REPORT 0.485 s  diff +4.3%
+n15_s7 old-audit C1 t_A now 2.033 s vs AUDIT_REPORT 1.704 s  diff +19.3%
+n12_s123 old-audit C1 t_A now 1.103 s vs AUDIT_REPORT 1.004 s  diff +9.9%
+n10_s999 old-audit C1 t_A now 0.350 s vs AUDIT_REPORT 0.315 s  diff +11.2%

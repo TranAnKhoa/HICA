@@ -1,0 +1,102 @@
+[
+ {
+  "B": 3,
+  "inst": "n12_s42",
+  "ext": 62875,
+  "wasted_labels": 0,
+  "wasted_children": 0,
+  "cross_batch_pairs": 0,
+  "dup_expanded": 0,
+  "wasted_share": 0.0
+ },
+ {
+  "B": 3,
+  "inst": "n10_s1",
+  "ext": 43548,
+  "wasted_labels": 0,
+  "wasted_children": 0,
+  "cross_batch_pairs": 0,
+  "dup_expanded": 0,
+  "wasted_share": 0.0
+ },
+ {
+  "B": 3,
+  "inst": "n15_s7",
+  "ext": 156332,
+  "wasted_labels": 0,
+  "wasted_children": 0,
+  "cross_batch_pairs": 0,
+  "dup_expanded": 0,
+  "wasted_share": 0.0
+ },
+ {
+  "B": 3,
+  "inst": "n12_s123",
+  "ext": 94338,
+  "wasted_labels": 0,
+  "wasted_children": 0,
+  "cross_batch_pairs": 0,
+  "dup_expanded": 0,
+  "wasted_share": 0.0
+ },
+ {
+  "B": 3,
+  "inst": "n10_s999",
+  "ext": 32574,
+  "wasted_labels": 0,
+  "wasted_children": 0,
+  "cross_batch_pairs": 0,
+  "dup_expanded": 0,
+  "wasted_share": 0.0
+ },
+ {
+  "B": 4,
+  "inst": "n12_s42",
+  "ext": 527545,
+  "wasted_labels": 0,
+  "wasted_children": 0,
+  "cross_batch_pairs": 0,
+  "dup_expanded": 0,
+  "wasted_share": 0.0
+ },
+ {
+  "B": 4,
+  "inst": "n10_s1",
+  "ext": 389497,
+  "wasted_labels": 0,
+  "wasted_children": 0,
+  "cross_batch_pairs": 0,
+  "dup_expanded": 0,
+  "wasted_share": 0.0
+ },
+ {
+  "B": 4,
+  "inst": "n15_s7",
+  "ext": 1893101,
+  "wasted_labels": 0,
+  "wasted_children": 0,
+  "cross_batch_pairs": 0,
+  "dup_expanded": 3,
+  "wasted_share": 0.0
+ },
+ {
+  "B": 4,
+  "inst": "n12_s123",
+  "ext": 881938,
+  "wasted_labels": 0,
+  "wasted_children": 0,
+  "cross_batch_pairs": 0,
+  "dup_expanded": 0,
+  "wasted_share": 0.0
+ },
+ {
+  "B": 4,
+  "inst": "n10_s999",
+  "ext": 238575,
+  "wasted_labels": 0,
+  "wasted_children": 0,
+  "cross_batch_pairs": 0,
+  "dup_expanded": 0,
+  "wasted_share": 0.0
+ }
+]

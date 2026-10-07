@@ -1,0 +1,62 @@
+B=3 n=12 s=42 gw0 SAME ext=13781 expanded=6065 wasted=1332 (earlier 904 / later-only 428) wasted_children=1153 xb_pairs=4283 dup=0
+B=3 n=12 s=42 gw1 SAME ext=13254 expanded=5776 wasted=1247 (earlier 836 / later-only 411) wasted_children=1114 xb_pairs=3936 dup=0
+B=3 n=12 s=42 od0 SAME ext=14792 expanded=5862 wasted=1255 (earlier 802 / later-only 453) wasted_children=1101 xb_pairs=4094 dup=0
+B=3 n=12 s=42 od1 SAME ext=14706 expanded=5803 wasted=1242 (earlier 836 / later-only 406) wasted_children=1108 xb_pairs=3991 dup=0
+B=3 n=12 s=42 od2 SAME ext=15337 expanded=6204 wasted=1393 (earlier 959 / later-only 434) wasted_children=1179 xb_pairs=4484 dup=0
+B=3 n=10 s=1 gw0 SAME ext=10774 expanded=5645 wasted=1449 (earlier 836 / later-only 613) wasted_children=1078 xb_pairs=4777 dup=0
+B=3 n=10 s=1 gw1 SAME ext=13242 expanded=7423 wasted=2071 (earlier 1351 / later-only 720) wasted_children=1447 xb_pairs=7508 dup=0
+B=3 n=10 s=1 od0 SAME ext=13724 expanded=6460 wasted=1735 (earlier 1016 / later-only 719) wasted_children=1283 xb_pairs=5979 dup=0
+B=3 n=10 s=1 od1 SAME ext=13621 expanded=6392 wasted=1727 (earlier 1021 / later-only 706) wasted_children=1265 xb_pairs=5861 dup=0
+B=3 n=15 s=7 gw0 SAME ext=35424 expanded=17694 wasted=5217 (earlier 3686 / later-only 1531) wasted_children=4439 xb_pairs=18402 dup=0
+B=3 n=15 s=7 gw1 SAME ext=33444 expanded=16095 wasted=4689 (earlier 3377 / later-only 1312) wasted_children=4243 xb_pairs=15761 dup=0
+B=3 n=15 s=7 od0 SAME ext=40751 expanded=18323 wasted=5417 (earlier 3945 / later-only 1472) wasted_children=4559 xb_pairs=18991 dup=0
+B=3 n=15 s=7 od1 SAME ext=40069 expanded=17938 wasted=5250 (earlier 3818 / later-only 1432) wasted_children=4377 xb_pairs=18142 dup=0
+B=3 n=15 s=7 od2 SAME ext=38207 expanded=16563 wasted=4843 (earlier 3354 / later-only 1489) wasted_children=4292 xb_pairs=16190 dup=0
+B=3 n=12 s=123 gw0 SAME ext=17135 expanded=8491 wasted=2302 (earlier 1637 / later-only 665) wasted_children=1988 xb_pairs=8136 dup=0
+B=3 n=12 s=123 gw1 SAME ext=18295 expanded=9219 wasted=2590 (earlier 1825 / later-only 765) wasted_children=2157 xb_pairs=9197 dup=0
+B=3 n=12 s=123 gw2 SAME ext=17265 expanded=8511 wasted=2378 (earlier 1681 / later-only 697) wasted_children=2068 xb_pairs=8208 dup=0
+B=3 n=12 s=123 od0 SAME ext=20068 expanded=8891 wasted=2462 (earlier 1761 / later-only 701) wasted_children=2060 xb_pairs=8587 dup=0
+B=3 n=12 s=123 od1 SAME ext=20600 expanded=9159 wasted=2610 (earlier 1829 / later-only 781) wasted_children=2173 xb_pairs=9013 dup=0
+B=3 n=12 s=123 od2 SAME ext=18581 expanded=8005 wasted=2306 (earlier 1610 / later-only 696) wasted_children=2025 xb_pairs=7178 dup=0
+B=3 n=10 s=999 gw0 SAME ext=8473 expanded=3946 wasted=946 (earlier 518 / later-only 428) wasted_children=811 xb_pairs=3284 dup=0
+B=3 n=10 s=999 gw1 SAME ext=8515 expanded=3993 wasted=1011 (earlier 555 / later-only 456) wasted_children=826 xb_pairs=3535 dup=0
+B=3 n=10 s=999 od0 SAME ext=10818 expanded=4762 wasted=1224 (earlier 706 / later-only 518) wasted_children=964 xb_pairs=4146 dup=0
+B=3 n=10 s=999 od1 SAME ext=9994 expanded=4229 wasted=1085 (earlier 625 / later-only 460) wasted_children=894 xb_pairs=3861 dup=0
+B=4 n=12 s=42 gw0 SAME ext=130404 expanded=36949 wasted=9898 (earlier 6466 / later-only 3432) wasted_children=17910 xb_pairs=71886 dup=0
+B=4 n=12 s=42 gw1 SAME ext=124993 expanded=35543 wasted=9313 (earlier 5976 / later-only 3337) wasted_children=16708 xb_pairs=64779 dup=0
+B=4 n=12 s=42 od0 SAME ext=131541 expanded=35726 wasted=9194 (earlier 5608 / later-only 3586) wasted_children=16673 xb_pairs=63987 dup=0
+B=4 n=12 s=42 od1 SAME ext=130578 expanded=35609 wasted=9313 (earlier 5976 / later-only 3337) wasted_children=16700 xb_pairs=65800 dup=0
+B=4 n=12 s=42 od2 SAME ext=141190 expanded=39069 wasted=10937 (earlier 7523 / later-only 3414) wasted_children=19775 xb_pairs=83791 dup=0
+B=4 n=10 s=1 gw0 SAME ext=110607 expanded=37906 wasted=13570 (earlier 8546 / later-only 5024) wasted_children=19394 xb_pairs=106662 dup=0
+B=4 n=10 s=1 gw1 SAME ext=149500 expanded=52305 wasted=20270 (earlier 13760 / later-only 6510) wasted_children=28758 xb_pairs=181854 dup=0
+B=4 n=10 s=1 od0 SAME ext=136731 expanded=45091 wasted=16734 (earlier 10626 / later-only 6108) wasted_children=23847 xb_pairs=142016 dup=0
+B=4 n=10 s=1 od1 SAME ext=133648 expanded=43228 wasted=16020 (earlier 10285 / later-only 5735) wasted_children=23331 xb_pairs=132745 dup=0
+B=4 n=15 s=7 gw0 SAME ext=523016 expanded=168168 wasted=65717 (earlier 47734 / later-only 17983) wasted_children=120049 xb_pairs=584612 dup=1
+B=4 n=15 s=7 gw1 SAME ext=466645 expanded=146053 wasted=55834 (earlier 40816 / later-only 15018) wasted_children=105409 xb_pairs=455316 dup=1
+B=4 n=15 s=7 od0 SAME ext=576799 expanded=179015 wasted=70514 (earlier 52695 / later-only 17819) wasted_children=126347 xb_pairs=645758 dup=1
+B=4 n=15 s=7 od1 SAME ext=564316 expanded=175385 wasted=68570 (earlier 51805 / later-only 16765) wasted_children=121214 xb_pairs=625141 dup=1
+B=4 n=15 s=7 od2 SAME ext=505085 expanded=152226 wasted=58866 (earlier 43094 / later-only 15772) wasted_children=108881 xb_pairs=482165 dup=1
+B=4 n=12 s=123 gw0 SAME ext=189775 expanded=60063 wasted=21281 (earlier 16029 / later-only 5252) wasted_children=38793 xb_pairs=177693 dup=0
+B=4 n=12 s=123 gw1 SAME ext=209665 expanded=67307 wasted=25322 (earlier 19387 / later-only 5935) wasted_children=45524 xb_pairs=220692 dup=0
+B=4 n=12 s=123 gw2 SAME ext=190879 expanded=60246 wasted=21939 (earlier 16891 / later-only 5048) wasted_children=40494 xb_pairs=177709 dup=0
+B=4 n=12 s=123 od0 SAME ext=213362 expanded=65368 wasted=23955 (earlier 18394 / later-only 5561) wasted_children=42923 xb_pairs=206557 dup=0
+B=4 n=12 s=123 od1 SAME ext=218115 expanded=66094 wasted=25170 (earlier 19171 / later-only 5999) wasted_children=45675 xb_pairs=208236 dup=0
+B=4 n=12 s=123 od2 SAME ext=187064 expanded=55729 wasted=21118 (earlier 16123 / later-only 4995) wasted_children=38978 xb_pairs=152172 dup=0
+B=4 n=10 s=999 gw0 SAME ext=71246 expanded=21231 wasted=7179 (earlier 4005 / later-only 3174) wasted_children=12325 xb_pairs=62850 dup=0
+B=4 n=10 s=999 gw1 SAME ext=71684 expanded=21183 wasted=7261 (earlier 4110 / later-only 3151) wasted_children=12962 xb_pairs=63907 dup=0
+B=4 n=10 s=999 od0 SAME ext=92869 expanded=27603 wasted=9847 (earlier 6078 / later-only 3769) wasted_children=16396 xb_pairs=88995 dup=0
+B=4 n=10 s=999 od1 SAME ext=80280 expanded=22993 wasted=8043 (earlier 4688 / later-only 3355) wasted_children=14171 xb_pairs=72426 dup=0
+REGRESSION(instrumented C1 == production pool) PASS
+
+| B | instance | ext_attempts | expanded | wasted_labels | wasted_children | wasted_share | wasted_attempt_share | cross_batch_pairs | dup_expanded | share GW | share OD |
+|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| 3 | n12_s42 | 71870 | 29710 | 6469 | 5655 | 7.87% | 12.52% | 20788 | 0 | 8.39% | 7.56% |
+| 3 | n10_s1 | 51361 | 25920 | 6982 | 5073 | 9.88% | 15.21% | 24125 | 0 | 10.51% | 9.32% |
+| 3 | n15_s7 | 187895 | 86613 | 25416 | 21910 | 11.66% | 16.80% | 87486 | 0 | 12.61% | 11.11% |
+| 3 | n12_s123 | 111944 | 52276 | 14648 | 12471 | 11.14% | 15.73% | 50319 | 0 | 11.79% | 10.56% |
+| 3 | n10_s999 | 37800 | 16930 | 4266 | 3495 | 9.25% | 13.83% | 14826 | 0 | 9.64% | 8.93% |
+| 4 | n12_s42 | 658706 | 182896 | 48655 | 87766 | 13.32% | 19.91% | 350243 | 0 | 13.55% | 13.18% |
+| 4 | n10_s1 | 530486 | 178530 | 66594 | 95330 | 17.97% | 26.58% | 563277 | 0 | 18.51% | 17.45% |
+| 4 | n15_s7 | 2635861 | 820847 | 319501 | 581900 | 22.08% | 28.18% | 2792992 | 5 | 22.78% | 21.65% |
+| 4 | n12_s123 | 1208860 | 374807 | 138785 | 252387 | 20.88% | 27.04% | 1143059 | 0 | 21.14% | 20.63% |
+| 4 | n10_s999 | 316079 | 93010 | 32330 | 55854 | 17.67% | 24.52% | 288178 | 0 | 17.69% | 17.65% |
