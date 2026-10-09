@@ -11,7 +11,7 @@
 > and how the result will be presented in the paper belong to the author. This holds even if a later prompt only says
 > "run the benchmarks" in general terms: ask first. If something is unclear, ask; do not guess.
 
-Last updated: 2026-10-07. Branch: `claude/charming-ramanujan-ppzinr`.
+Last updated: 2026-10-09. Overview of the whole project: `MASTER_SUMMARY.md`. Branch: `claude/charming-ramanujan-ppzinr`.
 
 ---
 
@@ -176,7 +176,14 @@ methods, and each one is tied to a theorem in the paper.
   - how to search for misreports (a grid of reports, or a best-response search like `pab_br` in `rq_common.py`);
   - how many instances.
 
-### B.3 Benchmark 3: the approach of Li et al. (2026) on the occasional-driver part
+### B.3 Benchmark 3: the approach of Li & Zhang (2026) on the occasional-driver part
+
+Paper: Q. Li, F. Zhang, "Auction Mechanism Design for Order Allocation and Payment in a Crowdshipping System",
+*Transportation Science*, published online 5 June 2026, doi:10.1287/trsc.2025.0089 (manuscript key `li2026auction`).
+From the abstract and the snippets that could be seen: a sealed-bid combinatorial auction; route-specific
+pickup-and-delivery problems solved by the platform; VCG plus a greedy mechanism with a guarantee. **The full text
+has not been read** (the proxy blocked INFORMS); see `MASTER_SUMMARY.md`, Section 11.3, for the 4 questions to
+check first.
 
 - **Question:** recursive branching based on the monotonicity of detour time, which works well for drivers with a
   detour budget (OD). Compare it with Algorithm A for OD, and show that it does not apply to gigworkers (open routes,
@@ -188,6 +195,19 @@ methods, and each one is tied to a theorem in the paper.
   - which metrics count as fair (pool size, time);
   - whether to use their instances or ours.
   - **Note:** read the original paper carefully before re-implementing; do not guess the details.
+
+### B.3b Literature background for choosing baselines (preliminary search, 2026-10-09)
+
+Two approaches to "who solves the routing inside a bundle":
+
+1. **The bidder solves it** (the bid generation problem): Lee, Kwon & Ma (2007, TR-E); Song & Regan; Buer & Kopfer
+   (2014, arXiv 1406.1928). In crowdshipping: Triki (2021, J. Cleaner Production); Mancini & Gansterer (Omega 2022;
+   EURO JTL 2024), where the company offers bundles (corridors/clusters) and occasional drivers bid per bundle.
+2. **The platform solves it and the driver bids one number**: Li & Zhang (2026); Zou et al. (2022). HICA belongs here.
+
+A possible extra benchmark, **not decided**: compare HICA (platform enumerates every bundle of at most B orders) with
+a fixed bundle menu in the style of Mancini & Gansterer (corridors/clusters). The paper already has a HEUR menu in
+RQ2, which captures only about half of the value of bundling. **Ask the author first.**
 
 ### B.4 Other directions mentioned (low priority)
 
